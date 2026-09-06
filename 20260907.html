@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>体彩竞彩 9/7 全9场 · 阿豪二次修正</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#eef3ee;margin:0;padding:14px;max-width:640px;margin:0 auto;color:#222}
+body.dark{background:#111;color:#eee}
+body.dark .card{background:#1e1e1e;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.sticky{position:sticky;top:8px;z-index:10}
+.filterbar{display:flex;gap:6px;background:#fff;border-radius:12px;padding:8px;box-shadow:0 2px 6px rgba(0,0,0,.1);flex-wrap:wrap}
+body.dark .filterbar{background:#1e1e1e}
+.search{width:100%;margin-top:6px;padding:8px;border:1px solid #ccc;border-radius:8px;font-size:14px;box-sizing:border-box}
+</style></head><body>
+<div style="background:linear-gradient(135deg,#2c5f2d,#1e8449);color:#fff;border-radius:14px;padding:16px;margin-bottom:8px">
+  <div style="font-size:20px;font-weight:bold">⚽ 9/7 全9场 · 阿豪二次修正</div>
+  <div style="font-size:13px;opacity:.9;margin-top:4px">💰 余额 8247.19元 · 五项共振 · 伤停待赛前核实 · v5.80</div>
+</div>
+<div class="sticky"><div class="filterbar">
+  <button onclick="setG('全部')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#2c5f2d;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">全部</button><button onclick="setG('A')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#27ae60;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">A</button><button onclick="setG('B')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#f1c40f;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">B</button><button onclick="setG('C')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#e74c3c;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">C</button><button onclick="setG('D')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#3498db;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">D</button><button onclick="setG('E')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#9b59b6;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">E</button>
+  <button onclick="toggleDark()" style="padding:8px 12px;border:none;border-radius:8px;background:#555;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">🌙</button>
+  <button onclick="setBet()" id="betbtn" style="padding:8px 12px;border:none;border-radius:8px;background:#aaa;color:#fff;font-weight:bold;font-size:12px;cursor:pointer">只显示可投</button>
+  <input class="search" id="search" oninput="apply()" placeholder="🔍 搜球队/联赛（如：曼城、英超）">
+</div></div>
+
+<div style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 6px rgba(0,0,0,.06)">
+  <div style="font-weight:bold;font-size:15px">📊 投注策略总览</div>
+  <div style="margin-top:6px;font-size:14px">共9场：A组 1 / B组 0 / C组 4 / D组 4 / E组 0</div>
+  <div style="color:#c0392b;font-size:13px;margin-top:4px">⚠️ 本批不投单关。本批②伤停用AI多源版(即嗨赛前出再核实)。</div>
+  <div style="color:#999;font-size:12px;margin-top:4px">纪律：单注≤3% · 只投正EV · 日亏停手 · 串关优先于单关</div>
+</div>
+
+<div style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 6px rgba(0,0,0,.06)">
+  <div style="font-weight:bold;font-size:15px;display:flex;justify-content:space-between">💰 模拟投注台账 <span style="color:#999;font-size:12px;font-weight:normal">18注</span></div>
+  <div style="display:flex;gap:8px;margin:10px 0;flex-wrap:wrap">
+    <div style="flex:1;min-width:80px;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#1e8449">8247.19</div><div style="font-size:11px;color:#888">余额</div></div>
+    <div style="flex:1;min-width:80px;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#c0392b">-1138</div><div style="font-size:11px;color:#888">总盈亏</div></div>
+    <div style="flex:1;min-width:80px;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#c0392b">-25.9%</div><div style="font-size:11px;color:#888">ROI</div></div>
+    <div style="flex:1;min-width:80px;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold">28%</div><div style="font-size:11px;color:#888">胜率</div></div>
+  </div>
+  <div style="font-size:13px;margin:8px 0"><b>单关 vs 串关</b>：单关 <span style="color:#c0392b">-2193</span>（13注）｜串关 <span style="color:#1e8449">+1055</span>（5注）<br><span style="color:#888;font-size:12px">💡 结论：串关盈利、单关亏损，优先稳健串关。</span></div>
+  <div style="border-top:1px solid #eee;padding-top:8px;margin-top:8px"><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">09-05 纽约城vs纳什维尔SC</span><span style="flex:1;color:#888">单关</span><span style="flex:1">客胜</span><span style="flex:1;font-weight:bold;color:#c0392b">-300</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">09-02 米尔沃尔×西布朗×QPR</span><span style="flex:1;color:#888">稳健3串1</span><span style="flex:1">三主胜</span><span style="flex:1;font-weight:bold;color:#c0392b">-90</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">09-02 西布朗×QPR</span><span style="flex:1;color:#888">稳健2串1</span><span style="flex:1">双主胜</span><span style="flex:1;font-weight:bold;color:#c0392b">-136</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">09-02 水户蜀葵vs鹿岛鹿角</span><span style="flex:1;color:#888">单关</span><span style="flex:1">客胜</span><span style="flex:1;font-weight:bold;color:#c0392b">-271</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">09-01 10场</span><span style="flex:1;color:#888">3注</span><span style="flex:1"></span><span style="flex:1;font-weight:bold;color:#c0392b">-365</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">08-31 亚特兰大vs博洛尼亚</span><span style="flex:1;color:#888">博冷单关</span><span style="flex:1">平</span><span style="flex:1;font-weight:bold;color:#c0392b">-100.00</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">08-31 尤尔加登×圣埃蒂安</span><span style="flex:1;color:#888">价值2串1</span><span style="flex:1">主×客</span><span style="flex:1;font-weight:bold;color:#1e8449">345.00</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">08-31 阿森纳×圣埃蒂安</span><span style="flex:1;color:#888">稳健2串1</span><span style="flex:1">客×客</span><span style="flex:1;font-weight:bold;color:#1e8449">472.00</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">08-31 罗马×本菲卡×巴萨</span><span style="flex:1;color:#888">稳健3串1</span><span style="flex:1">客×主×主</span><span style="flex:1;font-weight:bold;color:#1e8449">463.75</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">08-29 埃尔沃斯堡vs勒沃库森</span><span style="flex:1;color:#888">单关</span><span style="flex:1">客胜</span><span style="flex:1;font-weight:bold;color:#c0392b">-235</span></div></div>
+</div>
+
+<div id="list"><div class="card" data-group="D" data-key="卡利亚里vs莱切意甲" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[001] 意甲</span>
+    <span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">卡利亚里vs莱切</div>
+  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>%</b> → SOP <b>主胜33%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>33%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:33%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">33%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <div>
+      <button onclick="toggle('d001')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
+      <button onclick="copy('t001')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
+    </div>
+  </div>
+  <div id="d001" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
+    <span id="t001">主胜 卡利亚里vs莱切 比分1-0/2-0/2-1 | 让球盘 让+0.25 | 欧赔 2.20/2.94/3.50 | 伤停 4/1 | EV -7.6% | 信号 DC背离+6pt(跟欧洲);轨迹让球升盘(主热升);主降水;155家支持主胜(99降);H2H客队占优(2/3)</span>
+  </div>
+</div><div class="card" data-group="D" data-key="赫塔菲vs塞尔塔西甲" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[002] 西甲</span>
+    <span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">赫塔菲vs塞尔塔</div>
+  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>%</b> → SOP <b>主胜39%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>39%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:39%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">39%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <div>
+      <button onclick="toggle('d002')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
+      <button onclick="copy('t002')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
+    </div>
+  </div>
+  <div id="d002" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
+    <span id="t002">主胜 赫塔菲vs塞尔塔 比分1-0/2-0/2-1 | 让球盘 让+0.00 | 欧赔 2.62/3.10/3.00 | 伤停 4/2 | EV +10.0% | 信号 主降水;155家支持主胜(110降);H2H客队占优(2/3)</span>
+  </div>
+</div><div class="card" data-group="C" data-key="马尔默vs索尔纳瑞典超" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[003] 瑞典超</span>
+    <span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">马尔默vs索尔纳</div>
+  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>%</b> → SOP <b>主胜46%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>46%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:46%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">46%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-1</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="background:#c0392b;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">防平</span> 投注 <b>不投</b></div>
+    <div>
+      <button onclick="toggle('d003')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
+      <button onclick="copy('t003')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
+    </div>
+  </div>
+  <div id="d003" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
+    <span id="t003">主胜 马尔默vs索尔纳 比分1-0/2-1/1-1 防防平 | 让球盘 让+0.75 | 欧赔 1.75/4.10/3.80 | 伤停 0/0 | EV -2.0% | 信号 155家看衰主胜(82升);平局高发→防平</span>
+  </div>
+</div><div class="card" data-group="C" data-key="卡尔马vs尤尔加登瑞典超" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[004] 瑞典超</span>
+    <span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">卡尔马vs尤尔加登</div>
+  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>%</b> → SOP <b>客胜42%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#2471a3">客胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>42%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:42%;height:8px;border-radius:8px;background:#2471a3"></div></div><span style="color:#999;font-size:11px">42%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-1</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-2</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-1</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="background:#c0392b;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">防平</span> 投注 <b>不投</b></div>
+    <div>
+      <button onclick="toggle('d004')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
+      <button onclick="copy('t004')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
+    </div>
+  </div>
+  <div id="d004" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
+    <span id="t004">客胜 卡尔马vs尤尔加登 比分0-1/1-2/1-1 防防平 | 让球盘 让-0.50 | 欧赔 3.60/3.80/1.86 | 伤停 0/0 | EV +4.2% | 信号 DC背离-5pt(跟欧洲);轨迹让球加深(客热升);客降水;155家看衰主队(96升);H2H主队占优(2/3);平局高发→防平</span>
+  </div>
+</div><div class="card" data-group="A" data-key="利雅得新月vs新未来城体沙特联" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[005] 沙特联</span>
+    <span style="background:#27ae60;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">A组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">利雅得新月vs新未来城体</div>
+  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>%</b> → SOP <b>主胜73%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>73%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:73%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">73%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <div>
+      <button onclick="toggle('d005')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
+      <button onclick="copy('t005')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
+    </div>
+  </div>
+  <div id="d005" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
+    <span id="t005">主胜 利雅得新月vs新未来城体 比分2-0/1-0/2-1 | 让球盘 让+1.50 | 欧赔 1.32/5.10/6.70 | 伤停 4/0 | EV -10.2% | 信号 主降水;E1超深盘封顶85%</span>
+  </div>
+</div><div class="card" data-group="C" data-key="乌迪内斯vs拉齐奥意甲" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[006] 意甲</span>
+    <span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">乌迪内斯vs拉齐奥</div>
+  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>%</b> → SOP <b>客胜45%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#2471a3">客胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>45%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:45%;height:8px;border-radius:8px;background:#2471a3"></div></div><span style="color:#999;font-size:11px">45%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-1</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-2</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-2</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <div>
+      <button onclick="toggle('d006')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
+      <button onclick="copy('t006')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
+    </div>
+  </div>
+  <div id="d006" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
+    <span id="t006">客胜 乌迪内斯vs拉齐奥 比分0-1/0-2/1-2 | 让球盘 让+0.00 | 欧赔 2.72/3.05/2.61 | 伤停 4/4 | EV +46.2% | 信号 客降水;155家看衰主队(128升)</span>
+  </div>
+</div><div class="card" data-group="D" data-key="埃斯托里尔vs阿罗卡葡超" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[007] 葡超</span>
+    <span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">埃斯托里尔vs阿罗卡</div>
+  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>%</b> → SOP <b>主胜31%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>31%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:31%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">31%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <div>
+      <button onclick="toggle('d007')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
+      <button onclick="copy('t007')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
+    </div>
+  </div>
+  <div id="d007" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
+    <span id="t007">主胜 埃斯托里尔vs阿罗卡 比分1-0/2-1/2-0 | 让球盘 让+0.50 | 欧赔 2.06/3.50/3.25 | 伤停 0/0 | EV -13.5% | 信号 轨迹让球降盘(主热降);主升水;155家看衰主胜(126升)</span>
+  </div>
+</div><div class="card" data-group="D" data-key="埃尔切vs皇家社会西甲" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[008] 西甲</span>
+    <span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">埃尔切vs皇家社会</div>
+  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>%</b> → SOP <b>客胜39%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#2471a3">客胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>39%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:39%;height:8px;border-radius:8px;background:#2471a3"></div></div><span style="color:#999;font-size:11px">39%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-1</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-2</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-2</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <div>
+      <button onclick="toggle('d008')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
+      <button onclick="copy('t008')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
+    </div>
+  </div>
+  <div id="d008" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
+    <span id="t008">客胜 埃尔切vs皇家社会 比分0-1/0-2/1-2 | 让球盘 让+0.00 | 欧赔 2.85/3.50/2.47 | 伤停 3/3 | EV +3.7% | 信号 客降水;155家看衰主队(94升);H2H主队占优(2/3)</span>
+  </div>
+</div><div class="card" data-group="C" data-key="维多利亚vs格雷米奥巴西甲" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[009] 巴西甲</span>
+    <span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">维多利亚vs格雷米奥</div>
+  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>%</b> → SOP <b>主胜40%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>40%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:40%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">40%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <div>
+      <button onclick="toggle('d009')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
+      <button onclick="copy('t009')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
+    </div>
+  </div>
+  <div id="d009" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
+    <span id="t009">主胜 维多利亚vs格雷米奥 比分1-0/2-1/2-0 | 让球盘 让+0.25 | 欧赔 2.14/3.35/3.20 | 伤停 0/0 | EV +19.8% | 信号 主降水;155家看衰主胜(74升)</span>
+  </div>
+</div></div>
+<div style="color:#999;font-size:11px;text-align:center;margin:14px 0">阿豪二次修正 · 红字比分=防冷 · 仅供参考研究</div>
+<script>
+var G='全部',B=false,Q='';
+function apply(){Q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('.card').forEach(c=>{var okG=(G==='全部'||c.dataset.group===G);var okB=(!B||c.dataset.bet!=='不投');var okQ=(!Q||c.dataset.key.toLowerCase().indexOf(Q)>=0);c.style.display=(okG&&okB&&okQ)?'':'none'})}
+function setG(g){G=g;apply()}
+function setBet(){B=!B;document.getElementById('betbtn').style.background=B?'#2c5f2d':'#aaa';apply()}
+function toggleDark(){document.body.classList.toggle('dark')}
+function toggle(id){var e=document.getElementById(id);e.style.display=e.style.display==='none'?'':'none'}
+function copy(id){var t=document.getElementById(id).innerText;navigator.clipboard.writeText(t)}
+</script>
+</body></html>
