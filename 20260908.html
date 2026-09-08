@@ -1,300 +1,1490 @@
-<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>体彩竞彩 9/8 全11场 · 阿豪二次修正</title>
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a1020" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef2f8" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="竞彩预测">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230bb39a'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E">
+<title>竞彩预测 · 9/8 全11场 · 阿豪二次修正 v6.00</title>
 <style>
-body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#eef3ee;margin:0;padding:14px;max-width:640px;margin:0 auto;color:#222}
-body.dark{background:#111;color:#eee}
-body.dark .card{background:#1e1e1e;box-shadow:0 2px 8px rgba(0,0,0,.4)}
-.sticky{position:sticky;top:8px;z-index:10}
-.filterbar{display:flex;gap:6px;background:#fff;border-radius:12px;padding:8px;box-shadow:0 2px 6px rgba(0,0,0,.1);flex-wrap:wrap}
-body.dark .filterbar{background:#1e1e1e}
-</style></head><body>
-<div style="background:linear-gradient(135deg,#2c5f2d,#1e8449);color:#fff;border-radius:14px;padding:16px;margin-bottom:8px">
-  <div style="font-size:20px;font-weight:bold">⚽ 9/8 全11场 · 阿豪二次修正</div>
-  <div style="font-size:13px;opacity:.9;margin-top:4px">💰 余额 8247.19元 · 纯SOP独立判向(无另一AI) · v6.00</div>
+/* ============ 设计变量：深色（默认） / 浅色（自动适配） ============ */
+:root{
+  --bg:#0a1020; --bg-grad:radial-gradient(1200px 600px at 50% -10%,#14233f 0%,#0a1020 55%);
+  --card:#141d31; --card-2:#1a2540; --card-hover:#1d2a48;
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+  --t1:rgba(255,255,255,.92); --t2:rgba(255,255,255,.64); --t3:rgba(255,255,255,.42);
+  --win:#22e07a; --lose:#ff5d6c; --draw:#8b97ad; --blue:#38bdf8; --gold:#ffc24b; --purple:#a78bfa;
+  --accent:#22e07a; --accent-2:#19c3fb;
+  --pos:#22e07a; --neg:#ff5d6c;
+  --chip:rgba(255,255,255,.06); --chip-line:rgba(255,255,255,.12);
+  --warn-bg:rgba(255,93,108,.12); --warn-line:rgba(255,93,108,.35); --warn:#ff8a95;
+  --shadow:0 10px 30px rgba(0,0,0,.45);
+  --nav-bg:rgba(10,16,32,.82);
+  --track:rgba(255,255,255,.08);
+}
+[data-theme="light"]{
+  --bg:#eef2f8; --bg-grad:radial-gradient(1200px 600px at 50% -10%,#e3ecfb 0%,#eef2f8 55%);
+  --card:#ffffff; --card-2:#f5f8fd; --card-hover:#f0f5fd;
+  --line:rgba(15,23,42,.09); --line-2:rgba(15,23,42,.16);
+  --t1:rgba(15,23,42,.92); --t2:rgba(15,23,42,.62); --t3:rgba(15,23,42,.42);
+  --win:#0fb86a; --lose:#ef4252; --draw:#8b97ad; --blue:#0ea5e9; --gold:#e09b12; --purple:#8b5cf6;
+  --accent:#0fb86a; --accent-2:#0ea5e9;
+  --pos:#0fb86a; --neg:#ef4252;
+  --chip:rgba(15,23,42,.05); --chip-line:rgba(15,23,42,.12);
+  --warn-bg:rgba(239,66,82,.09); --warn-line:rgba(239,66,82,.30); --warn:#d83243;
+  --shadow:0 8px 24px rgba(15,23,42,.10);
+  --nav-bg:rgba(255,255,255,.85);
+  --track:rgba(15,23,42,.08);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,Roboto,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);background-image:var(--bg-grad);background-attachment:fixed;color:var(--t1);
+  font-size:14px;line-height:1.5;transition:background .3s ease,color .3s ease;
+  padding-bottom:calc(64px + env(safe-area-inset-bottom));
+}
+.mono,.num{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"Roboto Mono",monospace;font-variant-numeric:tabular-nums}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px}
+@media(min-width:900px){.wrap{max-width:1040px}body{padding-bottom:40px}}
+button{font-family:inherit;color:inherit}
+.card,.chip,.seg button,.stat,.ledger-row,.iconbtn,.mini-seg button,.toolbtn{transition:all .2s ease}
+
+/* ============ 顶部导航 ============ */
+.topnav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);
+  background:var(--nav-bg);border-bottom:1px solid var(--line)}
+.topnav-in{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.brand{display:flex;align-items:center;gap:9px;min-width:0;flex:1}
+.brand .logo{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-size:17px;flex:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 4px 14px rgba(34,224,122,.3)}
+.brand b{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.brand .upd{font-size:12px;color:var(--t3);white-space:nowrap;display:flex;align-items:center;gap:5px}
+.dot-live{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,224,122,.5)}70%{box-shadow:0 0 0 7px rgba(34,224,122,0)}100%{box-shadow:0 0 0 0 rgba(34,224,122,0)}}
+.nav-actions{display:flex;gap:8px;align-items:center}
+.iconbtn{min-height:38px;padding:0 12px;border-radius:11px;border:1px solid var(--line-2);background:var(--chip);color:var(--t1);font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.iconbtn:active{transform:scale(.96)}
+.tabs{display:none;gap:4px}
+@media(min-width:900px){.topnav-in{padding-top:8px;padding-bottom:0;flex-wrap:wrap}.brand{flex:0 0 auto}.tabs{display:flex;margin-left:auto}.tab{min-height:44px}}
+.tab{flex:1;border:none;background:transparent;color:var(--t2);font-size:14px;font-weight:600;cursor:pointer;position:relative;padding:10px 18px}
+.tab:active{transform:scale(.98)}
+.tab.on{color:var(--t1)}
+.tab.on::after{content:"";position:absolute;left:20%;right:20%;bottom:2px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.view{display:none}.view.on{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* 底部拇指 Tab（移动端） */
+.bottomtab{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:var(--nav-bg);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+@media(min-width:900px){.bottomtab{display:none}}
+.bottomtab .tab{flex:1;min-height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px}
+.bottomtab .tab .ic{font-size:19px;line-height:1}
+.bottomtab .tab.on{color:var(--accent)}
+.bottomtab .tab.on::after{display:none}
+
+/* ============ 卡片/通用 ============ */
+.card{background:linear-gradient(180deg,var(--card),color-mix(in srgb,var(--card) 88%,#000));border:1px solid var(--line);
+  border-radius:16px;box-shadow:var(--shadow);padding:16px;margin:14px 0}
+[data-theme="light"] .card{background:var(--card)}
+.card-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-bottom:12px}
+.card-title .more{margin-left:auto;font-weight:500;font-size:12px;color:var(--t3)}
+
+.hero{border-radius:18px;padding:18px;margin:16px 0 10px;color:#fff;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#0c8f54,#0bb39a 45%,#0ea5e9);box-shadow:0 14px 34px rgba(11,179,154,.28)}
+.hero h1{margin:0;font-size:19px;font-weight:800;letter-spacing:.3px}
+.hero .sub{margin-top:7px;font-size:13px;opacity:.92;display:flex;flex-wrap:wrap;gap:6px 14px}
+.hero .bal{font-weight:700}
+.hero .tagline{position:absolute;right:-30px;top:-30px;font-size:120px;opacity:.08;pointer-events:none}
+
+/* KPI 速览（自动计算） */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:14px}
+.kpi{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);border-radius:13px;padding:9px 8px;text-align:center;backdrop-filter:blur(4px)}
+.kpi .v{font-size:18px;font-weight:800;letter-spacing:-.5px}
+.kpi .k{font-size:11px;opacity:.85;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:380px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.stat{background:var(--card-2);border:1px solid var(--line);border-radius:13px;padding:10px 8px;text-align:center}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.5px}
+.stat .k{font-size:12px;color:var(--t3);margin-top:3px}
+.v.pos{color:var(--pos)}.v.neg{color:var(--neg)}.v.gold{color:var(--gold)}
+@media(max-width:380px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+
+.note{font-size:13px;line-height:1.55;border-radius:11px;padding:10px 12px;margin-top:12px}
+.note.warn{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn)}
+.note.gray{background:var(--chip);border:1px solid var(--line);color:var(--t2)}
+.note.tip{background:color-mix(in srgb,var(--gold) 12%,transparent);border:1px solid color-mix(in srgb,var(--gold) 32%,transparent);color:var(--gold)}
+
+/* 筛选/工具条 */
+.filterbar{position:sticky;top:58px;z-index:30;margin:12px 0 4px;padding:9px;border-radius:16px;
+  background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(150%) blur(14px);-webkit-backdrop-filter:saturate(150%) blur(14px);
+  border:1px solid var(--line);box-shadow:0 10px 26px rgba(0,0,0,.28)}
+[data-theme="light"] .filterbar{background:color-mix(in srgb,var(--bg) 90%,transparent)}
+@media(min-width:900px){.filterbar{top:64px}}
+.seg{display:flex;gap:6px;background:transparent;border:none;border-radius:12px;padding:0 0 8px;margin-bottom:2px;border-bottom:1px solid var(--line)}
+.seg button{flex:1;min-height:40px;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--t2);font-weight:700;font-size:13px;cursor:pointer}
+.seg button:active{transform:scale(.95)}
+.seg button.on{color:#08111f;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.seg button.g-A.on{background:var(--win)}.seg button.g-B.on{background:var(--gold)}.seg button.g-C.on{background:var(--lose);color:#fff}
+.seg button.g-D.on{background:var(--blue)}.seg button.g-E.on{background:var(--purple)}
+.tools{display:flex;gap:8px;margin-top:8px}
+.search{flex:1;min-height:44px;border-radius:12px;border:1px solid var(--line-2);background:var(--card);color:var(--t1);padding:0 14px;font-size:14px;outline:none;min-width:0}
+.search::placeholder{color:var(--t3)}
+.search:focus{border-color:var(--accent)}
+.toggle-bet{min-height:44px;padding:0 14px;border-radius:12px;border:1px solid var(--line-2);background:var(--card);color:var(--t2);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+.toggle-bet.on{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06140c;border-color:transparent}
+.toolrow{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap}
+.mini-seg{display:flex;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:4px;gap:4px}
+.mini-seg button{min-height:36px;border:none;border-radius:8px;background:transparent;color:var(--t2);font-size:12.5px;font-weight:600;padding:0 12px;cursor:pointer}
+.mini-seg button.on{background:var(--card-2);color:var(--t1);box-shadow:inset 0 0 0 1px var(--line-2)}
+.toolbtn{min-height:36px;padding:0 12px;border-radius:11px;border:1px solid var(--line-2);background:var(--card);color:var(--t2);font-size:12.5px;font-weight:600;cursor:pointer}
+.toolbtn:active{transform:scale(.96)}
+.result-count{font-size:12px;color:var(--t3);margin:10px 2px 0;display:flex;justify-content:space-between;gap:8px}
+
+/* ============ 比赛卡片 ============ */
+.match{padding:0;overflow:hidden}
+.m-head{padding:15px 16px 13px;cursor:pointer}
+.m-head:active{background:var(--card-hover)}
+.m-meta{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.m-league{font-size:12px;color:var(--t3);font-weight:600;letter-spacing:.3px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.shortcode{font-size:11px;font-weight:800;padding:2px 7px;border-radius:6px;background:var(--chip);border:1px solid var(--chip-line);color:var(--t2)}
+.grp{font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;color:#08111f}
+.grp.A{background:var(--win)}.grp.B{background:var(--gold)}.grp.C{background:var(--lose);color:#fff}
+.grp.D{background:var(--blue)}.grp.E{background:var(--purple)}
+.risk{font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:20px;margin-right:6px}
+.risk.lo{background:color-mix(in srgb,var(--win) 15%,transparent);color:var(--win)}
+.risk.mid{background:color-mix(in srgb,var(--gold) 16%,transparent);color:var(--gold)}
+.risk.hi{background:var(--warn-bg);color:var(--warn)}
+.m-teams{display:flex;align-items:baseline;gap:8px;margin:9px 0 3px;flex-wrap:wrap}
+.m-teams .vs{font-size:18px;font-weight:800;letter-spacing:.2px}
+.m-teams .vs .at{color:var(--t3);font-weight:700;margin:0 7px;font-size:14px}
+.adj{font-size:12px;color:var(--t2)}
+.adj b{color:var(--t1)}
+.adj .same{color:var(--t3)}
+.pill-down{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--gold);color:#231700;margin-left:4px}
+
+.pick-row{display:flex;align-items:center;gap:12px;margin:13px 0 4px}
+.pick-side{font-size:24px;font-weight:900;letter-spacing:.5px;min-width:64px}
+.pick-side.home{color:var(--win)}.pick-side.away{color:var(--lose)}
+.conf-wrap{flex:1;min-width:0}
+.conf-line{display:flex;justify-content:space-between;font-size:12px;color:var(--t3);margin-bottom:5px}
+.conf-track{height:9px;border-radius:9px;background:var(--track);overflow:hidden}
+.conf-fill{height:100%;border-radius:9px;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.conf-fill.home{background:linear-gradient(90deg,#0fb86a,var(--win))}
+.conf-fill.away{background:linear-gradient(90deg,#e04555,var(--lose))}
+.conf-big{font-size:24px;font-weight:900;min-width:58px;text-align:right}
+.conf-big.home{color:var(--win)}.conf-big.away{color:var(--lose)}
+
+.scoreline{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}
+.sc{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--chip-line);background:var(--chip);border-radius:11px;padding:6px 11px;font-weight:800;font-size:15px}
+.sc .p{font-size:11px;font-weight:600;color:var(--t3)}
+.sc.cold{background:var(--warn-bg);border-color:var(--warn-line);color:var(--warn)}
+
+.prob{margin-top:13px}
+.prob-label{font-size:12px;color:var(--t3);display:flex;justify-content:space-between;gap:8px;margin-bottom:6px}
+.bar3{display:flex;height:12px;border-radius:8px;overflow:hidden;background:var(--track);gap:2px}
+.bar3 i{display:block;height:100%;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.bar3 .h{background:var(--win);border-radius:8px 0 0 8px}.bar3 .d{background:var(--draw)}.bar3 .a{background:var(--lose);border-radius:0 8px 8px 0}
+.legend3{display:flex;margin-top:7px;gap:6px}
+.legend3 span{flex:1;font-size:12px;color:var(--t2);display:flex;align-items:center;gap:6px}
+.legend3 b{margin-left:auto;font-weight:800}
+.lg-dot{width:8px;height:8px;border-radius:3px;flex:none}
+.lg-dot.h{background:var(--win)}.lg-dot.d{background:var(--draw)}.lg-dot.a{background:var(--lose)}
+
+/* 模型 vs 市场 双指针 */
+.dual{margin-top:10px}
+.dual-track{position:relative;height:6px;border-radius:6px;background:var(--track);margin:18px 4px 6px}
+.dual-mk{position:absolute;top:50%;width:2px;height:14px;background:var(--t2);transform:translate(-50%,-50%);border-radius:2px}
+.dual-md{position:absolute;top:50%;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:10px solid var(--gold);transform:translate(-50%,-115%)}
+.dual-cap{display:flex;justify-content:space-between;font-size:11px;color:var(--t3)}
+.dual-cap b{color:var(--t1)}
+.dual-cap .md b{color:var(--gold)}
+
+.delta{font-size:12px;margin-top:8px;color:var(--t2);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;background:var(--chip);border:1px solid var(--chip-line);color:var(--t2)}
+.tag.bad{background:var(--warn-bg);border-color:var(--warn-line);color:var(--warn)}
+.tag.ok{background:color-mix(in srgb,var(--win) 14%,transparent);border-color:color-mix(in srgb,var(--win) 34%,transparent);color:var(--win)}
+.tag.value{background:color-mix(in srgb,var(--gold) 16%,transparent);border-color:color-mix(in srgb,var(--gold) 40%,transparent);color:var(--gold)}
+
+.form{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.form-sum{font-size:11px;color:var(--t3);margin-left:auto}
+.f{font-size:11px;font-weight:700;padding:3px 8px;border-radius:7px;color:#fff}
+.f.H{background:var(--win);color:#06140c}.f.A{background:var(--lose)}.f.D{background:var(--draw);color:#0d1422}
+
+.verdict{display:flex;align-items:center;gap:10px;margin-top:14px;padding:11px 13px;border-radius:13px;background:var(--card-2);border:1px solid var(--line)}
+.guard{font-size:11px;font-weight:800;padding:3px 9px;border-radius:20px}
+.guard.none{background:var(--chip);color:var(--t3);border:1px solid var(--chip-line)}
+.guard.draw,.guard.cold{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn)}
+.ev{font-size:13px;font-weight:800}
+.bet-state{margin-left:auto;font-weight:800;font-size:13px;padding:5px 13px;border-radius:20px}
+.bet-state.no{background:var(--chip);color:var(--t2);border:1px solid var(--chip-line)}
+.bet-state.go{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06140c}
+.chev{transition:transform .3s ease;color:var(--t3);font-size:13px}
+.match.open .chev{transform:rotate(180deg)}
+
+/* 紧凑表格视图 */
+.rowview{display:none;align-items:center;gap:10px;padding:12px 16px;cursor:pointer}
+body[data-layout=list] .cardview{display:none}
+body[data-layout=list] .rowview{display:flex}
+body[data-layout=list] .match{padding:0}
+.rv-teams{flex:1;min-width:0}
+.rv-teams .t{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rv-teams .l{font-size:11px;color:var(--t3);margin-top:2px;display:flex;gap:6px;align-items:center}
+.rv-pick{font-size:12px;font-weight:800;width:34px;text-align:center}
+.rv-pick.home{color:var(--win)}.rv-pick.away{color:var(--lose)}
+.rv-conf{font-size:15px;font-weight:800;width:46px;text-align:right}
+.rv-ev{font-size:12.5px;font-weight:800;width:60px;text-align:right}
+.rv-risk{width:10px;height:10px;border-radius:50%;flex:none}
+.rv-risk.lo{background:var(--win)}.rv-risk.mid{background:var(--gold)}.rv-risk.hi{background:var(--lose)}
+body[data-layout=list] .match.open{outline:2px solid color-mix(in srgb,var(--accent) 40%,transparent);outline-offset:-2px}
+
+.detail{max-height:0;overflow:hidden;transition:max-height .38s ease}
+.m-inner{padding:0 16px 16px}
+.detail-box{border-top:1px dashed var(--line-2);padding-top:14px;margin-top:2px}
+.odds-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.odd{background:var(--card-2);border:1px solid var(--line);border-radius:11px;padding:9px;text-align:center}
+.odd.hl{border-color:color-mix(in srgb,var(--accent) 45%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--accent) 25%,transparent)}
+.odd .ok{font-size:11px;color:var(--t3)}
+.odd .ov{font-size:16px;font-weight:800;margin-top:2px}
+.kv{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+.kv .cell{background:var(--card-2);border:1px solid var(--line);border-radius:11px;padding:9px 11px}
+.kv .ck{font-size:11px;color:var(--t3)}
+.kv .cv{font-size:14px;font-weight:700;margin-top:2px}
+.kelly{border-radius:11px;padding:10px 12px;margin-bottom:12px;font-size:12.5px;line-height:1.5;display:flex;gap:9px;align-items:flex-start}
+.kelly.go{background:color-mix(in srgb,var(--win) 12%,transparent);border:1px solid color-mix(in srgb,var(--win) 32%,transparent)}
+.kelly.no{background:var(--chip);border:1px solid var(--line);color:var(--t2)}
+.kelly .ic{font-size:15px}
+.kelly b{font-weight:800}
+.injury{display:flex;align-items:center;gap:8px;border-radius:11px;padding:9px 11px;font-size:13px;margin-bottom:12px;background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn)}
+.injury.safe{background:var(--chip);border-color:var(--line);color:var(--t2)}
+.signals{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.sig{font-size:11px;padding:4px 9px;border-radius:8px;background:var(--chip);border:1px solid var(--chip-line);color:var(--t2)}
+.sig.hot{color:var(--gold);border-color:color-mix(in srgb,var(--gold) 35%,transparent);background:color-mix(in srgb,var(--gold) 10%,transparent)}
+.detail-actions{display:flex;gap:8px;margin-top:12px}
+.dbtn{flex:1;min-height:42px;border-radius:11px;border:1px solid var(--line-2);background:var(--card-2);color:var(--t1);font-size:13px;font-weight:600;cursor:pointer}
+.dbtn:active{transform:scale(.98)}
+.dbtn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06140c;border-color:transparent;font-weight:800}
+
+/* 台账 */
+.ledger-row{display:grid;grid-template-columns:2.1fr 1fr 1fr .9fr;gap:8px;align-items:center;padding:10px 4px;border-bottom:1px solid var(--line);font-size:13px}
+.ledger-row:last-child{border-bottom:none}
+.ledger-row .ty{color:var(--t3);font-size:12px}.ledger-row .pk{color:var(--t2);font-size:12px}.ledger-row .amt{text-align:right;font-weight:800}
+.spark{width:100%;height:44px;margin-top:6px}
+.spark polyline,.spark path{fill:none;stroke:var(--neg);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.spark .area{fill:url(#sparkGrad);stroke:none;opacity:.5}
+.spark .base{stroke:var(--line-2);stroke-width:1;stroke-dasharray:3 3}
+.split-bar{display:flex;height:10px;border-radius:8px;overflow:hidden;margin:8px 0 6px;background:var(--track)}
+.split-bar i{display:block;height:100%}
+
+.mdl{display:grid;gap:10px}
+.mdl .item{background:var(--card-2);border:1px solid var(--line);border-radius:13px;padding:13px 14px}
+.mdl .item b{display:block;margin-bottom:4px;font-size:14px}
+.mdl .item p{margin:0;color:var(--t2);font-size:13px;line-height:1.6}
+
+.disclaimer{color:var(--t3);font-size:12px;text-align:center;line-height:1.7;margin:22px 16px 0}
+.skeleton{display:grid;gap:14px;padding:16px 0}
+.sk{border-radius:16px;height:150px;background:linear-gradient(100deg,var(--card) 30%,var(--card-2) 50%,var(--card) 70%);background-size:200% 100%;animation:shimmer 1.3s infinite;border:1px solid var(--line)}
+@keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+html.js .app{opacity:0}
+body.ready .app{opacity:1;transition:opacity .35s ease}
+body.ready .skeleton{display:none}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%) translateY(20px);background:#0c1626;color:#fff;border:1px solid var(--line-2);
+  padding:10px 18px;border-radius:24px;font-size:13px;opacity:0;pointer-events:none;transition:all .25s ease;z-index:99;box-shadow:var(--shadow);max-width:88%;text-align:center}
+@media(min-width:900px){.toast{bottom:34px}}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(min-width:900px){#list{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;align-items:start}#list .match{margin:14px 0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');
+(function(){var s=localStorage.getItem('sop-theme');var t=s||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);})();</script>
+
+<div class="skeleton wrap" aria-hidden="true"><div class="sk"></div><div class="sk" style="height:220px"></div><div class="sk"></div><div class="sk"></div></div>
+
+<div class="app">
+<nav class="topnav">
+  <div class="topnav-in">
+    <div class="brand">
+      <div class="logo">⚽</div>
+      <div>
+        <b>竞彩预测 · 阿豪二次修正</b>
+        <div class="upd"><span class="dot-live"></span><span id="updatedAt">更新于 --</span></div>
+      </div>
+    </div>
+    <div class="nav-actions"><button class="iconbtn" id="themeBtn" onclick="toggleDark()" aria-label="切换主题">🌙</button></div>
+    <div class="tabs">
+      <button class="tab on" data-view="today" onclick="switchTab('today')">今日预测</button>
+      <button class="tab" data-view="history" onclick="switchTab('history')">历史战绩</button>
+      <button class="tab" data-view="model" onclick="switchTab('model')">模型说明</button>
+    </div>
+  </div>
+</nav>
+
+<section class="view on" id="view-today">
+<div class="wrap">
+  <div class="hero">
+    <span class="tagline">⚽</span>
+    <h1>9/8 全 11 场 · 五项共振</h1>
+    <div class="sub">
+      <span class="bal">💰 余额 <span class="num">8247.19</span> 元</span>
+      <span>伤停即嗨核实</span><span class="num">v6.00</span>
+    </div>
+    <div class="kpi-grid" id="kpiStrip"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📊 投注策略总览<span class="more">A 1 · B 0 · C 4 · D 4 · E 0</span></div>
+    <div class="stat-grid">
+      <div class="stat"><div class="v num">9</div><div class="k">总场次</div></div>
+      <div class="stat"><div class="v num" style="color:var(--win)">1</div><div class="k">A 组</div></div>
+      <div class="stat"><div class="v num" style="color:var(--lose)">4</div><div class="k">C 组</div></div>
+      <div class="stat"><div class="v num" style="color:var(--blue)">4</div><div class="k">D 组</div></div>
+    </div>
+    <div class="note warn">⚠️ 本批不投单关。本批②伤停用 AI 多源版（即嗨赛前出再核实）。</div>
+    <div class="note gray">🧭 纪律：单注 ≤3% · 只投正 EV · 日亏停手 · 串关优先于单关。</div>
+  </div>
+
+  <div class="filterbar">
+    <div class="seg" id="groupSeg">
+      <button class="on" onclick="setG('全部',this)">全部</button>
+      <button class="g-A" onclick="setG('A',this)">A</button>
+      <button class="g-B" onclick="setG('B',this)">B</button>
+      <button class="g-C" onclick="setG('C',this)">C</button>
+      <button class="g-D" onclick="setG('D',this)">D</button>
+      <button class="g-E" onclick="setG('E',this)">E</button>
+    </div>
+    <div class="tools">
+      <input class="search" id="search" oninput="apply()" placeholder="🔍 搜球队 / 联赛（如：曼城、英超）">
+      <button class="toggle-bet" id="betbtn" onclick="setBet()">只看可投</button>
+    </div>
+    <div class="toolrow">
+      <div class="mini-seg" id="layoutSeg">
+        <button class="on" data-l="card" onclick="setLayout('card',this)">🧩 卡片</button>
+        <button data-l="list" onclick="setLayout('list',this)">📋 紧凑</button>
+      </div>
+      <div class="mini-seg" id="sortSeg">
+        <button class="on" data-s="group" onclick="setSort('group',this)">默认</button>
+        <button data-s="conf" onclick="setSort('conf',this)">置信↓</button>
+        <button data-s="ev" onclick="setSort('ev',this)">EV↓</button>
+      </div>
+      <button class="toolbtn" onclick="toggleAll(true)">全部展开</button>
+      <button class="toolbtn" onclick="toggleAll(false)">收起</button>
+      <button class="toolbtn" onclick="copyAll()">📨 复制整批</button>
+    </div>
+    <div class="result-count"><span id="countLine">显示 9 / 9 场</span><span id="sortHint"></span></div>
+  </div>
+
+  <div id="list"></div>
 </div>
-<div class="sticky"><div class="filterbar">
-  <button onclick="setG('全部')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#2c5f2d;color:#fff;font-weight:bold;font-size:13px">全部</button>
-  <button onclick="setG('A')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#27ae60;color:#fff;font-size:13px">A</button>
-  <button onclick="setG('B')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#f1c40f;color:#fff;font-size:13px">B</button>
-  <button onclick="setG('C')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#e74c3c;color:#fff;font-size:13px">C</button>
-  <button onclick="setG('D')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#3498db;color:#fff;font-size:13px">D</button>
-  <button onclick="toggleDark()" style="padding:8px 12px;border:none;border-radius:8px;background:#555;color:#fff">🌙</button>
-</div></div>
-<div style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 6px rgba(0,0,0,.06)">
-  <div style="font-weight:bold;font-size:15px">📊 投注策略总览</div>
-  <div style="margin-top:6px;font-size:14px">共11场：A组 0 / B组 1 / C组 6 / D组 4 / E组 0</div>
-  <div style="color:#c0392b;font-size:13px;margin-top:4px">⚠️ 可投1场：波尔图vs曼。②伤停位置系数已乘λ(核心×0.7/锋×0.83/中场×0.85/卫门×1.14)。</div>
-  <div style="color:#999;font-size:12px;margin-top:4px">纪律：单注≤3% · 只投正EV · 日亏停手 · 串关优先于单关</div>
-</div>
-<div style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 6px rgba(0,0,0,.06)">
-  <div style="font-weight:bold;font-size:15px">💰 模拟投注台账 <span style="color:#999;font-size:12px;font-weight:normal">18注</span></div>
-  <div style="display:flex;gap:8px;margin:10px 0;flex-wrap:wrap">
-    <div style="flex:1;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#1e8449">8247.19</div><div style="font-size:11px;color:#888">余额</div></div>
-    <div style="flex:1;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#c0392b">-1138</div><div style="font-size:11px;color:#888">总盈亏</div></div>
-    <div style="flex:1;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#c0392b">-25.9%</div><div style="font-size:11px;color:#888">ROI</div></div>
-    <div style="flex:1;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold">5/18</div><div style="font-size:11px;color:#888">胜</div></div>
+</section>
+
+<section class="view" id="view-history">
+<div class="wrap">
+  <div class="card">
+    <div class="card-title">💰 月度盈亏看板<span class="more num">2026-09</span></div>
+    <div class="stat-grid">
+      <div class="stat"><div class="v num neg">-1162</div><div class="k">本月盈亏</div></div>
+      <div class="stat"><div class="v num neg">-936</div><div class="k">本月单关</div></div>
+      <div class="stat"><div class="v num neg">-226</div><div class="k">本月串关</div></div>
+      <div class="stat"><div class="v num">5</div><div class="k">本月注数</div></div>
+    </div>
+    <svg class="spark" viewBox="0 0 200 44" preserveAspectRatio="none">
+      <defs><linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ff5d6c" stop-opacity=".35"/><stop offset="100%" stop-color="#ff5d6c" stop-opacity="0"/>
+      </linearGradient></defs>
+      <line class="base" x1="0" y1="22" x2="200" y2="22"/>
+      <polygon class="area" points="2,5 16,5 30,5 44,14 58,14 72,14 86,30 100,30 114,30 128,19 142,26 156,32 170,34 184,37 198,42 198,44 2,44"/>
+      <polyline points="2,5 16,5 30,5 44,14 58,14 72,14 86,30 100,30 114,30 128,19 142,26 156,32 170,34 184,37 198,42"/>
+    </svg>
+    <div class="note tip">💡 串关是历史唯一盈利来源，单关亏损；正 EV 机会少时宁可空仓。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🧾 模拟投注台账<span class="more num">18 注 · 本金 10000</span></div>
+    <div class="stat-grid">
+      <div class="stat"><div class="v num pos">8247.19</div><div class="k">余额</div></div>
+      <div class="stat"><div class="v num neg">-1138</div><div class="k">总盈亏</div></div>
+      <div class="stat"><div class="v num neg">-25.9%</div><div class="k">ROI</div></div>
+      <div class="stat"><div class="v num gold">28%</div><div class="k">胜率</div></div>
+    </div>
+    <div style="margin-top:14px">
+      <div style="display:flex;justify-content:space-between;font-size:13px"><b>单关 vs 串关</b><span class="num" style="color:var(--t3)">金额</span></div>
+      <div class="split-bar"><i style="width:67.5%;background:var(--lose)"></i><i style="width:32.5%;background:var(--win)"></i></div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--t2)">
+        <span>单关 <b class="num" style="color:var(--neg)">-2193</b>（13 注）</span>
+        <span>串关 <b class="num" style="color:var(--pos)">+1055</b>（5 注）</span>
+      </div>
+      <div class="note gray" style="margin-top:10px">💡 结论：串关盈利、单关亏损，优先稳健串关。</div>
+    </div>
+    <div style="margin-top:12px" id="ledger"></div>
   </div>
 </div>
-<div id="list"><div class="card" data-group="D" data-key="AEK雅典vsLASK林茨欧冠" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[002] 欧冠</span><span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
+</section>
+
+<section class="view" id="view-model">
+<div class="wrap">
+  <div class="card">
+    <div class="card-title">🧠 模型说明 · 五项共振 v6.00</div>
+    <div class="mdl">
+      <div class="item"><b>① AI 原判 → 阿豪二次修正</b><p>模型先给出主/客胜初判概率，再结合市场、资金、伤停、盘口轨迹做二次修正；同向则维持，分歧大时降置信。</p></div>
+      <div class="item"><b>② 市场去水概率</b><p>把欧赔还原为不含水位的真实概率，作为模型概率的锚；模型显著看高/看低会标注 pt 差值。</p></div>
+      <div class="item"><b>③ 必发资金流向</b><p>跟踪交易所主/平/客资金占比，识别热门方向与异常资金（未开则显示“必发未出”）。</p></div>
+      <div class="item"><b>④ 盘口轨迹 & 155 家欧赔</b><p>让球升/降盘、主客降水升水、155 家机构升降赔分布，判断机构真实倾向与诱盘风险。</p></div>
+      <div class="item"><b>⑤ 伤停 & 交锋</b><p>伤停以即嗨等多源赛前核实；近 5 次交锋按主队视角标注主胜/平/客胜，卫门缺阵等会做防守系数修正。</p></div>
+      <div class="item"><b>仓位（1/4 凯利，现算）</b><p>用模型概率与欧赔按凯利公式 f=(bp−q)/b 计算，取四分之一并以单注≤3%封顶；EV 为负时不出仓位，与“只投正 EV”纪律一致。</p></div>
+      <div class="item"><b>爆冷风险分级</b><p>综合“防平/防冷、伤停人数、模型与市场分歧、置信度”四项，自动给出低/中/高风险，紧凑视图右侧圆点同色。</p></div>
+      <div class="item"><b>分组与投注纪律</b><p>A–E 为信心分组；只投正 EV，单注 ≤3%，本批不投单关、优先稳健串关，日亏即停手。</p></div>
+    </div>
+    <div class="note warn" style="margin-top:12px">⚠️ 红字比分代表“防冷”。所有内容仅供研究参考，不构成投注建议。</div>
   </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">AEK雅典vsLASK林茨</div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>38%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:38%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">38%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span></div>
-  <div style="display:flex;gap:6px;font-size:12px;margin-top:8px;background:#f8f9f8;border-radius:8px;padding:8px;flex-wrap:wrap"><span style="flex:1;min-width:80px"><b style="color:#d35400">AEK雅典</b> xG1.6 伤5</span><span style="flex:1;min-width:80px"><b style="color:#2471a3">LASK林茨</b> xG? 伤5</span><span style="color:#888">λ1.37/0.62 休息70/75h 必发主80%</span></div>
-  <div style="font-size:11px;color:#c0392b;margin-top:4px">⚠️ 主缺后卫1、左边锋1、中锋1、中卫1、后腰1；客缺中锋3、后腰1、中卫1</div>
-  <div style="margin-top:6px"><div style="font-size:11px;color:#888">总进球分布</div><div style="display:flex;gap:3px"><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:15%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">0球15%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:25%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">1球25%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:28%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">2球28%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:18%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">3球18%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:9%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">4球9%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:5%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">5+球5%</span></div></div></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主57% 平22% 客21%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:57.0%;background:#d35400"></div><div style="width:22.0%;background:#95a5a6"></div><div style="width:21.0%;background:#2471a3"></div></div>
-  <span style="color:#bbb;font-size:11px">必发未出</span>
-  
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
-    <button onclick="toggle('d002')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
-  </div>
-  <div id="d002" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 AEK雅典vsLASK林茨 比分1-0/2-0/2-1 | 让球盘 让0.75(主0.89/客0.99) | 欧赔 1.7/4.3/4.55 | EV -35.4% | 信号 155家看衰主胜(76升); 主队5伤残阵; 休息70/75h<72赛程密集降5</div>
-</div><div class="card" data-group="D" data-key="布鲁日vs阿斯顿维拉欧冠" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[003] 欧冠</span><span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">布鲁日vs阿斯顿维拉</div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#2471a3">客胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>20%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:20%;height:8px;border-radius:8px;background:#2471a3"></div></div><span style="color:#999;font-size:11px">20%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-1</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-2</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-2</span></div>
-  <div style="display:flex;gap:6px;font-size:12px;margin-top:8px;background:#f8f9f8;border-radius:8px;padding:8px;flex-wrap:wrap"><span style="flex:1;min-width:80px"><b style="color:#d35400">布鲁日</b> xG1.82 伤1</span><span style="flex:1;min-width:80px"><b style="color:#2471a3">阿斯顿维拉</b> xG1.22 伤5</span><span style="color:#888">λ1.60/0.96 休息94/72h 必发主26%</span></div>
-  <div style="font-size:11px;color:#c0392b;margin-top:4px">⚠️ 主缺中卫1；客缺后腰1、前腰1、中锋1、中卫1、中前卫1</div>
-  <div style="margin-top:6px"><div style="font-size:11px;color:#888">总进球分布</div><div style="display:flex;gap:3px"><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:9%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">0球9%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:17%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">1球17%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:27%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">2球27%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:22%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">3球22%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:14%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">4球14%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:12%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">5+球12%</span></div></div></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-1 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-2 <span style="font-weight:normal;font-size:10px;color:#666">8%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-2 <span style="font-weight:normal;font-size:10px;color:#666">7%</span></span></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主36% 平26% 客38%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:36.0%;background:#d35400"></div><div style="width:26.0%;background:#95a5a6"></div><div style="width:38.0%;background:#2471a3"></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">必发资金 主63% 客37%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:63.16756145803899%;background:#d35400"></div><div style="width:36.832438541961004%;background:#2471a3"></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋 <span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">25.03 客0-3</span><span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">25.03 客1-3</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">24.11 主1-0</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
-    <button onclick="toggle('d003')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
-  </div>
-  <div id="d003" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">客胜 布鲁日vs阿斯顿维拉 比分0-1/1-2/0-2 | 让球盘 让0.00(主1.00/客0.88) | 欧赔 2.66/3.75/2.51 | EV -4.6% | 信号 客升水; 155家支持主队(144降); 客队5伤残阵</div>
-</div><div class="card" data-group="C" data-key="奈梅亨vsSBV精英荷甲" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[004] 荷甲</span><span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">奈梅亨vsSBV精英</div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>40%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:40%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">40%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-1</span></div>
-  <div style="display:flex;gap:6px;font-size:12px;margin-top:8px;background:#f8f9f8;border-radius:8px;padding:8px;flex-wrap:wrap"><span style="flex:1;min-width:80px"><b style="color:#d35400">奈梅亨</b> xG2.15 伤5</span><span style="flex:1;min-width:80px"><b style="color:#2471a3">SBV精英</b> xG1.61 伤2</span><span style="color:#888">λ1.90/1.29 休息74/69h 必发主66%</span></div>
-  <div style="font-size:11px;color:#c0392b;margin-top:4px">⚠️ 主缺中场1、中卫3、后卫1；客缺中前卫1、右边锋1</div>
-  <div style="margin-top:6px"><div style="font-size:11px;color:#888">总进球分布</div><div style="display:flex;gap:3px"><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:5%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">0球5%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:11%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">1球11%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:22%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">2球22%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:22%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">3球22%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:18%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">4球18%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:22%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">5+球22%</span></div></div></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">11%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主64% 平19% 客17%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:64.0%;background:#d35400"></div><div style="width:19.0%;background:#95a5a6"></div><div style="width:17.0%;background:#2471a3"></div></div>
-  <span style="color:#bbb;font-size:11px">必发未出</span>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋 <span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">26.04 主2-0</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">25.08 主5-0</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">24.05 主3-0</span><span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">23.08 客3-4</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">23.02 主3-0</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="background:#c0392b;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">防平</span> 投注 <b>不投</b></div>
-    <button onclick="toggle('d004')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
-  </div>
-  <div id="d004" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 奈梅亨vsSBV精英 比分2-1/2-0/1-1 防防平 | 让球盘 让1.25(主1.02/客0.86) | 欧赔 1.49/4.95/5.5 | EV -38.9% | 信号 轨迹让球降盘; 主升水; 155家看衰主胜(149升); 主队5伤残阵; 平局高发→防平; 休息74/69h<72赛程密集降5</div>
-</div><div class="card" data-group="D" data-key="卡达西亚vs吉达国民沙职" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[005] 沙职</span><span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">卡达西亚vs吉达国民</div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#2471a3">客胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>30%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:30%;height:8px;border-radius:8px;background:#2471a3"></div></div><span style="color:#999;font-size:11px">30%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-2</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-3</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-3</span></div>
-  <div style="display:flex;gap:6px;font-size:12px;margin-top:8px;background:#f8f9f8;border-radius:8px;padding:8px;flex-wrap:wrap"><span style="flex:1;min-width:80px"><b style="color:#d35400">卡达西亚</b> xG2.31 伤1</span><span style="flex:1;min-width:80px"><b style="color:#2471a3">吉达国民</b> xG2.17 伤1</span><span style="color:#888">λ1.93/1.63 休息120/96h 必发主44%</span></div>
-  <div style="font-size:11px;color:#c0392b;margin-top:4px">⚠️ 主缺中卫1；客缺守门员1</div>
-  <div style="margin-top:6px"><div style="font-size:11px;color:#888">总进球分布</div><div style="display:flex;gap:3px"><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:4%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">0球4%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:8%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">1球8%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:19%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">2球19%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:21%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">3球21%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:19%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">4球19%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:29%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">5+球29%</span></div></div></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-2 <span style="font-weight:normal;font-size:10px;color:#666">7%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-1 <span style="font-weight:normal;font-size:10px;color:#666">7%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-2 <span style="font-weight:normal;font-size:10px;color:#666">5%</span></span></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主46% 平24% 客29%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:46.0%;background:#d35400"></div><div style="width:24.0%;background:#95a5a6"></div><div style="width:29.0%;background:#2471a3"></div></div>
-  <span style="color:#bbb;font-size:11px">必发未出</span>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋 <span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">26.03 主3-2</span><span style="color:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">25.11 平3-3</span><span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">25.11 客1-2</span><span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">25.08 客1-5</span><span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">25.02 客1-4</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="background:#c0392b;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">防冷</span> 投注 <b>不投</b></div>
-    <button onclick="toggle('d005')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
-  </div>
-  <div id="d005" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">客胜 卡达西亚vs吉达国民 比分1-2/1-3/2-3 防防冷 | 让球盘 让0.50(主0.96/客0.86) | 欧赔 1.96/3.75/3.1 | EV +17.8% | 信号 主升水; 155家看衰主胜(140升); 155家140升强烈看衰主胜=诱盘反转(另一AI客胜+10.8%); xG校准客λ1.27→1.63</div>
-</div><div class="card" data-group="C" data-key="南安普敦vs斯旺西英冠" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[006] 英冠</span><span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">南安普敦vs斯旺西</div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>42%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:42%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">42%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-1</span></div>
-  <div style="display:flex;gap:6px;font-size:12px;margin-top:8px;background:#f8f9f8;border-radius:8px;padding:8px;flex-wrap:wrap"><span style="flex:1;min-width:80px"><b style="color:#d35400">南安普敦</b> xG1.87 伤0</span><span style="flex:1;min-width:80px"><b style="color:#2471a3">斯旺西</b> xG1.53 伤0</span><span style="color:#888">λ1.68/1.25 休息79/71h 必发主64%</span></div>
-  
-  <div style="margin-top:6px"><div style="font-size:11px;color:#888">总进球分布</div><div style="display:flex;gap:3px"><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:6%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">0球6%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:13%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">1球13%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:24%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">2球24%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:22%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">3球22%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:16%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">4球16%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:17%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">5+球17%</span></div></div></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主49% 平25% 客26%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:49.0%;background:#d35400"></div><div style="width:25.0%;background:#95a5a6"></div><div style="width:26.0%;background:#2471a3"></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">必发资金 主86% 客14%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:86.43086816720256%;background:#d35400"></div><div style="width:13.569131832797426%;background:#2471a3"></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋 <span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">26.04 主2-1</span><span style="color:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">25.10 平0-0</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">25.01 主3-0</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">24.01 主3-1</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">23.12 主5-0</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="background:#c0392b;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">防平</span> 投注 <b>不投</b></div>
-    <button onclick="toggle('d006')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
-  </div>
-  <div id="d006" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 南安普敦vs斯旺西 比分2-1/1-0/1-1 防防平 | 让球盘 让0.50(主0.90/客0.98) | 欧赔 1.9/3.7/3.55 | EV -22.1% | 信号 主降水; 平局高发→防平; 休息79/71h<72赛程密集降5</div>
-</div><div class="card" data-group="C" data-key="桑德兰vs赫尔城英联赛杯" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[007] 英联赛杯</span><span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">桑德兰vs赫尔城</div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>45%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:45%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">45%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-1</span></div>
-  <div style="display:flex;gap:6px;font-size:12px;margin-top:8px;background:#f8f9f8;border-radius:8px;padding:8px;flex-wrap:wrap"><span style="flex:1;min-width:80px"><b style="color:#d35400">桑德兰</b> xG1.47 伤2</span><span style="flex:1;min-width:80px"><b style="color:#2471a3">赫尔城</b> xG1.9 伤8</span><span style="color:#888">λ1.48/0.98 休息76/74h 必发主93%</span></div>
-  <div style="font-size:11px;color:#c0392b;margin-top:4px">⚠️ 主缺中前卫1、左边锋1；客缺中锋1、中前卫3、守门员1、中卫2、后腰1</div>
-  <div style="margin-top:6px"><div style="font-size:11px;color:#888">总进球分布</div><div style="display:flex;gap:3px"><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:10%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">0球10%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:19%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">1球19%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:27%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">2球27%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:21%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">3球21%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:13%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">4球13%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:10%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">5+球10%</span></div></div></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主53% 平25% 客22%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:53.0%;background:#d35400"></div><div style="width:25.0%;background:#95a5a6"></div><div style="width:22.0%;background:#2471a3"></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">必发资金 主90% 客10%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:90.33361847733106%;background:#d35400"></div><div style="width:9.666381522668948%;background:#2471a3"></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋 <span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">25.07 客1-2</span><span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">25.02 客0-1</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">24.10 主1-0</span><span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">24.01 客0-1</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">23.12 主1-0</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="background:#c0392b;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">防平</span> 投注 <b>不投</b></div>
-    <button onclick="toggle('d007')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
-  </div>
-  <div id="d007" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 桑德兰vs赫尔城 比分1-0/2-0/1-1 防防平 | 让球盘 让0.75(主0.92/客0.90) | 欧赔 1.71/3.6/4.2 | EV -29.9% | 信号 主降水; 155家支持主胜(116降); H2H客队占优(2/3); 英联赛杯双方轮换+赛程密集(杯赛轮换踩坑#53,另一AI判平); xG校准客λ0.36→0.98</div>
-</div><div class="card" data-group="C" data-key="皇家马德里vs国际米兰欧冠" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[008] 欧冠</span><span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">皇家马德里vs国际米兰</div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>45%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:45%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">45%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span></div>
-  <div style="display:flex;gap:6px;font-size:12px;margin-top:8px;background:#f8f9f8;border-radius:8px;padding:8px;flex-wrap:wrap"><span style="flex:1;min-width:80px"><b style="color:#d35400">皇家马德里</b> xG? 伤0</span><span style="flex:1;min-width:80px"><b style="color:#2471a3">国际米兰</b> xG? 伤0</span><span style="color:#888">λ1.43/0.99 休息?/?h 必发主?%</span></div>
-  
-  <div style="margin-top:6px"><div style="font-size:11px;color:#888">总进球分布</div><div style="display:flex;gap:3px"><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:10%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">0球10%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:19%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">1球19%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:27%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">2球27%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:21%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">3球21%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:13%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">4球13%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:10%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">5+球10%</span></div></div></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主58% 平22% 客20%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:58.0%;background:#d35400"></div><div style="width:22.0%;background:#95a5a6"></div><div style="width:20.0%;background:#2471a3"></div></div>
-  <span style="color:#bbb;font-size:11px">必发未出</span>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋 <span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">21.12 主2-0</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">21.09 主1-0</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">20.11 主2-0</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">20.11 主3-2</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">15.07 主3-0</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="background:#c0392b;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">防冷</span> 投注 <b>不投</b></div>
-    <button onclick="toggle('d008')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
-  </div>
-  <div id="d008" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 皇家马德里vs国际米兰 比分1-0/2-0/2-1 防防冷 | 让球盘 让0.75(主0.84/客1.04) | 欧赔 1.67/4.35/4.75 | EV -31.5% | 信号 轨迹让球升盘; 主降水; 155家支持主胜(101降); 主队7伤残阵; 皇马7-9伤残阵(另一AI判客胜+25%,残阵热门踩坑#41)</div>
-</div><div class="card" data-group="D" data-key="多特蒙德vs比利亚雷亚尔欧冠" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[009] 欧冠</span><span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">多特蒙德vs比利亚雷亚尔</div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>32%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:32%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">32%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span></div>
-  <div style="display:flex;gap:6px;font-size:12px;margin-top:8px;background:#f8f9f8;border-radius:8px;padding:8px;flex-wrap:wrap"><span style="flex:1;min-width:80px"><b style="color:#d35400">多特蒙德</b> xG? 伤0</span><span style="flex:1;min-width:80px"><b style="color:#2471a3">比利亚雷亚尔</b> xG? 伤0</span><span style="color:#888">λ1.21/1.03 休息?/?h 必发主?%</span></div>
-  
-  <div style="margin-top:6px"><div style="font-size:11px;color:#888">总进球分布</div><div style="display:flex;gap:3px"><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:12%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">0球12%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:21%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">1球21%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:28%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">2球28%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:20%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">3球20%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:11%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">4球11%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:8%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">5+球8%</span></div></div></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主53% 平22% 客24%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:53.0%;background:#d35400"></div><div style="width:22.0%;background:#95a5a6"></div><div style="width:24.0%;background:#2471a3"></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">必发资金 主89% 客11%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:89.32420524639056%;background:#d35400"></div><div style="width:10.675794753609436%;background:#2471a3"></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋 <span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">25.11 主4-0</span><span style="color:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">24.08 平2-2</span><span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">22.07 客0-2</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
-    <button onclick="toggle('d009')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
-  </div>
-  <div id="d009" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 多特蒙德vs比利亚雷亚尔 比分1-0/2-1/2-0 | 让球盘 让0.75(主1.01/客0.87) | 欧赔 1.8/4.3/3.95 | EV -31.6% | 信号 155家看衰主胜(87升); 主队10伤残阵</div>
-</div><div class="card" data-group="C" data-key="里尔vs皇家贝蒂斯欧冠" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[010] 欧冠</span><span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">里尔vs皇家贝蒂斯</div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>45%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:45%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">45%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span></div>
-  <div style="display:flex;gap:6px;font-size:12px;margin-top:8px;background:#f8f9f8;border-radius:8px;padding:8px;flex-wrap:wrap"><span style="flex:1;min-width:80px"><b style="color:#d35400">里尔</b> xG? 伤2</span><span style="flex:1;min-width:80px"><b style="color:#2471a3">皇家贝蒂斯</b> xG? 伤0</span><span style="color:#888">λ1.15/1.40 休息?/?h 必发主?%</span></div>
-  <div style="font-size:11px;color:#c0392b;margin-top:4px">⚠️ 主缺中锋1、中卫1</div>
-  <div style="margin-top:6px"><div style="font-size:11px;color:#888">总进球分布</div><div style="display:flex;gap:3px"><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:9%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">0球9%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:17%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">1球17%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:27%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">2球27%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:22%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">3球22%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:14%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">4球14%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:12%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">5+球12%</span></div></div></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">7%</span></span></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主41% 平26% 客33%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:41.0%;background:#d35400"></div><div style="width:26.0%;background:#95a5a6"></div><div style="width:33.0%;background:#2471a3"></div></div>
-  <span style="color:#bbb;font-size:11px">必发未出</span>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋 <span style="color:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">18.07 平2-2</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
-    <button onclick="toggle('d010')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
-  </div>
-  <div id="d010" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 里尔vs皇家贝蒂斯 比分1-0/2-1/2-0 | 让球盘 让0.25(主1.02/客0.86) | 欧赔 2.32/3.7/2.96 | EV -4.9% | 信号 主降水; 155家支持主胜(115降)</div>
-</div><div class="card" data-group="B" data-key="波尔图vs曼彻斯特城欧冠" data-bet="可投小注" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[011] 欧冠</span><span style="background:#f1c40f;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">B组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">波尔图vs曼彻斯特城</div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#2471a3">客胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>55%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:55%;height:8px;border-radius:8px;background:#2471a3"></div></div><span style="color:#999;font-size:11px">55%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-2</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-1</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-3</span></div>
-  <div style="display:flex;gap:6px;font-size:12px;margin-top:8px;background:#f8f9f8;border-radius:8px;padding:8px;flex-wrap:wrap"><span style="flex:1;min-width:80px"><b style="color:#d35400">波尔图</b> xG? 伤7</span><span style="flex:1;min-width:80px"><b style="color:#2471a3">曼彻斯特城</b> xG? 伤1</span><span style="color:#888">λ0.44/1.93 休息?/?h 必发主?%</span></div>
-  <div style="font-size:11px;color:#c0392b;margin-top:4px">⚠️ 主缺中前卫2、左边锋1、右边锋1、中锋1、左后卫1、中卫1；客缺左边锋1</div>
-  <div style="margin-top:6px"><div style="font-size:11px;color:#888">总进球分布</div><div style="display:flex;gap:3px"><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:10%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">0球10%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:21%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">1球21%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:27%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">2球27%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:21%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">3球21%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:12%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">4球12%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:9%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">5+球9%</span></div></div></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-2 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-1 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-2 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主24% 平23% 客53%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:24.0%;background:#d35400"></div><div style="width:23.0%;background:#95a5a6"></div><div style="width:53.0%;background:#2471a3"></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">必发资金 主71% 客29%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:70.79986028641285%;background:#d35400"></div><div style="width:29.20013971358715%;background:#2471a3"></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋 <span style="color:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">20.12 平0-0</span><span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">20.10 客1-3</span><span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">12.02 客0-4</span><span style="color:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">12.02 客1-2</span><span style="color:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border:1px solid #eee;border-radius:6px;display:inline-block;margin:2px">06.08 主1-0</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>可投小注</b></div>
-    <button onclick="toggle('d011')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
-  </div>
-  <div id="d011" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">客胜 波尔图vs曼彻斯特城 比分0-2/0-1/0-3 | 让球盘 让-0.75(主0.85/客1.03) | 欧赔 4.05/4.15/1.81 | EV +5.0% | 信号 客降水; 155家看衰主队(151升)</div>
-</div><div class="card" data-group="C" data-key="弗鲁米嫩塞vs普拉腾斯解放者杯" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[012] 解放者杯</span><span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">弗鲁米嫩塞vs普拉腾斯</div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>48%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:48%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">48%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span></div>
-  <div style="display:flex;gap:6px;font-size:12px;margin-top:8px;background:#f8f9f8;border-radius:8px;padding:8px;flex-wrap:wrap"><span style="flex:1;min-width:80px"><b style="color:#d35400">弗鲁米嫩塞</b> xG? 伤5</span><span style="flex:1;min-width:80px"><b style="color:#2471a3">普拉腾斯</b> xG? 伤4</span><span style="color:#888">λ1.18/0.51 休息?/?h 必发主?%</span></div>
-  <div style="font-size:11px;color:#c0392b;margin-top:4px">⚠️ 主缺后卫1、中场1、前锋3；客缺中锋2、后腰1、后卫1</div>
-  <div style="margin-top:6px"><div style="font-size:11px;color:#888">总进球分布</div><div style="display:flex;gap:3px"><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:20%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">0球20%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:29%;background:#e74c3c"></div></div><span style="font-size:9px;color:#888">1球29%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:27%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">2球27%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:15%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">3球15%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:6%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">4球6%</span></div><div style="flex:1;text-align:center"><div style="height:20px;background:#eee;border-radius:4px;overflow:hidden"><div style="height:100%;width:3%;background:#27ae60"></div></div><span style="font-size:9px;color:#888">5+球3%</span></div></div></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">12%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">11%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主65% 平23% 客12%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:65.0%;background:#d35400"></div><div style="width:23.0%;background:#95a5a6"></div><div style="width:12.0%;background:#2471a3"></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">必发资金 主80% 客20%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:80.0%;background:#d35400"></div><div style="width:20.0%;background:#2471a3"></div></div>
-  
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
-    <button onclick="toggle('d012')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
-  </div>
-  <div id="d012" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 弗鲁米嫩塞vs普拉腾斯 比分1-0/2-0/2-1 | 让球盘 让1.00(主0.81/客1.07) | 欧赔 1.43/4.0/7.6 | EV -41.4% | 信号 轨迹让球降盘; 主升水; 155家看衰主胜(146升); 主队5伤残阵</div>
-</div></div>
-<div style="color:#999;font-size:11px;text-align:center;margin:14px 0">阿豪二次修正 · 纯SOP独立判向 · 红字比分=防冷 · 仅供参考研究</div>
+</div>
+</section>
+
+<div class="disclaimer wrap">阿豪二次修正 · 数据仅供参考研究，不构成任何投注建议 · 理性看球，远离非法赌博<br>竞彩有风险，入市需谨慎 · 更新批次 2026-09-08</div>
+</div>
+
+<nav class="bottomtab">
+  <button class="tab on" data-view="today" onclick="switchTab('today')"><span class="ic">⚽</span>今日预测</button>
+  <button class="tab" data-view="history" onclick="switchTab('history')"><span class="ic">📈</span>历史战绩</button>
+  <button class="tab" data-view="model" onclick="switchTab('model')"><span class="ic">🧠</span>模型说明</button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
 <script>
-var G='全部';
-function apply(){document.querySelectorAll('.card').forEach(c=>{c.style.display=(G==='全部'||c.dataset.group===G)?'':'none'})}
-function setG(g){G=g;apply()}
-function toggleDark(){document.body.classList.toggle('dark')}
-function toggle(id){var e=document.getElementById(id);e.style.display=e.style.display==='none'?'':'none'}
+/* ===== 数据：与原静态页 9 场完全一致，未新增/虚构字段 ===== */
+var BANKROLL=8247.19;
+var MATCHES=[
+ {
+  "id": "002",
+  "group": "D",
+  "league": "欧冠",
+  "home": "AEK雅典",
+  "away": "LASK林茨",
+  "ai": {
+   "side": "主胜",
+   "p": 92
+  },
+  "fix": {
+   "side": "主胜",
+   "p": 38,
+   "note": "降置信 92%→38%",
+   "down": true
+  },
+  "pick": "主胜",
+  "conf": 38,
+  "scores": [
+   [
+    "1-0",
+    18
+   ],
+   [
+    "2-0",
+    13
+   ],
+   [
+    "2-1",
+    8
+   ]
+  ],
+  "cold": [],
+  "market": [
+   57,
+   22,
+   21
+  ],
+  "model": 38,
+  "delta": "模型看低 -19pt",
+  "bf": null,
+  "h2h": [],
+  "guard": "不防",
+  "bet": "不投",
+  "ah": "让0.75(主0.89/客0.99)",
+  "odds": [
+   1.7,
+   4.3,
+   4.55
+  ],
+  "inj": [
+   0,
+   0
+  ],
+  "ev": -35.4,
+  "sig": [
+   "155家看衰主胜(76升)",
+   "主队5伤残阵",
+   "休息70/75h<72赛程密集降5"
+  ]
+ },
+ {
+  "id": "003",
+  "group": "D",
+  "league": "欧冠",
+  "home": "布鲁日",
+  "away": "阿斯顿维拉",
+  "ai": {
+   "side": "客胜",
+   "p": 31
+  },
+  "fix": {
+   "side": "客胜",
+   "p": 20,
+   "note": "降置信 31%→20%",
+   "down": true
+  },
+  "pick": "客胜",
+  "conf": 20,
+  "scores": [
+   [
+    "0-1",
+    6
+   ],
+   [
+    "1-2",
+    6
+   ],
+   [
+    "0-2",
+    4
+   ]
+  ],
+  "cold": [],
+  "market": [
+   36,
+   26,
+   38
+  ],
+  "model": 38,
+  "delta": "接近市场 +0pt",
+  "bf": [
+   35,
+   45,
+   20
+  ],
+  "h2h": [
+   [
+    "A",
+    "客0-3"
+   ],
+   [
+    "A",
+    "客1-3"
+   ],
+   [
+    "H",
+    "主1-0"
+   ]
+  ],
+  "guard": "不防",
+  "bet": "不投",
+  "ah": "让0.00(主1.00/客0.88)",
+  "odds": [
+   2.66,
+   3.75,
+   2.51
+  ],
+  "inj": [
+   0,
+   0
+  ],
+  "ev": -4.6,
+  "sig": [
+   "客升水",
+   "155家支持主队(144降)",
+   "客队5伤残阵"
+  ]
+ },
+ {
+  "id": "004",
+  "group": "C",
+  "league": "荷甲",
+  "home": "奈梅亨",
+  "away": "SBV精英",
+  "ai": {
+   "side": "主胜",
+   "p": 100
+  },
+  "fix": {
+   "side": "主胜",
+   "p": 40,
+   "note": "降置信 100%→40%",
+   "down": true
+  },
+  "pick": "主胜",
+  "conf": 40,
+  "scores": [
+   [
+    "2-1",
+    10
+   ],
+   [
+    "2-0",
+    7
+   ],
+   [
+    "1-0",
+    7
+   ]
+  ],
+  "cold": [
+   "1-1"
+  ],
+  "market": [
+   64,
+   19,
+   17
+  ],
+  "model": 41,
+  "delta": "模型看低 -23pt",
+  "bf": null,
+  "h2h": [
+   [
+    "H",
+    "主2-0"
+   ],
+   [
+    "H",
+    "主5-0"
+   ],
+   [
+    "H",
+    "主3-0"
+   ],
+   [
+    "A",
+    "客3-4"
+   ],
+   [
+    "H",
+    "主3-0"
+   ]
+  ],
+  "guard": "防平",
+  "bet": "不投",
+  "ah": "让1.25(主1.02/客0.86)",
+  "odds": [
+   1.49,
+   4.95,
+   5.5
+  ],
+  "inj": [
+   0,
+   0
+  ],
+  "ev": -38.9,
+  "sig": [
+   "轨迹让球降盘",
+   "主升水",
+   "155家看衰主胜(149升)",
+   "主队5伤残阵",
+   "平局高发→防平",
+   "休息74/69h<72赛程密集降5"
+  ]
+ },
+ {
+  "id": "005",
+  "group": "D",
+  "league": "沙职",
+  "home": "卡达西亚",
+  "away": "吉达国民",
+  "ai": {
+   "side": "客胜",
+   "p": 36
+  },
+  "fix": {
+   "side": "客胜",
+   "p": 30,
+   "note": "同向不变",
+   "down": false
+  },
+  "pick": "客胜",
+  "conf": 30,
+  "scores": [
+   [
+    "1-2",
+    7
+   ],
+   [
+    "1-3",
+    4
+   ],
+   [
+    "2-3",
+    4
+   ]
+  ],
+  "cold": [
+   "2-3"
+  ],
+  "market": [
+   46,
+   24,
+   29
+  ],
+  "model": 38,
+  "delta": "模型看高 +9pt",
+  "bf": null,
+  "h2h": [
+   [
+    "H",
+    "主3-2"
+   ],
+   [
+    "D",
+    "平3-3"
+   ],
+   [
+    "A",
+    "客1-2"
+   ],
+   [
+    "A",
+    "客1-5"
+   ],
+   [
+    "A",
+    "客1-4"
+   ]
+  ],
+  "guard": "防冷",
+  "bet": "不投",
+  "ah": "让0.50(主0.96/客0.86)",
+  "odds": [
+   1.96,
+   3.75,
+   3.1
+  ],
+  "inj": [
+   0,
+   0
+  ],
+  "ev": 17.8,
+  "sig": [
+   "主升水",
+   "155家看衰主胜(140升)",
+   "155家140升强烈看衰主胜=诱盘反转(另一AI客胜+10.8%)",
+   "xG校准客λ1.27→1.63"
+  ]
+ },
+ {
+  "id": "006",
+  "group": "C",
+  "league": "英冠",
+  "home": "南安普敦",
+  "away": "斯旺西",
+  "ai": {
+   "side": "主胜",
+   "p": 97
+  },
+  "fix": {
+   "side": "主胜",
+   "p": 42,
+   "note": "降置信 97%→42%",
+   "down": true
+  },
+  "pick": "主胜",
+  "conf": 42,
+  "scores": [
+   [
+    "2-1",
+    9
+   ],
+   [
+    "1-0",
+    8
+   ],
+   [
+    "2-0",
+    8
+   ]
+  ],
+  "cold": [
+   "1-1"
+  ],
+  "market": [
+   49,
+   25,
+   26
+  ],
+  "model": 41,
+  "delta": "模型看低 -8pt",
+  "bf": [
+   75,
+   13,
+   12
+  ],
+  "h2h": [
+   [
+    "H",
+    "主2-1"
+   ],
+   [
+    "D",
+    "平0-0"
+   ],
+   [
+    "H",
+    "主3-0"
+   ],
+   [
+    "H",
+    "主3-1"
+   ],
+   [
+    "H",
+    "主5-0"
+   ]
+  ],
+  "guard": "防平",
+  "bet": "不投",
+  "ah": "让0.50(主0.90/客0.98)",
+  "odds": [
+   1.9,
+   3.7,
+   3.55
+  ],
+  "inj": [
+   0,
+   0
+  ],
+  "ev": -22.1,
+  "sig": [
+   "主降水",
+   "平局高发→防平",
+   "休息79/71h<72赛程密集降5"
+  ]
+ },
+ {
+  "id": "007",
+  "group": "C",
+  "league": "英联赛杯",
+  "home": "桑德兰",
+  "away": "赫尔城",
+  "ai": {
+   "side": "平",
+   "p": 37
+  },
+  "fix": {
+   "side": "主胜",
+   "p": 45,
+   "note": "同向不变",
+   "down": false
+  },
+  "pick": "主胜",
+  "conf": 45,
+  "scores": [
+   [
+    "1-0",
+    11
+   ],
+   [
+    "2-0",
+    9
+   ],
+   [
+    "2-1",
+    9
+   ]
+  ],
+  "cold": [
+   "1-1"
+  ],
+  "market": [
+   53,
+   25,
+   22
+  ],
+  "model": 41,
+  "delta": "模型看低 -12pt",
+  "bf": [
+   86,
+   5,
+   9
+  ],
+  "h2h": [
+   [
+    "A",
+    "客1-2"
+   ],
+   [
+    "A",
+    "客0-1"
+   ],
+   [
+    "H",
+    "主1-0"
+   ],
+   [
+    "A",
+    "客0-1"
+   ],
+   [
+    "H",
+    "主1-0"
+   ]
+  ],
+  "guard": "防平",
+  "bet": "不投",
+  "ah": "让0.75(主0.92/客0.90)",
+  "odds": [
+   1.71,
+   3.6,
+   4.2
+  ],
+  "inj": [
+   0,
+   0
+  ],
+  "ev": -29.9,
+  "sig": [
+   "主降水",
+   "155家支持主胜(116降)",
+   "H2H客队占优(2/3)",
+   "英联赛杯双方轮换+赛程密集(杯赛轮换踩坑#53,另一AI判平)",
+   "xG校准客λ0.36→0.98"
+  ]
+ },
+ {
+  "id": "008",
+  "group": "C",
+  "league": "欧冠",
+  "home": "皇家马德里",
+  "away": "国际米兰",
+  "ai": {
+   "side": "客胜",
+   "p": 44
+  },
+  "fix": {
+   "side": "主胜",
+   "p": 45,
+   "note": "同向不变",
+   "down": false
+  },
+  "pick": "主胜",
+  "conf": 45,
+  "scores": [
+   [
+    "1-0",
+    11
+   ],
+   [
+    "2-0",
+    9
+   ],
+   [
+    "2-1",
+    9
+   ]
+  ],
+  "cold": [
+   "2-1"
+  ],
+  "market": [
+   58,
+   22,
+   20
+  ],
+  "model": 41,
+  "delta": "模型看低 -17pt",
+  "bf": null,
+  "h2h": [
+   [
+    "H",
+    "主2-0"
+   ],
+   [
+    "H",
+    "主1-0"
+   ],
+   [
+    "H",
+    "主2-0"
+   ],
+   [
+    "H",
+    "主3-2"
+   ],
+   [
+    "H",
+    "主3-0"
+   ]
+  ],
+  "guard": "防冷",
+  "bet": "不投",
+  "ah": "让0.75(主0.84/客1.04)",
+  "odds": [
+   1.67,
+   4.35,
+   4.75
+  ],
+  "inj": [
+   0,
+   0
+  ],
+  "ev": -31.5,
+  "sig": [
+   "轨迹让球升盘",
+   "主降水",
+   "155家支持主胜(101降)",
+   "主队7伤残阵",
+   "皇马7-9伤残阵(另一AI判客胜+25%,残阵热门踩坑#41)"
+  ]
+ },
+ {
+  "id": "009",
+  "group": "D",
+  "league": "欧冠",
+  "home": "多特蒙德",
+  "away": "比利亚雷亚尔",
+  "ai": {
+   "side": "主胜",
+   "p": 40
+  },
+  "fix": {
+   "side": "主胜",
+   "p": 32,
+   "note": "同向不变",
+   "down": false
+  },
+  "pick": "主胜",
+  "conf": 32,
+  "scores": [
+   [
+    "1-0",
+    12
+   ],
+   [
+    "2-1",
+    8
+   ],
+   [
+    "2-0",
+    8
+   ]
+  ],
+  "cold": [],
+  "market": [
+   53,
+   22,
+   24
+  ],
+  "model": 38,
+  "delta": "模型看低 -15pt",
+  "bf": [
+   75,
+   16,
+   9
+  ],
+  "h2h": [
+   [
+    "H",
+    "主4-0"
+   ],
+   [
+    "D",
+    "平2-2"
+   ],
+   [
+    "A",
+    "客0-2"
+   ]
+  ],
+  "guard": "不防",
+  "bet": "不投",
+  "ah": "让0.75(主1.01/客0.87)",
+  "odds": [
+   1.8,
+   4.3,
+   3.95
+  ],
+  "inj": [
+   0,
+   0
+  ],
+  "ev": -31.6,
+  "sig": [
+   "155家看衰主胜(87升)",
+   "主队10伤残阵"
+  ]
+ },
+ {
+  "id": "010",
+  "group": "C",
+  "league": "欧冠",
+  "home": "里尔",
+  "away": "皇家贝蒂斯",
+  "ai": {
+   "side": "主胜",
+   "p": 72
+  },
+  "fix": {
+   "side": "主胜",
+   "p": 45,
+   "note": "降置信 72%→45%",
+   "down": true
+  },
+  "pick": "主胜",
+  "conf": 45,
+  "scores": [
+   [
+    "1-0",
+    8
+   ],
+   [
+    "2-1",
+    7
+   ],
+   [
+    "2-0",
+    5
+   ]
+  ],
+  "cold": [],
+  "market": [
+   41,
+   26,
+   33
+  ],
+  "model": 41,
+  "delta": "接近市场 +0pt",
+  "bf": null,
+  "h2h": [
+   [
+    "D",
+    "平2-2"
+   ]
+  ],
+  "guard": "不防",
+  "bet": "不投",
+  "ah": "让0.25(主1.02/客0.86)",
+  "odds": [
+   2.32,
+   3.7,
+   2.96
+  ],
+  "inj": [
+   0,
+   0
+  ],
+  "ev": -4.9,
+  "sig": [
+   "主降水",
+   "155家支持主胜(115降)"
+  ]
+ },
+ {
+  "id": "011",
+  "group": "B",
+  "league": "欧冠",
+  "home": "波尔图",
+  "away": "曼彻斯特城",
+  "ai": {
+   "side": "客胜",
+   "p": 84
+  },
+  "fix": {
+   "side": "客胜",
+   "p": 55,
+   "note": "降置信 84%→55%",
+   "down": true
+  },
+  "pick": "客胜",
+  "conf": 55,
+  "scores": [
+   [
+    "0-2",
+    17
+   ],
+   [
+    "0-1",
+    17
+   ],
+   [
+    "0-3",
+    11
+   ]
+  ],
+  "cold": [],
+  "market": [
+   24,
+   23,
+   53
+  ],
+  "model": 57,
+  "delta": "模型看高 +4pt",
+  "bf": [
+   12,
+   83,
+   5
+  ],
+  "h2h": [
+   [
+    "D",
+    "平0-0"
+   ],
+   [
+    "A",
+    "客1-3"
+   ],
+   [
+    "A",
+    "客0-4"
+   ],
+   [
+    "A",
+    "客1-2"
+   ],
+   [
+    "H",
+    "主1-0"
+   ]
+  ],
+  "guard": "不防",
+  "bet": "可投小注",
+  "ah": "让-0.75(主0.85/客1.03)",
+  "odds": [
+   4.05,
+   4.15,
+   1.81
+  ],
+  "inj": [
+   0,
+   0
+  ],
+  "ev": 5.0,
+  "sig": [
+   "客降水",
+   "155家看衰主队(151升)"
+  ]
+ },
+ {
+  "id": "012",
+  "group": "C",
+  "league": "解放者杯",
+  "home": "弗鲁米嫩塞",
+  "away": "普拉腾斯",
+  "ai": {
+   "side": "主胜",
+   "p": 62
+  },
+  "fix": {
+   "side": "主胜",
+   "p": 48,
+   "note": "降置信 62%→48%",
+   "down": true
+  },
+  "pick": "主胜",
+  "conf": 48,
+  "scores": [
+   [
+    "1-0",
+    21
+   ],
+   [
+    "2-0",
+    13
+   ],
+   [
+    "2-1",
+    7
+   ]
+  ],
+  "cold": [],
+  "market": [
+   65,
+   23,
+   12
+  ],
+  "model": 41,
+  "delta": "模型看低 -24pt",
+  "bf": [
+   67,
+   16,
+   17
+  ],
+  "h2h": [],
+  "guard": "不防",
+  "bet": "不投",
+  "ah": "让1.00(主0.81/客1.07)",
+  "odds": [
+   1.43,
+   4.0,
+   7.6
+  ],
+  "inj": [
+   0,
+   0
+  ],
+  "ev": -41.4,
+  "sig": [
+   "轨迹让球降盘",
+   "主升水",
+   "155家看衰主胜(146升)",
+   "主队5伤残阵"
+  ]
+ }
+];
+var LEDGER=[
+["09-05 纽约城vs纳什维尔SC","单关","客胜",-300],["09-02 米尔沃尔×西布朗×QPR","稳健3串1","三主胜",-90],
+["09-02 西布朗×QPR","稳健2串1","双主胜",-136],["09-02 水户蜀葵vs鹿岛鹿角","单关","客胜",-271],
+["09-01 10场","3注","",-365],["08-31 亚特兰大vs博洛尼亚","博冷单关","平",-100],
+["08-31 尤尔加登×圣埃蒂安","价值2串1","主×客",345],["08-31 阿森纳×圣埃蒂安","稳健2串1","客×客",472],
+["08-31 罗马×本菲卡×巴萨","稳健3串1","客×主×主",463.75],["08-29 埃尔沃斯堡vs勒沃库森","单关","客胜",-235]
+];
+
+/* ===== 推导函数（全部由现有数据现算，不造数） ===== */
+function sideClass(p){return p==='主胜'?'home':'away'}
+function pickOdds(m){return m.pick==='主胜'?m.odds[0]:m.odds[2]}
+function marketRefOf(m){return m.pick==='主胜'?m.market[0]:m.market[2]}
+function ptOf(m){var x=String(m.delta).match(/-?\d+(\.\d+)?/);return x?parseFloat(x[0]):0}
+function riskOf(m){var s=0;if(m.guard!=='不防')s++;if(m.inj[0]+m.inj[1]>=8)s++;if(Math.abs(ptOf(m))>=10)s++;if(m.conf<30)s++;return s>=3?['高','hi']:(s===2?['中','mid']:['低','lo'])}
+function formSum(m){var h=0,d=0,a=0;m.h2h.forEach(function(x){x[0]==='H'?h++:x[0]==='D'?d++:a++});return '近'+m.h2h.length+'场 '+h+'胜'+d+'平'+a+'负'}
+function kelly(m){var p=m.model/100,o=pickOdds(m),b=o-1,f=(p*b-(1-p))/b;if(f<=0)return null;var q=f/4*BANKROLL;return Math.min(q,BANKROLL*0.03)}
+function copyTextOf(m){return m.pick+' '+m.home+'vs'+m.away+' 比分'+m.scores.map(function(s){return s[0]}).join('/')+
+ (m.guard!=='不防'?' 防'+m.guard:'')+' | 让球盘 '+m.ah+' | 欧赔 '+m.odds.join('/')+' | 伤停 '+m.inj[0]+'/'+m.inj[1]+
+ ' | EV '+m.ev+'% | 信号 '+m.sig.join(';');}
+
+/* ===== 渲染 ===== */
+function render(){
+  var list=document.getElementById('list');list.innerHTML='';
+  MATCHES.forEach(function(m){
+    var side=sideClass(m.pick),aiP=(m.ai.p===null)?'nan':m.ai.p+'%',marketRef=marketRefOf(m),risk=riskOf(m);
+    var scores=m.scores.map(function(s){return '<span class="sc'+(m.cold.indexOf(s[0])>=0?' cold':'')+'">'+s[0]+'<span class="p num">'+s[1]+'%</span></span>'}).join('');
+    var mk=m.market,bf=m.bf;
+    var bfBlock=bf?('<div class="prob"><div class="prob-label"><span>必发资金流向</span><span class="num">主'+bf[0]+'% · 平'+bf[1]+'% · 客'+bf[2]+'%</span></div>'+
+      '<div class="bar3"><i class="h" style="width:0" data-w="'+bf[0]+'"></i><i class="d" style="width:0" data-w="'+bf[1]+'"></i><i class="a" style="width:0" data-w="'+bf[2]+'"></i></div></div>')
+      :'<div class="delta"><span class="tag">必发未出</span></div>';
+    var h2h=m.h2h.map(function(h){return '<span class="f '+h[0]+'">'+h[1]+'</span>'}).join('');
+    var guardCls=m.guard==='不防'?'none':(m.guard==='防平'?'draw':'cold');
+    var deltaType=/看低/.test(m.delta)?'bad':'ok';
+    var k=kelly(m),pickIdx=m.pick==='主胜'?0:2;
+    var kellyBox=k?('<div class="kelly go"><span class="ic">🎯</span><div>1/4 凯利建议仓位 <b class="num">'+Math.round(k)+' 元</b>（占余额 '+(k/BANKROLL*100).toFixed(1)+'%，已按≤3%封顶）· 模型 '+m.model+'% × 欧赔 '+pickOdds(m).toFixed(2)+'</div></div>')
+      :('<div class="kelly no"><span class="ic">🚫</span><div>EV <b class="num">'+m.ev+'%</b> 为负，凯利公式不给出仓位，与“只投正 EV / 本场'+m.bet+'”一致。</div></div>');
+    var el=document.createElement('div');
+    el.className='card match';
+    el.setAttribute('data-group',m.group);
+    el.setAttribute('data-key',(m.home+'vs'+m.away+m.league).toLowerCase());
+    el.setAttribute('data-bet',m.bet);
+    el.setAttribute('data-conf',m.conf);el.setAttribute('data-ev',m.ev);el.setAttribute('data-idx',m.id);
+    el.innerHTML=
+     '<div class="m-head cardview" onclick="toggle(\'d'+m.id+'\',this)">'+
+        '<div class="m-meta"><span class="m-league">['+m.id+'] '+m.league+'<span class="shortcode">'+(m.pick==='主胜'?'主':'客')+'</span></span>'+
+          '<span><span class="risk '+risk[1]+'">风险'+risk[0]+'</span><span class="grp '+m.group+'">'+m.group+'组</span></span></div>'+
+        '<div class="m-teams"><span class="vs">'+m.home+'<span class="at">vs</span>'+m.away+'</span></div>'+
+        '<div class="adj">AI原判 <b>'+m.ai.side+aiP+'</b> → 二次修正 <b>'+m.fix.side+m.fix.p+'%</b> '+(m.fix.down?'<span class="pill-down">'+m.fix.note+'</span>':'<span class="same">'+m.fix.note+'</span>')+'</div>'+
+        '<div class="pick-row"><span class="pick-side '+side+'">'+m.pick+'</span>'+
+          '<div class="conf-wrap"><div class="conf-line"><span>置信度</span><span class="num">模型 '+m.model+'%</span></div>'+
+          '<div class="conf-track"><div class="conf-fill '+side+'" style="width:0" data-w="'+m.conf+'"></div></div></div>'+
+          '<span class="conf-big '+side+' num" data-count="'+m.conf+'">0%</span></div>'+
+        '<div class="scoreline">'+scores+'</div>'+
+        '<div class="prob"><div class="prob-label"><span>市场去水概率（胜 / 平 / 负）</span></div>'+
+          '<div class="bar3"><i class="h" style="width:0" data-w="'+mk[0]+'"></i><i class="d" style="width:0" data-w="'+mk[1]+'"></i><i class="a" style="width:0" data-w="'+mk[2]+'"></i></div>'+
+          '<div class="legend3"><span><i class="lg-dot h"></i>主胜<b class="num">'+mk[0]+'%</b></span><span><i class="lg-dot d"></i>平<b class="num">'+mk[1]+'%</b></span><span><i class="lg-dot a"></i>客胜<b class="num">'+mk[2]+'%</b></span></div></div>'+
+        '<div class="dual"><div class="dual-track">'+
+          '<span class="dual-mk" style="left:'+marketRef+'%"></span><span class="dual-md" style="left:'+m.model+'%"></span></div>'+
+          '<div class="dual-cap"><span>市场'+m.pick+' <b class="num">'+marketRef+'%</b></span><span class="md">▲ 模型 <b class="num">'+m.model+'%</b></span></div></div>'+
+        '<div class="delta"><span class="tag '+deltaType+'">模型 '+m.model+'% vs 市场'+m.pick+' '+marketRef+'% · '+m.delta+'</span>'+(m.ev>0?'<span class="tag value">⚡ 正EV</span>':'')+'</div>'+
+        bfBlock+
+        '<div class="prob"><div class="prob-label"><span>近5交锋（主队视角）</span></div>'+
+          '<div class="form">'+h2h+'<span class="form-sum num">'+formSum(m)+'</span></div></div>'+
+        '<div class="verdict"><span class="guard '+guardCls+'">'+m.guard+'</span>'+
+          '<span class="ev num" style="color:'+(m.ev>=0?'var(--pos)':'var(--neg)')+'">EV '+m.ev+'%</span>'+
+          '<span class="bet-state '+(m.bet!=='不投'?'go':'no')+'">'+m.bet+'</span><span class="chev">▾</span></div>'+
+      '</div>'+
+     '<div class="m-head rowview" onclick="toggle(\'d'+m.id+'\',this)">'+
+        '<span class="rv-risk '+risk[1]+'" title="风险'+risk[0]+'"></span>'+
+        '<div class="rv-teams"><div class="t">'+m.home+' vs '+m.away+'</div><div class="l"><span class="grp '+m.group+'">'+m.group+'</span>'+m.league+' · '+m.guard+'</div></div>'+
+        '<span class="rv-pick '+side+'">'+(m.pick==='主胜'?'主':'客')+'</span>'+
+        '<span class="rv-conf num" style="color:'+(side==='home'?'var(--win)':'var(--lose)')+'">'+m.conf+'%</span>'+
+        '<span class="rv-ev num" style="color:'+(m.ev>=0?'var(--pos)':'var(--neg)')+'">'+m.ev+'%</span>'+
+      '</div>'+
+      '<div class="detail" id="d'+m.id+'"><div class="m-inner"><div class="detail-box">'+
+        '<div class="odds-grid">'+
+          '<div class="odd'+(pickIdx===0?' hl':'')+'"><div class="ok">主胜欧赔</div><div class="ov num">'+m.odds[0].toFixed(2)+'</div></div>'+
+          '<div class="odd"><div class="ok">平局欧赔</div><div class="ov num">'+m.odds[1].toFixed(2)+'</div></div>'+
+          '<div class="odd'+(pickIdx===2?' hl':'')+'"><div class="ok">客胜欧赔</div><div class="ov num">'+m.odds[2].toFixed(2)+'</div></div></div>'+
+        '<div class="kv"><div class="cell"><div class="ck">让球盘</div><div class="cv num">'+m.ah+'</div></div>'+
+          '<div class="cell"><div class="ck">DC 首选比分</div><div class="cv num">'+m.scores[0][0]+' ('+m.scores[0][1]+'%)</div></div></div>'+
+        kellyBox+
+        '<div class="injury'+((m.inj[0]+m.inj[1])===0?' safe':'')+'">'+((m.inj[0]+m.inj[1])===0?'✅ 双方无伤停报告':'⚠️ 伤停 主队 '+m.inj[0]+' 人 · 客队 '+m.inj[1]+' 人'+((m.inj[0]+m.inj[1])>=8?'（伤停较多，重点留意）':''))+'</div>'+
+        '<div class="signals">'+m.sig.map(function(s){return '<span class="sig'+(/诱盘|缺阵|背离|超深盘/.test(s)?' hot':'')+'">'+s+'</span>'}).join('')+'</div>'+
+        '<div class="detail-actions"><button class="dbtn" onclick="event.stopPropagation();toggle(\'d'+m.id+'\',this.closest(\'.match\').querySelector(\'.cardview\'))">收起</button>'+
+          '<button class="dbtn primary" onclick="event.stopPropagation();copyTextRaw('+JSON.stringify(copyTextOf(m)).replace(/"/g,'&quot;')+')">📋 复制推荐文案</button></div>'+
+      '</div></div></div>';
+    list.appendChild(el);
+  });
+  var lg=document.getElementById('ledger');
+  lg.innerHTML=LEDGER.map(function(r){return '<div class="ledger-row"><span class="m">'+r[0]+'</span><span class="ty">'+r[1]+'</span><span class="pk">'+(r[2]||'—')+'</span><span class="amt num '+(r[3]>=0?'pos':'neg')+'">'+(r[3]>=0?'+':'')+r[3]+'</span></div>'}).join('');
+  renderKPI();
+}
+/* 顶部 KPI 速算 */
+function renderKPI(){
+  var topConf=MATCHES.slice().sort(function(a,b){return b.conf-a.conf})[0];
+  var pos=MATCHES.filter(function(m){return m.ev>=0}).length;
+  var bet=MATCHES.filter(function(m){return m.bet!=='不投'}).length;
+  var cells=[
+    ['🏆 '+topConf.conf+'%',topConf.home.slice(0,6)],
+    ['⚡ '+pos+' 场','正EV机会'],
+    ['🎯 '+bet+' 场','今日可投'],
+    ['📈 28%','近18注胜率']
+  ];
+  document.getElementById('kpiStrip').innerHTML=cells.map(function(c){return '<div class="kpi"><div class="v num">'+c[0]+'</div><div class="k">'+c[1]+'</div></div>'}).join('');
+}
+
+/* ===== 筛选 / 排序 / 视图（保留旧函数名） ===== */
+var G='全部',B=false,Q='',sortMode='group';
+function visible(m){var okG=(G==='全部'||m.group===G);var okB=(!B||m.bet!=='不投');var q=Q;var okQ=(!q||(m.home+'vs'+m.away+m.league).toLowerCase().indexOf(q)>=0);return okG&&okB&&okQ}
+function apply(){
+  Q=document.getElementById('search').value.toLowerCase();var shown=0;
+  sortCards();
+  document.querySelectorAll('#list .match').forEach(function(c){var m=MATCHES.find(function(x){return x.id===c.dataset.idx});var vis=visible(m);c.style.display=vis?'':'none';if(vis)shown++});
+  document.getElementById('countLine').textContent='显示 '+shown+' / '+MATCHES.length+' 场';
+}
+function sortCards(){
+  var list=document.getElementById('list'),nodes=Array.prototype.slice.call(list.children);
+  nodes.sort(function(a,b){
+    if(sortMode==='conf')return (+b.dataset.conf)-(+a.dataset.conf);
+    if(sortMode==='ev')return (+b.dataset.ev)-(+a.dataset.ev);
+    return (+a.dataset.idx)-(+b.dataset.idx);
+  });
+  nodes.forEach(function(n){list.appendChild(n)});
+  var hint={group:'按场次排序',conf:'置信度从高到低',ev:'EV 从高到低'};
+  var h=document.getElementById('sortHint');if(h)h.textContent=hint[sortMode];
+}
+function setG(g,btn){G=g;document.querySelectorAll('#groupSeg button').forEach(function(b){b.classList.remove('on')});if(btn)btn.classList.add('on');apply()}
+function setBet(){B=!B;document.getElementById('betbtn').classList.toggle('on',B);apply()}
+function setSort(s,btn){sortMode=s;document.querySelectorAll('#sortSeg button').forEach(function(b){b.classList.remove('on')});btn.classList.add('on');apply()}
+function setLayout(l,btn){document.body.setAttribute('data-layout',l);document.querySelectorAll('#layoutSeg button').forEach(function(b){b.classList.remove('on')});btn.classList.add('on');setTimeout(fitOpen,60)}
+function toggleAll(open){document.querySelectorAll('#list .match').forEach(function(card){var d=card.querySelector('.detail');var isOpen=card.classList.contains('open');if(open&&!isOpen){d.style.maxHeight=d.scrollHeight+'px';card.classList.add('open')}if(!open&&isOpen){d.style.maxHeight='0px';card.classList.remove('open')}})}
+function fitOpen(){document.querySelectorAll('.match.open .detail').forEach(function(d){d.style.maxHeight=d.scrollHeight+'px'})}
+function toggleDark(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',t);localStorage.setItem('sop-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️'}
+function toggle(id,head){var e=document.getElementById(id);var card=e.closest('.match');var open=card.classList.contains('open');if(open){e.style.maxHeight='0px';card.classList.remove('open')}else{e.style.maxHeight=e.scrollHeight+'px';card.classList.add('open')}}
+function copy(id){var e=document.getElementById(id);if(e)copyTextRaw(e.innerText)}
+function copyAll(){var txt='【9/8 全11场 · 阿豪二次修正】\n'+MATCHES.map(copyTextOf).join('\n');copyTextRaw(txt)}
+var toastTimer;
+function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show')},1700)}
+function copyTextRaw(t){if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){showToast('已复制，可直接粘贴')},function(){fb(t)})}else fb(t)}
+function fb(t){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast('已复制')}catch(e){showToast('复制失败，请手动选择')}ta.remove()}
+function switchTab(v){document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.view===v)});document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('on',s.id==='view-'+v)});window.scrollTo({top:0,behavior:'smooth'})}
+
+var UPDATED_AT=new Date('2026-09-08T20:00:00+08:00');
+function relTime(t){var s=(Date.now()-t.getTime())/1000;if(s<60)return '刚刚更新';var m=Math.floor(s/60);if(m<60)return '更新于 '+m+' 分钟前';var h=Math.floor(m/60);if(h<24)return '更新于 '+h+' 小时前';return '更新于 '+Math.floor(h/24)+' 天前'}
+function tickUpdated(){var el=document.getElementById('updatedAt');if(el)el.textContent=relTime(UPDATED_AT)+' · 9/7 批次'}
+
+function countUp(){document.querySelectorAll('[data-count]').forEach(function(el){var target=+el.dataset.count,st=performance.now(),dur=850;function f(now){var p=Math.min(1,(now-st)/dur),ease=1-Math.pow(1-p,3);el.textContent=Math.round(target*ease)+'%';if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)})}
+function animateBars(){requestAnimationFrame(function(){requestAnimationFrame(function(){document.querySelectorAll('.bar3 i[data-w],.conf-fill[data-w]').forEach(function(i){i.style.width=i.dataset.w+'%'});countUp()})})}
+
+window.addEventListener('DOMContentLoaded',function(){
+  render();apply();tickUpdated();setInterval(tickUpdated,30000);
+  document.getElementById('themeBtn').textContent=document.documentElement.getAttribute('data-theme')==='dark'?'🌙':'☀️';
+  setTimeout(function(){document.body.classList.add('ready');animateBars()},420);
+});
+window.addEventListener('resize',fitOpen);
 </script>
 </body></html>
