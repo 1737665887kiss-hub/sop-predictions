@@ -56,7 +56,7 @@ button{font-family:inherit;color:inherit}
 .card,.chip,.seg button,.stat,.ledger-row,.iconbtn,.mini-seg button,.toolbtn{transition:all .2s ease}
 
 /* ============ 顶部导航 ============ */
-.topnav{position:static;top:auto;z-index:50;backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);
+.topnav{position:static!important;top:auto!important;z-index:50;backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);
   background:var(--nav-bg);border-bottom:1px solid var(--line)}
 .topnav-in{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px}
 .brand{display:flex;align-items:center;gap:9px;min-width:0;flex:1}
@@ -121,7 +121,7 @@ button{font-family:inherit;color:inherit}
 .note.tip{background:color-mix(in srgb,var(--gold) 12%,transparent);border:1px solid color-mix(in srgb,var(--gold) 32%,transparent);color:var(--gold)}
 
 /* 筛选/工具条 */
-.filterbar{position:static;top:auto;z-index:30;margin:12px 0 4px;padding:9px;border-radius:16px;
+.filterbar{position:static!important;top:auto!important;z-index:30;margin:12px 0 4px;padding:9px;border-radius:16px;
   background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(150%) blur(14px);-webkit-backdrop-filter:saturate(150%) blur(14px);
   border:1px solid var(--line);box-shadow:0 10px 26px rgba(0,0,0,.28)}
 [data-theme="light"] .filterbar{background:color-mix(in srgb,var(--bg) 90%,transparent)}
@@ -350,7 +350,7 @@ body.ready .skeleton{display:none}
     <div class="note gray">🧭 纪律：单注 ≤3% · 只投正 EV · 日亏停手 · 串关优先于单关。</div>
   </div>
 
-  <div class="filterbar">
+  <details class="filterbar" id="filterBar"><summary style="cursor:pointer;font-weight:700;font-size:14px;padding:4px 2px;color:var(--t2)">⚙️ 筛选 / 排序（点击展开）</summary><div style="margin-top:6px">
     <div class="seg" id="groupSeg">
       <button class="on" onclick="setG('全部',this)">全部</button>
       <button class="g-A" onclick="setG('A',this)">A</button>
@@ -377,8 +377,8 @@ body.ready .skeleton{display:none}
       <button class="toolbtn" onclick="toggleAll(false)">收起</button>
       <button class="toolbtn" onclick="copyAll()">📨 复制整批</button>
     </div>
-    <div class="result-count"><span id="countLine">显示 9 / 9 场</span><span id="sortHint"></span></div>
-  </div>
+    <div class="result-count"><span id="countLine">显示 11 / 11 场</span><span id="sortHint"></span></div>
+  </div></details>
 
   <div id="list"></div>
 </div>
