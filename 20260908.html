@@ -512,8 +512,8 @@ var MATCHES=[
    4.55
   ],
   "inj": [
-   0,
-   0
+   5,
+   5
   ],
   "ev": -35.4,
   "sig": [
@@ -609,8 +609,8 @@ var MATCHES=[
    2.51
   ],
   "inj": [
-   0,
-   0
+   1,
+   5
   ],
   "ev": -4.6,
   "sig": [
@@ -712,8 +712,8 @@ var MATCHES=[
    5.5
   ],
   "inj": [
-   0,
-   0
+   5,
+   2
   ],
   "ev": -38.9,
   "sig": [
@@ -818,8 +818,8 @@ var MATCHES=[
    3.1
   ],
   "inj": [
-   0,
-   0
+   1,
+   1
   ],
   "ev": 17.8,
   "sig": [
@@ -1033,8 +1033,8 @@ var MATCHES=[
    4.2
   ],
   "inj": [
-   0,
-   0
+   2,
+   8
   ],
   "ev": -29.9,
   "sig": [
@@ -1321,7 +1321,7 @@ var MATCHES=[
    2.96
   ],
   "inj": [
-   0,
+   2,
    0
   ],
   "ev": -4.9,
@@ -1425,8 +1425,8 @@ var MATCHES=[
    1.81
   ],
   "inj": [
-   0,
-   0
+   7,
+   1
   ],
   "ev": 5.0,
   "sig": [
@@ -1508,8 +1508,8 @@ var MATCHES=[
    7.6
   ],
   "inj": [
-   0,
-   0
+   5,
+   4
   ],
   "ev": -41.4,
   "sig": [
@@ -1687,7 +1687,7 @@ function switchTab(v){document.querySelectorAll('.tab').forEach(function(t){t.cl
 
 var UPDATED_AT=new Date('2026-09-08T20:00:00+08:00');
 function relTime(t){var s=(Date.now()-t.getTime())/1000;if(s<60)return '刚刚更新';var m=Math.floor(s/60);if(m<60)return '更新于 '+m+' 分钟前';var h=Math.floor(m/60);if(h<24)return '更新于 '+h+' 小时前';return '更新于 '+Math.floor(h/24)+' 天前'}
-function tickUpdated(){var el=document.getElementById('updatedAt');if(el)el.textContent=relTime(UPDATED_AT)+' · 9/7 批次'}
+function tickUpdated(){var el=document.getElementById('updatedAt');if(el)el.textContent=relTime(UPDATED_AT)+' · 9/8 批次'}
 
 function countUp(){document.querySelectorAll('[data-count]').forEach(function(el){var target=+el.dataset.count,st=performance.now(),dur=850;function f(now){var p=Math.min(1,(now-st)/dur),ease=1-Math.pow(1-p,3);el.textContent=Math.round(target*ease)+'%';if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)})}
 function animateBars(){requestAnimationFrame(function(){requestAnimationFrame(function(){document.querySelectorAll('.bar3 i[data-w],.conf-fill[data-w]').forEach(function(i){i.style.width=i.dataset.w+'%'});countUp()})})}
