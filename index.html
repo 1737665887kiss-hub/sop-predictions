@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>体彩竞彩 9/7 全9场 · 阿豪二次修正</title>
+<title>体彩竞彩 9/8 全11场 · 阿豪二次修正</title>
 <style>
 body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#eef3ee;margin:0;padding:14px;max-width:640px;margin:0 auto;color:#222}
 body.dark{background:#111;color:#eee}
@@ -7,311 +7,261 @@ body.dark .card{background:#1e1e1e;box-shadow:0 2px 8px rgba(0,0,0,.4)}
 .sticky{position:sticky;top:8px;z-index:10}
 .filterbar{display:flex;gap:6px;background:#fff;border-radius:12px;padding:8px;box-shadow:0 2px 6px rgba(0,0,0,.1);flex-wrap:wrap}
 body.dark .filterbar{background:#1e1e1e}
-.search{width:100%;margin-top:6px;padding:8px;border:1px solid #ccc;border-radius:8px;font-size:14px;box-sizing:border-box}
 </style></head><body>
 <div style="background:linear-gradient(135deg,#2c5f2d,#1e8449);color:#fff;border-radius:14px;padding:16px;margin-bottom:8px">
-  <div style="font-size:20px;font-weight:bold">⚽ 9/7 全9场 · 阿豪二次修正</div>
-  <div style="font-size:13px;opacity:.9;margin-top:4px">💰 余额 8247.19元 · 五项共振 · 伤停即嗨核实 · v5.97</div>
+  <div style="font-size:20px;font-weight:bold">⚽ 9/8 全11场 · 阿豪二次修正</div>
+  <div style="font-size:13px;opacity:.9;margin-top:4px">💰 余额 8247.19元 · 纯SOP独立判向(无另一AI) · v6.00</div>
 </div>
 <div class="sticky"><div class="filterbar">
-  <button onclick="setG('全部')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#2c5f2d;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">全部</button><button onclick="setG('A')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#27ae60;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">A</button><button onclick="setG('B')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#f1c40f;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">B</button><button onclick="setG('C')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#e74c3c;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">C</button><button onclick="setG('D')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#3498db;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">D</button><button onclick="setG('E')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#9b59b6;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">E</button>
-  <button onclick="toggleDark()" style="padding:8px 12px;border:none;border-radius:8px;background:#555;color:#fff;font-weight:bold;font-size:13px;cursor:pointer">🌙</button>
-  <button onclick="setBet()" id="betbtn" style="padding:8px 12px;border:none;border-radius:8px;background:#aaa;color:#fff;font-weight:bold;font-size:12px;cursor:pointer">只显示可投</button>
-  <input class="search" id="search" oninput="apply()" placeholder="🔍 搜球队/联赛（如：曼城、英超）">
+  <button onclick="setG('全部')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#2c5f2d;color:#fff;font-weight:bold;font-size:13px">全部</button>
+  <button onclick="setG('A')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#27ae60;color:#fff;font-size:13px">A</button>
+  <button onclick="setG('B')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#f1c40f;color:#fff;font-size:13px">B</button>
+  <button onclick="setG('C')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#e74c3c;color:#fff;font-size:13px">C</button>
+  <button onclick="setG('D')" style="flex:1;padding:8px 0;border:none;border-radius:8px;background:#3498db;color:#fff;font-size:13px">D</button>
+  <button onclick="toggleDark()" style="padding:8px 12px;border:none;border-radius:8px;background:#555;color:#fff">🌙</button>
 </div></div>
-
 <div style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 6px rgba(0,0,0,.06)">
   <div style="font-weight:bold;font-size:15px">📊 投注策略总览</div>
-  <div style="margin-top:6px;font-size:14px">共9场：A组 1 / B组 0 / C组 4 / D组 4 / E组 0</div>
-  <div style="color:#c0392b;font-size:13px;margin-top:4px">⚠️ 本批不投单关。本批②伤停用AI多源版(即嗨赛前出再核实)。</div>
+  <div style="margin-top:6px;font-size:14px">共11场：A组 0 / B组 3 / C组 5 / D组 3 / E组 0</div>
+  <div style="color:#c0392b;font-size:13px;margin-top:4px">⚠️ 可投1场：波尔图vs曼。②伤停位置系数缺位置(9/8抓取去前缀)→人数粗调诚实降级。</div>
   <div style="color:#999;font-size:12px;margin-top:4px">纪律：单注≤3% · 只投正EV · 日亏停手 · 串关优先于单关</div>
 </div>
-
 <div style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 6px rgba(0,0,0,.06)">
-  <div style="font-weight:bold;font-size:15px">💰 月度盈亏看板（2026-09）</div>
+  <div style="font-weight:bold;font-size:15px">💰 模拟投注台账 <span style="color:#999;font-size:12px;font-weight:normal">18注</span></div>
   <div style="display:flex;gap:8px;margin:10px 0;flex-wrap:wrap">
-    <div style="flex:1;min-width:70px;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#c0392b">-1162</div><div style="font-size:11px;color:#888">本月盈亏</div></div>
-    <div style="flex:1;min-width:70px;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#c0392b">-936</div><div style="font-size:11px;color:#888">本月单关</div></div>
-    <div style="flex:1;min-width:70px;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#c0392b">-226</div><div style="font-size:11px;color:#888">本月串关</div></div>
-    <div style="flex:1;min-width:70px;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold">5</div><div style="font-size:11px;color:#888">本月注数</div></div>
+    <div style="flex:1;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#1e8449">8247.19</div><div style="font-size:11px;color:#888">余额</div></div>
+    <div style="flex:1;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#c0392b">-1138</div><div style="font-size:11px;color:#888">总盈亏</div></div>
+    <div style="flex:1;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#c0392b">-25.9%</div><div style="font-size:11px;color:#888">ROI</div></div>
+    <div style="flex:1;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold">5/18</div><div style="font-size:11px;color:#888">胜</div></div>
   </div>
-  <div style="font-size:13px;color:#888">余额曲线(近20注) <svg width="100" height="30" style="vertical-align:middle"><polyline points="1.0,3.0 8.0,3.0 15.0,3.0 22.0,8.9 29.0,8.9 36.0,8.9 43.0,19.4 50.0,19.4 57.0,19.4 64.0,12.1 71.0,16.8 78.0,20.3 85.0,22.0 92.0,23.2 99.0,27.0" fill="none" stroke="#c0392b" stroke-width="2"/></svg></div>
-  <div style="font-size:11px;color:#aaa;margin-top:4px">💡 串关是历史唯一盈利来源，单关亏损；正EV机会少时宁可空仓。</div>
 </div>
-
-<div style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 6px rgba(0,0,0,.06)">
-  <div style="font-weight:bold;font-size:15px;display:flex;justify-content:space-between">💰 模拟投注台账 <span style="color:#999;font-size:12px;font-weight:normal">18注</span></div>
-  <div style="display:flex;gap:8px;margin:10px 0;flex-wrap:wrap">
-    <div style="flex:1;min-width:80px;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#1e8449">8247.19</div><div style="font-size:11px;color:#888">余额</div></div>
-    <div style="flex:1;min-width:80px;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#c0392b">-1138</div><div style="font-size:11px;color:#888">总盈亏</div></div>
-    <div style="flex:1;min-width:80px;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold;color:#c0392b">-25.9%</div><div style="font-size:11px;color:#888">ROI</div></div>
-    <div style="flex:1;min-width:80px;background:#f4f6f4;border-radius:8px;padding:8px;text-align:center"><div style="font-size:16px;font-weight:bold">28%</div><div style="font-size:11px;color:#888">胜率</div></div>
-  </div>
-  <div style="font-size:13px;margin:8px 0"><b>单关 vs 串关</b>：单关 <span style="color:#c0392b">-2193</span>（13注）｜串关 <span style="color:#1e8449">+1055</span>（5注）<br><span style="color:#888;font-size:12px">💡 结论：串关盈利、单关亏损，优先稳健串关。</span></div>
-  <div style="border-top:1px solid #eee;padding-top:8px;margin-top:8px"><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">09-05 纽约城vs纳什维尔SC</span><span style="flex:1;color:#888">单关</span><span style="flex:1">客胜</span><span style="flex:1;font-weight:bold;color:#c0392b">-300</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">09-02 米尔沃尔×西布朗×QPR</span><span style="flex:1;color:#888">稳健3串1</span><span style="flex:1">三主胜</span><span style="flex:1;font-weight:bold;color:#c0392b">-90</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">09-02 西布朗×QPR</span><span style="flex:1;color:#888">稳健2串1</span><span style="flex:1">双主胜</span><span style="flex:1;font-weight:bold;color:#c0392b">-136</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">09-02 水户蜀葵vs鹿岛鹿角</span><span style="flex:1;color:#888">单关</span><span style="flex:1">客胜</span><span style="flex:1;font-weight:bold;color:#c0392b">-271</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">09-01 10场</span><span style="flex:1;color:#888">3注</span><span style="flex:1"></span><span style="flex:1;font-weight:bold;color:#c0392b">-365</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">08-31 亚特兰大vs博洛尼亚</span><span style="flex:1;color:#888">博冷单关</span><span style="flex:1">平</span><span style="flex:1;font-weight:bold;color:#c0392b">-100.00</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">08-31 尤尔加登×圣埃蒂安</span><span style="flex:1;color:#888">价值2串1</span><span style="flex:1">主×客</span><span style="flex:1;font-weight:bold;color:#1e8449">345.00</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">08-31 阿森纳×圣埃蒂安</span><span style="flex:1;color:#888">稳健2串1</span><span style="flex:1">客×客</span><span style="flex:1;font-weight:bold;color:#1e8449">472.00</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">08-31 罗马×本菲卡×巴萨</span><span style="flex:1;color:#888">稳健3串1</span><span style="flex:1">客×主×主</span><span style="flex:1;font-weight:bold;color:#1e8449">463.75</span></div><div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #eee"><span style="flex:2">08-29 埃尔沃斯堡vs勒沃库森</span><span style="flex:1;color:#888">单关</span><span style="flex:1">客胜</span><span style="flex:1;font-weight:bold;color:#c0392b">-235</span></div></div>
-</div>
-
-<div id="list"><div class="card" data-group="D" data-key="卡利亚里vs莱切意甲" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+<div id="list"><div class="card" data-group="C" data-key="AEK雅典vsLASK林茨欧冠" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
   <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[001] 意甲</span>
-    <span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
+    <span style="color:#999;font-size:12px">[002] 欧冠</span><span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
   </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">卡利亚里vs莱切</div>
-  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>主胜40%</b> → 阿豪二次修正 <b>主胜39%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">AEK雅典vsLASK林茨</div>
   <div style="display:flex;align-items:center;margin:6px 0">
     <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>39%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:39%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">39%</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>43%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:43%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">43%</span>
   </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">8%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">7%</span></span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">市场去水概率 主42% 平31% 客26%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:42.0%;background:#d35400"></div><div style="width:31.0%;background:#95a5a6"></div><div style="width:26.0%;background:#2471a3"></div></div></div>
-  <div style="font-size:11px;color:#888;margin-top:3px">模型 <b style="color:#333">38%</b> vs 市场 <b style="color:#333">42%</b> <span style="color:#c0392b;font-weight:bold">模型看低 -4pt</span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">必发资金 主53% 平18% 客29%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:53.00769410118909%;background:#d35400"></div><div style="width:18.32595010491956%;background:#95a5a6"></div><div style="width:28.666355793891352%;background:#2471a3"></div></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角·左主右客) <span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客0-2</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主2-1</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主4-1</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客0-1</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平1-1</span></div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span></div>
+  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主57% 平22% 客21%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:57.0%;background:#d35400"></div><div style="width:22.0%;background:#95a5a6"></div><div style="width:21.0%;background:#2471a3"></div></div>
+  <span style="color:#bbb;font-size:11px">必发未出</span>
+  
   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
     <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
-    <div>
-      <button onclick="toggle('d001')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
-      <button onclick="copy('t001')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
-    </div>
+    <button onclick="toggle('d002')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
   </div>
-  <div id="d001" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
-    <span id="t001">主胜 卡利亚里vs莱切 比分1-0/2-1/2-0 | 让球盘 让+0.25 | 欧赔 2.20/2.94/3.50 | 伤停 3/1 | EV -16.4% | 信号 DC背离+6pt(跟欧洲);轨迹让球升盘(主热升);主降水;155家支持主胜(99降);H2H主队占优(2/3);卫门缺阵(主防×1.30/客防×1.00)</span>
-  </div>
-</div><div class="card" data-group="C" data-key="赫塔菲vs塞尔塔西甲" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div id="d002" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 AEK雅典vsLASK林茨 比分2-0/1-0/2-1 | 让球盘 让0.75(主0.89/客0.99) | 欧赔 1.7/4.3/4.55 | EV -30.3% | 信号 155家看衰主胜(76升); 主队5伤残阵</div>
+</div><div class="card" data-group="D" data-key="布鲁日vs阿斯顿维拉欧冠" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
   <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[002] 西甲</span>
-    <span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
+    <span style="color:#999;font-size:12px">[003] 欧冠</span><span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
   </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">赫塔菲vs塞尔塔</div>
-  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>主胜36%</b> → 阿豪二次修正 <b>主胜45%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">布鲁日vs阿斯顿维拉</div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#2471a3">客胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>20%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:20%;height:8px;border-radius:8px;background:#2471a3"></div></div><span style="color:#999;font-size:11px">20%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-1</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-2</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-2</span></div>
+  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-1 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-2 <span style="font-weight:normal;font-size:10px;color:#666">8%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-2 <span style="font-weight:normal;font-size:10px;color:#666">7%</span></span></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主36% 平26% 客38%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:36.0%;background:#d35400"></div><div style="width:26.0%;background:#95a5a6"></div><div style="width:38.0%;background:#2471a3"></div></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">必发资金 主63% 客37%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:63.16756145803899%;background:#d35400"></div><div style="width:36.832438541961004%;background:#2471a3"></div></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角) <span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客0-3</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-3</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主1-0</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <button onclick="toggle('d003')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
+  </div>
+  <div id="d003" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">客胜 布鲁日vs阿斯顿维拉 比分0-1/1-2/0-2 | 让球盘 让0.00(主1.00/客0.88) | 欧赔 2.66/3.75/2.51 | EV -4.6% | 信号 客升水; 155家支持主队(144降); 客队5伤残阵</div>
+</div><div class="card" data-group="C" data-key="奈梅亨vsSBV精英荷甲" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[004] 荷甲</span><span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">奈梅亨vsSBV精英</div>
   <div style="display:flex;align-items:center;margin:6px 0">
     <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
     <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>45%</b></span>
     <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:45%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">45%</span>
   </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">6%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">5%</span></span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">市场去水概率 主37% 平31% 客32%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:37.0%;background:#d35400"></div><div style="width:31.0%;background:#95a5a6"></div><div style="width:32.0%;background:#2471a3"></div></div></div>
-  <div style="font-size:11px;color:#888;margin-top:3px">模型 <b style="color:#333">38%</b> vs 市场 <b style="color:#333">37%</b> <span style="color:#888;font-weight:bold">接近市场 +1pt</span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">必发资金 主70% 平14% 客16%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:70.00767459708366%;background:#d35400"></div><div style="width:14.259401381427475%;background:#95a5a6"></div><div style="width:15.732924021488873%;background:#2471a3"></div></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角·左主右客) <span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平0-0</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主2-0</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-2</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客0-1</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主3-2</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
-    <div>
-      <button onclick="toggle('d002')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
-      <button onclick="copy('t002')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
-    </div>
-  </div>
-  <div id="d002" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
-    <span id="t002">主胜 赫塔菲vs塞尔塔 比分1-0/2-1/2-0 | 让球盘 让+0.00 | 欧赔 2.62/3.10/3.00 | 伤停 3/2 | EV -0.4% | 信号 主降水;155家支持主胜(110降)</span>
-  </div>
-</div><div class="card" data-group="C" data-key="马尔默vs索尔纳瑞典超" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[003] 瑞典超</span>
-    <span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">马尔默vs索尔纳</div>
-  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>主胜39%</b> → 阿豪二次修正 <b>主胜46%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>46%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:46%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">46%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-1</span></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">市场去水概率 主53% 平23% 客24%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:53.0%;background:#d35400"></div><div style="width:23.0%;background:#95a5a6"></div><div style="width:24.0%;background:#2471a3"></div></div></div>
-  <div style="font-size:11px;color:#888;margin-top:3px">模型 <b style="color:#333">41%</b> vs 市场 <b style="color:#333">53%</b> <span style="color:#c0392b;font-weight:bold">模型看低 -12pt</span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">必发资金 主74% 平9% 客17%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:73.89312977099237%;background:#d35400"></div><div style="width:9.31297709923664%;background:#95a5a6"></div><div style="width:16.793893129770993%;background:#2471a3"></div></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角·左主右客) <span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主1-0</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平0-0</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平0-0</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平0-0</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主5-0</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="background:#c0392b;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">防平</span> 投注 <b>不投</b></div>
-    <div>
-      <button onclick="toggle('d003')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
-      <button onclick="copy('t003')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
-    </div>
-  </div>
-  <div id="d003" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
-    <span id="t003">主胜 马尔默vs索尔纳 比分2-0/2-1/1-1 防防平 | 让球盘 让+0.75 | 欧赔 1.75/4.10/3.80 | 伤停 1/2 | EV -28.3% | 信号 155家看衰主胜(82升);平局高发→防平</span>
-  </div>
-</div><div class="card" data-group="C" data-key="卡尔马vs尤尔加登瑞典超" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[004] 瑞典超</span>
-    <span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">卡尔马vs尤尔加登</div>
-  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>客胜56%</b> → 阿豪二次修正 <b>客胜48%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#2471a3">客胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>48%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:48%;height:8px;border-radius:8px;background:#2471a3"></div></div><span style="color:#999;font-size:11px">48%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-2</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-1</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-1</span></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-2 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-1 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-2 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">市场去水概率 主26% 平24% 客50%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:26.0%;background:#d35400"></div><div style="width:24.0%;background:#95a5a6"></div><div style="width:50.0%;background:#2471a3"></div></div></div>
-  <div style="font-size:11px;color:#888;margin-top:3px">模型 <b style="color:#333">41%</b> vs 市场 <b style="color:#333">50%</b> <span style="color:#c0392b;font-weight:bold">模型看低 -9pt</span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">必发资金 主14% 平76% 客10%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:14.065934065934066%;background:#d35400"></div><div style="width:76.26373626373626%;background:#95a5a6"></div><div style="width:9.670329670329672%;background:#2471a3"></div></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角·左主右客) <span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客2-3</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平1-1</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主2-1</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主2-1</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-3</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="background:#c0392b;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">防平</span> 投注 <b>不投</b></div>
-    <div>
-      <button onclick="toggle('d004')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
-      <button onclick="copy('t004')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
-    </div>
-  </div>
-  <div id="d004" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
-    <span id="t004">客胜 卡尔马vs尤尔加登 比分1-2/0-1/1-1 防防平 | 让球盘 让-0.50 | 欧赔 3.60/3.80/1.86 | 伤停 0/0 | EV -23.7% | 信号 DC背离-5pt(跟欧洲);轨迹让球加深(客热升);客降水;155家看衰主队(96升);平局高发→防平</span>
-  </div>
-</div><div class="card" data-group="A" data-key="利雅得新月vs新未来城体沙特联" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[005] 沙特联</span>
-    <span style="background:#27ae60;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">A组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">利雅得新月vs新未来城体</div>
-  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>主胜nan%</b> → 阿豪二次修正 <b>主胜73%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>73%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:73%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">73%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">12%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">12%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">市场去水概率 主69% 平18% 客14%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:69.0%;background:#d35400"></div><div style="width:18.0%;background:#95a5a6"></div><div style="width:14.0%;background:#2471a3"></div></div></div>
-  <div style="font-size:11px;color:#888;margin-top:3px">模型 <b style="color:#333">68%</b> vs 市场 <b style="color:#333">69%</b> <span style="color:#888;font-weight:bold">接近市场 -1pt</span></div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-1</span></div>
+  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">11%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主64% 平19% 客17%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:64.0%;background:#d35400"></div><div style="width:19.0%;background:#95a5a6"></div><div style="width:17.0%;background:#2471a3"></div></div>
   <span style="color:#bbb;font-size:11px">必发未出</span>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角·左主右客) <span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主2-0</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主2-1</span></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
-    <div>
-      <button onclick="toggle('d005')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
-      <button onclick="copy('t005')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
-    </div>
-  </div>
-  <div id="d005" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
-    <span id="t005">主胜 利雅得新月vs新未来城体 比分2-0/1-0/2-1 | 让球盘 让+1.50 | 欧赔 1.32/5.10/6.70 | 伤停 2/1 | EV -10.2% | 信号 主降水;E1超深盘封顶85%</span>
-  </div>
-</div><div class="card" data-group="D" data-key="乌迪内斯vs拉齐奥意甲" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[006] 意甲</span>
-    <span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
-  </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">乌迪内斯vs拉齐奥</div>
-  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>客胜40%</b> → 阿豪二次修正 <b>客胜30%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
-  <div style="display:flex;align-items:center;margin:6px 0">
-    <span style="font-size:23px;font-weight:bold;color:#2471a3">客胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>30%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:30%;height:8px;border-radius:8px;background:#2471a3"></div></div><span style="color:#999;font-size:11px">30%</span>
-  </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-1</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-2</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-1</span></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-1 <span style="font-weight:normal;font-size:10px;color:#666">8%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-2 <span style="font-weight:normal;font-size:10px;color:#666">7%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-2 <span style="font-weight:normal;font-size:10px;color:#666">5%</span></span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">市场去水概率 主34% 平30% 客36%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:34.0%;background:#d35400"></div><div style="width:30.0%;background:#95a5a6"></div><div style="width:36.0%;background:#2471a3"></div></div></div>
-  <div style="font-size:11px;color:#888;margin-top:3px">模型 <b style="color:#333">38%</b> vs 市场 <b style="color:#333">36%</b> <span style="color:#888;font-weight:bold">接近市场 +2pt</span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">必发资金 主33% 平42% 客25%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:32.743362831858406%;background:#d35400"></div><div style="width:41.9662610619469%;background:#95a5a6"></div><div style="width:25.29037610619469%;background:#2471a3"></div></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角·左主右客) <span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平3-3</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平1-1</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平1-1</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主2-1</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主2-1</span></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角) <span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主2-0</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主5-0</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主3-0</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客3-4</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主3-0</span></div>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
     <div style="font-size:12px;color:#888"><span style="background:#c0392b;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">防平</span> 投注 <b>不投</b></div>
-    <div>
-      <button onclick="toggle('d006')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
-      <button onclick="copy('t006')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
-    </div>
+    <button onclick="toggle('d004')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
   </div>
-  <div id="d006" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
-    <span id="t006">客胜 乌迪内斯vs拉齐奥 比分0-1/1-2/1-1 防防平 | 让球盘 让+0.00 | 欧赔 2.72/3.05/2.61 | 伤停 4/8 | EV -0.8% | 信号 客降水;155家看衰主队(128升);卫门缺阵(主防×1.30/客防×1.93);R3客队8伤诱盘</span>
-  </div>
-</div><div class="card" data-group="D" data-key="埃斯托里尔vs阿罗卡葡超" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div id="d004" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 奈梅亨vsSBV精英 比分2-0/2-1/1-1 防防平 | 让球盘 让1.25(主1.02/客0.86) | 欧赔 1.49/4.95/5.5 | EV -38.9% | 信号 轨迹让球降盘; 主升水; 155家看衰主胜(149升); 主队5伤残阵; 平局高发→防平</div>
+</div><div class="card" data-group="D" data-key="卡达西亚vs吉达国民沙职" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
   <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[007] 葡超</span>
-    <span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
+    <span style="color:#999;font-size:12px">[005] 沙职</span><span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
   </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">埃斯托里尔vs阿罗卡</div>
-  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>主胜39%</b> → 阿豪二次修正 <b>主胜31%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">卡达西亚vs吉达国民</div>
   <div style="display:flex;align-items:center;margin:6px 0">
     <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>31%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:31%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">31%</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>35%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:35%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">35%</span>
   </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">市场去水概率 主45% 平26% 客29%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:45.0%;background:#d35400"></div><div style="width:26.0%;background:#95a5a6"></div><div style="width:29.0%;background:#2471a3"></div></div></div>
-  <div style="font-size:11px;color:#888;margin-top:3px">模型 <b style="color:#333">38%</b> vs 市场 <b style="color:#333">45%</b> <span style="color:#c0392b;font-weight:bold">模型看低 -7pt</span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">必发资金 主28% 平37% 客35%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:28.38427947598253%;background:#d35400"></div><div style="width:36.681222707423586%;background:#95a5a6"></div><div style="width:34.93449781659388%;background:#2471a3"></div></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角·左主右客) <span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客2-3</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主4-3</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平1-1</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主4-1</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-2</span></div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span></div>
+  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">8%</span></span></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主46% 平24% 客29%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:46.0%;background:#d35400"></div><div style="width:24.0%;background:#95a5a6"></div><div style="width:29.0%;background:#2471a3"></div></div>
+  <span style="color:#bbb;font-size:11px">必发未出</span>
+  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角) <span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主3-2</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平3-3</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-2</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-5</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-4</span></div>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
     <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
-    <div>
-      <button onclick="toggle('d007')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
-      <button onclick="copy('t007')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
-    </div>
+    <button onclick="toggle('d005')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
   </div>
-  <div id="d007" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
-    <span id="t007">主胜 埃斯托里尔vs阿罗卡 比分1-0/2-1/2-0 | 让球盘 让+0.50 | 欧赔 2.06/3.50/3.25 | 伤停 1/1 | EV -21.7% | 信号 轨迹让球降盘(主热降);主升水;155家看衰主胜(126升)</span>
-  </div>
-</div><div class="card" data-group="C" data-key="埃尔切vs皇家社会西甲" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div id="d005" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 卡达西亚vs吉达国民 比分1-0/2-1/2-0 | 让球盘 让0.50(主0.96/客0.86) | 欧赔 1.96/3.75/3.1 | EV -25.5% | 信号 主升水; 155家看衰主胜(140升)</div>
+</div><div class="card" data-group="C" data-key="南安普敦vs斯旺西英冠" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
   <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[008] 西甲</span>
-    <span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
+    <span style="color:#999;font-size:12px">[006] 英冠</span><span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
   </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">埃尔切vs皇家社会</div>
-  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>客胜46%</b> → 阿豪二次修正 <b>客胜45%</b> <span style="color:#999;font-size:12px">同向不变</span></div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">南安普敦vs斯旺西</div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>47%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:47%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">47%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-1</span></div>
+  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主49% 平25% 客26%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:49.0%;background:#d35400"></div><div style="width:25.0%;background:#95a5a6"></div><div style="width:26.0%;background:#2471a3"></div></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">必发资金 主86% 客14%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:86.43086816720256%;background:#d35400"></div><div style="width:13.569131832797426%;background:#2471a3"></div></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角) <span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主2-1</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平0-0</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主3-0</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主3-1</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主5-0</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="background:#c0392b;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">防平</span> 投注 <b>不投</b></div>
+    <button onclick="toggle('d006')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
+  </div>
+  <div id="d006" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 南安普敦vs斯旺西 比分1-0/2-1/1-1 防防平 | 让球盘 让0.50(主0.90/客0.98) | 欧赔 1.9/3.7/3.55 | EV -22.1% | 信号 主降水; 平局高发→防平</div>
+</div><div class="card" data-group="B" data-key="桑德兰vs赫尔城英联赛杯" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[007] 英联赛杯</span><span style="background:#f1c40f;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">B组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">桑德兰vs赫尔城</div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>60%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:60%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">60%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span></div>
+  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主53% 平25% 客22%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:53.0%;background:#d35400"></div><div style="width:25.0%;background:#95a5a6"></div><div style="width:22.0%;background:#2471a3"></div></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">必发资金 主90% 客10%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:90.33361847733106%;background:#d35400"></div><div style="width:9.666381522668948%;background:#2471a3"></div></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角) <span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-2</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客0-1</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主1-0</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客0-1</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主1-0</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <button onclick="toggle('d007')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
+  </div>
+  <div id="d007" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 桑德兰vs赫尔城 比分1-0/2-0/2-1 | 让球盘 让0.75(主0.92/客0.90) | 欧赔 1.71/3.6/4.2 | EV -0.8% | 信号 主降水; 155家支持主胜(116降); H2H客队占优(2/3)</div>
+</div><div class="card" data-group="B" data-key="皇家马德里vs国际米兰欧冠" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[008] 欧冠</span><span style="background:#f1c40f;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">B组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">皇家马德里vs国际米兰</div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>62%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:62%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">62%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span></div>
+  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主58% 平22% 客20%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:58.0%;background:#d35400"></div><div style="width:22.0%;background:#95a5a6"></div><div style="width:20.0%;background:#2471a3"></div></div>
+  <span style="color:#bbb;font-size:11px">必发未出</span>
+  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角) <span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主2-0</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主1-0</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主2-0</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主3-2</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主3-0</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <button onclick="toggle('d008')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
+  </div>
+  <div id="d008" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 皇家马德里vs国际米兰 比分2-0/2-1/1-0 | 让球盘 让0.75(主0.84/客1.04) | 欧赔 1.67/4.35/4.75 | EV -3.1% | 信号 轨迹让球升盘; 主降水; 155家支持主胜(101降); 主队7伤残阵</div>
+</div><div class="card" data-group="D" data-key="多特蒙德vs比利亚雷亚尔欧冠" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[009] 欧冠</span><span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">多特蒙德vs比利亚雷亚尔</div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>32%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:32%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">32%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span></div>
+  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主53% 平22% 客24%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:53.0%;background:#d35400"></div><div style="width:22.0%;background:#95a5a6"></div><div style="width:24.0%;background:#2471a3"></div></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">必发资金 主89% 客11%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:89.32420524639056%;background:#d35400"></div><div style="width:10.675794753609436%;background:#2471a3"></div></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角) <span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主4-0</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平2-2</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客0-2</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <button onclick="toggle('d009')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
+  </div>
+  <div id="d009" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 多特蒙德vs比利亚雷亚尔 比分1-0/2-1/2-0 | 让球盘 让0.75(主1.01/客0.87) | 欧赔 1.8/4.3/3.95 | EV -31.6% | 信号 155家看衰主胜(87升); 主队10伤残阵</div>
+</div><div class="card" data-group="C" data-key="里尔vs皇家贝蒂斯欧冠" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[010] 欧冠</span><span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">里尔vs皇家贝蒂斯</div>
+  <div style="display:flex;align-items:center;margin:6px 0">
+    <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>45%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:45%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">45%</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span></div>
+  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">7%</span></span></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主41% 平26% 客33%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:41.0%;background:#d35400"></div><div style="width:26.0%;background:#95a5a6"></div><div style="width:33.0%;background:#2471a3"></div></div>
+  <span style="color:#bbb;font-size:11px">必发未出</span>
+  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角) <span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平2-2</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <button onclick="toggle('d010')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
+  </div>
+  <div id="d010" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 里尔vs皇家贝蒂斯 比分1-0/2-1/2-0 | 让球盘 让0.25(主1.02/客0.86) | 欧赔 2.32/3.7/2.96 | EV -4.9% | 信号 主降水; 155家支持主胜(115降)</div>
+</div><div class="card" data-group="B" data-key="波尔图vs曼彻斯特城欧冠" data-bet="可投小注" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="color:#999;font-size:12px">[011] 欧冠</span><span style="background:#f1c40f;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">B组</span>
+  </div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">波尔图vs曼彻斯特城</div>
   <div style="display:flex;align-items:center;margin:6px 0">
     <span style="font-size:23px;font-weight:bold;color:#2471a3">客胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>45%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:45%;height:8px;border-radius:8px;background:#2471a3"></div></div><span style="color:#999;font-size:11px">45%</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>55%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:55%;height:8px;border-radius:8px;background:#2471a3"></div></div><span style="color:#999;font-size:11px">55%</span>
   </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-1</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-2</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-2</span></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-1 <span style="font-weight:normal;font-size:10px;color:#666">15%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-2 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-2 <span style="font-weight:normal;font-size:10px;color:#666">8%</span></span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">市场去水概率 主34% 平27% 客39%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:34.0%;background:#d35400"></div><div style="width:27.0%;background:#95a5a6"></div><div style="width:39.0%;background:#2471a3"></div></div></div>
-  <div style="font-size:11px;color:#888;margin-top:3px">模型 <b style="color:#333">38%</b> vs 市场 <b style="color:#333">39%</b> <span style="color:#888;font-weight:bold">接近市场 -1pt</span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">必发资金 主15% 平68% 客17%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:15.455304928989138%;background:#d35400"></div><div style="width:67.91051703332404%;background:#95a5a6"></div><div style="width:16.63417803768681%;background:#2471a3"></div></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角·左主右客) <span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-3</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平1-1</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客0-2</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客0-1</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-2</span></div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-2</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-1</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">0-2</span></div>
+  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-2 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-1 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">0-2 <span style="font-weight:normal;font-size:10px;color:#666">9%</span></span></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主24% 平23% 客53%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:24.0%;background:#d35400"></div><div style="width:23.0%;background:#95a5a6"></div><div style="width:53.0%;background:#2471a3"></div></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">必发资金 主71% 客29%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:70.79986028641285%;background:#d35400"></div><div style="width:29.20013971358715%;background:#2471a3"></div></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角) <span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平0-0</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-3</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客0-4</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-2</span><span style="color:#fff;background:#d35400;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">主1-0</span></div>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
-    <div>
-      <button onclick="toggle('d008')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
-      <button onclick="copy('t008')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
-    </div>
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>可投小注</b></div>
+    <button onclick="toggle('d011')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
   </div>
-  <div id="d008" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
-    <span id="t008">客胜 埃尔切vs皇家社会 比分0-1/0-2/1-2 | 让球盘 让+0.00 | 欧赔 2.85/3.50/2.47 | 伤停 3/2 | EV -6.1% | 信号 客降水;155家看衰主队(94升);H2H客队占优(2/3)</span>
-  </div>
-</div><div class="card" data-group="D" data-key="维多利亚vs格雷米奥巴西甲" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div id="d011" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">客胜 波尔图vs曼彻斯特城 比分1-2/0-1/0-2 | 让球盘 让-0.75(主0.85/客1.03) | 欧赔 4.05/4.15/1.81 | EV +5.0% | 信号 客降水; 155家看衰主队(151升)</div>
+</div><div class="card" data-group="C" data-key="弗鲁米嫩塞vs普拉腾斯解放者杯" data-bet="不投" style="background:#fff;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)">
   <div style="display:flex;justify-content:space-between;align-items:center">
-    <span style="color:#999;font-size:12px">[009] 巴西甲</span>
-    <span style="background:#3498db;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">D组</span>
+    <span style="color:#999;font-size:12px">[012] 解放者杯</span><span style="background:#e74c3c;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">C组</span>
   </div>
-  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">维多利亚vs格雷米奥</div>
-  <div style="font-size:12px;color:#888;margin:3px 0">AI原判 <b>主胜42%</b> → 阿豪二次修正 <b>主胜19%</b> <span style="background:#e67e22;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">降置信 42%→19%</span></div>
+  <div style="font-size:17px;font-weight:bold;margin:8px 0 2px">弗鲁米嫩塞vs普拉腾斯</div>
   <div style="display:flex;align-items:center;margin:6px 0">
     <span style="font-size:23px;font-weight:bold;color:#d35400">主胜</span>
-    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>19%</b></span>
-    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:19%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">19%</span>
+    <span style="color:#666;font-size:13px;margin-left:10px">置信 <b>48%</b></span>
+    <div style="background:#eee;border-radius:8px;height:8px;flex:1;margin:0 8px"><div style="width:48%;height:8px;border-radius:8px;background:#d35400"></div></div><span style="color:#999;font-size:11px">48%</span>
   </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;color:#333;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span><span style="background:#fdecea;color:#c0392b;border:1px solid #f5b7b1;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span></div>
-  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">8%</span></span><span style="background:#eef3fb;color:#2c3e50;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">7%</span></span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">市场去水概率 主43% 平28% 客29%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:43.0%;background:#d35400"></div><div style="width:28.0%;background:#95a5a6"></div><div style="width:29.0%;background:#2471a3"></div></div></div>
-  <div style="font-size:11px;color:#888;margin-top:3px">模型 <b style="color:#333">38%</b> vs 市场 <b style="color:#333">43%</b> <span style="color:#c0392b;font-weight:bold">模型看低 -5pt</span></div>
-  <div style="margin-top:5px"><div style="font-size:11px;color:#888">必发资金 主58% 平27% 客15%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:58.01886792452831%;background:#d35400"></div><div style="width:27.358490566037734%;background:#95a5a6"></div><div style="width:14.622641509433961%;background:#2471a3"></div></div></div>
-  <div style="margin-top:5px;font-size:11px;color:#888">近5交锋(主队视角·左主右客) <span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客0-2</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客1-3</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平1-1</span><span style="color:#fff;background:#7d6608;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">平1-1</span><span style="color:#fff;background:#2471a3;font-weight:bold;font-size:11px;padding:2px 6px;border-radius:6px">客0-2</span></div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0"><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">1-0</span><span style="background:#f4f6f4;border:1px solid #d5d8d5;padding:3px 10px;border-radius:14px;font-size:15px;font-weight:bold">2-1</span></div>
+  <div style="margin-top:5px"><span style="font-size:11px;color:#888">DC比分概率 </span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-0 <span style="font-weight:normal;font-size:10px;color:#666">12%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">1-0 <span style="font-weight:normal;font-size:10px;color:#666">11%</span></span><span style="background:#eef3fb;border:1px solid #c5d3f0;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:bold">2-1 <span style="font-weight:normal;font-size:10px;color:#666">10%</span></span></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">市场去水概率 主65% 平23% 客12%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:65.0%;background:#d35400"></div><div style="width:23.0%;background:#95a5a6"></div><div style="width:12.0%;background:#2471a3"></div></div>
+  <div style="margin-top:5px;font-size:11px;color:#888">必发资金 主80% 客20%</div><div style="display:flex;height:8px;border-radius:6px;overflow:hidden;background:#eee"><div style="width:80.0%;background:#d35400"></div><div style="width:20.0%;background:#2471a3"></div></div>
+  
   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
-    <div style="font-size:12px;color:#888"><span style="background:#c0392b;color:#fff;padding:2px 9px;border-radius:12px;font-weight:bold;font-size:12px">防冷</span> 投注 <b>不投</b></div>
-    <div>
-      <button onclick="toggle('d009')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">详情▾</button>
-      <button onclick="copy('t009')" style="border:none;background:none;color:#2980b9;font-size:12px;padding:4px;cursor:pointer">复制</button>
-    </div>
+    <div style="font-size:12px;color:#888"><span style="color:#bbb;font-size:12px">不防</span> 投注 <b>不投</b></div>
+    <button onclick="toggle('d012')" style="border:none;background:none;color:#2980b9;font-size:12px;cursor:pointer">详情▾</button>
   </div>
-  <div id="d009" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">
-    <span id="t009">主胜 维多利亚vs格雷米奥 比分1-0/2-1/2-0 防防冷 | 让球盘 让+0.25 | 欧赔 2.14/3.35/3.20 | 伤停 7/4 | EV -18.7% | 信号 主降水;155家看衰主胜(74升);H2H客队占优(2/3);卫门缺阵(主防×1.48/客防×1.14);R3主队7伤诱盘</span>
-  </div>
+  <div id="d012" style="display:none;margin-top:8px;padding:8px;background:#f8f9f8;border-radius:8px;font-size:12px;color:#666">主胜 弗鲁米嫩塞vs普拉腾斯 比分2-0/1-0/2-1 | 让球盘 让1.00(主0.81/客1.07) | 欧赔 1.43/4.0/7.6 | EV -41.4% | 信号 轨迹让球降盘; 主升水; 155家看衰主胜(146升); 主队5伤残阵</div>
 </div></div>
-<div style="color:#999;font-size:11px;text-align:center;margin:14px 0">阿豪二次修正 · 红字比分=防冷 · 仅供参考研究</div>
+<div style="color:#999;font-size:11px;text-align:center;margin:14px 0">阿豪二次修正 · 纯SOP独立判向 · 红字比分=防冷 · 仅供参考研究</div>
 <script>
-var G='全部',B=false,Q='';
-function apply(){Q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('.card').forEach(c=>{var okG=(G==='全部'||c.dataset.group===G);var okB=(!B||c.dataset.bet!=='不投');var okQ=(!Q||c.dataset.key.toLowerCase().indexOf(Q)>=0);c.style.display=(okG&&okB&&okQ)?'':'none'})}
+var G='全部';
+function apply(){document.querySelectorAll('.card').forEach(c=>{c.style.display=(G==='全部'||c.dataset.group===G)?'':'none'})}
 function setG(g){G=g;apply()}
-function setBet(){B=!B;document.getElementById('betbtn').style.background=B?'#2c5f2d':'#aaa';apply()}
 function toggleDark(){document.body.classList.toggle('dark')}
 function toggle(id){var e=document.getElementById(id);e.style.display=e.style.display==='none'?'':'none'}
-function copy(id){var t=document.getElementById(id).innerText;navigator.clipboard.writeText(t)}
 </script>
 </body></html>
