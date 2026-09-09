@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="竞彩预测">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230bb39a'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E">
-<title>竞彩预测 · 9/8 全11场 · 阿豪二次修正 v6.02</title>
+<title>竞彩预测 · 9/9 全15场 · 阿豪二次修正 v6.02</title>
 <style>
 /* ============ 设计变量：深色（默认） / 浅色（自动适配） ============ */
 :root{
@@ -330,7 +330,7 @@ body.ready .skeleton{display:none}
 <div class="wrap">
   <div class="hero">
     <span class="tagline">⚽</span>
-    <h1>9/8 全 11 场 · 五项共振</h1>
+    <h1>9/9 全 15 场 · 五项共振</h1>
     <div class="sub">
       <span class="bal">💰 余额 <span class="num">8247.19</span> 元</span>
       <span>伤停即嗨核实</span><span class="num">v6.02</span>
@@ -377,7 +377,7 @@ body.ready .skeleton{display:none}
       <button class="toolbtn" onclick="toggleAll(false)">收起</button>
       <button class="toolbtn" onclick="copyAll()">📨 复制整批</button>
     </div>
-    <div class="result-count"><span id="countLine">显示 11 / 11 场</span><span id="sortHint"></span></div>
+    <div class="result-count"><span id="countLine">显示 15 / 15 场</span><span id="sortHint"></span></div>
   </div></details>
 
   <div id="list"></div>
@@ -446,7 +446,7 @@ body.ready .skeleton{display:none}
 </div>
 </section>
 
-<div class="disclaimer wrap">阿豪二次修正 · 数据仅供参考研究，不构成任何投注建议 · 理性看球，远离非法赌博<br>竞彩有风险，入市需谨慎 · 更新批次 2026-09-08</div>
+<div class="disclaimer wrap">阿豪二次修正 · 数据仅供参考研究，不构成任何投注建议 · 理性看球，远离非法赌博<br>竞彩有风险，入市需谨慎 · 更新批次 2026-09-09</div>
 </div>
 
 <nav class="bottomtab">
@@ -2132,16 +2132,16 @@ function fitOpen(){document.querySelectorAll('.match.open .detail').forEach(func
 function toggleDark(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',t);localStorage.setItem('sop-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️'}
 function toggle(id,head){var e=document.getElementById(id);var card=e.closest('.match');var open=card.classList.contains('open');if(open){e.style.maxHeight='0px';card.classList.remove('open')}else{e.style.maxHeight=e.scrollHeight+'px';card.classList.add('open')}}
 function copy(id){var e=document.getElementById(id);if(e)copyTextRaw(e.innerText)}
-function copyAll(){var txt='【9/8 全11场 · 阿豪二次修正】\n'+MATCHES.map(copyTextOf).join('\n');copyTextRaw(txt)}
+function copyAll(){var txt='【9/9 全15场 · 阿豪二次修正】\n'+MATCHES.map(copyTextOf).join('\n');copyTextRaw(txt)}
 var toastTimer;
 function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show')},1700)}
 function copyTextRaw(t){if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){showToast('已复制，可直接粘贴')},function(){fb(t)})}else fb(t)}
 function fb(t){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast('已复制')}catch(e){showToast('复制失败，请手动选择')}ta.remove()}
 function switchTab(v){document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.view===v)});document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('on',s.id==='view-'+v)});window.scrollTo({top:0,behavior:'smooth'})}
 
-var UPDATED_AT=new Date('2026-09-08T20:00:00+08:00');
+var UPDATED_AT=new Date('2026-09-09T12:30:00+08:00');
 function relTime(t){var s=(Date.now()-t.getTime())/1000;if(s<60)return '刚刚更新';var m=Math.floor(s/60);if(m<60)return '更新于 '+m+' 分钟前';var h=Math.floor(m/60);if(h<24)return '更新于 '+h+' 小时前';return '更新于 '+Math.floor(h/24)+' 天前'}
-function tickUpdated(){var el=document.getElementById('updatedAt');if(el)el.textContent=relTime(UPDATED_AT)+' · 9/7 批次'}
+function tickUpdated(){var el=document.getElementById('updatedAt');if(el)el.textContent=relTime(UPDATED_AT)+' · 9/9 批次'}
 
 function countUp(){document.querySelectorAll('[data-count]').forEach(function(el){var target=+el.dataset.count,st=performance.now(),dur=850;function f(now){var p=Math.min(1,(now-st)/dur),ease=1-Math.pow(1-p,3);el.textContent=Math.round(target*ease)+'%';if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)})}
 function animateBars(){requestAnimationFrame(function(){requestAnimationFrame(function(){document.querySelectorAll('.bar3 i[data-w],.conf-fill[data-w]').forEach(function(i){i.style.width=i.dataset.w+'%'});countUp()})})}
