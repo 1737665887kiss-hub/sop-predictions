@@ -452,7 +452,7 @@ body.ready .skeleton{display:none}
 
 <div class="toast" id="toast"></div>
 
-<script>
+<script>function ovRender(){var g={A:0,B:0,C:0,D:0,E:0};MATCHES.forEach(function(m){var x=m.group||"E";g[x]=(g[x]||0)+1});var f=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v};f("ovMore","A "+g.A+" · B "+g.B+" · C "+g.C+" · D "+g.D+" · E "+g.E);f("ovTotal",MATCHES.length);f("ovA",g.A);f("ovB",g.B);f("ovC",g.C);f("ovD",g.D);f("ovE",g.E)};window.addEventListener("load",ovRender);</script><script>
 /* ===== 数据：与原静态页 15 场完全一致，未新增/虚构字段 ===== */
 var BANKROLL=8103.19;
 var MATCHES=[
