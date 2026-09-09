@@ -339,14 +339,9 @@ body.ready .skeleton{display:none}
   </div>
 
   <div class="card">
-    <div class="card-title">📊 投注策略总览<span class="more">A 1 · B 0 · C 4 · D 4 · E 0</span></div>
-    <div class="stat-grid">
-      <div class="stat"><div class="v num">9</div><div class="k">总场次</div></div>
-      <div class="stat"><div class="v num" style="color:var(--win)">1</div><div class="k">A 组</div></div>
-      <div class="stat"><div class="v num" style="color:var(--lose)">4</div><div class="k">C 组</div></div>
-      <div class="stat"><div class="v num" style="color:var(--blue)">4</div><div class="k">D 组</div></div>
-    </div>
-    <div class="note warn">⚠️ 本批不投单关。本批②伤停用 AI 多源版（即嗨赛前出再核实）。</div>
+    <div class="card-title">📊 投注策略总览<span class="more" id="ovMore">A · B · C · D · E</span></div>
+    <div class="stat-grid"><div class="stat"><div class="v num" id="ovTotal">0</div><div class="k">总场次</div></div><div class="stat"><div class="v num" id="ovA" style="color:var(--win)">0</div><div class="k">A 组</div></div><div class="stat"><div class="v num" id="ovB" style="color:var(--blue)">0</div><div class="k">B 组</div></div><div class="stat"><div class="v num" id="ovC" style="color:var(--lose)">0</div><div class="k">C 组</div></div><div class="stat"><div class="v num" id="ovD" style="color:var(--blue)">0</div><div class="k">D 组</div></div><div class="stat"><div class="v num" id="ovE" style="color:var(--blue)">0</div><div class="k">E 组</div></div></div>
+    <div class="note warn">⚠️ 本批可投：稳健2串1(006葡体×007阿森纳 3.86) + 008利物浦单关；②伤停即嗨已核实带位置。</div>
     <div class="note gray">🧭 纪律：单注 ≤3% · 只投正 EV · 日亏停手 · 串关优先于单关。</div>
   </div>
 
