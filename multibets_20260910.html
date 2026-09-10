@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a1020"><title>多玩法模块 · 9/9 · 参考级</title>
+<style>
+:root{--bg:#0a1020;--bg-grad:radial-gradient(1200px 600px at 50% -10%,#14233f 0%,#0a1020 55%);
+--card:#141d31;--card-2:#1a2540;--card-hover:#1d2a48;--line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.14);
+--t1:rgba(255,255,255,.92);--t2:rgba(255,255,255,.64);--t3:rgba(255,255,255,.42);
+--win:#22e07a;--lose:#ff5d6c;--draw:#8b97ad;--blue:#38bdf8;--gold:#ffc24b;--purple:#a78bfa;
+--accent:#22e07a;--accent-2:#19c3fb;--warn-bg:rgba(255,93,108,.12);--warn-line:rgba(255,93,108,.35);--warn:#ff8a95;
+--chip:rgba(255,255,255,.06);--chip-line:rgba(255,255,255,.12);--shadow:0 10px 30px rgba(0,0,0,.45);--nav-bg:rgba(10,16,32,.82)}
+[data-theme="light"]{--bg:#eef2f8;--bg-grad:radial-gradient(1200px 600px at 50% -10%,#e3ecfb 0%,#eef2f8 55%);
+--card:#ffffff;--card-2:#f5f8fd;--card-hover:#f0f5fd;--line:rgba(15,23,42,.09);--line-2:rgba(15,23,42,.16);
+--t1:rgba(15,23,42,.92);--t2:rgba(15,23,42,.62);--t3:rgba(15,23,42,.42);--win:#0fb86a;--lose:#ef4252;
+--draw:#8b97ad;--blue:#0ea5e9;--gold:#e09b12;--purple:#8b5cf6;--accent:#0fb86a;--accent-2:#0ea5e9;
+--warn-bg:rgba(239,66,82,.09);--warn-line:rgba(239,66,82,.30);--warn:#d83243;--chip:rgba(15,23,42,.05);
+--chip-line:rgba(15,23,42,.12);--nav-bg:rgba(255,255,255,.85)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:Inter,Roboto,"PingFang SC","Microsoft YaHei",-apple-system,sans-serif;margin:0;
+background:var(--bg);background-image:var(--bg-grad);background-attachment:fixed;color:var(--t1);font-size:14px;line-height:1.5;padding-bottom:48px}
+.wrap{max-width:860px;margin:0 auto;padding:0 14px}
+.topnav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:var(--nav-bg);border-bottom:1px solid var(--line)}
+.topnav-in{max-width:860px;margin:0 auto;padding:10px 14px;display:flex;align-items:center;gap:10px}
+.brand{display:flex;align-items:center;gap:9px;flex:1}
+.logo{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-size:17px;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.brand b{font-size:15px}.brand .upd{font-size:12px;color:var(--t3)}
+.iconbtn{min-height:38px;padding:0 12px;border-radius:11px;border:1px solid var(--line-2);background:var(--chip);color:var(--t1);font-size:13px;cursor:pointer}
+.hero{border-radius:18px;padding:18px;margin:16px 0 10px;color:#fff;position:relative;overflow:hidden;
+background:linear-gradient(135deg,#6d28d9,#a855f7 45%,#38bdf8);box-shadow:0 14px 34px rgba(168,85,247,.28)}
+.hero h1{margin:0;font-size:19px;font-weight:800}.hero .sub{margin-top:7px;font-size:13px;opacity:.92}
+.hero .tag{border:1px solid rgba(255,255,255,.5);border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;margin-right:6px}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}
+@media(max-width:520px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);border-radius:13px;padding:9px 8px;text-align:center}
+.kpi .v{font-size:18px;font-weight:800}.kpi .k{font-size:11px;opacity:.85;margin-top:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px;margin:14px 0}
+.card-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-bottom:12px}
+.card-title .more{margin-left:auto;font-weight:500;font-size:12px;color:var(--t3)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px 7px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--t3);font-weight:600;font-size:12px;white-space:nowrap}
+td.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.pick{font-weight:900;font-size:15px;white-space:nowrap}
+.pick.h{color:var(--win)}.pick.d{color:var(--gold)}.pick.a{color:var(--lose)}
+.chip{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--chip);border:1px solid var(--chip-line);color:var(--t2);margin:1px 2px}
+.chip.warn{background:var(--warn-bg);border-color:var(--warn-line);color:var(--warn)}
+.chip.bad{background:var(--warn-bg);border-color:var(--warn-line);color:var(--warn)}
+.chip.ok{background:color-mix(in srgb,var(--win) 14%,transparent);border-color:color-mix(in srgb,var(--win) 34%,transparent);color:var(--win)}
+.note{font-size:13px;line-height:1.55;border-radius:11px;padding:10px 12px;margin-top:12px}
+.note.warn{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn)}
+.note.gray{background:var(--chip);border:1px solid var(--line);color:var(--t2)}
+details{border:1px solid var(--line);border-radius:12px;margin:8px 0;background:var(--card-2)}
+summary{padding:12px 14px;cursor:pointer;font-weight:700;font-size:14px;list-style:none}
+summary::after{content:"▾";float:right;color:var(--t3)}
+details[open] summary::after{content:"▴"}
+details .inner{padding:0 14px 12px;overflow-x:auto}
+footer{color:var(--t3);font-size:12px;text-align:center;margin-top:20px;line-height:1.8}
+</style></head>
+<body>
+<div class="topnav"><div class="topnav-in">
+  <div class="brand"><div class="logo">🎰</div><div><b>多玩法 · 附加模块</b>
+  <div class="upd">🆕 独立于主预测 · 20260910 · 参考级</div></div></div>
+  <button class="iconbtn" onclick="toggleTheme()">🌓 主题</button>
+  <button class="iconbtn" onclick="window.print()">🖨 打印</button>
+</div></div>
+<div class="wrap">
+  <div class="hero">
+    <h1>多玩法推荐 · 竞彩附加 + 传统足彩三玩法</h1>
+    <div class="sub">
+      <span class="tag">隔离模块</span><span class="tag">只读λ · 无新判向</span><span class="tag">负EV不推</span>
+      <span><b>胜负彩 26122期</b> 14/14 判向 · 单选8场 双选6场 · 复式 2^6×2=128元</span>
+    </div>
+  </div>
+  <div class="card"><div class="card-title">📌 板块速览<span class="more">模型投影 · 泊松</span></div>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="v">14/14</div><div class="k">胜负彩判向</div></div>
+      <div class="kpi"><div class="v">8/6</div><div class="k">单选/双选</div></div>
+      <div class="kpi"><div class="v">4/6</div><div class="k">半全场(26175)</div></div>
+      <div class="kpi"><div class="v">2/4</div><div class="k">进球数(26182)</div></div>
+    </div></div>
+
+  <div class="card"><div class="card-title">⚽ 胜负彩 26122期 · 判向表<span class="more">参考级(初盘) · 9/11 22:00停售</span></div>
+    <div style="overflow-x:auto"><table>
+      <tr><th>场次</th><th>联赛</th><th>对阵</th><th>310判向</th><th>依据(欧赔/λ/概率)</th><th>风险</th></tr>
+      <tr><td class="mono">1</td><td>英冠</td><td>西汉姆联vs雷克斯汉姆</td><td><span class="pick h">胜</span> <span class="chip">66%</span></td><td style="font-size:12px;color:var(--t2)">1.58/4.2/4.8 λ1.91/0.96 概率59%/22%/19% → 3(66%) | 让球盘让1.00(1.04/0.84)</td><td><span class="chip warn">⚠️平局高发(英冠):防平</span></td></tr><tr><td class="mono">2</td><td>德甲</td><td>柏林联合vs沙尔克04</td><td><span class="pick h">胜</span> <span class="chip">51%</span></td><td style="font-size:12px;color:var(--t2)">2.13/4.0/3.15 λ1.48/1.18 概率45%/24%/31% → 3(51%) | 让球盘让0.25(0.88/1.00)</td><td></td></tr><tr><td class="mono">3</td><td>德乙</td><td>达姆施塔特vs比勒费尔德</td><td><span class="pick a">负</span><span class="pick d">平</span> <span class="chip">45%</span></td><td style="font-size:12px;color:var(--t2)">2.71/3.8/2.39 λ1.25/1.39 概率35%/25%/40% → 01(45%) | 让球盘让0.00(1.06/0.82)</td><td><span class="chip warn">⚠️平局高发(德乙):防平; 让球诱盘区(德乙, 让0.0):浅盘让球降一档</span></td></tr><tr><td class="mono">4</td><td>德乙</td><td>纽伦堡vs汉诺威96</td><td><span class="pick a">负</span><span class="pick d">平</span> <span class="chip">44%</span></td><td style="font-size:12px;color:var(--t2)">2.69/3.8/2.4 λ1.26/1.38 概率35%/25%/40% → 01(44%) | 让球盘让0.00(1.05/0.83)</td><td><span class="chip warn">⚠️平局高发(德乙):防平; 让球诱盘区(德乙, 让0.0):浅盘让球降一档</span></td></tr><tr><td class="mono">5</td><td>意甲</td><td>威尼斯vs佛罗伦萨</td><td><span class="pick a">负</span><span class="pick d">平</span> <span class="chip">40%</span></td><td style="font-size:12px;color:var(--t2)">2.69/3.4/2.66 λ1.26/1.30 概率36%/28%/36% → 01(40%) | 让球盘让0.00(0.95/0.93)</td><td></td></tr><tr><td class="mono">6</td><td>西甲</td><td>塞维利亚vs巴伦西亚</td><td><span class="pick h">胜</span><span class="pick d">平</span> <span class="chip">44%</span></td><td style="font-size:12px;color:var(--t2)">2.44/3.1/3.25 λ1.34/1.16 概率39%/31%/30% → 31(44%) | 让球盘让0.25(1.06/0.82)</td><td></td></tr><tr><td class="mono">7</td><td>法甲</td><td>雷恩vs马赛</td><td><span class="pick h">胜</span><span class="pick d">平</span> <span class="chip">46%</span></td><td style="font-size:12px;color:var(--t2)">2.33/4.0/2.69 λ1.37/1.29 概率41%/24%/35% → 31(46%) | 让球盘让0.25(1.07/0.81)</td><td></td></tr><tr><td class="mono">8</td><td>法乙</td><td>南锡vs兰斯</td><td><span class="pick a">负</span> <span class="chip">48%</span></td><td style="font-size:12px;color:var(--t2)">2.93/3.5/2.12 λ1.19/1.47 概率31%/26%/43% → 0(48%) | 让球盘让-0.25(0.88/0.88)</td><td><span class="chip warn">⚠️平局高发(法乙):防平; 让球诱盘区(法乙, 让-0.25):浅盘让球降一档</span></td></tr><tr><td class="mono">9</td><td>法乙</td><td>克莱蒙vs布洛涅</td><td><span class="pick h">胜</span><span class="pick d">平</span> <span class="chip">46%</span></td><td style="font-size:12px;color:var(--t2)">2.23/3.1/3.05 λ1.37/1.17 概率41%/29%/30% → 31(46%) | 让球盘让0.25(0.94/0.82)</td><td><span class="chip warn">⚠️平局高发(法乙):防平; 让球诱盘区(法乙, 让0.25):浅盘让球降一档</span></td></tr><tr><td class="mono">10</td><td>法乙</td><td>第戎vs拉瓦勒</td><td><span class="pick h">胜</span> <span class="chip">50%</span></td><td style="font-size:12px;color:var(--t2)">2.02/3.4/3.2 λ1.48/1.13 概率45%/27%/28% → 3(50%) | 让球盘让0.25(0.78/0.98)</td><td><span class="chip warn">⚠️平局高发(法乙):防平; 让球诱盘区(法乙, 让0.25):浅盘让球降一档</span></td></tr><tr><td class="mono">11</td><td>法乙</td><td>蒙彼利埃vs波城FC</td><td><span class="pick h">胜</span> <span class="chip">56%</span></td><td style="font-size:12px;color:var(--t2)">1.83/3.65/3.6 λ1.57/1.05 概率50%/25%/25% → 3(56%) | 让球盘让0.50(0.83/0.93)</td><td><span class="chip warn">⚠️平局高发(法乙):防平; 让球诱盘区(法乙, 让0.5):浅盘让球降一档</span></td></tr><tr><td class="mono">12</td><td>法乙</td><td>罗德兹vs格勒诺布尔</td><td><span class="pick h">胜</span> <span class="chip">60%</span></td><td style="font-size:12px;color:var(--t2)">1.69/3.75/4.1 λ1.72/1.00 概率54%/24%/22% → 3(60%) | 让球盘让0.75(0.90/0.86)</td><td><span class="chip warn">⚠️平局高发(法乙):防平</span></td></tr><tr><td class="mono">13</td><td>荷甲</td><td>阿尔克马尔vs威廉二世</td><td><span class="pick h">胜</span> <span class="chip">80%</span></td><td style="font-size:12px;color:var(--t2)">1.15/8.6/15.5 λ2.92/0.64 概率83%/11%/6% → 3(80%) | 让球盘让2.25(0.87/1.01)</td><td><span class="chip warn">⚠️E1超深盘(x&lt;1.40):置信封顶+防冷</span></td></tr><tr><td class="mono">14</td><td>瑞超</td><td>赫根vs米亚尔比</td><td><span class="pick h">胜</span> <span class="chip">63%</span></td><td style="font-size:12px;color:var(--t2)">1.65/4.2/4.25 λ1.81/1.00 概率56%/22%/22% → 3(63%) | 让球盘让0.75(0.82/1.06)</td><td><span class="chip warn">⚠️平局高发(瑞超):防平</span></td></tr></table></div>
+    <details><summary>🎯 任九候选(置信最高9场单选)</summary><div class="inner" style="padding-top:10px"><span class='chip'>13=3</span>, <span class='chip'>1=3</span>, <span class='chip'>14=3</span>, <span class='chip'>12=3</span>, <span class='chip'>11=3</span>, <span class='chip'>2=3</span>, <span class='chip'>10=3</span>, <span class='chip'>8=0</span><br>
+      <b>复式成本:</b> 全双选 128元 (2^6×2元)</div></details>
+  </div>
+
+  <div class="card"><div class="card-title">⏱ 6场半全场 · 期号26175<span class="more">双半场双泊松投影</span></div>
+    <div style="overflow-x:auto"><table><tr><th>场次</th><th>对阵</th><th>λ</th><th>半全场Top3</th><th>推荐</th></tr><tr><td class="mono">1</td><td>费内巴切vs罗马</td><td class="mono">1.16/1.51</td><td style="font-size:12px;color:var(--t2)">负负29.1%;胜胜17.7%;平平15.3%</td><td><span class="chip ok">负负 29%/胜胜 18%</span></td></tr><tr><td class="mono">3</td><td>科莫vs莱比锡红牛</td><td class="mono">1.65/1.03</td><td style="font-size:12px;color:var(--t2)">胜胜34.1%;平胜15.5%;平平14.8%</td><td><span class="chip ok">胜胜 34%/平胜 16%</span></td></tr><tr><td class="mono">5</td><td>布拉格斯拉维亚vs朗斯</td><td class="mono">1.26/1.33</td><td style="font-size:12px;color:var(--t2)">负负23.9%;胜胜21.8%;平平16.1%</td><td><span class="chip ok">负负 24%/胜胜 22%</span></td></tr><tr><td class="mono">6</td><td>阿马多拉vs布拉加</td><td class="mono">0.90/1.95</td><td style="font-size:12px;color:var(--t2)">负负42.3%;平负17.0%;平平12.8%</td><td><span class="chip ok">负负 42%/平负 17%</span></td></tr></table></div>
+  </div>
+
+  <div class="card"><div class="card-title">🥅 4场进球数 · 期号26182<span class="more">泊松和分布</span></div>
+    <div style="overflow-x:auto"><table><tr><th>场次</th><th>对阵</th><th>λ</th><th>进球数概率</th><th>推荐</th></tr><tr><td class="mono">1</td><td>费内巴切vs罗马</td><td class="mono">1.16/1.51</td><td style="font-size:12px;color:var(--t2)">0球6.9%/1球18.5%/2球24.7%/3+球49.9%</td><td><span class="chip ok">3+球(50%)</span></td></tr><tr><td class="mono">3</td><td>科莫vs莱比锡红牛</td><td class="mono">1.65/1.03</td><td style="font-size:12px;color:var(--t2)">0球6.9%/1球18.4%/2球24.6%/3+球50.1%</td><td><span class="chip ok">3+球(50%)</span></td></tr></table></div>
+  </div>
+
+  <div class="card"><div class="card-title">🎲 竞彩附加玩法 EV（模型 vs 官方赔率）<span class="more">正EV≥3%才列</span></div>
+    <div style="overflow-x:auto"><table><tr><th>编号</th><th>对阵</th><th>玩法/选项</th><th>模型概率</th><th>赔率</th><th>EV</th></tr><tr><td class="mono">002</td><td>欧冠 科莫vs莱比锡红牛</td><td>总进球 <b>1球</b></td><td class="mono">18.4%</td><td class="mono">6.50</td><td class="mono" style="color:var(--win)">+19.5%</td></tr><tr><td class="mono">002</td><td>欧冠 科莫vs莱比锡红牛</td><td>比分 <b>1-0</b></td><td class="mono">11.3%</td><td class="mono">9.50</td><td class="mono" style="color:var(--win)">+7.8%</td></tr><tr><td class="mono">002</td><td>欧冠 科莫vs莱比锡红牛</td><td>比分 <b>0-1</b></td><td class="mono">7.0%</td><td class="mono">15.00</td><td class="mono" style="color:var(--win)">+5.5%</td></tr></table></div>
+  </div>
+
+  <div class="note warn">⚠️ <b>隔离声明</b>: 本页为<b>多玩法附加模块(参考级)</b>——胜负彩为初盘参考判向(无轨迹/伤停/五维), 终版以停售前更新为准; 与主预测(竞彩单场/串关/HTML)完全独立; 浮动奖玩法无固定赔率, 模型概率仅供参考; 不构成投注建议。</div>
+  <div class="note gray">📊 数据源: 体彩官方(jc 5池/传统足彩网关) + 即嗨(澳门盘/欧赔) + lambda_model(63242场校准) · 生成 2026-09-10 20:45</div>
+  <footer>sop-predictions · 20260910 · 主预测入口: https://1737665887kiss-hub.github.io/sop-predictions/</footer>
+</div>
+<script>
+function toggleTheme(){var t=document.documentElement;t.dataset.theme=t.dataset.theme==='dark'?'light':'dark'}
+</script>
+</body></html>
