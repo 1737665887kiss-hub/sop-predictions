@@ -300,6 +300,16 @@ body.ready .skeleton{display:none}
 @media(min-width:900px){#list{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;align-items:start}#list .match{margin:14px 0}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
+
+<style>
+.card.match.rev{border-left:4px solid var(--lose);box-shadow:inset 0 0 0 1px rgba(255,93,108,.35)}
+.pill-rev{font-size:11px;font-weight:800;padding:2px 8px;border-radius:20px;background:var(--lose);color:#fff;margin-right:5px}
+.featbox{margin-top:9px;padding:8px 10px;background:var(--card-2);border:1px solid var(--line);border-radius:10px;font-size:12px;line-height:1.7}
+.featbox .k2{color:var(--t3);margin-bottom:4px}
+.featbox b{color:var(--t1)}
+.featbox .warn2{color:var(--warn)}
+@media(max-width:380px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
 </head>
 <body>
 <script>document.documentElement.classList.add('js');
@@ -340,8 +350,8 @@ body.ready .skeleton{display:none}
 
   <div class="card">
     <div class="card-title">📊 投注策略总览<span class="more" id="ovMore">A · B · C · D · E</span></div>
-    <div class="stat-grid"><div class="stat"><div class="v num" id="ovTotal">0</div><div class="k">总场次</div></div><div class="stat"><div class="v num" id="ovA" style="color:var(--win)">0</div><div class="k">A 组</div></div><div class="stat"><div class="v num" id="ovB" style="color:var(--blue)">0</div><div class="k">B 组</div></div><div class="stat"><div class="v num" id="ovC" style="color:var(--lose)">0</div><div class="k">C 组</div></div><div class="stat"><div class="v num" id="ovD" style="color:var(--blue)">0</div><div class="k">D 组</div></div><div class="stat"><div class="v num" id="ovE" style="color:var(--blue)">0</div><div class="k">E 组</div></div></div>
-    <div class="note warn">⚠️ 本批可投：稳健2串1(006葡体×007阿森纳 3.86) + 008利物浦单关；②伤停即嗨已核实带位置。</div>
+    <div class="stat-grid"><div class="stat"><div class="v num" id="ovTotal">0</div><div class="k">总场次</div></div><div class="stat"><div class="v num" id="ovA" style="color:var(--win)">0</div><div class="k">A 组</div></div><div class="stat"><div class="v num" id="ovB" style="color:var(--blue)">0</div><div class="k">B 组</div></div><div class="stat"><div class="v num" id="ovC" style="color:var(--lose)">0</div><div class="k">C 组</div></div><div class="stat"><div class="v num" id="ovD" style="color:var(--blue)">0</div><div class="k">D 组</div></div><div class="stat"><div class="v num" id="ovE" style="color:var(--blue)">0</div><div class="k">E 组</div></div><div class="stat"><div class="v num" id="ovRev" style="color:var(--lose)">0</div><div class="k">反转</div></div><div class="stat"><div class="v num" id="ovInj">0%</div><div class="k">伤停覆盖</div></div></div>
+    <div class="note warn">⚠️ 本批可投 0 场：7 场均不满足投注纪律（只投正EV + 置信≥55%才投单关 + D组不投 + EV<5%不组串）。</div>
     <div class="note gray">🧭 纪律：单注 ≤3% · 只投正 EV · 日亏停手 · 串关优先于单关。</div>
   </div>
 
@@ -372,7 +382,7 @@ body.ready .skeleton{display:none}
       <button class="toolbtn" onclick="toggleAll(false)">收起</button>
       <button class="toolbtn" onclick="copyAll()">📨 复制整批</button>
     </div>
-    <div class="result-count"><span id="countLine">显示 15 / 15 场</span><span id="sortHint"></span></div>
+    <div class="result-count"><span id="countLine">显示 7 / 7 场</span><span id="sortHint"></span></div>
   </div></details>
 
   <div id="list"></div>
@@ -384,10 +394,10 @@ body.ready .skeleton{display:none}
   <div class="card">
     <div class="card-title">💰 月度盈亏看板<span class="more num">2026-09</span></div>
     <div class="stat-grid">
-      <div class="stat"><div class="v num neg">-1162</div><div class="k">本月盈亏</div></div>
-      <div class="stat"><div class="v num neg">-936</div><div class="k">本月单关</div></div>
-      <div class="stat"><div class="v num neg">-226</div><div class="k">本月串关</div></div>
-      <div class="stat"><div class="v num">5</div><div class="k">本月注数</div></div>
+      <div class="stat"><div class="v num neg">-355.6</div><div class="k">本月盈亏</div></div>
+      <div class="stat"><div class="v num neg">-336.0</div><div class="k">本月单关</div></div>
+      <div class="stat"><div class="v num neg">-19.6</div><div class="k">本月串关</div></div>
+      <div class="stat"><div class="v num ">13</div><div class="k">本月注数</div></div>
     </div>
     <svg class="spark" viewBox="0 0 200 44" preserveAspectRatio="none">
       <defs><linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
@@ -401,16 +411,16 @@ body.ready .skeleton{display:none}
   </div>
 
   <div class="card">
-    <div class="card-title">🧾 模拟投注台账<span class="more num">18 注 · 本金 10000</span></div>
+    <div class="card-title">🧾 模拟投注台账<span class="more num">26 注 · 本金 10345（台账反推）</span></div>
     <div class="stat-grid">
-      <div class="stat"><div class="v num pos">10013.59</div><div class="k">余额</div></div>
-      <div class="stat"><div class="v num neg">-1138</div><div class="k">总盈亏</div></div>
-      <div class="stat"><div class="v num neg">-25.9%</div><div class="k">ROI</div></div>
-      <div class="stat"><div class="v num gold">28%</div><div class="k">胜率</div></div>
+      <div class="stat"><div class="v num ">10013.59</div><div class="k">余额</div></div>
+      <div class="stat"><div class="v num neg">-331.4</div><div class="k">总盈亏</div></div>
+      <div class="stat"><div class="v num neg">-6.2%</div><div class="k">ROI</div></div>
+      <div class="stat"><div class="v num gold">23%</div><div class="k">胜率</div></div>
     </div>
     <div style="margin-top:14px">
       <div style="display:flex;justify-content:space-between;font-size:13px"><b>单关 vs 串关</b><span class="num" style="color:var(--t3)">金额</span></div>
-      <div class="split-bar"><i style="width:67.5%;background:var(--lose)"></i><i style="width:32.5%;background:var(--win)"></i></div>
+      <div class="split-bar"><i style="width:73.5%;background:var(--lose)"></i><i style="width:26.5%;background:var(--win)"></i></div>
       <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--t2)">
         <span>单关 <b class="num" style="color:var(--neg)">-2193</b>（13 注）</span>
         <span>串关 <b class="num" style="color:var(--pos)">+1055</b>（5 注）</span>
@@ -452,8 +462,8 @@ body.ready .skeleton{display:none}
 
 <div class="toast" id="toast"></div>
 
-<script>function ovRender(){var g={A:0,B:0,C:0,D:0,E:0};MATCHES.forEach(function(m){var x=m.group||"E";g[x]=(g[x]||0)+1});var f=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v};f("ovMore","A "+g.A+" · B "+g.B+" · C "+g.C+" · D "+g.D+" · E "+g.E);f("ovTotal",MATCHES.length);f("ovA",g.A);f("ovB",g.B);f("ovC",g.C);f("ovD",g.D);f("ovE",g.E)};window.addEventListener("load",ovRender);</script><script>
-/* ===== 数据：与原静态页 15 场完全一致，未新增/虚构字段 ===== */
+<script>function ovRender(){var g={A:0,B:0,C:0,D:0,E:0};MATCHES.forEach(function(m){var x=m.group||"E";g[x]=(g[x]||0)+1});var f=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v};f("ovMore","A "+g.A+" · B "+g.B+" · C "+g.C+" · D "+g.D+" · E "+g.E);f("ovTotal",MATCHES.length);f("ovA",g.A);f("ovB",g.B);f("ovC",g.C);f("ovD",g.D);f("ovE",g.E);f("ovRev",MATCHES.filter(function(m){return m.fix&&m.fix.rev}).length);f("ovInj",Math.round(MATCHES.filter(function(m){return m.injpos&&m.injpos.length>0}).length/Math.max(1,MATCHES.length)*100)+"%")};window.addEventListener("load",ovRender);</script><script>
+/* ===== 数据：与原静态页 7 场完全一致，未新增/虚构字段 ===== */
 var BANKROLL=10013.59;
 var MATCHES=[
  {
@@ -470,7 +480,8 @@ var MATCHES=[
    "side": "客胜",
    "p": 48,
    "note": "降置信 69%→48%",
-   "down": true
+   "down": true,
+   "rev": false
   },
   "pick": "客胜",
   "conf": 48,
@@ -498,8 +509,8 @@ var MATCHES=[
   "delta": "模型看高 +10pt",
   "bf": [
    12,
-   75,
-   13
+   88,
+   0
   ],
   "h2h": [
    [
@@ -547,9 +558,9 @@ var MATCHES=[
    "ih": 6,
    "ia": 1,
    "lam": "0.93/1.00",
-   "rh": "—",
-   "ra": "—",
-   "bf": "12/75/13"
+   "rh": "103h",
+   "ra": "103h",
+   "bf": "12/88/0"
   },
   "injpos": "主缺中卫1、前腰2、中前卫2、前锋1；客缺前腰1",
   "goal": [
@@ -559,7 +570,19 @@ var MATCHES=[
    17,
    8,
    5
-  ]
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "114",
+   "eloD": "2026-08-22",
+   "rest": "5/5天",
+   "rho": "-0.04",
+   "rhoSrc": "全局ρ(该联赛样本不足)",
+   "rot": "中(4-5天)",
+   "sig2": "Elo差+114; 必发资金平75%; 状态差+0.00",
+   "hbonus": "0",
+   "form": "0.0"
+  }
  },
  {
   "id": "002",
@@ -575,7 +598,8 @@ var MATCHES=[
    "side": "主胜",
    "p": 43,
    "note": "降置信 78%→43%",
-   "down": true
+   "down": true,
+   "rev": false
   },
   "pick": "主胜",
   "conf": 43,
@@ -605,8 +629,8 @@ var MATCHES=[
   "delta": "接近市场 -1pt",
   "bf": [
    88,
-   7,
-   5
+   12,
+   0
   ],
   "h2h": [],
   "guard": "主队多伤防冷",
@@ -645,13 +669,13 @@ var MATCHES=[
   ],
   "core": {
    "xh": "1.83",
-   "xa": "—",
+   "xa": "2.67",
    "ih": 6,
    "ia": 9,
    "lam": "1.24/0.96",
-   "rh": "—",
-   "ra": "—",
-   "bf": "88/7/5"
+   "rh": "127h",
+   "ra": "127h",
+   "bf": "88/12/0"
   },
   "injpos": "主缺右边锋1、守门员1、中卫2、中前卫2；客缺中场3、前腰1、后卫1、前锋2、守门员1、中卫1",
   "goal": [
@@ -661,7 +685,19 @@ var MATCHES=[
    20,
    11,
    7
-  ]
+  ],
+  "feat": {
+   "xg": "-0.84",
+   "elo": "66",
+   "eloD": "2026-08-22",
+   "rest": "6/6天",
+   "rho": "-0.04",
+   "rhoSrc": "全局ρ(该联赛样本不足)",
+   "rot": "高(≤3天)",
+   "sig2": "xG差-0.84; Elo差+66; ⚠️轮换风险高(下场间隔 主4/客2天); 防漏 主×1.14/客×1.30; 必发资金主88%; 状态差+0.40",
+   "hbonus": "0",
+   "form": "0.4"
+  }
  },
  {
   "id": "003",
@@ -677,7 +713,8 @@ var MATCHES=[
    "side": "主胜",
    "p": 68,
    "note": "同向不变",
-   "down": false
+   "down": false,
+   "rev": false
   },
   "pick": "主胜",
   "conf": 68,
@@ -707,8 +744,8 @@ var MATCHES=[
   "delta": "模型看低 -21pt",
   "bf": [
    90,
-   3,
-   7
+   10,
+   0
   ],
   "h2h": [],
   "guard": "E1超深盘防冷",
@@ -748,9 +785,9 @@ var MATCHES=[
    "ih": 1,
    "ia": 5,
    "lam": "2.90/0.46",
-   "rh": "—",
-   "ra": "—",
-   "bf": "90/3/7"
+   "rh": "103h",
+   "ra": "127h",
+   "bf": "90/10/0"
   },
   "injpos": "主缺前锋1；客缺中卫2、中前卫2、影锋1",
   "goal": [
@@ -760,7 +797,19 @@ var MATCHES=[
    22,
    19,
    24
-  ]
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "120",
+   "eloD": "2026-08-23",
+   "rest": "5/6天",
+   "rho": "-0.04",
+   "rhoSrc": "全局ρ(该联赛样本不足)",
+   "rot": "低(≥6天)",
+   "sig2": "Elo差+120; 休息差-1天; 必发资金主90%; 状态差-0.40",
+   "hbonus": "0",
+   "form": "-0.4"
+  }
  },
  {
   "id": "004",
@@ -776,7 +825,8 @@ var MATCHES=[
    "side": "客胜",
    "p": 52,
    "note": "方向修正 主胜77% → 客胜52%",
-   "down": false
+   "down": false,
+   "rev": true
   },
   "pick": "客胜",
   "conf": 52,
@@ -804,8 +854,8 @@ var MATCHES=[
   "delta": "模型看高 +6pt",
   "bf": [
    44,
-   32,
-   24
+   56,
+   0
   ],
   "h2h": [],
   "guard": "不防",
@@ -845,9 +895,9 @@ var MATCHES=[
    "ih": 7,
    "ia": 8,
    "lam": "1.05/1.38",
-   "rh": "—",
-   "ra": "—",
-   "bf": "44/32/24"
+   "rh": "127h",
+   "ra": "127h",
+   "bf": "44/56/0"
   },
   "injpos": "主缺中卫3、左边锋1、前锋1、中场1、守门员1；客缺左后卫2、中卫4、右后卫1、中前卫1",
   "goal": [
@@ -857,7 +907,19 @@ var MATCHES=[
    21,
    13,
    10
-  ]
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "58",
+   "eloD": "2026-05-24",
+   "rest": "6/6天",
+   "rho": "-0.04",
+   "rhoSrc": "全局ρ(该联赛样本不足)",
+   "rot": "高(≤3天)",
+   "sig2": "Elo差+58; ⚠️轮换风险高(下场间隔 主3/客2天); 防漏 主×1.14/客×1.48; 必发资金主44%; 状态差+0.40",
+   "hbonus": "0",
+   "form": "0.4"
+  }
  },
  {
   "id": "005",
@@ -873,7 +935,8 @@ var MATCHES=[
    "side": "主胜",
    "p": 65,
    "note": "降置信 100%→65%",
-   "down": true
+   "down": true,
+   "rev": false
   },
   "pick": "主胜",
   "conf": 65,
@@ -903,8 +966,8 @@ var MATCHES=[
   "delta": "模型看低 -24pt",
   "bf": [
    92,
-   2,
-   6
+   8,
+   0
   ],
   "h2h": [],
   "guard": "E1超深盘防冷; 主队多伤防冷",
@@ -944,9 +1007,9 @@ var MATCHES=[
    "ih": 6,
    "ia": 1,
    "lam": "2.25/0.60",
-   "rh": "—",
-   "ra": "—",
-   "bf": "92/2/6"
+   "rh": "103h",
+   "ra": "127h",
+   "bf": "92/8/0"
   },
   "injpos": "主缺后腰2、右边锋1、守门员1、中卫1、左边锋1；客缺左边锋1",
   "goal": [
@@ -956,7 +1019,19 @@ var MATCHES=[
    22,
    16,
    16
-  ]
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "",
+   "eloD": "2025-12-01",
+   "rest": "5/6天",
+   "rho": "-0.04",
+   "rhoSrc": "全局ρ(该联赛样本不足)",
+   "rot": "高(≤3天)",
+   "sig2": "休息差-1天; ⚠️轮换风险高(下场间隔 主2/客3天); 防漏 主×1.48/客×1.00; 必发资金主92%; 状态差-1.40",
+   "hbonus": "0",
+   "form": "-1.4"
+  }
  },
  {
   "id": "006",
@@ -972,7 +1047,8 @@ var MATCHES=[
    "side": "客胜",
    "p": 50,
    "note": "降置信 95%→50%",
-   "down": true
+   "down": true,
+   "rev": false
   },
   "pick": "客胜",
   "conf": 50,
@@ -1000,8 +1076,8 @@ var MATCHES=[
   "delta": "模型看低 -6pt",
   "bf": [
    10,
-   81,
-   9
+   90,
+   0
   ],
   "h2h": [
    [
@@ -1067,9 +1143,9 @@ var MATCHES=[
    "ih": 3,
    "ia": 4,
    "lam": "0.89/1.19",
-   "rh": "—",
-   "ra": "—",
-   "bf": "10/81/9"
+   "rh": "127h",
+   "ra": "103h",
+   "bf": "10/90/0"
   },
   "injpos": "主缺中锋1、后腰1、中场1；客缺中卫2、中前卫1、左边锋1",
   "goal": [
@@ -1079,7 +1155,19 @@ var MATCHES=[
    19,
    10,
    6
-  ]
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "",
+   "eloD": "",
+   "rest": "6/5天",
+   "rho": "0.02",
+   "rhoSrc": "葡超拟合(n=943)",
+   "rot": "中(4-5天)",
+   "sig2": "休息差+1天; 防漏 主×1.14/客×1.00; 必发资金平81%; 状态差-0.40",
+   "hbonus": "0",
+   "form": "-0.4"
+  }
  },
  {
   "id": "007",
@@ -1095,7 +1183,8 @@ var MATCHES=[
    "side": "客胜",
    "p": 42,
    "note": "方向修正 主胜48% → 客胜42%",
-   "down": false
+   "down": false,
+   "rev": true
   },
   "pick": "客胜",
   "conf": 42,
@@ -1123,8 +1212,8 @@ var MATCHES=[
   "delta": "模型看高 +8pt",
   "bf": [
    17,
-   64,
-   19
+   83,
+   0
   ],
   "h2h": [
    [
@@ -1192,9 +1281,9 @@ var MATCHES=[
    "ih": 4,
    "ia": 3,
    "lam": "1.06/1.26",
-   "rh": "—",
-   "ra": "—",
-   "bf": "17/64/19"
+   "rh": "103h",
+   "ra": "79h",
+   "bf": "17/83/0"
   },
   "injpos": "主缺前腰3、守门员1；客缺左后卫1、中卫1、后腰1",
   "goal": [
@@ -1204,7 +1293,19 @@ var MATCHES=[
    20,
    12,
    9
-  ]
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "",
+   "eloD": "",
+   "rest": "5/4天",
+   "rho": "-0.04",
+   "rhoSrc": "全局ρ(该联赛样本不足)",
+   "rot": "高(≤3天)",
+   "sig2": "休息差+1天; ⚠️轮换风险高(下场间隔 主/客3天); 防漏 主×1.14/客×1.30; 必发资金平64%",
+   "hbonus": "0",
+   "form": ""
+  }
  }
 ];
 var LEDGER=[["09-09 利物浦vs马德里竞技", "单关", "主胜", 79.0], ["09-09 葡萄牙体育×阿森纳", "稳健2串1", "主×客", 571.4], ["09-09 波尔图vs曼彻斯特城", "单关", "客胜", 103.0], ["09-09 国际米兰vs那不勒斯", "单关", "主胜", 79.0], ["09-09 门兴格拉德巴赫vs艾禾斯堡", "单关", "主胜", -26.0], ["09-05 纽约城vs纳什维尔SC", "单关", "客胜", -300.0], ["09-02 米尔沃尔×西布朗×QPR", "稳健3串1", "三主胜", -90.0], ["09-02 西布朗×QPR", "稳健2串1", "双主胜", -136.0], ["09-02 水户蜀葵vs鹿岛鹿角", "单关", "客胜", -271.0], ["09-01 10场", "3注", "", 0.0], ["09-01 布莱克本×诺维奇", "博冷2串1", "客×客", -94.0], ["09-01 新月×都灵", "稳健2串1", "主×主", -130.0], ["09-01 新月×诺维奇×都灵", "稳健3串1", "主×客×主", -141.0], ["08-31 亚特兰大vs博洛尼亚", "博冷单关", "平", -100.0], ["08-31 尤尔加登×圣埃蒂安", "价值2串1", "主×客", 345.0], ["08-31 阿森纳×圣埃蒂安", "稳健2串1", "客×客", 472.0], ["08-31 罗马×本菲卡×巴萨", "稳健3串1", "客×主×主", 463.75], ["08-29 埃尔沃斯堡vs勒沃库森", "单关", "客胜", -235.0], ["08-29 美因茨vs帕德博恩", "单关", "主胜", -290.0], ["08-29 考文垂vs赫尔城", "单关", "主胜", -290.0], ["08-28 水晶宫vs曼城", "单关", "客胜", 145.44], ["08-28 波鸿vs奥斯纳布吕克", "单关", "主胜", -303.0], ["08-28 蒙彼利埃vs布洛涅", "单关", "主胜", -303.0], ["08-27 费伦茨vs特拉布宗", "单关", "主胜", 606.0], ["08-27 奥莫尼亚vs圣图尔登", "单关", "平局", -261.0], ["08-27 比尔森vs红星", "单关", "客胜", -226.0]];
@@ -1224,6 +1325,11 @@ function copyTextOf(m){return m.pick+' '+m.home+'vs'+m.away+' 比分'+m.scores.m
 function coreBlock(m){var c=m.core;return '<div style="margin-top:10px;padding:8px 10px;background:var(--card-2);border:1px solid var(--line);border-radius:10px;font-size:12px">'+'<div style="color:var(--t3);margin-bottom:5px">📊 核心数据</div>'+'<div style="display:flex;flex-wrap:wrap;gap:4px 12px;line-height:1.6">'+'<span><b style="color:var(--win)">'+m.home.slice(0,8)+'</b> xG'+c.xh+' 伤'+c.ih+'</span>'+'<span><b style="color:var(--blue)">'+m.away.slice(0,8)+'</b> xG'+c.xa+' 伤'+c.ia+'</span>'+'<span style="color:var(--t3)">λ'+c.lam+' 休息'+c.rh+'/'+c.ra+'h 必发主'+(c.bf==='—'?'—':c.bf+'%')+'</span>'+'</div></div>'}
 function injNote(m){if(!m.injpos)return '';return '<div style="font-size:11px;color:var(--warn);margin-top:7px;line-height:1.6">⚠️ '+m.injpos+'</div>'}
 function goalDist(m){var g=m.goal,lb=['0','1','2','3','4','5+'],bars='';for(var k=0;k<6;k++){bars+='<div style="flex:1;min-width:28px;text-align:center"><div style="height:16px;background:var(--track);border-radius:4px;overflow:hidden"><div style="height:100%;width:'+g[k]+'%;background:'+(k>=2?'var(--win)':'var(--lose)')+'"></div></div><span style="font-size:9px;color:var(--t3)">'+lb[k]+'球'+g[k]+'%</span></div>'}return '<div style="margin-top:9px"><div style="font-size:11px;color:var(--t3);margin-bottom:5px">总进球分布</div><div style="display:flex;gap:3px">'+bars+'</div></div>'}
+function featBlock(m){var f=m.feat;if(!f)return '';var rows=[];var g=function(k,v){if(v!==''&&v!==null&&v!==undefined)rows.push('<span><span style="color:var(--t3)">'+k+'</span> <b>'+v+'</b></span>')};
+g('xG差',f.xg===''?'':(f.xg>0?'+':'')+f.xg);g('Elo差',f.elo===''?'':(f.elo>0?'+':'')+f.elo+(f.eloD?'(截至'+f.eloD.slice(5)+')':''));g('休息',f.rest);g('状态差',f.form===''?'':(f.form>0?'+':'')+f.form);g('联赛ρ',f.rho);g('主场补正',f.hbonus?f.hbonus+'%':'');
+if(f.rot&&f.rot.indexOf('高')>=0)rows.push('<span class="warn2">⚠️ 轮换风险 '+f.rot+'</span>');
+if(!rows.length)return '';
+return '<div class="featbox"><div class="k2">🧪 进阶特征层（免费接口：Understat xG · 真Elo · 即嗨近期/未来赛程 · 联赛拟合ρ）</div><div style="display:flex;flex-wrap:wrap;gap:4px 12px">'+rows.join('')+'</div>'+(f.sig2?'<div style="color:var(--t3);margin-top:4px">'+f.sig2+'</div>':'')+'</div>'}
 /* ===== 渲染 ===== */
 function render(){
   var list=document.getElementById('list');list.innerHTML='';
@@ -1242,7 +1348,7 @@ function render(){
     var kellyBox=(k&&m.bet!=='不投')?('<div class="kelly go"><span class="ic">🎯</span><div>1/4 凯利建议仓位 <b class="num">'+Math.round(k)+' 元</b>（占余额 '+(k/BANKROLL*100).toFixed(1)+'%，已按≤3%封顶）· 模型 '+m.model+'% × 欧赔 '+pickOdds(m).toFixed(2)+'</div></div>')
       :('<div class="kelly no"><span class="ic">🚫</span><div>本场 <b>'+m.bet+'</b>：EV <b class="num">'+m.ev+'%</b>'+(k?'（凯利仓位 '+Math.round(k)+' 元，因投注纪律未采纳）':'，凯利公式不给仓位')+'，与“只投正 EV + 投注纪律”一致。</div></div>');
     var el=document.createElement('div');
-    el.className='card match';
+    el.className='card match'+(m.fix.rev?' rev':'');
     el.setAttribute('data-group',m.group);
     el.setAttribute('data-key',(m.home+'vs'+m.away+m.league).toLowerCase());
     el.setAttribute('data-bet',m.bet);
@@ -1252,12 +1358,12 @@ function render(){
         '<div class="m-meta"><span class="m-league">['+m.id+'] '+m.league+'<span class="shortcode">'+(m.pick==='主胜'?'主':'客')+'</span></span>'+
           '<span><span class="risk '+risk[1]+'">风险'+risk[0]+'</span><span class="grp '+m.group+'">'+m.group+'组</span></span></div>'+
         '<div class="m-teams"><span class="vs">'+m.home+'<span class="at">vs</span>'+m.away+'</span></div>'+
-        '<div class="adj">AI原判 <b>'+m.ai.side+aiP+'</b> → 二次修正 <b>'+m.fix.side+m.fix.p+'%</b> '+(m.fix.down?'<span class="pill-down">'+m.fix.note+'</span>':'<span class="same">'+m.fix.note+'</span>')+'</div>'+
+        '<div class="adj">AI原判 <b>'+m.ai.side+aiP+'</b> → 二次修正 <b>'+m.fix.side+m.fix.p+'%</b> '+(m.fix.rev?'<span class="pill-rev">🔴反转</span>':'')+(m.fix.down?'<span class="pill-down">'+m.fix.note+'</span>':'<span class="same">'+m.fix.note+'</span>')+'</div>'+
         '<div class="pick-row"><span class="pick-side '+side+'">'+m.pick+'</span>'+
           '<div class="conf-wrap"><div class="conf-line"><span>置信度</span><span class="num">模型 '+m.model+'%</span></div>'+
           '<div class="conf-track"><div class="conf-fill '+side+'" style="width:0" data-w="'+m.conf+'"></div></div></div>'+
           '<span class="conf-big '+side+' num" data-count="'+m.conf+'">0%</span></div>'+
-        '<div class="scoreline">'+scores+'</div>'+coreBlock(m)+injNote(m)+goalDist(m)+
+        '<div class="scoreline">'+scores+'</div>'+coreBlock(m)+featBlock(m)+injNote(m)+goalDist(m)+
         '<div class="prob"><div class="prob-label"><span>市场去水概率（胜 / 平 / 负）</span></div>'+
           '<div class="bar3"><i class="h" style="width:0" data-w="'+mk[0]+'"></i><i class="d" style="width:0" data-w="'+mk[1]+'"></i><i class="a" style="width:0" data-w="'+mk[2]+'"></i></div>'+
           '<div class="legend3"><span><i class="lg-dot h"></i>主胜<b class="num">'+mk[0]+'%</b></span><span><i class="lg-dot d"></i>平<b class="num">'+mk[1]+'%</b></span><span><i class="lg-dot a"></i>客胜<b class="num">'+mk[2]+'%</b></span></div></div>'+
