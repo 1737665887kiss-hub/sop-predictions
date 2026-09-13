@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a1020" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eef2f8" media="(prefers-color-scheme: light)">
+<title>多玩法模块 · 9/12 · 阿豪二次修正 · 参考级</title>
+<style>
+:root{--bg:#0a1020;--bg-grad:radial-gradient(1200px 600px at 50% -10%,#14233f 0%,#0a1020 55%);
+--card:#141d31;--card-2:#1a2540;--card-hover:#1d2a48;--line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.14);
+--t1:rgba(255,255,255,.92);--t2:rgba(255,255,255,.64);--t3:rgba(255,255,255,.66);
+--win:#22e07a;--lose:#ff5d6c;--draw:#8b97ad;--blue:#38bdf8;--gold:#ffc24b;--purple:#a78bfa;
+--accent:#22e07a;--accent-2:#19c3fb;--warn-bg:rgba(255,93,108,.12);--warn-line:rgba(255,93,108,.35);--warn:#ff8a95;
+--chip:rgba(255,255,255,.06);--chip-line:rgba(255,255,255,.12);--shadow:0 10px 30px rgba(0,0,0,.45);--nav-bg:rgba(10,16,32,.82)}
+[data-theme="light"]{--bg:#eef2f8;--bg-grad:radial-gradient(1200px 600px at 50% -10%,#e3ecfb 0%,#eef2f8 55%);
+--card:#ffffff;--card-2:#f5f8fd;--card-hover:#f0f5fd;--line:rgba(15,23,42,.09);--line-2:rgba(15,23,42,.16);
+--t1:rgba(15,23,42,.92);--t2:rgba(15,23,42,.62);--t3:rgba(15,23,42,.66);--win:#067f47;--lose:#ef4252;
+--draw:#8b97ad;--blue:#0a7fa8;--gold:#9c6806;--purple:#8b5cf6;--accent:#067f47;--accent-2:#0a7fa8;
+--warn-bg:rgba(239,66,82,.09);--warn-line:rgba(239,66,82,.30);--warn:#d83243;--chip:rgba(15,23,42,.05);
+--chip-line:rgba(15,23,42,.12);--nav-bg:rgba(255,255,255,.85)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:Inter,Roboto,"PingFang SC","Microsoft YaHei",-apple-system,sans-serif;margin:0;
+background:var(--bg);background-image:var(--bg-grad);background-attachment:fixed;color:var(--t1);font-size:14px;line-height:1.5;padding-bottom:48px}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+.topnav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:var(--nav-bg);border-bottom:1px solid var(--line)}
+.topnav-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:9px;flex:1;min-width:0}
+.logo{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-size:17px;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.brand b{font-size:15px}.brand .upd{font-size:12px;color:var(--t3)}
+.iconbtn{min-height:38px;padding:0 12px;border-radius:11px;border:1px solid var(--line-2);background:var(--chip);color:var(--t1);font-size:13px;cursor:pointer}
+.hero{border-radius:18px;padding:18px;margin:16px 0 10px;color:#fff;position:relative;overflow:hidden;
+background:linear-gradient(135deg,#6d28d9,#a855f7 45%,#38bdf8);box-shadow:0 14px 34px rgba(168,85,247,.28)}
+.hero h1{margin:0;font-size:19px;font-weight:800}.hero .sub{margin-top:7px;font-size:13px;opacity:.92}
+.hero .tag{border:1px solid rgba(255,255,255,.5);border-radius:20px;padding:2px 10px;font-size:12px;font-weight:700;margin-right:6px}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}
+@media(max-width:520px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);border-radius:13px;padding:9px 8px;text-align:center}
+.kpi .v{font-size:18px;font-weight:800}.kpi .k{font-size:12px;opacity:.95;margin-top:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px;margin:14px 0}
+.card-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin-bottom:12px;flex-wrap:wrap}
+.card-title .more{margin-left:auto;font-weight:500;font-size:12px;color:var(--t3)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px 7px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--t3);font-weight:600;font-size:12px;white-space:nowrap}
+td.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.pick{font-weight:900;font-size:15px;white-space:nowrap}
+.pick.h{color:var(--win)}.pick.d{color:var(--gold)}.pick.a{color:var(--lose)}
+.chip{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--chip);border:1px solid var(--chip-line);color:var(--t2);margin:1px 2px}
+.chip.warn{background:var(--warn-bg);border-color:var(--warn-line);color:var(--warn)}
+.chip.bad{background:var(--warn-bg);border-color:var(--warn-line);color:var(--warn)}
+.chip.ok{background:color-mix(in srgb,var(--win) 14%,transparent);border-color:color-mix(in srgb,var(--win) 34%,transparent);color:var(--win)}
+.note{font-size:13px;line-height:1.55;border-radius:11px;padding:10px 12px;margin-top:12px}
+.note.warn{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn)}
+.note.gray{background:var(--chip);border:1px solid var(--line);color:var(--t2)}
+details{border:1px solid var(--line);border-radius:12px;margin:8px 0;background:var(--card-2)}
+summary{padding:12px 14px;cursor:pointer;font-weight:700;font-size:14px;list-style:none}
+summary::after{content:"▾";float:right;color:var(--t3)}
+details[open] summary::after{content:"▴"}
+details .inner{padding:0 14px 12px;overflow-x:auto}
+footer{color:var(--t3);font-size:12px;text-align:center;margin-top:20px;line-height:1.8}
+</style>
+<style>
+.pcell{position:relative;min-width:88px}
+.pbar{display:block;height:5px;border-radius:4px;background:var(--line-2);margin-top:4px;
+width:var(--w,0%);transition:width .5s ease}
+.pbar.win{background:var(--win)}.pbar.lose{background:var(--lose)}
+td.mono,.num{font-variant-numeric:tabular-nums}
+@media(prefers-reduced-motion:reduce){.pbar{transition:none}}
+
+/* ===== v7.30 手机卡片化（用户：「按主预测的搞成适配手机的 卡片式的 整洁 美观」）=====
+   桌面端完全不变；≤760px 时**表格转卡片**：隐藏表头 ⇒ 每行一张卡 ⇒ 单元格"标签↔值"两栏。 */
+@media(max-width:760px){
+  .card{padding:12px 12px 14px;border-radius:14px;margin:12px 0}
+  .card-title{font-size:14px;margin-bottom:10px}
+  .hero{padding:14px;border-radius:16px}
+  .hero h1{font-size:17px}
+  .tablewrap{overflow:visible}                      /* 卡片模式不需要横向滚动 */
+  table{font-size:13px}
+  caption{text-align:left;font-size:12px;color:var(--t3);padding:2px 0 6px}
+  thead{display:none}                               /* 表头改成每格的 data-label */
+  tbody tr{display:block;background:var(--card-2);border:1px solid var(--line);
+           border-radius:12px;padding:10px 12px;margin:10px 0;box-shadow:var(--shadow)}
+  tbody th[scope=row]{display:inline-block;margin:0 0 6px;padding:2px 8px;border:1px solid var(--line-2);
+           border-radius:20px;background:var(--chip);color:var(--t2);font-size:12px;font-weight:700}
+  tbody td{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;
+           border:0;border-top:1px dashed var(--line);padding:7px 0;text-align:right;white-space:normal}
+  tbody td:first-of-type{border-top:0}
+  tbody td::before{content:attr(data-label);flex:0 0 auto;max-width:42%;text-align:left;
+           color:var(--t3);font-size:12px;line-height:1.5}
+  tbody td[data-label=""]::before{content:""}
+  tbody td.pcell{display:block;text-align:right}
+  tbody td.pcell::before{display:block;text-align:left;margin-bottom:2px}
+  tbody td .pbar{margin-top:6px}
+  tbody td[data-long="1"]{display:block;text-align:left}          /* 长文本：标签在上、值左对齐 */
+  tbody td[data-long="1"]::before{display:block;margin-bottom:2px}
+  tbody td[colspan]{display:block;text-align:left}
+  tbody td[colspan]::before{content:"";max-width:none}
+  .chip{font-size:11px}
+  footer{margin-top:16px}
+}
+</style><!--UI-THEME-START(多玩法页)-->
+<style>
+/* ===================== ui_theme.py 公共 UI 层（叠加，不影响上游样式） ===================== */
+/* ---- 第1条：color-scheme → 原生滚动条 / <input> / <details> 三角 / 下拉随主题 ---- */
+:root{color-scheme:light dark}
+[data-theme="dark"]{color-scheme:only dark}
+[data-theme="light"]{color-scheme:only light}
+/* ---- 第2条：--t3 对比度 ≥4.5:1（深/浅两套；与 sync_theme_vars() 同步） ---- */
+:root{--t3:rgba(255,255,255,.66)}
+[data-theme="light"]{--t3:rgba(15,23,42,.66)}
+[data-theme="dark"]{--t3:rgba(255,255,255,.66)}
+/* ---- 深色下原生 UI 不露白（滚动条/表单控件/折叠三角）---- */
+[data-theme="dark"]{scrollbar-color:rgba(255,255,255,.30) transparent}
+[data-theme="light"]{scrollbar-color:rgba(15,23,42,.30) transparent}
+*::-webkit-scrollbar{width:10px;height:10px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:8px}
+*::-webkit-scrollbar-thumb:hover{background:var(--t3)}
+/* ---- 第5条：触控目标 ≥44×44 CSS px（WCAG 2.5.5）---- */
+.iconbtn{min-height:44px;min-width:44px}
+.seg button,.mini-seg button,.toolbtn,.toggle-bet,.dbtn{min-height:44px}
+summary{min-height:44px;display:flex;align-items:center;gap:8px}
+summary::-webkit-details-marker{color:var(--t3)}
+/* ---- 第9条：视觉隐藏（读屏可读，视觉不见；不要用 display:none）---- */
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+/* ---- 第6/7条：表格可访问名 + 横滚容器 + sticky 表头/首列 ---- */
+caption{caption-side:top;text-align:left;font-size:12px;font-weight:700;color:var(--t2);
+padding:0 0 8px;letter-spacing:.2px}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;
+border:1px solid var(--line);border-radius:12px;margin-top:2px}
+.tablewrap:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tablehint{font-size:11px;color:var(--t3);text-align:right;margin:6px 2px 0}
+table{border-collapse:separate;border-spacing:0}
+thead th{position:sticky;top:0;z-index:3;background:var(--card-2);color:var(--t2);
+border-bottom:1px solid var(--line-2)}
+tbody th{position:sticky;left:0;z-index:2;background:var(--card);text-align:left}
+tbody tr:hover td,tbody tr:hover th{background:var(--card-hover)}
+td,th{overflow-wrap:anywhere}
+th[scope="row"]{font-weight:700;color:var(--t1)}
+/* ---- 第3条：概率/EV 类数字等宽对齐 + 纯 CSS 条形（零图表库）---- */
+.num,.mono,.kpi .v,.stat .v,.sc .p,.odd .ov{font-variant-numeric:tabular-nums}
+.num,.odd .ov,.rv-ev,.rv-conf{font-feature-settings:"tnum" 1}
+.bar3 i,.conf-fill,.split-bar i{min-width:3px}
+.bar3 i[data-w="0"],.conf-fill[data-w="0"]{min-width:0}
+/* ---- 异常优先：反转红框置顶强调 + 降级块统一外观 ---- */
+.card.match.rev{order:-1}
+.note.three{display:block;line-height:1.7}
+.note.three .t{font-weight:800;margin-bottom:2px}
+.note.three .r{display:flex;gap:6px;align-items:flex-start}
+.note.three .r .lb{flex:none;font-weight:800;opacity:.9}
+/* ---- 键盘可达焦点（原样式有 outline:none 隐藏焦点）---- */
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.search:focus-visible{outline:2px solid var(--accent)}
+/* ---- 第6条：动效降级（本页原有动画全部纳入）---- */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .dot-live{animation:none!important}
+  .card.match.rev{animation:none!important}
+}
+/* ---- 稳定性：双栏/三栏在小屏不挤 ---- */
+@media(max-width:420px){
+  .odds-grid{grid-template-columns:repeat(3,1fr);gap:6px}
+  .kv{grid-template-columns:repeat(2,1fr);gap:6px}
+  .kpi-grid,.stat-grid{grid-template-columns:repeat(2,1fr)}
+}
+/* ---- 窄屏表格提示：320px 不双向滚动（WCAG 1.4.10）---- */
+@media(max-width:520px){.card{padding:13px}.wrap{padding:0 16px}}
+/* ---- 打印（另存 PDF 转发用；纯 CSS，无依赖）---- */
+@media print{
+  .topnav,.bottomtab,.toolbtn,.filterbar,.iconbtn,.tablehint{display:none!important}
+  body{background:#fff;color:#000;background-image:none}
+  .card{box-shadow:none;border:1px solid #ccc}
+  .detail{max-height:none!important;overflow:visible!important}
+}
+/* =================== ui_theme.py 公共 UI 层 结束 =================== */
+</style>
+<script>
+/* ui_theme.py S1：首屏主题（自定义主题优先，无则跟随系统；不写死主题） */
+(function(){try{var s=localStorage.getItem('sop-theme');
+var t=(s==='light'||s==='dark')?s:(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<script>
+/* ui_theme.py S2：交互增强（纯展示层；不重算任何口径） */
+(function(){
+  /* 0) 把生成期写死的比例值（data-w）搬到 CSS 宽度上——纯视觉映射，不改口径（第3条） */
+  function bars(root){
+    (root||document).querySelectorAll('[data-w]').forEach(function(el){
+      var w=String(el.dataset.w==null?'':el.dataset.w);
+      if(w===''||isNaN(parseFloat(w))||el.dataset.uiW==='1')return;
+      el.style.setProperty('--w',parseFloat(w)+'%');
+      if(el.classList&&(el.classList.contains('bar3')||el.classList.contains('conf-track'))){
+        var f=el.querySelector('.conf-fill');if(f&&f.dataset.w)f.style.setProperty('--w',parseFloat(f.dataset.w)+'%');
+      }else if(el.tagName==='I'){
+        if(el.style.width===''||el.style.width==='0px')el.style.width=parseFloat(w)+'%';
+      }
+      el.dataset.uiW='1';
+    });
+  }
+  /* 1) 概率/EV 条无障碍化：把「旁边已有数字」写成 role=img + aria-label（第8条） */
+  function probA11y(root){
+    (root||document).querySelectorAll('.bar3').forEach(function(bar){
+      if(bar.dataset.a11y==='1')return;
+      var seg=[].slice.call(bar.children).map(function(i){return i.dataset.w||'0'});
+      if(seg.length<3)return;
+      var box=bar.closest('.prob')||bar.parentNode;
+      var lbEl=box?box.querySelector('.prob-label span'):null;
+      var lb=lbEl?lbEl.textContent:'';
+      bar.setAttribute('role','img');
+      bar.setAttribute('aria-label',(lb?lb+'：':'')+'主 '+seg[0]+'% / 平 '+seg[1]+'% / 客 '+seg[2]+'%');
+      bar.dataset.a11y='1';
+    });
+    (root||document).querySelectorAll('.conf-track').forEach(function(tr){
+      if(tr.dataset.a11y==='1')return;
+      var f=tr.querySelector('.conf-fill');if(!f)return;
+      tr.setAttribute('role','img');tr.setAttribute('aria-label','置信度 '+f.dataset.w+'%');
+      tr.dataset.a11y='1';
+    });
+  }
+  /* 2) 表格：滚动容器语义 + 表头 scope + tablehint（第6条；caption 由生成期写入） */
+  function tableA11y(root){
+    (root||document).querySelectorAll('table').forEach(function(tb){
+      var ths=tb.querySelectorAll('thead th,tr:first-child th');
+      [].slice.call(ths).forEach(function(th){if(!th.getAttribute('scope'))th.setAttribute('scope','col');});
+      var p=tb.parentNode,w=null;
+      if(p&&p.classList&&p.classList.contains('tablewrap')){w=p;}
+      else{
+        w=document.createElement('div');w.className='tablewrap';
+        w.setAttribute('tabindex','0');w.setAttribute('role','region');
+        var cap=tb.querySelector('caption');
+        var host=(cap&&cap.dataset.tableName)||document.title||'数据表';
+        w.setAttribute('aria-label',host+'（可横向滚动查看全部列）');
+        p.insertBefore(w,tb);w.appendChild(tb);
+      }
+      /* K8（v7.08）：**每张表**都出横滚提示（原先"已包在 .tablewrap 里就 return" ⇒ 多玩法页 4 张静态表从未拿到提示），
+         且"**不需要横滚就不显示；一滑就淡出**"（原先永远挂着，滑完也不消失）。 */
+      if(!w.dataset.hint){
+        w.dataset.hint='1';
+        var hint=document.createElement('div');hint.className='tablehint';
+        hint.setAttribute('aria-hidden','true');hint.textContent='← 可横向滑动 →';
+        w.parentNode.insertBefore(hint,w.nextSibling);
+        if(w.scrollWidth<=w.clientWidth+4){hint.style.display='none';}
+        else{
+          hint.style.transition='opacity .3s';
+          w.addEventListener('scroll',function(){hint.style.opacity='0';},{passive:true,once:true});
+        }
+      }
+    });
+  }
+  /* 3) 折叠态默认策略：异常项（反转/降级/正EV）若在 <details> 内则默认展开 */
+  function anomalyOpen(root){
+    (root||document).querySelectorAll('details').forEach(function(d){
+      if(d.dataset.keepClosed==='1')return;
+      if(d.querySelector('.card.match.rev,[data-degrade="1"]'))d.open=true;
+    });
+  }
+  /* 4) 主题按钮：同步 aria-pressed / aria-label / 图标（不改按钮原有 onclick） */
+  function themeBtnSync(){
+    var h=document.documentElement,t=h.getAttribute('data-theme')==='dark';
+    var b=document.getElementById('themeBtn');
+    if(b){b.textContent=t?'\u{1F319}':'\u2600\uFE0F';b.setAttribute('aria-label','切换主题（当前'+(t?'深色':'浅色')+'）');}
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b2){
+      b2.setAttribute('aria-pressed',t?'false':'true');
+      b2.setAttribute('aria-label','切换主题（当前'+(t?'深色':'浅色')+'）');});
+  }
+  function boot(){
+    try{bars();probA11y();tableA11y();anomalyOpen();themeBtnSync();}catch(e){}
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',boot);}else{boot();}
+  window.addEventListener('load',function(){try{bars();themeBtnSync();}catch(e){}});
+  /* 供渲染型页面（主预测页）在 innerHTML 重绘后手动再跑一次 */
+  window.__uiThemeRefresh=function(root){try{bars(root);probA11y(root);tableA11y(root);anomalyOpen(root);}catch(e){}};
+})();
+</script>
+<!--UI-THEME-END-->
+</head>
+<body>
+<section id='seg1-sfc4' class='seg'>
+<h2>段① 足彩四玩法（按期号 26123）</h2>
+<p class='warn'>⚠️ 本段四者均为<b>浮动奖级</b>（奖金按中奖注数均分、事前无确定赔率）⇒ <b>不能计算 EV、本页不展示任何预期回报</b>；只显示<b>投入额</b>与单注封顶 500 万。中奖条件以官方期号公告为准。</p>
+<p class='deadline'>⏰ <b>销售止（务必在此之前下注）</b>：足彩四玩法 <b>2026-09-12 21:00:00</b>（最早者＝bqc_26177）｜竞彩附加按规则推算 <b>2026-09-13 23:00:00</b>（工作日 22:00／周末 23:00）⇒ <b>本页终版上限 = 最早销售止 − 30 分钟</b></p>
+<h3>胜负彩（14 场 · 全部上，不选场）</h3><p class='note'>注数 × 金额：金额=8元(4注×2元×1倍)</p><table class='rec'><caption>胜负彩（14 场 · 全部上，不选场）</caption><thead><tr><th scope='col'>场次</th><th scope='col'>联赛</th><th scope='col'>对阵</th><th scope='col'>主/平/客%</th><th scope='col'>主选(防选)</th><th scope='col'>来源</th></tr></thead><tbody><tr><td data-label="场次">1</td><td data-label="联赛">英超</td><td data-label="对阵">阿斯顿维拉vs诺丁汉森林</td><td data-label="主/平/客%">48/25/26</td><td data-label="主选(防选)">3</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">2</td><td data-label="联赛">英超</td><td data-label="对阵">伯恩茅斯vs布伦特福德</td><td data-label="主/平/客%">38/25/37</td><td data-label="主选(防选)">3（防 0）</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">3</td><td data-label="联赛">英超</td><td data-label="对阵">切尔西vs赫尔城</td><td data-label="主/平/客%">76/15/9</td><td data-label="主选(防选)">3</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">4</td><td data-label="联赛">英超</td><td data-label="对阵">水晶宫vs伊普斯维奇</td><td data-label="主/平/客%">50/25/25</td><td data-label="主选(防选)">3</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">5</td><td data-label="联赛">英超</td><td data-label="对阵">利物浦vs富勒姆</td><td data-label="主/平/客%">64/19/17</td><td data-label="主选(防选)">3</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">6</td><td data-label="联赛">英超</td><td data-label="对阵">托特纳姆热刺vs埃弗顿</td><td data-label="主/平/客%">48/26/27</td><td data-label="主选(防选)">3</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">7</td><td data-label="联赛">英超</td><td data-label="对阵">桑德兰vs阿森纳</td><td data-label="主/平/客%">15/22/62</td><td data-label="主选(防选)">0</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">8</td><td data-label="联赛">德甲</td><td data-label="对阵">奥格斯堡vs勒沃库森</td><td data-label="主/平/客%">22/22/57</td><td data-label="主选(防选)">0</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">9</td><td data-label="联赛">德甲</td><td data-label="对阵">多特蒙德vs帕德博恩</td><td data-label="主/平/客%">76/14/10</td><td data-label="主选(防选)">3</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">10</td><td data-label="联赛">德甲</td><td data-label="对阵">霍芬海姆vs斯图加特</td><td data-label="主/平/客%">40/24/36</td><td data-label="主选(防选)">3（防 0）</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">11</td><td data-label="联赛">德甲</td><td data-label="对阵">美因茨vs法兰克福</td><td data-label="主/平/客%">46/24/30</td><td data-label="主选(防选)">3</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">12</td><td data-label="联赛">德甲</td><td data-label="对阵">科隆vs云达不来梅</td><td data-label="主/平/客%">47/24/29</td><td data-label="主选(防选)">3</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">13</td><td data-label="联赛">意甲</td><td data-label="对阵">拉齐奥vsAC米兰</td><td data-label="主/平/客%">25/30/45</td><td data-label="主选(防选)">0</td><td data-label="来源">沿用主预测</td></tr><tr><td data-label="场次">14</td><td data-label="联赛">西甲</td><td data-label="对阵">皇家马德里vs巴列卡诺</td><td data-label="主/平/客%">84/11/6</td><td data-label="主选(防选)">3</td><td data-label="来源">沿用主预测</td></tr></tbody></table>
+<h3>胜负任选9场（从 14 场里选 9）</h3><p class='note'>纳入 9 场／排除 5 场（含理由）｜金额=2元(1注×2元×1倍)</p><table class='rec'><caption>胜负任选9场（从 14 场里选 9）</caption><thead><tr><th scope='col'>场次</th><th scope='col'>对阵</th><th scope='col'>主/平/客%</th><th scope='col'>主选(防选)</th><th scope='col'>纳入/排除及理由</th></tr></thead><tbody><tr><td data-label="场次">1</td><td data-label="对阵">阿斯顿维拉vs诺丁汉森林</td><td data-label="主/平/客%">48/25/26</td><td data-label="主选(防选)">3</td><td data-label="纳入/排除及理由">纳入</td></tr><tr><td data-label="场次">3</td><td data-label="对阵">切尔西vs赫尔城</td><td data-label="主/平/客%">76/15/9</td><td data-label="主选(防选)">3</td><td data-label="纳入/排除及理由">纳入</td></tr><tr><td data-label="场次">4</td><td data-label="对阵">水晶宫vs伊普斯维奇</td><td data-label="主/平/客%">50/25/25</td><td data-label="主选(防选)">3</td><td data-label="纳入/排除及理由">纳入</td></tr><tr><td data-label="场次">5</td><td data-label="对阵">利物浦vs富勒姆</td><td data-label="主/平/客%">64/19/17</td><td data-label="主选(防选)">3</td><td data-label="纳入/排除及理由">纳入</td></tr><tr><td data-label="场次">6</td><td data-label="对阵">托特纳姆热刺vs埃弗顿</td><td data-label="主/平/客%">48/26/27</td><td data-label="主选(防选)">3</td><td data-label="纳入/排除及理由">纳入</td></tr><tr><td data-label="场次">7</td><td data-label="对阵">桑德兰vs阿森纳</td><td data-label="主/平/客%">15/22/62</td><td data-label="主选(防选)">0</td><td data-label="纳入/排除及理由">纳入</td></tr><tr><td data-label="场次">8</td><td data-label="对阵">奥格斯堡vs勒沃库森</td><td data-label="主/平/客%">22/22/57</td><td data-label="主选(防选)">0</td><td data-label="纳入/排除及理由">纳入</td></tr><tr><td data-label="场次">9</td><td data-label="对阵">多特蒙德vs帕德博恩</td><td data-label="主/平/客%">76/14/10</td><td data-label="主选(防选)">3</td><td data-label="纳入/排除及理由">纳入</td></tr><tr><td data-label="场次">14</td><td data-label="对阵">皇家马德里vs巴列卡诺</td><td data-label="主/平/客%">84/11/6</td><td data-label="主选(防选)">3</td><td data-label="纳入/排除及理由">纳入</td></tr><tr><td data-label="场次">2</td><td data-label="对阵">伯恩茅斯vs布伦特福德</td><td data-label="主/平/客%">38/25/37</td><td data-label="主选(防选)">—</td><td data-label="纳入/排除及理由">排除：三项接近（主38/平25/客37），无明确方向</td></tr><tr><td data-label="场次">10</td><td data-label="对阵">霍芬海姆vs斯图加特</td><td data-label="主/平/客%">40/24/36</td><td data-label="主选(防选)">—</td><td data-label="纳入/排除及理由">排除：三项接近（主40/平24/客36），无明确方向</td></tr><tr><td data-label="场次">11</td><td data-label="对阵">美因茨vs法兰克福</td><td data-label="主/平/客%">46/24/30</td><td data-label="主选(防选)">—</td><td data-label="纳入/排除及理由">排除：把握度最低档（最高仅 46%）</td></tr><tr><td data-label="场次">12</td><td data-label="对阵">科隆vs云达不来梅</td><td data-label="主/平/客%">47/24/29</td><td data-label="主选(防选)">—</td><td data-label="纳入/排除及理由">排除：把握度最低档（最高仅 47%）</td></tr><tr><td data-label="场次">13</td><td data-label="对阵">拉齐奥vsAC米兰</td><td data-label="主/平/客%">25/30/45</td><td data-label="主选(防选)">—</td><td data-label="纳入/排除及理由">排除：三项接近（主25/平30/客45），无明确方向</td></tr></tbody></table>
+<h3>4 场进球（<b>8 支球队</b>各自的 0/1/2/3+）</h3><p class='note'>共 4 行 × 2 队 = 8 个结果（官方口径：全场 90′含补时）</p><table class='rec'><caption>4 场进球（<b>8 支球队</b>各自的 0/1/2/3+）</caption><thead><tr><th scope='col'>场次</th><th scope='col'>对阵</th><th scope='col'>主λ</th><th scope='col'>主队分布(0/1/2/3+)</th><th scope='col'>主队推荐</th><th scope='col'>客λ</th><th scope='col'>客队分布(0/1/2/3+)</th><th scope='col'>客队推荐</th></tr></thead><tbody><tr><td data-label="场次">1</td><td data-label="对阵">托特纳姆热刺vs埃弗顿</td><td data-label="主λ">主 λ1.51</td><td data-label="主队分布(0/1/2/3+)">0:22.1%/1:33.4%/2:25.2%/3+:19.4%</td><td data-label="主队推荐">1</td><td data-label="客λ">客 λ1.09</td><td data-label="客队分布(0/1/2/3+)">0:33.6%/1:36.6%/2:20.0%/3+:9.8%</td><td data-label="客队推荐">1（防 0）</td></tr><tr><td data-label="场次">2</td><td data-label="对阵">桑德兰vs阿森纳</td><td data-label="主λ">主 λ0.83</td><td data-label="主队分布(0/1/2/3+)">0:43.6%/1:36.2%/2:15.0%/3+:5.2%</td><td data-label="主队推荐">0（防 1）</td><td data-label="客λ">客 λ2.02</td><td data-label="客队分布(0/1/2/3+)">0:13.3%/1:26.8%/2:27.1%/3+:32.9%</td><td data-label="客队推荐">3+（防 2）</td></tr><tr><td data-label="场次">3</td><td data-label="对阵">奥格斯堡vs勒沃库森</td><td data-label="主λ">主 λ1.08</td><td data-label="主队分布(0/1/2/3+)">0:34.0%/1:36.7%/2:19.8%/3+:9.6%</td><td data-label="主队推荐">1（防 0）</td><td data-label="客λ">客 λ1.75</td><td data-label="客队分布(0/1/2/3+)">0:17.4%/1:30.4%/2:26.6%/3+:25.6%</td><td data-label="客队推荐">1（防 2）</td></tr><tr><td data-label="场次">4</td><td data-label="对阵">多特蒙德vs帕德博恩</td><td data-label="主λ">主 λ2.55</td><td data-label="主队分布(0/1/2/3+)">0:7.8%/1:19.9%/2:25.4%/3+:46.8%</td><td data-label="主队推荐">3+</td><td data-label="客λ">客 λ0.73</td><td data-label="客队分布(0/1/2/3+)">0:48.2%/1:35.2%/2:12.8%/3+:3.8%</td><td data-label="客队推荐">0</td></tr></tbody></table>
+<h3>6 场半全场（每场 <b>9 组合</b>：胜胜…负负）</h3><p class='note'>官方口径：半场 45′含补时 × 全场 90′含补时</p><table class='rec'><caption>6 场半全场（每场 <b>9 组合</b>：胜胜…负负）</caption><thead><tr><th scope='col'>场次</th><th scope='col'>对阵</th><th scope='col'>λ主/客</th><th scope='col'>主选</th><th scope='col'>防选</th><th scope='col'>9 组合分布</th><th scope='col'>来源</th></tr></thead><tbody><tr><td data-label="场次">1</td><td data-label="对阵">切尔西vs赫尔城</td><td data-label="λ主/客">2.72/0.65</td><td data-label="主选">胜胜(57.7%)</td><td data-label="防选">—</td><td data-label="9 组合分布">胜胜:57.7%/胜平:2.5%/胜负:0.5%/平胜:20.2%/平平:7.7%/平负:2.6%/负胜:2.9%/负平:2.5%/负负:3.4%</td><td data-label="来源">沿用主预测λ+模型分布</td></tr><tr><td data-label="场次">2</td><td data-label="对阵">托特纳姆热刺vs埃弗顿</td><td data-label="λ主/客">1.51/1.09</td><td data-label="主选">胜胜(28.3%)</td><td data-label="防选">—</td><td data-label="9 组合分布">胜胜:28.3%/胜平:4.9%/胜负:1.6%/平胜:16.1%/平平:15.8%/平负:10.3%/负胜:2.5%/负平:4.9%/负负:15.4%</td><td data-label="来源">沿用主预测λ+模型分布</td></tr><tr><td data-label="场次">3</td><td data-label="对阵">桑德兰vs阿森纳</td><td data-label="λ主/客">0.83/2.02</td><td data-label="主选">负负(42.4%)</td><td data-label="防选">—</td><td data-label="9 组合分布">胜胜:7.8%/胜平:4.0%/胜负:2.9%/平胜:5.7%/平平:12.5%/平负:19.8%/负胜:0.9%/负平:4.0%/负负:42.4%</td><td data-label="来源">沿用主预测λ+模型分布</td></tr><tr><td data-label="场次">4</td><td data-label="对阵">奥格斯堡vs勒沃库森</td><td data-label="λ主/客">1.08/1.75</td><td data-label="主选">负负(33.1%)</td><td data-label="防选">—</td><td data-label="9 组合分布">胜胜:13.1%/胜平:4.8%/胜负:2.9%/平胜:8.7%/平平:13.9%/平负:17.1%/负胜:1.6%/负平:4.8%/负负:33.1%</td><td data-label="来源">沿用主预测λ+模型分布</td></tr><tr><td data-label="场次">5</td><td data-label="对阵">多特蒙德vs帕德博恩</td><td data-label="λ主/客">2.55/0.73</td><td data-label="主选">胜胜(53.5%)</td><td data-label="防选">—</td><td data-label="9 组合分布">胜胜:53.5%/胜平:3.0%/胜负:0.6%/平胜:20.2%/平平:8.8%/平负:3.4%/负胜:3.1%/负平:3.0%/负负:4.5%</td><td data-label="来源">沿用主预测λ+模型分布</td></tr><tr><td data-label="场次">6</td><td data-label="对阵">霍芬海姆vs斯图加特</td><td data-label="λ主/客">/</td><td data-label="主选">N-A(无λ)</td><td data-label="防选">—</td><td data-label="9 组合分布"></td><td data-label="来源">未覆盖</td></tr></tbody></table>
+</section>
+
+<div class="topnav"><div class="topnav-in">
+  <div class="brand"><div class="logo" aria-hidden="true">🎰</div><div><b>多玩法 · 附加模块 · 阿豪二次修正</b>
+  <div class="upd">🆕 独立于主预测（A48）· 9/12 · 参考级</div></div></div>
+  <a class="iconbtn" href="predictions_20260912_30matches.html" style="text-decoration:none" aria-label="打开主预测页">⚽ 主预测页</a>
+  <button class="iconbtn" onclick="toggleTheme()" data-theme-toggle aria-label="切换主题" aria-pressed="false">🌓 主题</button>
+  <button class="iconbtn" onclick="window.print()" aria-label="打印或另存为PDF">🖨 打印</button>
+</div></div>
+<div class="wrap">
+  <div class="hero">
+    <h1>多玩法推荐 · 竞彩附加 + 传统足彩三玩法</h1>
+    <div class="sub">
+      <span class="tag">隔离模块（A48）</span><span class="tag">只读λ · 无新判向</span><span class="tag">负EV不推</span>
+      <span><b>胜负彩 26123期</b> 14/15 判向 · 单选12场 双选2场 · 复式 2^2×2=8元</span>
+    </div>
+  </div>
+
+  <div class="note gray" role="note"><span aria-hidden="true">🔒</span>
+    <span class="vh">一致性声明：</span><b>本页不改变主预测方向</b>——多玩法只是同一泊松模型 λ 的确定性投影
+    （半全场／总进球／比分／大小球／双进球），无新信号、无新规则、不写主预测任何产物
+    （judge_*/predictions_*/batch_frozen_*/prediction_ledger），也不入 betting_sim_ledger（A48）。</div>
+
+  <div class="card"><div class="card-title">📌 板块速览<span class="more">模型投影 · 泊松</span></div>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="v">14/15</div><div class="k">胜负彩判向</div></div>
+      <div class="kpi"><div class="v">12/2</div><div class="k">单选/双选</div></div>
+      <div class="kpi"><div class="v">5/6</div><div class="k">半全场(26177)</div></div>
+      <div class="kpi"><div class="v">4/4</div><div class="k">进球数(26184)</div></div>
+    </div></div>
+
+  <div class="card"><div class="card-title">⚽ 胜负彩 26123期 · 判向表<span class="more">参考级(初盘) · 停售前以升级版为准</span></div>
+    <div class="tablewrap" tabindex="0" role="region" aria-label="胜负彩 310 判向表（可横向滚动查看全部列）"><table>
+      <caption data-table-name="胜负彩判向表">胜负彩 26123 期逐场 310 判向表（14/15 场，含依据与风险）</caption>
+      <thead><tr><th scope="col">场次</th><th scope="col">联赛</th><th scope="col">对阵</th>
+      <th scope="col">310判向</th><th scope="col">依据(欧赔/λ/概率)</th><th scope="col">风险</th></tr></thead>
+      <tbody><tr><th scope="row" class="mono">1</th><td data-label="场次">英超</td><td data-label="联赛">阿斯顿维拉vs诺丁汉森林</td><td data-label="对阵"><span class="pick h">胜</span> <span class="chip">54%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">2</th><td data-label="场次">英超</td><td data-label="联赛">伯恩茅斯vs布伦特福德</td><td data-label="对阵"><span class="pick h">胜</span><span class="pick d">平</span> <span class="chip">42%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">3</th><td data-label="场次">英超</td><td data-label="联赛">切尔西vs赫尔城</td><td data-label="对阵"><span class="pick h">胜</span> <span class="chip">80%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">4</th><td data-label="场次">英超</td><td data-label="联赛">水晶宫vs伊普斯维奇</td><td data-label="对阵"><span class="pick h">胜</span> <span class="chip">56%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">5</th><td data-label="场次">英超</td><td data-label="联赛">利物浦vs富勒姆</td><td data-label="对阵"><span class="pick h">胜</span> <span class="chip">72%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">6</th><td data-label="场次">英超</td><td data-label="联赛">托特纳姆热刺vs埃弗顿</td><td data-label="对阵"><span class="pick h">胜</span> <span class="chip">53%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">7</th><td data-label="场次">英超</td><td data-label="联赛">桑德兰vs阿森纳</td><td data-label="对阵"><span class="pick a">负</span> <span class="chip">70%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">8</th><td data-label="场次">德甲</td><td data-label="联赛">奥格斯堡vs勒沃库森</td><td data-label="对阵"><span class="pick a">负</span> <span class="chip">64%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">9</th><td data-label="场次">德甲</td><td data-label="联赛">多特蒙德vs帕德博恩</td><td data-label="对阵"><span class="pick h">胜</span> <span class="chip">80%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">10</th><td data-label="场次">德甲</td><td data-label="联赛">霍芬海姆vs斯图加特</td><td data-label="对阵"><span class="pick h">胜</span><span class="pick d">平</span> <span class="chip">45%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">11</th><td data-label="场次">德甲</td><td data-label="联赛">美因茨vs法兰克福</td><td data-label="对阵"><span class="pick h">胜</span> <span class="chip">52%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">12</th><td data-label="场次">德甲</td><td data-label="联赛">科隆vs云达不来梅</td><td data-label="对阵"><span class="pick h">胜</span> <span class="chip">52%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">13</th><td data-label="场次">意甲</td><td data-label="联赛">拉齐奥vsAC米兰</td><td data-label="对阵"><span class="pick a">负</span> <span class="chip">51%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">14</th><td data-label="场次">西甲</td><td data-label="联赛">皇家马德里vs巴列卡诺</td><td data-label="对阵"><span class="pick h">胜</span> <span class="chip">80%</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr><tr><th scope="row" class="mono">—</th><td data-label="场次">—</td><td data-label="联赛">【合计】</td><td data-label="对阵"><span class="chip">—</span></td><td data-label="310判向" style="font-size:12px;color:var(--t2)"></td><td data-label="依据(欧赔/λ/概率)"></td></tr></tbody></table></div>
+    <details><summary><span aria-hidden="true">🎯</span> 任九候选（置信最高 9 场单选）</summary>
+      <div class="inner" style="padding-top:10px"><span class='chip'>3=3</span>, <span class='chip'>9=3</span>, <span class='chip'>14=3</span>, <span class='chip'>5=3</span>, <span class='chip'>7=0</span>, <span class='chip'>8=0</span>, <span class='chip'>4=3</span>, <span class='chip'>1=3</span>, <span class='chip'>6=3</span><br>
+      <b>复式成本:</b> 全双选 8元 (2^2×2元)</div></details>
+  </div>
+
+  <div class="card"><div class="card-title">⏱ 6场半全场 · 期号26177<span class="more">双半场双泊松投影（玩法列=半全场）</span></div>
+    <div class="tablewrap" tabindex="0" role="region" aria-label="6 场半全场投影表（可横向滚动查看全部列）"><div style="background:#fff7e6;border-left:4px solid #9c6806;padding:8px 10px;border-radius:6px;font-size:12.5px;margin:8px 0">⚠️ <b>本段为旧版内容，已被上方「段① 足彩四玩法」取代</b>——旧段读的是已停用/错误产物（4场进球旧为「总进球数」，属性别错误）。仅供对照，<b>请以上方段①为准</b>。</div>
+<table>
+      <caption data-table-name="半全场投影表">6 场半全场 期号 26177 投影表（5/6 场，缺场次见下方降级披露）</caption>
+      <thead><tr><th scope="col">场次</th><th scope="col">对阵</th><th scope="col">λ</th>
+      <th scope="col">半全场Top3</th><th scope="col">玩法 / 推荐</th></tr></thead>
+      <tbody><tr><th scope="row" class="mono">1</th><td data-label="场次">切尔西vs赫尔城</td><td data-label="对阵" class="mono">2.72/0.65</td><td data-label="λ" style="font-size:12px;color:var(--t2)">胜胜60.1%;平胜17.5%;平平7.7%</td><td data-label="半全场Top3"><span class="chip">半全场</span> <span class="chip ok">胜胜 60%/平胜 18%</span></td></tr><tr><th scope="row" class="mono">2</th><td data-label="场次">托特纳姆热刺vs埃弗顿</td><td data-label="对阵" class="mono">1.51/1.09</td><td data-label="λ" style="font-size:12px;color:var(--t2)">胜胜30.2%;负负16.5%;平平15.7%</td><td data-label="半全场Top3"><span class="chip">半全场</span> <span class="chip ok">胜胜 30%/负负 16%</span></td></tr><tr><th scope="row" class="mono">3</th><td data-label="场次">桑德兰vs阿森纳</td><td data-label="对阵" class="mono">0.83/2.02</td><td data-label="λ" style="font-size:12px;color:var(--t2)">负负44.7%;平负17.5%;平平12.4%</td><td data-label="半全场Top3"><span class="chip">半全场</span> <span class="chip ok">负负 45%/平负 17%</span></td></tr><tr><th scope="row" class="mono">4</th><td data-label="场次">奥格斯堡vs勒沃库森</td><td data-label="对阵" class="mono">1.08/1.75</td><td data-label="λ" style="font-size:12px;color:var(--t2)">负负35.1%;平负15.4%;胜胜14.0%</td><td data-label="半全场Top3"><span class="chip">半全场</span> <span class="chip ok">负负 35%/平负 15%</span></td></tr><tr><th scope="row" class="mono">5</th><td data-label="场次">多特蒙德vs帕德博恩</td><td data-label="对阵" class="mono">2.55/0.73</td><td data-label="λ" style="font-size:12px;color:var(--t2)">胜胜55.9%;平胜17.6%;平平8.7%</td><td data-label="半全场Top3"><span class="chip">半全场</span> <span class="chip ok">胜胜 56%/平胜 18%</span></td></tr></tbody></table></div>
+  </div>
+
+  <div class="card"><div class="card-title">🥅 4场进球数 · 期号26184<span class="more">泊松和分布（玩法列=进球数）</span></div>
+    <div class="tablewrap" tabindex="0" role="region" aria-label="4 场进球数投影表（可横向滚动查看全部列）"><div style="background:#fff7e6;border-left:4px solid #9c6806;padding:8px 10px;border-radius:6px;font-size:12.5px;margin:8px 0">⚠️ <b>本段为旧版内容，已被上方「段① 足彩四玩法」取代</b>——旧段读的是已停用/错误产物（4场进球旧为「总进球数」，属性别错误）。仅供对照，<b>请以上方段①为准</b>。</div>
+<table>
+      <caption data-table-name="进球数投影表">4 场进球数 期号 26184 投影表（4/4 场）</caption>
+      <thead><tr><th scope="col">场次</th><th scope="col">对阵</th><th scope="col">λ</th>
+      <th scope="col">进球数概率</th><th scope="col">玩法 / 推荐</th></tr></thead>
+      <tbody><tr><th scope="row" class="mono">1</th><td data-label="场次">托特纳姆热刺vs埃弗顿</td><td data-label="对阵" class="mono">1.51/1.09</td><td data-label="λ" style="font-size:12px;color:var(--t2)">0球7.4%/1球19.3%/2球25.1%/3+球48.1%</td><td data-label="进球数概率"><span class="chip">进球数</span> <span class="chip ok">3+球(48%)</span></td></tr><tr><th scope="row" class="mono">2</th><td data-label="场次">桑德兰vs阿森纳</td><td data-label="对阵" class="mono">0.83/2.02</td><td data-label="λ" style="font-size:12px;color:var(--t2)">0球5.8%/1球16.5%/2球23.5%/3+球54.3%</td><td data-label="进球数概率"><span class="chip">进球数</span> <span class="chip ok">3+球(54%)</span></td></tr><tr><th scope="row" class="mono">3</th><td data-label="场次">奥格斯堡vs勒沃库森</td><td data-label="对阵" class="mono">1.08/1.75</td><td data-label="λ" style="font-size:12px;color:var(--t2)">0球5.9%/1球16.7%/2球23.6%/3+球53.9%</td><td data-label="进球数概率"><span class="chip">进球数</span> <span class="chip ok">3+球(54%)</span></td></tr><tr><th scope="row" class="mono">4</th><td data-label="场次">多特蒙德vs帕德博恩</td><td data-label="对阵" class="mono">2.55/0.73</td><td data-label="λ" style="font-size:12px;color:var(--t2)">0球3.7%/1球12.3%/2球20.2%/3+球63.7%</td><td data-label="进球数概率"><span class="chip">进球数</span> <span class="chip ok">3+球(64%)</span></td></tr></tbody></table></div>
+  </div>
+
+  
+  <!-- 版块已按用户要求关闭（SHOW_MB_EV=False）：竞彩附加玩法 EV 明细不上页。
+       数据仍由 multi_bets.py 产出 `multibets_20260912.csv`（0 条），需要时把开关置 True 即可恢复。 -->
+
+  <div class="note warn three" data-degrade="1" role="note">
+    <span aria-hidden="true">⚠️</span><span class="vh">降级披露：</span><b>⚠️ 降级披露（1 项）：缺口不按 0 解读</b><div class="r"><span class="lb">缺什么</span><span>6场半全场：文件 sfc_bqc_26177.csv 只有 5/6 场（源 zucai_bqc_26177.csv 共 6 场）；未投影：第6场 霍芬海姆vs斯图加特</span></div><div class="r"><span class="lb">影响什么</span><span>缺场次本页不列（该场不能按模型概率解读，也不计入任何结论）</span></div><div class="r"><span class="lb">下一步</span><span>等该场进入竞彩单场池后重跑 `sfc_bqc_jqc_proj.py 2026-09-12 26177 26184`；仍无池则维持本缺口</span></div>
+  </div>
+
+  <div class="note warn" role="note"><span aria-hidden="true">⚠️</span><span class="vh">警告：</span>
+    <b>隔离声明</b>: 本页为<b>多玩法附加模块(参考级)</b>——胜负彩为初盘参考判向(无轨迹/伤停/五维), 终版以停售前更新为准;
+    与主预测(竞彩单场/串关/HTML)完全独立; 浮动奖玩法无固定赔率, 模型概率仅供参考; 不构成投注建议。</div>
+  <div class="note gray" role="note">📊 <b>数据来源（四要素）</b>：来源名称=体彩官方（jc 5 池 / 传统足彩网关）+ 即嗨 + lambda_model ·
+    链接=官方接口与本机只读文件（离线页不引外链）· 采集时间=2026-09-13 09:32 · 置信度=参考级（浮动奖无固定赔率）。
+    本页为单文件离线产物，**网络请求 0 次**。</div>
+  <footer>阿豪二次修正 · 数据仅供参考研究，<b>不构成任何投注建议</b> · 理性看球，远离非法赌博 · 竞彩有风险，入市需谨慎<br>
+    <b>基于公开赔率与统计模型，仅供研究参考，不构成投注建议，请理性购彩。</b><br>
+    sop-predictions · 9/12 · 生成 2026-09-13 09:32 · 主预测入口: https://1737665887kiss-hub.github.io/sop-predictions/</footer>
+</div>
+<script>
+function toggleTheme(){var h=document.documentElement;
+var t=h.dataset.theme==='dark'?'light':'dark';h.dataset.theme=t;
+try{localStorage.setItem('sop-theme',t)}catch(e){}
+var b=document.querySelector('[data-theme-toggle]');
+if(b){b.setAttribute('aria-pressed',t==='dark'?'false':'true');b.setAttribute('aria-label','切换主题（当前'+(t==='dark'?'深色':'浅色')+'）')}}
+</script>
+</body></html>
