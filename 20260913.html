@@ -7209,8 +7209,8 @@ function render(){
      '<div class="m-head cardview" role="button" tabindex="0" aria-expanded="false" onclick="toggle(\'d'+m.id+'\',this)">'+
         '<div class="m-meta"><span class="m-league">['+m.id+'] '+m.league+'<span class="shortcode">'+(m.pick==='主胜'?'主':'客')+'</span></span>'+
           (m.degr&&m.degr.length?('<span class="degrbadge" title="本场降级 '+m.degr.length+' 项，展开看细节">⚠'+m.degr.length+'</span>' ):'' )+'<span><span class="risk '+risk[1]+'">风险'+risk[0]+'</span><span class="grp '+m.group+'">'+m.group+'组</span></span></div>'+
-        '<div class="m-teams"><span class="vs">'+m.home+'<span class="at">vs</span>'+m.away+'</span></div>'++
-        '<div class="lamps" role="list" aria-label="五项共振信号灯">'+(m.lamps||[]).map(function(L){return '<span class="lamp '+L.s+'" role="listitem" title="'+L.n+'：'+L.t+'（'+L.v+'）"><i></i>'+L.k+' '+L.t+'</span>'}).join('')+'</div>'++
+        '<div class="m-teams"><span class="vs">'+m.home+'<span class="at">vs</span>'+m.away+'</span></div>'+
+        '<div class="lamps" role="list" aria-label="五项共振信号灯">'+(m.lamps||[]).map(function(L){return '<span class="lamp '+L.s+'" role="listitem" title="'+L.n+'：'+L.t+'（'+L.v+'）"><i></i>'+L.k+' '+L.t+'</span>'}).join('')+'</div>'+
         '<div class="gates" role="list" aria-label="投注门禁清单">'+(m.gates||[]).map(function(g){return '<span class="gate '+(g.ok?'y':'n')+'" role="listitem" title="'+g.why+'">'+(g.ok?'✓':'✗')+' '+g.t+' '+g.v+'</span>'}).join('')+'</div>'+
         '<div class="adj">AI原判 <b>'+m.ai.side+aiP+'</b> → 二次修正 <b>'+m.fix.side+m.fix.p+'%</b> '+(m.fix.rev?'<span class="pill-rev">🔴反转</span>':'')+(m.fix.down?'<span class="pill-down">'+m.fix.note+'</span>':'<span class="same">'+m.fix.note+'</span>')+'</div>'+
         '<div class="pick-row"><span class="pick-side '+side+'">'+m.pick+'</span>'+
