@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="竞彩预测">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230bb39a'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E">
-<title>竞彩预测 · 9/13 全24场 · 阿豪二次修正 v7.48</title>
+<title>竞彩预测 · 9/13 全24场 · 阿豪二次修正 v7.49</title>
 <style>
 /* ============ 设计变量：深色（默认） / 浅色（自动适配） ============ */
 :root{
@@ -633,7 +633,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
     <h1>9/13 全 24 场 · 五项共振</h1>
     <div class="sub">
       <span class="bal">💰 余额 <span class="num">10013.59</span> 元</span>
-      <span>伤停 24/24 场有数据（0 场未获取·降级）</span><span class="num">v7.48</span>
+      <span>伤停 24/24 场有数据（0 场未获取·降级）</span><span class="num">v7.49</span>
     </div>
     <div class="kpi-grid" id="kpiStrip"></div>
   </div>
@@ -7889,7 +7889,7 @@ function copyTextRaw(t){if(navigator.clipboard){navigator.clipboard.writeText(t)
 function fb(t){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast('已复制')}catch(e){showToast('复制失败，请手动选择')}ta.remove()}
 function switchTab(v){document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.view===v)});document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('on',s.id==='view-'+v)});window.scrollTo({top:0,behavior:'smooth'})}
 
-var UPDATED_AT=new Date('2026-09-13T14:40:45+08:00');
+var UPDATED_AT=new Date('2026-09-13T15:01:23+08:00');
 function relTime(t){var s=(Date.now()-t.getTime())/1000;if(s<60)return '刚刚更新';var m=Math.floor(s/60);if(m<60)return '更新于 '+m+' 分钟前';var h=Math.floor(m/60);if(h<24)return '更新于 '+h+' 小时前';return '更新于 '+Math.floor(h/24)+' 天前'}
 function tickUpdated(){var el=document.getElementById('updatedAt');if(el)el.textContent=relTime(UPDATED_AT)+' · 9/13 批次'}
 
