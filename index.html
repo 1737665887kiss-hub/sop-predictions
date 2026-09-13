@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="竞彩预测">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230bb39a'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E">
-<title>竞彩预测 · 9/13 全22场 · 阿豪二次修正 v7.48</title>
+<title>竞彩预测 · 9/13 全24场 · 阿豪二次修正 v7.48</title>
 <style>
 /* ============ 设计变量：深色（默认） / 浅色（自动适配） ============ */
 :root{
@@ -381,7 +381,7 @@ body.ready .skeleton{display:none}
 /* 0913 UI 轮：渲染函数重绘后自动刷新无障碍属性（Top-10 第 8 条）+ 筛选态回显（第 3 条）
    + 筛选按钮命中数后缀（第 10 条）。命中数表由 Python 在**生成期**算好写死在下面，
    本脚本只做"查表换文案"，不遍历 DOM 重新统计、不做任何口径计算。 */
-window.__FILTER_COUNTS = {"groups":{"全部":[22,0],"A":[0,0],"B":[0,0],"C":[18,0],"D":[4,0],"E":[0,0]}};
+window.__FILTER_COUNTS = {"groups":{"全部":[24,0],"A":[0,0],"B":[0,0],"C":[19,0],"D":[5,0],"E":[0,0]}};
 (function(){
   function refresh(){if(window.__uiThemeRefresh)window.__uiThemeRefresh(document);}
   function state(){
@@ -630,10 +630,10 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 <div class="wrap">
   <div class="hero">
     <span class="tagline">⚽</span>
-    <h1>9/13 全 22 场 · 五项共振</h1>
+    <h1>9/13 全 24 场 · 五项共振</h1>
     <div class="sub">
       <span class="bal">💰 余额 <span class="num">10013.59</span> 元</span>
-      <span>伤停 22/22 场有数据（0 场未获取·降级）</span><span class="num">v7.48</span>
+      <span>伤停 24/24 场有数据（0 场未获取·降级）</span><span class="num">v7.48</span>
     </div>
     <div class="kpi-grid" id="kpiStrip"></div>
   </div>
@@ -641,20 +641,20 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   <div class="card">
     <div class="card-title">📊 投注策略总览<span class="more" id="ovMore">A · B · C · D · E</span></div>
     <div class="stat-grid"><div class="stat"><div class="v num" id="ovTotal">0</div><div class="k">总场次</div></div><div class="stat"><div class="v num" id="ovA" style="color:var(--win)">0</div><div class="k">A 组</div></div><div class="stat"><div class="v num" id="ovB" style="color:var(--blue)">0</div><div class="k">B 组</div></div><div class="stat"><div class="v num" id="ovC" style="color:var(--lose)">0</div><div class="k">C 组</div></div><div class="stat"><div class="v num" id="ovD" style="color:var(--blue)">0</div><div class="k">D 组</div></div><div class="stat"><div class="v num" id="ovE" style="color:var(--blue)">0</div><div class="k">E 组</div></div><div class="stat"><div class="v num" id="ovRev" style="color:var(--lose)">0</div><div class="k">反转</div></div><div class="stat"><div class="v num" id="ovInj">0%</div><div class="k">伤停覆盖</div></div></div>
-    <div class="note warn">⚠️ 本批可投 0 场：22 场均不满足投注纪律（只投正EV + 置信≥55%才投单关 + D组不投 + EV<5%不组串 + B3档无SOP增量禁单关·门禁v10）。</div>
+    <div class="note warn">⚠️ 本批可投 0 场：24 场均不满足投注纪律（只投正EV + 置信≥55%才投单关 + D组不投 + EV<5%不组串 + B3档无SOP增量禁单关·门禁v10）。</div>
     <div class="note gray">🧭 纪律：单注 ≤3% · 只投正 EV · 日亏停手 · 串关优先于单关。</div>
   </div>
 
   <!--DATASRC-START-->
-<div class="card" style="border-left:4px solid var(--gold)"><div class="card-title">📋 本轮数据源与缺口（自动现算 · 缺失即标降级 · 不编造）</div><div style="font-size:12px;line-height:2"><div>✅ 主数据 predictions_20260913_22matches.csv（22 场：001-023）· 台账 betting_sim_ledger.csv（26 行，末行余额 10013.59 现算）</div><div>✅ 判据 judge_0913.csv（22 场：λ/去水概率/让球盘/澳门欧赔）</div><div>✅ 赔率轨迹 odds_0913.csv + trajectory_view_0913.csv（22 场采集，本批消费 001-023）</div><div>✅ 伤停 verify_injury_0913.csv：22/22 场即嗨**带位置**有数据</div><div>✅ 必发资金 / H2H 近5 来源 extra_0913.csv：19/22 场有数据</div><div>✅ 特征层 features_0913.csv / features_core_0913.csv：22/22 场有数据</div><div>✅ 多源权威 authority_20260913.csv / authority_verify_20260913.csv：24 条判定</div><div>🚫 understat_live_20260913.csv：不存在 → xG 无源，页面显示「—」（不用替代值）</div><div>✅ 外部AI对照 VVVVVV\体彩竞彩2026-09-13全24场_预测结果.csv：22/22 场按编号对齐（按正则剥『周X』前缀；禁硬编码星期）</div><div>⚠️ qxc_20260913.csv 不存在（本轮未采集，降级）→ 不计入任何结论</div><div>⚠️ 勘误（上游未改，本页未改冻结CSV）：上一批 `judge_0913.py` 曾硬编码读取更早一批的豆包文件 → predictions CSV「信号」列中部分场次的『外部AI(豆包)分歧』为跨批误标；本页 AI 徽章与二次修正备注按本批豆包文件现算，以本页为准</div></div></div>
+<div class="card" style="border-left:4px solid var(--gold)"><div class="card-title">📋 本轮数据源与缺口（自动现算 · 缺失即标降级 · 不编造）</div><div style="font-size:12px;line-height:2"><div>✅ 主数据 predictions_20260913_24matches.csv（24 场：001-024）· 台账 betting_sim_ledger.csv（26 行，末行余额 10013.59 现算）</div><div>✅ 判据 judge_0913.csv（24 场：λ/去水概率/让球盘/澳门欧赔）</div><div>✅ 赔率轨迹 odds_0913.csv + trajectory_view_0913.csv（24 场采集，本批消费 001-024）</div><div>✅ 伤停 verify_injury_0913.csv：24/24 场即嗨**带位置**有数据</div><div>✅ 必发资金 / H2H 近5 来源 extra_0913.csv：21/24 场有数据</div><div>✅ 特征层 features_0913.csv / features_core_0913.csv：22/22 场有数据</div><div>✅ 多源权威 authority_20260913.csv / authority_verify_20260913.csv：24 条判定</div><div>🚫 understat_live_20260913.csv：不存在 → xG 无源，页面显示「—」（不用替代值）</div><div>✅ 外部AI对照 VVVVVV\体彩竞彩2026-09-13全24场_预测结果.csv：24/24 场按编号对齐（按正则剥『周X』前缀；禁硬编码星期）</div><div>⚠️ qxc_20260913.csv 不存在（本轮未采集，降级）→ 不计入任何结论</div><div>⚠️ 勘误（上游未改，本页未改冻结CSV）：上一批 `judge_0913.py` 曾硬编码读取更早一批的豆包文件 → predictions CSV「信号」列中部分场次的『外部AI(豆包)分歧』为跨批误标；本页 AI 徽章与二次修正备注按本批豆包文件现算，以本页为准</div></div></div>
 <!--DATASRC-END-->
 <details class="filterbar" id="filterBar"><summary style="cursor:pointer;font-weight:700;font-size:14px;padding:4px 2px;color:var(--t2)">⚙️ 筛选 / 排序（点击展开） · <span id="filterState" class="num" style="color:var(--t3)">已生效：全部 · 不限可投</span></summary><div style="margin-top:6px">
     <div class="seg" id="groupSeg">
-      <button class="on" onclick="setG('全部',this)" data-fc="全部">全部组 (22)</button>
+      <button class="on" onclick="setG('全部',this)" data-fc="全部">全部组 (24)</button>
       <button class="g-A" onclick="setG('A',this)" data-fc="A" data-fc-zero="1">A 组 (0)</button>
       <button class="g-B" onclick="setG('B',this)" data-fc="B" data-fc-zero="1">B 组 (0)</button>
-      <button class="g-C" onclick="setG('C',this)" data-fc="C">C 组 (18)</button>
-      <button class="g-D" onclick="setG('D',this)" data-fc="D">D 组 (4)</button>
+      <button class="g-C" onclick="setG('C',this)" data-fc="C">C 组 (19)</button>
+      <button class="g-D" onclick="setG('D',this)" data-fc="D">D 组 (5)</button>
       <button class="g-E" onclick="setG('E',this)" data-fc="E" data-fc-zero="1">E 组 (0)</button>
     </div>
     <div class="tools">
@@ -676,9 +676,9 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
       <button class="toolbtn" onclick="toggleAll(false)">收起</button>
       <button class="toolbtn" onclick="copyAll()">📨 复制整批</button>
     </div>
-    <div class="result-count"><span id="countLine">显示 22 / 22 场</span><span id="sortHint"></span></div>
+    <div class="result-count"><span id="countLine">显示 24 / 24 场</span><span id="sortHint"></span></div>
   </div></details>
-  <div class="idxbar" role="navigation" aria-label="场次索引：点编号跳到该场" style="margin:8px 2px 0;display:flex;flex-wrap:wrap;align-items:center"><span style="font-size:12px;color:var(--t3);margin-right:6px">#️⃣ 场次索引</span><a href="#m001" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">001</a><a href="#m002" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">002</a><a href="#m003" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">003</a><a href="#m004" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">004</a><a href="#m006" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">006</a><a href="#m007" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">007</a><a href="#m008" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">008</a><a href="#m009" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">009</a><a href="#m010" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">010</a><a href="#m011" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">011</a><a href="#m012" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">012</a><a href="#m013" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">013</a><a href="#m014" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">014</a><a href="#m015" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">015</a><a href="#m016" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">016</a><a href="#m017" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">017</a><a href="#m018" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">018</a><a href="#m019" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">019</a><a href="#m020" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">020</a><a href="#m021" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">021</a><a href="#m022" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">022</a><a href="#m023" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">023</a></div>
+  <div class="idxbar" role="navigation" aria-label="场次索引：点编号跳到该场" style="margin:8px 2px 0;display:flex;flex-wrap:wrap;align-items:center"><span style="font-size:12px;color:var(--t3);margin-right:6px">#️⃣ 场次索引</span><a href="#m001" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">001</a><a href="#m002" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">002</a><a href="#m003" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">003</a><a href="#m004" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">004</a><a href="#m005" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">005</a><a href="#m006" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">006</a><a href="#m007" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">007</a><a href="#m008" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">008</a><a href="#m009" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">009</a><a href="#m010" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">010</a><a href="#m011" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">011</a><a href="#m012" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">012</a><a href="#m013" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">013</a><a href="#m014" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">014</a><a href="#m015" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">015</a><a href="#m016" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">016</a><a href="#m017" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">017</a><a href="#m018" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">018</a><a href="#m019" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">019</a><a href="#m020" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">020</a><a href="#m021" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">021</a><a href="#m022" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">022</a><a href="#m023" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">023</a><a href="#m024" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">024</a></div>
 
   <div id="list"></div>
 </div>
@@ -777,10 +777,10 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 
 <div class="toast" id="toast"></div>
 
-<script>function ovRender(){var g={A:0,B:0,C:0,D:0,E:0};MATCHES.forEach(function(m){var x=m.group||"E";g[x]=(g[x]||0)+1});var f=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v};f("ovMore","A "+g.A+" · B "+g.B+" · C "+g.C+" · D "+g.D+" · E "+g.E);f("ovTotal",MATCHES.length);f("ovA",g.A);f("ovB",g.B);f("ovC",g.C);f("ovD",g.D);f("ovE",g.E);f("ovRev",6);f("ovInj","100%")};window.addEventListener("load",ovRender);</script><script>
-/* ===== 数据：与原静态页 22 场完全一致，未新增/虚构字段 ===== */
+<script>function ovRender(){var g={A:0,B:0,C:0,D:0,E:0};MATCHES.forEach(function(m){var x=m.group||"E";g[x]=(g[x]||0)+1});var f=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v};f("ovMore","A "+g.A+" · B "+g.B+" · C "+g.C+" · D "+g.D+" · E "+g.E);f("ovTotal",MATCHES.length);f("ovA",g.A);f("ovB",g.B);f("ovC",g.C);f("ovD",g.D);f("ovE",g.E);f("ovRev",7);f("ovInj","100%")};window.addEventListener("load",ovRender);</script><script>
+/* ===== 数据：与原静态页 24 场完全一致，未新增/虚构字段 ===== */
 var BANKROLL=10013.59;
-var DEGRADE=["⚠️外部AI源疑跨批(其主队'仙台七夕'≠本场'仙台维加泰')→不计入标注｜③未命中R规律(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI(豆包)分歧: 其判主胜｜③未命中R规律(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI(豆包)分歧: 其判主胜｜③R4盘口不动跟盘口(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI源疑跨批(其主队'曼联'≠本场'曼彻斯特联')→不计入标注｜③未命中R规律(+0)｜⑤五维00000(诱盘0维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI源疑跨批(其主队'赫塔费'≠本场'赫塔菲')→不计入标注｜③R3主队6伤诱盘(-5)｜⑤五维01101(诱盘3维-10)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI(豆包)分歧: 其判客胜｜③未命中R规律(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI(豆包)分歧: 其判主胜｜③未命中R规律(+0)｜⑤五维00000(诱盘0维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)"];
+var DEGRADE=["⚠️外部AI源疑跨批(其主队'仙台七夕'≠本场'仙台维加泰')→不计入标注｜③未命中R规律(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI(豆包)分歧: 其判主胜｜③未命中R规律(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI(豆包)分歧: 其判主胜｜③R4盘口不动跟盘口(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI源疑跨批(其主队'曼联'≠本场'曼彻斯特联')→不计入标注｜③未命中R规律(+0)｜⑤五维00000(诱盘0维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI源疑跨批(其主队'赫塔费'≠本场'赫塔菲')→不计入标注｜③R3主队6伤诱盘(-5)｜⑤五维01101(诱盘3维-10)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI(豆包)分歧: 其判客胜｜③未命中R规律(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI(豆包)分歧: 其判主胜｜③未命中R规律(+0)｜⑤五维00000(诱盘0维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)", "⚠️外部AI(豆包)分歧: 其判主胜｜③未命中R规律(+0)｜⑤五维11000(诱盘2维-5)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)"];
 var MATCHES=[
  {
   "id": "001",
@@ -1689,7 +1689,7 @@ var MATCHES=[
     "n": "轨迹/形态",
     "s": "ok",
     "t": "轨迹支持",
-    "v": "轨迹 客升水"
+    "v": "轨迹 主降水"
    },
    {
     "k": "②",
@@ -1811,7 +1811,8 @@ var MATCHES=[
   "injTxt": "1/?（含未获取·降级）",
   "ev": -25.0,
   "sig": [
-   "轨迹 客升水",
+   "轨迹 主降水",
+   "客升水",
    "形态:让球2→2.25(单调升)",
    "主1.21→1.17(单调降)",
    "客10→12(单调升)",
@@ -1932,6 +1933,291 @@ var MATCHES=[
   "srcok": "❌ 关键数据缺官方/权威媒体源"
  },
  {
+  "id": "005",
+  "group": "C",
+  "league": "芬超",
+  "home": "库奥皮奥",
+  "away": "赫尔辛基",
+  "ai": {
+   "side": "主胜",
+   "p": 51
+  },
+  "fix": {
+   "side": "主胜",
+   "p": 38,
+   "note": "降置信 51%→38%",
+   "down": true,
+   "rev": false
+  },
+  "pick": "主胜",
+  "conf": 38,
+  "scores": [
+   [
+    "1-0",
+    12
+   ],
+   [
+    "2-0",
+    9
+   ],
+   [
+    "2-1",
+    9
+   ]
+  ],
+  "cold": [],
+  "degr": [
+   "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)"
+  ],
+  "lamps": [
+   {
+    "k": "①",
+    "n": "轨迹/形态",
+    "s": "ok",
+    "t": "轨迹支持",
+    "v": "轨迹 主升水"
+   },
+   {
+    "k": "②",
+    "n": "伤停",
+    "s": "ok",
+    "t": "伤停已核实",
+    "v": "主客共 3 人"
+   },
+   {
+    "k": "③",
+    "n": "R 规律",
+    "s": "warn",
+    "t": "R 规律未命中",
+    "v": "未命中R规律(+0)"
+   },
+   {
+    "k": "④",
+    "n": "DC 背离",
+    "s": "off",
+    "t": "DC 无信号",
+    "v": "竞彩未开盘(深盘)→无确认项"
+   },
+   {
+    "k": "⑤",
+    "n": "五维",
+    "s": "off",
+    "t": "五维 0/5 维",
+    "v": "五维00000(诱盘0维+0)"
+   }
+  ],
+  "gates": [
+   {
+    "t": "正 EV",
+    "ok": false,
+    "v": "EV -10.60%",
+    "why": "只投正 EV（门禁 v10）"
+   },
+   {
+    "t": "置信 ≥55%",
+    "ok": false,
+    "v": "置信 38%",
+    "why": "置信<55% 不投单关"
+   },
+   {
+    "t": "非 D 组",
+    "ok": true,
+    "v": "C 组",
+    "why": "D 组不投"
+   },
+   {
+    "t": "非 B3 档",
+    "ok": true,
+    "v": "未触发",
+    "why": "1.50-1.80 档无 SOP 增量 ⇒ 禁单关"
+   },
+   {
+    "t": "串关 EV≥5%",
+    "ok": false,
+    "v": "EV -10.60%",
+    "why": "EV<5% 不入串"
+   },
+   {
+    "t": "三比分落齐",
+    "ok": true,
+    "v": "3 个比分",
+    "why": "防冷须落地第三比分（踩坑#69）"
+   }
+  ],
+  "market": [
+   43,
+   27,
+   31
+  ],
+  "model": 43,
+  "delta": "接近市场 +0pt",
+  "bf": [
+   51,
+   41,
+   8
+  ],
+  "h2h": [
+   [
+    "A",
+    "客0-4"
+   ],
+   [
+    "D",
+    "平1-1"
+   ],
+   [
+    "H",
+    "主2-0"
+   ],
+   [
+    "H",
+    "主3-1"
+   ],
+   [
+    "H",
+    "主1-0"
+   ]
+  ],
+  "guard": "不防",
+  "bet": "不投",
+  "bettable": false,
+  "ah": "",
+  "odds": [
+   2.08,
+   3.3,
+   2.9
+  ],
+  "inj": [
+   1,
+   2
+  ],
+  "injunk": [],
+  "injTxt": "1/2",
+  "ev": -10.6,
+  "sig": [
+   "轨迹 主升水",
+   "客降水",
+   "形态:让球0.25→0.25(平台)",
+   "主2.17→2.26(单调升)",
+   "客2.97→2.85(单调降)",
+   "155家分歧(95降/40升)",
+   "必发主2.22量3200",
+   "平3.45量2600",
+   "客3.84量500",
+   "H2H 26-06-27:0-4",
+   "26-04-26:1-1",
+   "25-11-09:2-0",
+   "主伤中场×1",
+   "客伤卫门×1, 中场×1",
+   "①让球升盘但主升水(诱上/假热)降权-6",
+   "④竞彩未开盘(深盘)→无确认项",
+   "外部AI(豆包)同向(仅对照)｜③未命中R规律(+0)｜⑤五维00000(诱盘0维+0)｜⚠️降级版：伤停未获取→最高C组(踩坑#10)"
+  ],
+  "core": {
+   "xh": "—",
+   "xa": "—",
+   "ih": 1,
+   "ia": 2,
+   "lam": "1.37/1.00",
+   "rh": "—",
+   "ra": "—",
+   "bf": "51/41/8"
+  },
+  "injpos": "主缺中场,轮换,伤1；客缺后卫,主力,停赛1、中前场,主力,伤1",
+  "injdeg": "",
+  "goal": [
+   11,
+   20,
+   28,
+   21,
+   12,
+   9
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "",
+   "eloD": "",
+   "roll": "",
+   "xgstd": "",
+   "observe": "",
+   "rest": "",
+   "rho": "",
+   "rhoSrc": "",
+   "rot": "",
+   "sig2": "",
+   "hbonus": 0,
+   "form": ""
+  },
+  "srcs": [
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/analysis?matchId=3085205",
+    "t": "09-13 13:04",
+    "c": "中",
+    "f": "主队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/analysis?matchId=3085205",
+    "t": "09-13 13:04",
+    "c": "中",
+    "f": "客队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=3085205",
+    "t": "09-13 13:04",
+    "c": "低",
+    "f": "主队首发",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=3085205",
+    "t": "09-13 13:04",
+    "c": "低",
+    "f": "客队首发",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-13 13:04",
+    "c": "低",
+    "f": "主队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-13 13:04",
+    "c": "低",
+    "f": "客队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=库奥皮奥",
+    "t": "09-13 13:04",
+    "c": "低",
+    "f": "主队总身价",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=赫尔辛基",
+    "t": "09-13 13:04",
+    "c": "低",
+    "f": "客队总身价",
+    "p": "2"
+   }
+  ],
+  "srcline": "3 个独立源 / 8 条事实",
+  "srcok": "❌ 关键数据缺官方/权威媒体源"
+ },
+ {
   "id": "006",
   "group": "C",
   "league": "荷甲",
@@ -1974,9 +2260,9 @@ var MATCHES=[
    {
     "k": "①",
     "n": "轨迹/形态",
-    "s": "ok",
-    "t": "轨迹支持",
-    "v": "轨迹 客降水"
+    "s": "warn",
+    "t": "仅形态（无轨迹异动）",
+    "v": "拐点(U-V)不确定降权-4"
    },
    {
     "k": "②",
@@ -2098,7 +2384,7 @@ var MATCHES=[
   "injTxt": "3/?（含未获取·降级）",
   "ev": -0.2,
   "sig": [
-   "轨迹 客降水",
+   "轨迹 客4.6→4.6",
    "形态:让球1→1(平台)",
    "主1.61→1.61(平台)",
    "客4.6→4.6(拐点(U-V))",
@@ -2114,6 +2400,7 @@ var MATCHES=[
    "①拐点(U-V)不确定降权-4",
    "④竞彩与澳门一致(+2.8pt)加权+2",
    "外部AI(豆包)同向(仅对照)｜③R1主胜过热",
+   "R4盘口不动跟盘口",
    "R5背离-11.0pt以盘口为准(-3)｜⑤五维01000(诱盘1维+0)｜B3档无SOP增量→降C+禁单关(v10)"
   ],
   "core": {
@@ -3415,7 +3702,7 @@ var MATCHES=[
     "n": "轨迹/形态",
     "s": "ok",
     "t": "轨迹支持",
-    "v": "轨迹 主降水"
+    "v": "轨迹 让球降盘"
    },
    {
     "k": "②",
@@ -3535,7 +3822,8 @@ var MATCHES=[
   "injTxt": "1/5",
   "ev": -23.0,
   "sig": [
-   "轨迹 主降水",
+   "轨迹 让球降盘",
+   "主升水",
    "客降水",
    "形态:让球-0.75→-1(单调降)",
    "主4.1→4.5(单调升)",
@@ -4397,7 +4685,6 @@ var MATCHES=[
   "ev": -27.5,
   "sig": [
    "轨迹 让球降盘",
-   "主降水",
    "形态:让球-2.25→-2.5(平台)",
    "主14.5→14.5(单调升)",
    "客1.17→1.15(平台)",
@@ -5445,7 +5732,7 @@ var MATCHES=[
     "n": "轨迹/形态",
     "s": "ok",
     "t": "轨迹支持",
-    "v": "轨迹 客升水"
+    "v": "轨迹 主降水"
    },
    {
     "k": "②",
@@ -5565,7 +5852,8 @@ var MATCHES=[
   "injTxt": "8/2",
   "ev": -25.0,
   "sig": [
-   "轨迹 客升水",
+   "轨迹 主降水",
+   "客升水",
    "形态:让球2.25→2.25(平台)",
    "主1.21→1.18(平台)",
    "客11→12(单调升)",
@@ -6317,7 +6605,7 @@ var MATCHES=[
     "n": "轨迹/形态",
     "s": "ok",
     "t": "轨迹支持",
-    "v": "轨迹 主降水"
+    "v": "轨迹 主升水"
    },
    {
     "k": "②",
@@ -6437,8 +6725,7 @@ var MATCHES=[
   "injTxt": "2/2",
   "ev": -3.6,
   "sig": [
-   "轨迹 主降水",
-   "客升水",
+   "轨迹 主升水",
    "形态:让球-0.25→-0.25(平台)",
    "主3.15→3.25(单调升)",
    "客2.19→2.17(单调降)",
@@ -7140,6 +7427,294 @@ var MATCHES=[
   ],
   "srcline": "3 个独立源 / 8 条事实",
   "srcok": "❌ 关键数据缺官方/权威媒体源"
+ },
+ {
+  "id": "024",
+  "group": "D",
+  "league": "美职",
+  "home": "芝加哥火焰",
+  "away": "新英格兰革命",
+  "ai": {
+   "side": "主胜",
+   "p": 74
+  },
+  "fix": {
+   "side": "客胜",
+   "p": 42,
+   "note": "方向修正 主胜74% → 客胜42%",
+   "down": false,
+   "rev": true
+  },
+  "pick": "客胜",
+  "conf": 42,
+  "scores": [
+   [
+    "0-1",
+    8
+   ],
+   [
+    "1-2",
+    6
+   ],
+   [
+    "1-0",
+    13
+   ]
+  ],
+  "cold": [
+   "1-0"
+  ],
+  "degr": [
+   "⚠️外部AI(豆包)分歧: 其判主胜｜③未命中R规律(+0)｜⑤五维11000(诱盘2维-5)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)"
+  ],
+  "lamps": [
+   {
+    "k": "①",
+    "n": "轨迹/形态",
+    "s": "ok",
+    "t": "轨迹支持",
+    "v": "轨迹 让球降盘"
+   },
+   {
+    "k": "②",
+    "n": "伤停",
+    "s": "ok",
+    "t": "伤停已核实",
+    "v": "主客共 7 人"
+   },
+   {
+    "k": "③",
+    "n": "R 规律",
+    "s": "off",
+    "t": "R 规律无信号",
+    "v": "—"
+   },
+   {
+    "k": "④",
+    "n": "DC 背离",
+    "s": "off",
+    "t": "DC 无信号",
+    "v": "DC背离:141家看衰主胜强共识→跟欧洲改判客胜(原"
+   },
+   {
+    "k": "⑤",
+    "n": "五维",
+    "s": "off",
+    "t": "五维无信号",
+    "v": "—"
+   }
+  ],
+  "gates": [
+   {
+    "t": "正 EV",
+    "ok": true,
+    "v": "EV +54.00%",
+    "why": "只投正 EV（门禁 v10）"
+   },
+   {
+    "t": "置信 ≥55%",
+    "ok": false,
+    "v": "置信 42%",
+    "why": "置信<55% 不投单关"
+   },
+   {
+    "t": "非 D 组",
+    "ok": false,
+    "v": "D 组",
+    "why": "D 组不投"
+   },
+   {
+    "t": "非 B3 档",
+    "ok": true,
+    "v": "未触发",
+    "why": "1.50-1.80 档无 SOP 增量 ⇒ 禁单关"
+   },
+   {
+    "t": "串关 EV≥5%",
+    "ok": true,
+    "v": "EV +54.00%",
+    "why": "EV<5% 不入串"
+   },
+   {
+    "t": "三比分落齐",
+    "ok": true,
+    "v": "3 个比分",
+    "why": "防冷须落地第三比分（踩坑#69）"
+   }
+  ],
+  "market": [
+   51,
+   23,
+   26
+  ],
+  "model": 44,
+  "delta": "模型看高 +18pt",
+  "bf": [
+   62,
+   28,
+   9
+  ],
+  "h2h": [
+   [
+    "D",
+    "平2-2"
+   ],
+   [
+    "H",
+    "主3-2"
+   ],
+   [
+    "H",
+    "主3-1"
+   ],
+   [
+    "A",
+    "客0-1"
+   ],
+   [
+    "D",
+    "平1-1"
+   ]
+  ],
+  "guard": "五维诱盘2维→防冷",
+  "bet": "不投",
+  "bettable": false,
+  "ah": "让0.75(主1.04/客0.84)",
+  "odds": [
+   1.83,
+   4.05,
+   3.5
+  ],
+  "inj": [
+   3,
+   4
+  ],
+  "injunk": [],
+  "injTxt": "3/4",
+  "ev": 54.0,
+  "sig": [
+   "轨迹 让球降盘",
+   "主升水",
+   "客降水",
+   "形态:让球0.75→0.5(平台)",
+   "主1.83→1.95(单调升)",
+   "客3.5→3.2(单调降)",
+   "155家141升强共识(看衰主)",
+   "必发主2.01量5300",
+   "平3.9量2400",
+   "客4.19量800",
+   "H2H 25-10-19:2-2",
+   "25-09-07:3-2",
+   "25-05-21:3-1",
+   "主伤中场×1, 中卫×1, 锋×1",
+   "客伤锋×1, 中场×1, 卫门×1, 中卫×1",
+   "④DC背离:141家看衰主胜强共识→跟欧洲改判客胜(原主胜)",
+   "①客降水支持客胜加权+4",
+   "④竞彩未开盘(深盘)→无确认项"
+  ],
+  "core": {
+   "xh": "—",
+   "xa": "—",
+   "ih": 3,
+   "ia": 4,
+   "lam": "1.35/0.87",
+   "rh": "—",
+   "ra": "—",
+   "bf": "62/28/9"
+  },
+  "injpos": "主缺前腰1、中卫1、左边锋1；客缺中锋1、中前卫1、左后卫1、中卫1",
+  "injdeg": "",
+  "goal": [
+   12,
+   22,
+   28,
+   20,
+   11,
+   7
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "",
+   "eloD": "",
+   "roll": "",
+   "xgstd": "",
+   "observe": "",
+   "rest": "",
+   "rho": "",
+   "rhoSrc": "",
+   "rot": "",
+   "sig2": "",
+   "hbonus": 0,
+   "form": ""
+  },
+  "srcs": [
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/analysis?matchId=2908785",
+    "t": "09-13 13:04",
+    "c": "中",
+    "f": "主队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/analysis?matchId=2908785",
+    "t": "09-13 13:04",
+    "c": "中",
+    "f": "客队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2908785",
+    "t": "09-13 13:04",
+    "c": "中",
+    "f": "主队首发",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2908785",
+    "t": "09-13 13:04",
+    "c": "中",
+    "f": "客队首发",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-13 13:04",
+    "c": "低",
+    "f": "主队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-13 13:04",
+    "c": "低",
+    "f": "客队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=芝加哥火焰",
+    "t": "09-13 13:04",
+    "c": "低",
+    "f": "主队总身价",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=新英格兰革命",
+    "t": "09-13 13:04",
+    "c": "低",
+    "f": "客队总身价",
+    "p": "2"
+   }
+  ],
+  "srcline": "3 个独立源 / 8 条事实",
+  "srcok": "❌ 关键数据缺官方/权威媒体源"
  }
 ];
 var LEDGER=[["09-09 利物浦vs马德里竞技", "单关", "主胜", 79.0], ["09-09 葡萄牙体育×阿森纳", "稳健2串1", "主×客", 571.4], ["09-09 波尔图vs曼彻斯特城", "单关", "客胜", 103.0], ["09-09 国际米兰vs那不勒斯", "单关", "主胜", 79.0], ["09-09 门兴格拉德巴赫vs艾禾斯堡", "单关", "主胜", -26.0], ["09-05 纽约城vs纳什维尔SC", "单关", "客胜", -300.0], ["09-02 米尔沃尔×西布朗×QPR", "稳健3串1", "三主胜", -90.0], ["09-02 西布朗×QPR", "稳健2串1", "双主胜", -136.0], ["09-02 水户蜀葵vs鹿岛鹿角", "单关", "客胜", -271.0], ["09-01 10场", "3注", "", 0.0], ["09-01 布莱克本×诺维奇", "博冷2串1", "客×客", -94.0], ["09-01 新月×都灵", "稳健2串1", "主×主", -130.0], ["09-01 新月×诺维奇×都灵", "稳健3串1", "主×客×主", -141.0], ["08-31 亚特兰大vs博洛尼亚", "博冷单关", "平", -100.0], ["08-31 尤尔加登×圣埃蒂安", "价值2串1", "主×客", 345.0], ["08-31 阿森纳×圣埃蒂安", "稳健2串1", "客×客", 472.0], ["08-31 罗马×本菲卡×巴萨", "稳健3串1", "客×主×主", 463.75], ["08-29 埃尔沃斯堡vs勒沃库森", "单关", "客胜", -235.0], ["08-29 美因茨vs帕德博恩", "单关", "主胜", -290.0], ["08-29 考文垂vs赫尔城", "单关", "主胜", -290.0], ["08-28 水晶宫vs曼城", "单关", "客胜", 145.44], ["08-28 波鸿vs奥斯纳布吕克", "单关", "主胜", -303.0], ["08-28 蒙彼利埃vs布洛涅", "单关", "主胜", -303.0], ["08-27 费伦茨vs特拉布宗", "单关", "主胜", 606.0], ["08-27 奥莫尼亚vs圣图尔登", "单关", "平局", -261.0], ["08-27 比尔森vs红星", "单关", "客胜", -226.0]];
@@ -7264,7 +7839,7 @@ function render(){
 /* 顶部 KPI 速算 */
 function renderKPI(){
   var topConf=MATCHES.slice().sort(function(a,b){return b.conf-a.conf})[0];
-  var pos=4;
+  var pos=5;
   var bet=0;
   var cells=[
     ['🏆 '+topConf.conf+'%',topConf.home.slice(0,6)],
@@ -7305,18 +7880,18 @@ function fitOpen(){document.querySelectorAll('.match.open .detail').forEach(func
 function toggleDark(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',t);localStorage.setItem('sop-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️'}
 function toggle(id,head){var e=document.getElementById(id);var card=e.closest('.match');var open=card.classList.contains('open');if(open){e.style.maxHeight='0px';card.classList.remove('open')}else{e.style.maxHeight=e.scrollHeight+'px';card.classList.add('open')}if(head){head.setAttribute('aria-expanded',card.classList.contains('open')?'true':'false')}}
 function copy(id){var e=document.getElementById(id);if(e)copyTextRaw(e.innerText)}
-function copyAll(){var txt='【9/13 全22场 · 阿豪二次修正】\n'+MATCHES.map(copyTextOf).join('\n');copyTextRaw(txt)}
+function copyAll(){var txt='【9/13 全24场 · 阿豪二次修正】\n'+MATCHES.map(copyTextOf).join('\n');copyTextRaw(txt)}
 var toastTimer;
 function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show')},1700)}
 function copyTextRaw(t){if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){showToast('已复制，可直接粘贴')},function(){fb(t)})}else fb(t)}
 function fb(t){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast('已复制')}catch(e){showToast('复制失败，请手动选择')}ta.remove()}
 function switchTab(v){document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.view===v)});document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('on',s.id==='view-'+v)});window.scrollTo({top:0,behavior:'smooth'})}
 
-var UPDATED_AT=new Date('2026-09-13T14:04:26+08:00');
+var UPDATED_AT=new Date('2026-09-13T14:35:26+08:00');
 function relTime(t){var s=(Date.now()-t.getTime())/1000;if(s<60)return '刚刚更新';var m=Math.floor(s/60);if(m<60)return '更新于 '+m+' 分钟前';var h=Math.floor(m/60);if(h<24)return '更新于 '+h+' 小时前';return '更新于 '+Math.floor(h/24)+' 天前'}
 function tickUpdated(){var el=document.getElementById('updatedAt');if(el)el.textContent=relTime(UPDATED_AT)+' · 9/13 批次'}
 
-function countUp(){document.querySelectorAll('[data-count]').forEach(function(el){var target=+el.dataset.count,st=performance.now(),dur=850;function f(now){var p=Math.min(1,(now-st)/dur),ease=1-Math.pow(1-p,3);el.textContent=Math.round(target*ease)+'%';if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)})}
+function countUp(){document.querySelectorAll('[data-count]').forEach(function(el){var target=+el.dataset.count,st=performance.now(),dur=850;function f(now){var p=Math.max(0,Math.min(1,(now-st)/dur)),ease=1-Math.pow(1-p,3);el.textContent=Math.round(target*ease)+'%';if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)})}
 function animateBars(){requestAnimationFrame(function(){requestAnimationFrame(function(){document.querySelectorAll('.bar3 i[data-w],.conf-fill[data-w]').forEach(function(i){i.style.width=i.dataset.w+'%'});countUp()})})}
 
 window.addEventListener('DOMContentLoaded',function(){
