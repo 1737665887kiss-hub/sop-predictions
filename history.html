@@ -245,7 +245,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
  aria-label="切换主题（当前浅色）" onclick="toggleTheme()">🌓</button></div>
 
 <h1>📊 2YUCE 历史总结</h1>
-<p class="sub">复盘总览 · 覆盖 <b>2026-08-24 → 2026-09-18</b>（23 天）｜生成 <b>2026-09-19 01:34</b>｜口径现算自 `prediction_ledger.csv`</p>
+<p class="sub">复盘总览 · 覆盖 <b>2026-08-24 → 2026-09-18</b>（23 天）｜生成 <b>2026-09-19 01:56</b>｜口径现算自 `prediction_ledger.csv`</p>
 
 <div class="kpis"><div class="kpi"><div class="v">331 场</div><div class="k">已复盘</div><div class="s">台账里已有赛果的场次（口径分母）</div></div><div class="kpi"><div class="v">58.9%</div><div class="k">严命中率</div><div class="s">只看 SOP 方向那一注（195/331）</div></div><div class="kpi"><div class="v">60.1%</div><div class="k">含防命中率</div><div class="s">方向或防平有一个中即算（199/331）</div></div><div class="kpi"><div class="v">18.4%</div><div class="k">比分命中率</div><div class="s">三比分合并命中（61/331）</div></div><div class="kpi"><div class="v">-331 元</div><div class="k">累计盈亏</div><div class="s">已结算 26 注／下注 5306 元</div></div><div class="kpi"><div class="v">-6.25%</div><div class="k">ROI</div><div class="s">期末余额 10013.59 元（模拟盘）</div></div></div>
 
@@ -284,7 +284,31 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 <th scope="col">含防%</th><th scope="col">比分%</th><th scope="col">ROI%</th></tr></thead>
 <tbody><tr><th scope="row" class="mono">v8.22</th><td data-label="时间" class="mono">2026-09-17 01:12</td><td data-label="N" class="mono">331</td><td data-label="严%" class="mono">58.91</td><td data-label="含防%" class="mono">60.12</td><td data-label="比分%" class="mono">18.43</td><td data-label="ROI%" class="mono">-6.25</td></tr><tr><th scope="row" class="mono">v8.49</th><td data-label="时间" class="mono">2026-09-17 12:00</td><td data-label="N" class="mono">331</td><td data-label="严%" class="mono">58.91</td><td data-label="含防%" class="mono">60.12</td><td data-label="比分%" class="mono">18.43</td><td data-label="ROI%" class="mono">-6.25</td></tr><tr><th scope="row" class="mono">v8.63</th><td data-label="时间" class="mono">2026-09-18 02:23</td><td data-label="N" class="mono">331</td><td data-label="严%" class="mono">58.91</td><td data-label="含防%" class="mono">60.12</td><td data-label="比分%" class="mono">18.43</td><td data-label="ROI%" class="mono">-6.25</td></tr><tr><th scope="row" class="mono">v8.66</th><td data-label="时间" class="mono">2026-09-18 02:55</td><td data-label="N" class="mono">331</td><td data-label="严%" class="mono">58.91</td><td data-label="含防%" class="mono">60.12</td><td data-label="比分%" class="mono">18.43</td><td data-label="ROI%" class="mono">-6.25</td></tr><tr><th scope="row" class="mono">v8.77</th><td data-label="时间" class="mono">2026-09-18 04:39</td><td data-label="N" class="mono">331</td><td data-label="严%" class="mono">58.91</td><td data-label="含防%" class="mono">60.12</td><td data-label="比分%" class="mono">18.43</td><td data-label="ROI%" class="mono">-6.25</td></tr><tr><th scope="row" class="mono">v8.77</th><td data-label="时间" class="mono">2026-09-18 04:40</td><td data-label="N" class="mono">331</td><td data-label="严%" class="mono">58.91</td><td data-label="含防%" class="mono">60.12</td><td data-label="比分%" class="mono">18.43</td><td data-label="ROI%" class="mono">-6.25</td></tr><tr><th scope="row" class="mono">v8.81</th><td data-label="时间" class="mono">2026-09-18 12:00</td><td data-label="N" class="mono">331</td><td data-label="严%" class="mono">58.91</td><td data-label="含防%" class="mono">60.12</td><td data-label="比分%" class="mono">18.43</td><td data-label="ROI%" class="mono">-6.25</td></tr><tr><th scope="row" class="mono">v8.84</th><td data-label="时间" class="mono">2026-09-19 01:27</td><td data-label="N" class="mono">331</td><td data-label="严%" class="mono">58.91</td><td data-label="含防%" class="mono">60.12</td><td data-label="比分%" class="mono">18.43</td><td data-label="ROI%" class="mono">-6.25</td></tr></tbody></table></div></div>
 
-<h2>⑥ 口径与边界（别误读）</h2>
+
+<h2>⑥ 趋势与诊断（「是不是最近一直不高」的现算回答）</h2>
+<div class="card">
+  <b>先给结论</b>：<b>确实掉过一段</b>（前段 2026-08-24~2026-09-04 严 <b>64.9%</b> → 后段 2026-09-05~2026-09-15 <b>53.9%</b>，差 +11.0pt，
+  两比例 z=2.03、p≈0.043，95%CI 下界贴着 0 ⇒ <b>掉幅真实但不算大</b>），但**原因不是「模型变差」，而是「这段挑的场次更难」**：
+  低置信档（≤44）占比从 6% 升到 40%，而置信度与命中率是**单调**的（见下表）；同时**最近 30 场已回到 66.7%**、最近 50 场 60.0%。
+</div>
+<div class="card"><div class="tablewrap" tabindex="0" role="region" aria-label="置信度分档表（可横向滚动）">
+<table class="rec"><caption>按模型置信度分档的命中率（全样本 331 场）</caption>
+<thead><tr><th scope="col">置信度档</th><th scope="col">场次</th><th scope="col">严%</th><th scope="col">占全样本</th></tr></thead>
+<tbody><tr><th scope="row" class="mono">45-54</th><td data-label="场次" class="mono">79</td><td data-label="严%" class="mono">49.4%</td><td data-label="占全样本" class="mono">24%</td></tr><tr><th scope="row" class="mono">55-64</th><td data-label="场次" class="mono">68</td><td data-label="严%" class="mono">70.6%</td><td data-label="占全样本" class="mono">21%</td></tr><tr><th scope="row" class="mono">≤44</th><td data-label="场次" class="mono">81</td><td data-label="严%" class="mono">39.5%</td><td data-label="占全样本" class="mono">24%</td></tr><tr><th scope="row" class="mono">≥65</th><td data-label="场次" class="mono">78</td><td data-label="严%" class="mono">71.8%</td><td data-label="占全样本" class="mono">24%</td></tr><tr><th scope="row" class="mono">无</th><td data-label="场次" class="mono">25</td><td data-label="严%" class="mono">80.0%</td><td data-label="占全样本" class="mono">8%</td></tr></tbody></table></div></div>
+<div class="card"><div class="tablewrap" tabindex="0" role="region" aria-label="赔率档表（可横向滚动）">
+<table class="rec"><caption>后段（2026-09-05~2026-09-15）按主选赔率档：硬币区是钱坑</caption>
+<thead><tr><th scope="col">赔率档</th><th scope="col">场次</th><th scope="col">严%</th><th scope="col">占后段</th></tr></thead>
+<tbody><tr><th scope="row" class="mono">1.8-2.2</th><td data-label="场次" class="mono">75</td><td data-label="严%" class="mono">45.3%</td><td data-label="占后段" class="mono">42%</td></tr><tr><th scope="row" class="mono">≤1.8</th><td data-label="场次" class="mono">73</td><td data-label="严%" class="mono">67.1%</td><td data-label="占后段" class="mono">41%</td></tr><tr><th scope="row" class="mono">≥2.2</th><td data-label="场次" class="mono">25</td><td data-label="严%" class="mono">36.0%</td><td data-label="占后段" class="mono">14%</td></tr><tr><th scope="row" class="mono">无档位</th><td data-label="场次" class="mono">7</td><td data-label="严%" class="mono">71.4%</td><td data-label="占后段" class="mono">4%</td></tr></tbody></table></div></div>
+<div class="note">
+  <b>三条可执行结论</b>：①**1.80–2.20「硬币区」命中率只有 45.3%**（后段占 42%）⇒ 现行「D 组不投」规则
+  **被数据验证**，别在这档下注；②**≥2.20 更低（36.0%）**⇒ 单关选场只看 **≤1.80（67.1%）**那一侧；
+  ③**对市场：173 场有赔率的已复盘里，赔率隐含 54.9% vs 实际 53.2%（差 -1.7pt）**
+  ⇒ 我们**约等于市场（略低）**；这与「竞彩水位 12.9% ⇒ 每 1pt 优势只值约 0.9% ROI」合起来说明：**方向准度本身不构成回本路径**。
+  <br>⚠️ 口径提醒：前段（2026-08-24~2026-09-04）台账**未记录赔率档**（100% 为空）⇒ 跨段只能比「置信度」，比不了「赔率档」。
+</div>
+
+
+<h2>⑦ 口径与边界（别误读）</h2>
 <div class="note">
   <b>严口径</b>＝只看 SOP 方向那一注是否中；<b>含防口径</b>＝方向中 <b>或</b> 防平保护命中（两者分母相同）。
   历史遗留的「文字口径」按<b>实现口径</b>计（已裁决，见踩坑 #84）。<br>
@@ -296,15 +320,15 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   <b>低于</b>过水位所需门槛 ⇒ 只做纸面跟踪（详见工作区 `REAL_MONEY_GATE.md`）。
 </div>
 
-<h2>⑦ 数据来源与免责</h2>
+<h2>⑧ 数据来源与免责</h2>
 <div class="note">
   📊 <b>数据来源（四要素）</b>：来源＝体彩官方（竞彩/传统足彩网关）＋ 即嗨 ＋ 澳门欧赔 ＋ 本机只读台账 ·
-  链接＝本页为单文件离线产物（**网络请求 0 次**）· 采集时间＝2026-09-19 01:34 · 置信度＝逐场模型置信度（页内已量化）。<br>
+  链接＝本页为单文件离线产物（**网络请求 0 次**）· 采集时间＝2026-09-19 01:56 · 置信度＝逐场模型置信度（页内已量化）。<br>
   本页所有数字**现算自** `prediction_ledger.csv`／`eval_history.csv`／`error_profile.csv`，**未手工录入**。
 </div>
 <footer>阿豪二次修正 · 数据仅供参考研究，<b>不构成任何投注建议</b> · 理性看球，远离非法赌博 · 竞彩有风险，入市需谨慎<br>
   <b>基于公开赔率与统计模型，仅供研究参考，不构成投注建议，请理性购彩。</b><br>
-  sop-predictions · 生成 2026-09-19 01:34 ｜ 链接：<a href="https://1737665887kiss-hub.github.io/sop-predictions/history.html">https://1737665887kiss-hub.github.io/sop-predictions/history.html</a></footer>
+  sop-predictions · 生成 2026-09-19 01:56 ｜ 链接：<a href="https://1737665887kiss-hub.github.io/sop-predictions/history.html">https://1737665887kiss-hub.github.io/sop-predictions/history.html</a></footer>
 </div>
 <script>
 function toggleTheme(){var h=document.documentElement;
