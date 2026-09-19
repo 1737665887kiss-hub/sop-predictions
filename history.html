@@ -245,7 +245,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
  aria-label="切换主题（当前浅色）" onclick="toggleTheme()">🌓</button></div>
 
 <h1>📊 2YUCE 历史总结</h1>
-<p class="sub">复盘总览 · 覆盖 <b>2026-08-24 → 2026-09-19</b>（25 天）｜生成 <b>2026-09-20 01:27</b>｜口径现算自 `prediction_ledger.csv`</p>
+<p class="sub">复盘总览 · 覆盖 <b>2026-08-24 → 2026-09-19</b>（25 天）｜生成 <b>2026-09-20 01:28</b>｜口径现算自 `prediction_ledger.csv`</p>
 
 <div class="kpis"><div class="kpi"><div class="v">353 场</div><div class="k">已复盘</div><div class="s">台账里已有赛果的场次（口径分母）</div></div><div class="kpi"><div class="v">58.9%</div><div class="k">严命中率</div><div class="s">只看 SOP 方向那一注（208/353）</div></div><div class="kpi"><div class="v">60.1%</div><div class="k">含防命中率</div><div class="s">方向或防平有一个中即算（212/353）</div></div><div class="kpi"><div class="v">19.0%</div><div class="k">比分命中率</div><div class="s">三比分合并命中（67/353）</div></div><div class="kpi"><div class="v">-331 元</div><div class="k">累计盈亏</div><div class="s">已结算 26 注／下注 5306 元</div></div><div class="kpi"><div class="v">-6.25%</div><div class="k">ROI</div><div class="s">期末余额 10013.59 元（模拟盘）</div></div></div>
 
@@ -287,9 +287,10 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 
 <h2>⑥ 趋势与诊断（「是不是最近一直不高」的现算回答）</h2>
 <div class="card">
-  <b>先给结论</b>：<b>确实掉过一段</b>（前段 2026-08-24~2026-09-05 严 <b>59.4%</b> → 后段 2026-09-06~2026-09-18 <b>58.4%</b>，差 +1.1pt，
-  两比例 z=0.20、p≈0.839，95%CI 下界贴着 0 ⇒ <b>掉幅真实但不算大</b>），但**原因不是「模型变差」，而是「这段挑的场次更难」**：
-  低置信档（≤44）占比从 6% 升到 40%，而置信度与命中率是**单调**的（见下表）；同时**最近 30 场已回到 56.7%**、最近 50 场 64.0%。
+  <b>先给结论</b>：**两段差异不显著**（p≈0.839 ⇒ 更像噪声，别据此改模型）（前段 2026-08-24~2026-09-05 严 <b>59.4%</b> → 后段 2026-09-06~2026-09-18 <b>58.4%</b>，差 +1.1pt，
+  两比例 z=0.20、p≈0.839）。**无论显著与否，真正稳定的规律是"分档"而不是"分时段"**：
+  低置信档（≤44）命中只有四成上下、却占了全部未中的近四成；而置信度与命中率是**单调**的（见下表）；
+  最近 30 场 56.7%、最近 50 场 64.0%。
 </div>
 <div class="card"><div class="tablewrap" tabindex="0" role="region" aria-label="置信度分档表（可横向滚动）">
 <table class="rec"><caption>按模型置信度分档的命中率（全样本 353 场）</caption>
@@ -323,12 +324,12 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 <h2>⑧ 数据来源与免责</h2>
 <div class="note">
   📊 <b>数据来源（四要素）</b>：来源＝体彩官方（竞彩/传统足彩网关）＋ 即嗨 ＋ 澳门欧赔 ＋ 本机只读台账 ·
-  链接＝本页为单文件离线产物（**网络请求 0 次**）· 采集时间＝2026-09-20 01:27 · 置信度＝逐场模型置信度（页内已量化）。<br>
+  链接＝本页为单文件离线产物（**网络请求 0 次**）· 采集时间＝2026-09-20 01:28 · 置信度＝逐场模型置信度（页内已量化）。<br>
   本页所有数字**现算自** `prediction_ledger.csv`／`eval_history.csv`／`error_profile.csv`，**未手工录入**。
 </div>
 <footer>阿豪二次修正 · 数据仅供参考研究，<b>不构成任何投注建议</b> · 理性看球，远离非法赌博 · 竞彩有风险，入市需谨慎<br>
   <b>基于公开赔率与统计模型，仅供研究参考，不构成投注建议，请理性购彩。</b><br>
-  sop-predictions · 生成 2026-09-20 01:27 ｜ 链接：<a href="https://1737665887kiss-hub.github.io/sop-predictions/history.html">https://1737665887kiss-hub.github.io/sop-predictions/history.html</a></footer>
+  sop-predictions · 生成 2026-09-20 01:28 ｜ 链接：<a href="https://1737665887kiss-hub.github.io/sop-predictions/history.html">https://1737665887kiss-hub.github.io/sop-predictions/history.html</a></footer>
 </div>
 <script>
 function toggleTheme(){var h=document.documentElement;
