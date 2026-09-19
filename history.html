@@ -245,7 +245,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
  aria-label="切换主题（当前浅色）" onclick="toggleTheme()">🌓</button></div>
 
 <h1>📊 2YUCE 历史总结</h1>
-<p class="sub">复盘总览 · 覆盖 <b>2026-08-24 → 2026-09-19</b>（25 天）｜生成 <b>2026-09-20 01:28</b>｜口径现算自 `prediction_ledger.csv`</p>
+<p class="sub">复盘总览 · 覆盖 <b>2026-08-24 → 2026-09-19</b>（25 天）｜生成 <b>2026-09-20 01:39</b>｜口径现算自 `prediction_ledger.csv`</p>
 
 <div class="kpis"><div class="kpi"><div class="v">353 场</div><div class="k">已复盘</div><div class="s">台账里已有赛果的场次（口径分母）</div></div><div class="kpi"><div class="v">58.9%</div><div class="k">严命中率</div><div class="s">只看 SOP 方向那一注（208/353）</div></div><div class="kpi"><div class="v">60.1%</div><div class="k">含防命中率</div><div class="s">方向或防平有一个中即算（212/353）</div></div><div class="kpi"><div class="v">19.0%</div><div class="k">比分命中率</div><div class="s">三比分合并命中（67/353）</div></div><div class="kpi"><div class="v">-331 元</div><div class="k">累计盈亏</div><div class="s">已结算 26 注／下注 5306 元</div></div><div class="kpi"><div class="v">-6.25%</div><div class="k">ROI</div><div class="s">期末余额 10013.59 元（模拟盘）</div></div></div>
 
@@ -300,6 +300,10 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 <table class="rec"><caption>后段（2026-09-06~2026-09-18）按主选赔率档：硬币区是钱坑</caption>
 <thead><tr><th scope="col">赔率档</th><th scope="col">场次</th><th scope="col">严%</th><th scope="col">占后段</th></tr></thead>
 <tbody><tr><th scope="row" class="mono">1.5-1.8</th><td data-label="场次" class="mono">73</td><td data-label="严%" class="mono">71.2%</td><td data-label="占后段" class="mono">42%</td></tr><tr><th scope="row" class="mono">1.8-2.2</th><td data-label="场次" class="mono">68</td><td data-label="严%" class="mono">51.5%</td><td data-label="占后段" class="mono">39%</td></tr><tr><th scope="row" class="mono">2.2-3.0</th><td data-label="场次" class="mono">25</td><td data-label="严%" class="mono">36.0%</td><td data-label="占后段" class="mono">14%</td></tr><tr><th scope="row" class="mono">无赔率</th><td data-label="场次" class="mono">7</td><td data-label="严%" class="mono">71.4%</td><td data-label="占后段" class="mono">4%</td></tr></tbody></table></div></div>
+<div class="card"><div class="tablewrap" tabindex="0" role="region" aria-label="数据完整度分层表（可横向滚动）">
+<table class="rec"><caption>按「判向数据完整度」分层的命中率（回答"是数据还是规则"）</caption>
+<thead><tr><th scope="col">数据状态</th><th scope="col">场次</th><th scope="col">严%</th></tr></thead>
+<tbody><tr><th scope="row">伤停位置维度 完整</th><td data-label="场次" class="mono">107</td><td data-label="严%" class="mono">57.0%</td></tr><tr><th scope="row">伤停位置维度 缺失</th><td data-label="场次" class="mono">95</td><td data-label="严%" class="mono">51.6%</td></tr><tr><th scope="row">轨迹有效时点 有</th><td data-label="场次" class="mono">53</td><td data-label="严%" class="mono">60.4%</td></tr><tr><th scope="row">轨迹有效时点 无</th><td data-label="场次" class="mono">43</td><td data-label="严%" class="mono">53.5%</td></tr></tbody></table></div></div>
 <div class="note">
   <b>三条可执行结论</b>：①**1.80–2.20「硬币区」命中率只有 51.5%**（后段占 39%）⇒ 现行「D 组不投」规则
   **被数据验证**，别在这档下注；②**≥2.20 更低（—）**⇒ 单关选场只看 **≤1.80（—）**那一侧；
@@ -324,12 +328,12 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 <h2>⑧ 数据来源与免责</h2>
 <div class="note">
   📊 <b>数据来源（四要素）</b>：来源＝体彩官方（竞彩/传统足彩网关）＋ 即嗨 ＋ 澳门欧赔 ＋ 本机只读台账 ·
-  链接＝本页为单文件离线产物（**网络请求 0 次**）· 采集时间＝2026-09-20 01:28 · 置信度＝逐场模型置信度（页内已量化）。<br>
+  链接＝本页为单文件离线产物（**网络请求 0 次**）· 采集时间＝2026-09-20 01:39 · 置信度＝逐场模型置信度（页内已量化）。<br>
   本页所有数字**现算自** `prediction_ledger.csv`／`eval_history.csv`／`error_profile.csv`，**未手工录入**。
 </div>
 <footer>阿豪二次修正 · 数据仅供参考研究，<b>不构成任何投注建议</b> · 理性看球，远离非法赌博 · 竞彩有风险，入市需谨慎<br>
   <b>基于公开赔率与统计模型，仅供研究参考，不构成投注建议，请理性购彩。</b><br>
-  sop-predictions · 生成 2026-09-20 01:28 ｜ 链接：<a href="https://1737665887kiss-hub.github.io/sop-predictions/history.html">https://1737665887kiss-hub.github.io/sop-predictions/history.html</a></footer>
+  sop-predictions · 生成 2026-09-20 01:39 ｜ 链接：<a href="https://1737665887kiss-hub.github.io/sop-predictions/history.html">https://1737665887kiss-hub.github.io/sop-predictions/history.html</a></footer>
 </div>
 <script>
 function toggleTheme(){var h=document.documentElement;
