@@ -841,7 +841,7 @@ var MATCHES=[
     "n": "R 规律",
     "s": "off",
     "t": "R 规律无信号",
-    "v": "R1主胜过热(-3)"
+    "v": "R1主胜过热"
    },
    {
     "k": "④",
@@ -904,7 +904,7 @@ var MATCHES=[
   "model": 62,
   "delta": "模型看低 -11pt",
   "bf": [
-   92,
+   93,
    4,
    3
   ],
@@ -949,7 +949,8 @@ var MATCHES=[
    "客伤其他×1",
    "①让球升盘+主降水(真热阻上)加权+4",
    "①临场(T6-T7)主降客升支持主胜+3",
-   "④竞彩归档为空→④维度缺失(降级)｜③R1主胜过热(-3)｜⑤五维00000(诱盘0维+0)｜⚠️降级版：伤停名单+位置已获取（—·四级参考级）→等级不足·最高C组(踩坑#10)"
+   "④竞彩归档为空→④维度缺失(降级)｜③R1主胜过热",
+   "R4盘口不动跟盘口(-3)｜⑤五维00000(诱盘0维+0)｜⚠️降级版：伤停名单+位置已获取（—·四级参考级）→等级不足·最高C组(踩坑#10)"
   ],
   "core": {
    "xh": "—",
@@ -959,7 +960,7 @@ var MATCHES=[
    "lam": "2.50/0.85",
    "rh": "—",
    "ra": "—",
-   "bf": "92/4/3"
+   "bf": "93/4/3"
   },
   "injpos": "",
   "injdeg": "即嗨带位置字段未取到；已用补充源名单替代（—·中文补充四级·参考级）⇒ **位置系数未施加（保守×1.00）**，该场仍按材料不足封顶 C：主队、客队",
@@ -982,7 +983,7 @@ var MATCHES=[
    "rho": "-0.04",
    "rhoSrc": "全局ρ(该联赛样本不足)",
    "rot": "",
-   "sig2": "必发资金主92%",
+   "sig2": "必发资金主93%",
    "hbonus": "0",
    "form": ""
   },
@@ -990,7 +991,7 @@ var MATCHES=[
    {
     "n": "即嗨API",
     "u": "https://api-node.jihai8.com/api/zq/information?matchId=3088016",
-    "t": "09-21 12:22",
+    "t": "09-21 18:07",
     "c": "中",
     "f": "主队伤停",
     "p": "2"
@@ -998,7 +999,7 @@ var MATCHES=[
    {
     "n": "即嗨API",
     "u": "https://api-node.jihai8.com/api/zq/information?matchId=3088016",
-    "t": "09-21 12:22",
+    "t": "09-21 18:07",
     "c": "中",
     "f": "客队伤停",
     "p": "2"
@@ -1006,23 +1007,23 @@ var MATCHES=[
    {
     "n": "即嗨API",
     "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=3088016",
-    "t": "09-21 12:22",
-    "c": "低",
+    "t": "09-21 18:07",
+    "c": "中",
     "f": "主队首发",
     "p": "2"
    },
    {
     "n": "即嗨API",
     "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=3088016",
-    "t": "09-21 12:22",
-    "c": "低",
+    "t": "09-21 18:07",
+    "c": "中",
     "f": "客队首发",
     "p": "2"
    },
    {
     "n": "Understat",
     "u": "https://understat.com/",
-    "t": "09-21 12:22",
+    "t": "09-21 18:07",
     "c": "低",
     "f": "主队场均xG",
     "p": "2"
@@ -1030,7 +1031,7 @@ var MATCHES=[
    {
     "n": "Understat",
     "u": "https://understat.com/",
-    "t": "09-21 12:22",
+    "t": "09-21 18:07",
     "c": "低",
     "f": "客队场均xG",
     "p": "2"
@@ -1038,7 +1039,7 @@ var MATCHES=[
    {
     "n": "Transfermarkt",
     "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=中国女足",
-    "t": "09-21 12:22",
+    "t": "09-21 18:07",
     "c": "低",
     "f": "主队总身价",
     "p": "2"
@@ -1046,7 +1047,7 @@ var MATCHES=[
    {
     "n": "Transfermarkt",
     "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=菲律宾女足",
-    "t": "09-21 12:22",
+    "t": "09-21 18:07",
     "c": "低",
     "f": "客队总身价",
     "p": "2"
@@ -1228,7 +1229,7 @@ function copyTextRaw(t){if(navigator.clipboard){navigator.clipboard.writeText(t)
 function fb(t){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast('已复制')}catch(e){showToast('复制失败，请手动选择')}ta.remove()}
 function switchTab(v){document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.view===v)});document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('on',s.id==='view-'+v)});window.scrollTo({top:0,behavior:'smooth'})}
 
-var UPDATED_AT=new Date('2026-09-21T12:25:30+08:00');
+var UPDATED_AT=new Date('2026-09-21T18:09:18+08:00');
 function relTime(t){var s=(Date.now()-t.getTime())/1000;if(s<60)return '刚刚更新';var m=Math.floor(s/60);if(m<60)return '更新于 '+m+' 分钟前';var h=Math.floor(m/60);if(h<24)return '更新于 '+h+' 小时前';return '更新于 '+Math.floor(h/24)+' 天前'}
 function tickUpdated(){var el=document.getElementById('updatedAt');if(el)el.textContent=relTime(UPDATED_AT)+' · 9/21 批次'}
 
