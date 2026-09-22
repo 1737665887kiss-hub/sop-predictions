@@ -780,7 +780,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 <script>function ovRender(){var g={A:0,B:0,C:0,D:0,E:0};MATCHES.forEach(function(m){var x=m.group||"E";g[x]=(g[x]||0)+1});var f=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v};f("ovMore","A "+g.A+" · B "+g.B+" · C "+g.C+" · D "+g.D+" · E "+g.E);f("ovTotal",MATCHES.length);f("ovA",g.A);f("ovB",g.B);f("ovC",g.C);f("ovD",g.D);f("ovE",g.E);f("ovRev",0);f("ovInj","33%")};window.addEventListener("load",ovRender);</script><script>
 /* ===== 数据：与原静态页 3 场完全一致，未新增/虚构字段 ===== */
 var BANKROLL=10013.59;
-var DEGRADE=["⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.410)｜竞彩赔率=2.06(竞彩真价)｜澳门EV=-11.4%", "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.390)｜竞彩赔率=2.33(竞彩真价)｜澳门EV=-11.1%"];
+var DEGRADE=["⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.340)｜竞彩赔率=2.38(竞彩真价)｜澳门EV=-26.6%", "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.360)｜竞彩赔率=2.85(竞彩真价)｜澳门EV=-17.9%"];
 var MATCHES=[
  {
   "id": "002",
@@ -794,13 +794,13 @@ var MATCHES=[
   },
   "fix": {
    "side": "主胜",
-   "p": 53,
+   "p": 60,
    "note": "外部AI未采集（降级）",
    "down": false,
    "rev": false
   },
   "pick": "主胜",
-  "conf": 53,
+  "conf": 60,
   "scores": [
    [
     "2-1",
@@ -844,7 +844,7 @@ var MATCHES=[
     "n": "DC 背离",
     "s": "off",
     "t": "DC 无信号",
-    "v": "竞彩/澳门背离+13.7pt降权-3"
+    "v": "竞彩/澳门背离+17.1pt降权-3"
    },
    {
     "k": "⑤",
@@ -858,13 +858,13 @@ var MATCHES=[
    {
     "t": "正 EV（竞彩口径）",
     "ok": false,
-    "v": "EV -41.10%",
+    "v": "EV -35.30%",
     "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
    },
    {
     "t": "置信 ≥55%",
-    "ok": false,
-    "v": "置信 53%",
+    "ok": true,
+    "v": "置信 60%",
     "why": "置信<55% 不投单关"
    },
    {
@@ -882,7 +882,7 @@ var MATCHES=[
    {
     "t": "串关 EV≥5%（竞彩口径）",
     "ok": false,
-    "v": "EV -41.10%",
+    "v": "EV -35.30%",
     "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
    },
    {
@@ -897,8 +897,8 @@ var MATCHES=[
    21,
    23
   ],
-  "model": 44,
-  "delta": "模型看低 -11pt",
+  "model": 62,
+  "delta": "模型看高 +7pt",
   "bf": [
    89,
    2,
@@ -943,14 +943,14 @@ var MATCHES=[
    "客"
   ],
   "injTxt": "1/?（含未获取·降级）",
-  "ev": -41.1,
+  "ev": -35.3,
   "sig": [
    "轨迹 让球升盘",
    "主降水",
    "客升水",
-   "形态:让球0.75→1.5(时点不足)",
-   "主1.64→1.37(时点不足)",
-   "客3.9→5.9(时点不足)",
+   "形态:让球0.75→1.75(单调升)",
+   "主1.64→1.25(单调降)",
+   "客3.9→7.9(单调升)",
    "155家146降强共识(看好主)",
    "必发主1.45量26700",
    "平7.19量700",
@@ -960,8 +960,8 @@ var MATCHES=[
    "24-05-12:1-5",
    "主伤卫门×1",
    "客伤其他×1",
-   "①时点不足降权-3(快照缺ID期)",
-   "④竞彩/澳门背离+13.7pt降权-3｜③R1主胜过热(-3)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.460)｜竞彩赔率=1.28(竞彩真价)｜澳门EV=-24.6%"
+   "①让球升盘+主降水(真热阻上)加权+4",
+   "④竞彩/澳门背离+17.1pt降权-3｜③R1主胜过热(-3)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.530)｜竞彩赔率=1.22(竞彩真价)｜澳门EV=-13.1%"
   ],
   "core": {
    "xh": "—",
@@ -1079,13 +1079,13 @@ var MATCHES=[
   },
   "fix": {
    "side": "主胜",
-   "p": 43,
+   "p": 36,
    "note": "外部AI未采集（降级）",
    "down": false,
    "rev": false
   },
   "pick": "主胜",
-  "conf": 43,
+  "conf": 36,
   "scores": [
    [
     "2-1",
@@ -1102,7 +1102,7 @@ var MATCHES=[
   ],
   "cold": [],
   "degr": [
-   "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.410)｜竞彩赔率=2.06(竞彩真价)｜澳门EV=-11.4%"
+   "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.340)｜竞彩赔率=2.38(竞彩真价)｜澳门EV=-26.6%"
   ],
   "lamps": [
    {
@@ -1131,7 +1131,7 @@ var MATCHES=[
     "n": "DC 背离",
     "s": "off",
     "t": "与澳门一致",
-    "v": "竞彩与澳门一致(+0.9pt)加权+2"
+    "v": "竞彩与澳门一致(-4.9pt)加权+2"
    },
    {
     "k": "⑤",
@@ -1145,13 +1145,13 @@ var MATCHES=[
    {
     "t": "正 EV（竞彩口径）",
     "ok": false,
-    "v": "EV -15.50%",
+    "v": "EV -19.10%",
     "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
    },
    {
     "t": "置信 ≥55%",
     "ok": false,
-    "v": "置信 43%",
+    "v": "置信 36%",
     "why": "置信<55% 不投单关"
    },
    {
@@ -1169,7 +1169,7 @@ var MATCHES=[
    {
     "t": "串关 EV≥5%（竞彩口径）",
     "ok": false,
-    "v": "EV -15.50%",
+    "v": "EV -19.10%",
     "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
    },
    {
@@ -1184,8 +1184,8 @@ var MATCHES=[
    25,
    33
   ],
-  "model": 44,
-  "delta": "接近市场 +2pt",
+  "model": 43,
+  "delta": "接近市场 +1pt",
   "bf": [
    60,
    11,
@@ -1231,12 +1231,12 @@ var MATCHES=[
    "客"
   ],
   "injTxt": "?/?（含未获取·降级）",
-  "ev": -15.5,
+  "ev": -19.1,
   "sig": [
    "轨迹 客降水",
-   "形态:让球0.25→0.25(时点不足)",
-   "主2.16→2.16(时点不足)",
-   "客2.79→2.74(时点不足)",
+   "形态:让球0.25→-0.25(单调降)",
+   "主2.16→2.75(单调升)",
+   "客2.79→2.26(拐点(U-V))",
    "155家分歧(52降/77升)",
    "必发主2.35量3400",
    "平3.09量600",
@@ -1246,8 +1246,9 @@ var MATCHES=[
    "25-03-12:2-0",
    "主伤其他×1",
    "客伤其他×1",
-   "①时点不足降权-3(快照缺ID期)",
-   "④竞彩与澳门一致(+0.9pt)加权+2｜③未命中R规律(+0)｜⑤五维00100(诱盘1维+0)｜⚠️降级版：伤停名单+位置已获取（—·四级参考级）→等级不足·最高C组(踩坑#10)"
+   "①让球升盘但主升水(诱上/假热)降权-6",
+   "①拐点(U-V)不确定降权-4",
+   "④竞彩与澳门一致(-4.9pt)加权+2｜③未命中R规律(+0)｜⑤五维00100(诱盘1维+0)｜⚠️降级版：伤停名单+位置已获取（—·四级参考级）→等级不足·最高C组(踩坑#10)"
   ],
   "core": {
    "xh": "—",
@@ -1365,13 +1366,13 @@ var MATCHES=[
   },
   "fix": {
    "side": "主胜",
-   "p": 42,
+   "p": 39,
    "note": "外部AI未采集（降级）",
    "down": false,
    "rev": false
   },
   "pick": "主胜",
-  "conf": 42,
+  "conf": 39,
   "scores": [
    [
     "2-1",
@@ -1388,7 +1389,7 @@ var MATCHES=[
   ],
   "cold": [],
   "degr": [
-   "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.390)｜竞彩赔率=2.33(竞彩真价)｜澳门EV=-11.1%"
+   "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.360)｜竞彩赔率=2.85(竞彩真价)｜澳门EV=-17.9%"
   ],
   "lamps": [
    {
@@ -1417,7 +1418,7 @@ var MATCHES=[
     "n": "DC 背离",
     "s": "off",
     "t": "与澳门一致",
-    "v": "竞彩与澳门一致(-1.8pt)加权+2"
+    "v": "竞彩与澳门一致(-8.7pt)加权+2"
    },
    {
     "k": "⑤",
@@ -1430,14 +1431,14 @@ var MATCHES=[
   "gates": [
    {
     "t": "正 EV（竞彩口径）",
-    "ok": false,
-    "v": "EV -9.10%",
+    "ok": true,
+    "v": "EV +2.60%",
     "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
    },
    {
     "t": "置信 ≥55%",
     "ok": false,
-    "v": "置信 42%",
+    "v": "置信 39%",
     "why": "置信<55% 不投单关"
    },
    {
@@ -1455,7 +1456,7 @@ var MATCHES=[
    {
     "t": "串关 EV≥5%（竞彩口径）",
     "ok": false,
-    "v": "EV -9.10%",
+    "v": "EV +2.60%",
     "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
    },
    {
@@ -1470,8 +1471,8 @@ var MATCHES=[
    26,
    34
   ],
-  "model": 44,
-  "delta": "模型看高 +4pt",
+  "model": 43,
+  "delta": "接近市场 +3pt",
   "bf": [
    53,
    28,
@@ -1517,13 +1518,13 @@ var MATCHES=[
    "客"
   ],
   "injTxt": "?/?（含未获取·降级）",
-  "ev": -9.1,
+  "ev": 2.6,
   "sig": [
    "轨迹 主升水",
    "客降水",
-   "形态:让球0.25→0(时点不足)",
-   "主2.28→2.34(时点不足)",
-   "客2.68→2.49(时点不足)",
+   "形态:让球0.25→-0.25(单调降)",
+   "主2.28→2.88(单调升)",
+   "客2.68→2.12(单调降)",
    "155家分歧(35降/85升)",
    "必发主2.59量2800",
    "平2.7量1500",
@@ -1533,8 +1534,8 @@ var MATCHES=[
    "25-04-26:1-1",
    "主伤其他×1",
    "客伤其他×1",
-   "①时点不足降权-3(快照缺ID期)",
-   "④竞彩与澳门一致(-1.8pt)加权+2｜③未命中R规律(+0)｜⑤五维00100(诱盘1维+0)｜⚠️降级版：伤停名单+位置已获取（—·四级参考级）→等级不足·最高C组(踩坑#10)"
+   "①让球升盘但主升水(诱上/假热)降权-6",
+   "④竞彩与澳门一致(-8.7pt)加权+2｜③未命中R规律(+0)｜⑤五维00100(诱盘1维+0)｜⚠️降级版：伤停名单+位置已获取（—·四级参考级）→等级不足·最高C组(踩坑#10)"
   ],
   "core": {
    "xh": "—",
@@ -1765,7 +1766,7 @@ function render(){
 /* 顶部 KPI 速算 */
 function renderKPI(){
   var topConf=MATCHES.slice().sort(function(a,b){return b.conf-a.conf})[0];
-  var pos=0;
+  var pos=1;
   var bet=0;
   var cells=[
     ['🏆 '+topConf.conf+'%',topConf.home.slice(0,6)],
@@ -1813,7 +1814,7 @@ function copyTextRaw(t){if(navigator.clipboard){navigator.clipboard.writeText(t)
 function fb(t){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast('已复制')}catch(e){showToast('复制失败，请手动选择')}ta.remove()}
 function switchTab(v){document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.view===v)});document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('on',s.id==='view-'+v)});window.scrollTo({top:0,behavior:'smooth'})}
 
-var UPDATED_AT=new Date('2026-09-22T19:09:33+08:00');
+var UPDATED_AT=new Date('2026-09-23T00:14:50+08:00');
 function relTime(t){var s=(Date.now()-t.getTime())/1000;if(s<60)return '刚刚更新';var m=Math.floor(s/60);if(m<60)return '更新于 '+m+' 分钟前';var h=Math.floor(m/60);if(h<24)return '更新于 '+h+' 小时前';return '更新于 '+Math.floor(h/24)+' 天前'}
 function tickUpdated(){var el=document.getElementById('updatedAt');if(el)el.textContent=relTime(UPDATED_AT)+' · 9/22 批次'}
 
