@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="竞彩预测">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230bb39a'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E">
-<title>竞彩预测 · 9/27 全7场 · 阿豪二次修正 v24.20</title>
+<title>竞彩预测 · 9/28 全8场 · 阿豪二次修正 v24.20</title>
 <style>
 /* ============ 设计变量：深色（默认） / 浅色（自动适配） ============ */
 :root{
@@ -333,7 +333,7 @@ body.ready .skeleton{display:none}
 .featbox .k2{color:var(--t3);margin-bottom:4px}
 .featbox b{color:var(--t1)}
 .featbox .warn2{color:var(--warn)}
-/* ↓↓↓ 以下为 0927 UI 轮新增（Top-10 第 3/4 条）↓↓↓ */
+/* ↓↓↓ 以下为 0928 UI 轮新增（Top-10 第 3/4 条）↓↓↓ */
 .resobox{margin-top:9px;padding:8px 10px;background:var(--card-2);border:1px solid var(--line);border-radius:10px;font-size:12px;line-height:1.7}
 .resobox .k2{color:var(--t3);margin-bottom:5px}
 .resobox .rz{display:block;margin:2px 0}
@@ -352,7 +352,7 @@ body.ready .skeleton{display:none}
 </style>
 
 <style>
-/* 0927 UI 轮（Top-10 第 4 条）：卡片屏外不做布局/绘制；contain-intrinsic-size 给出估算高度防抖动 */
+/* 0928 UI 轮（Top-10 第 4 条）：卡片屏外不做布局/绘制；contain-intrinsic-size 给出估算高度防抖动 */
 .card.match{content-visibility:auto;contain-intrinsic-size:auto 340px}
 /* 第 3 条：概率/EV/赔率类数字等宽对齐（template 已有 .num，这里覆盖渲染函数内联的裸数字容器） */
 .odd .ov,.rv-ev,.rv-conf,.conf-big,.sc .p,.stat .v,.kpi .v{font-variant-numeric:tabular-nums}
@@ -378,10 +378,10 @@ body.ready .skeleton{display:none}
 #groupSeg button[data-fc-zero],#betbtn[data-fc-zero]{opacity:.55}
 </style>
 <script>
-/* 0927 UI 轮：渲染函数重绘后自动刷新无障碍属性（Top-10 第 8 条）+ 筛选态回显（第 3 条）
+/* 0928 UI 轮：渲染函数重绘后自动刷新无障碍属性（Top-10 第 8 条）+ 筛选态回显（第 3 条）
    + 筛选按钮命中数后缀（第 10 条）。命中数表由 Python 在**生成期**算好写死在下面，
    本脚本只做"查表换文案"，不遍历 DOM 重新统计、不做任何口径计算。 */
-window.__FILTER_COUNTS = {"groups":{"全部":[7,0],"A":[0,0],"B":[0,0],"C":[2,0],"D":[5,0],"E":[0,0]}};
+window.__FILTER_COUNTS = {"groups":{"全部":[8,0],"A":[0,0],"B":[0,0],"C":[3,0],"D":[5,0],"E":[0,0]}};
 (function(){
   function refresh(){if(window.__uiThemeRefresh)window.__uiThemeRefresh(document);}
   function state(){
@@ -617,7 +617,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
         <div class="upd"><span class="dot-live"></span><span id="updatedAt">更新于 --</span></div>
       </div>
     </div>
-    <div class="nav-actions"><a class="iconbtn" href="multibets_20260927.html" style="text-decoration:none" aria-label="🎰 多玩法页">🎰 多玩法页</a><button class="iconbtn" id="themeBtn" onclick="toggleDark()" aria-label="切换主题">🌙</button></div>
+    <div class="nav-actions"><a class="iconbtn" href="multibets_20260928.html" style="text-decoration:none" aria-label="🎰 多玩法页">🎰 多玩法页</a><button class="iconbtn" id="themeBtn" onclick="toggleDark()" aria-label="切换主题">🌙</button></div>
     <div class="tabs">
       <button class="tab on" data-view="today" onclick="switchTab('today')">今日预测</button>
       <button class="tab" data-view="history" onclick="switchTab('history')">历史战绩</button>
@@ -630,10 +630,10 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 <div class="wrap">
   <div class="hero">
     <span class="tagline">⚽</span>
-    <h1>9/27 全 7 场 · 五项共振</h1>
+    <h1>9/28 全 8 场 · 五项共振</h1>
     <div class="sub">
       <span class="bal">💰 余额 <span class="num">10013.59</span> 元</span>
-      <span>伤停 7/7 场有数据（0 场未获取·降级）</span><span class="num">v24.20</span>
+      <span>伤停 5/8 场有数据（3 场未获取·降级）</span><span class="num">v24.20</span>
     </div>
     <div class="kpi-grid" id="kpiStrip"></div>
   </div>
@@ -643,19 +643,18 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
     <div class="card-title">🕘 近期批次（保留可查 · 手机直接点开）</div>
     <div style="display:grid;gap:8px">
       <div style="border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:var(--card-2)">
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>9/27 批（本批）</b><span class="tag" style="color:var(--gold)">无标记</span><span class="tag">当日 9 场 · 末次 7 场</span><span class="tag" style="color:var(--gold)">待赛 9</span></div>
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:7px"><span style="font-size:11.5px;color:var(--t3)">编号</span><span class="shortcode">001</span> <span class="shortcode">002</span> <span class="shortcode">003</span> <span class="shortcode">004</span> <span class="shortcode">005</span> <span class="shortcode">006</span> <span class="shortcode">007</span> <span class="shortcode">008</span> <span class="shortcode">009</span><span style="margin-left:auto;display:flex;gap:10px;font-size:12.5px"><span class="tag" style="color:var(--gold)">未确认发布（无链接）</span></span></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>9/28 批（本批）</b><span class="tag" style="color:var(--gold)">无标记</span><span class="tag">当日 8 场</span></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:7px"><span style="font-size:11.5px;color:var(--t3)">编号</span><span class="shortcode">001</span> <span class="shortcode">002</span> <span class="shortcode">003</span> <span class="shortcode">004</span> <span class="shortcode">005</span> <span class="shortcode">006</span> <span class="shortcode">007</span> <span class="shortcode">008</span><span style="margin-left:auto;display:flex;gap:10px;font-size:12.5px"><span class="tag" style="color:var(--gold)">未确认发布（无链接）</span></span></div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:var(--card-2)">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>9/27 批</b><span class="tag">降级</span><span class="tag">当日 9 场 · 末次 7 场</span><span class="tag" style="color:var(--lose)">已回填 3/9 命中</span></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:7px"><span style="font-size:11.5px;color:var(--t3)">编号</span><span class="shortcode">001</span> <span class="shortcode">002</span> <span class="shortcode">003</span> <span class="shortcode">004</span> <span class="shortcode">005</span> <span class="shortcode">006</span> <span class="shortcode">007</span> <span class="shortcode">008</span> <span class="shortcode">009</span><span style="margin-left:auto;display:flex;gap:10px;font-size:12.5px"><a href="20260927.html" style="color:var(--blue);font-weight:700;text-decoration:none">存档页 ›</a><a href="multibets_20260927.html" style="color:var(--blue);font-weight:700;text-decoration:none">多玩法 ›</a></span></div>
         <div style="margin-top:6px;font-size:11.5px;color:var(--t3);line-height:1.65">⏱ <b>已停售 2 场</b>（不在末次版页面 · 预测与复盘仍在台账）：001 江原FCvs仁川联·002 中国vs新西兰</div>
       </div>
       <div style="border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:var(--card-2)">
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>9/26 批</b><span class="tag">降级</span><span class="tag">当日 25 场 · 末次 19 场</span><span class="tag" style="color:var(--win)">已回填 12/21 命中</span><span class="tag" style="color:var(--gold)">待赛 4</span></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>9/26 批</b><span class="tag">降级</span><span class="tag">当日 25 场 · 末次 19 场</span><span class="tag" style="color:var(--win)">已回填 14/24 命中</span><span class="tag" style="color:var(--gold)">待赛 1</span></div>
         <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:7px"><span style="font-size:11.5px;color:var(--t3)">编号</span><span class="shortcode">001</span> <span class="shortcode">002</span> <span class="shortcode">003</span> <span class="shortcode">004</span> <span class="shortcode">005</span> <span class="shortcode">006</span> <span class="shortcode">007</span> <span class="shortcode">008</span> <span class="shortcode">009</span> <span class="shortcode">010</span> <span class="shortcode">011</span> <span class="shortcode">012</span> <span class="shortcode">013</span> <span class="shortcode">014</span> <span class="shortcode">015</span> <span class="shortcode">016</span> <span class="shortcode">017</span> <span class="shortcode">018</span> <span class="shortcode">019</span> <span class="shortcode">020</span> <span class="shortcode">021</span> <span class="shortcode">022</span> <span class="shortcode">023</span> <span class="shortcode">024</span> <span class="shortcode">025</span><span style="margin-left:auto;display:flex;gap:10px;font-size:12.5px"><a href="20260926.html" style="color:var(--blue);font-weight:700;text-decoration:none">存档页 ›</a><a href="multibets_20260926.html" style="color:var(--blue);font-weight:700;text-decoration:none">多玩法 ›</a></span></div>
         <div style="margin-top:6px;font-size:11.5px;color:var(--t3);line-height:1.65">⏱ <b>已停售 6 场</b>（不在末次版页面 · 预测与复盘仍在台账）：001 中国亚运男足vs泰国亚运男足·002 磐城FCvs仙台维加泰·003 富山胜利vs横滨FC·004 秋田蓝色闪电vs新潟天鹅·005 大宫松鼠RBvs甲府风林·006 大分三神vs藤枝MYFC</div>
-      </div>
-      <div style="border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:var(--card-2)">
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>9/25 批</b><span class="tag">终版</span><span class="tag">当日 11 场 · 末次 9 场</span><span class="tag" style="color:var(--win)">已回填 6/11 命中</span></div>
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:7px"><span style="font-size:11.5px;color:var(--t3)">编号</span><span class="shortcode">001</span> <span class="shortcode">002</span> <span class="shortcode">005</span> <span class="shortcode">006</span> <span class="shortcode">007</span> <span class="shortcode">008</span> <span class="shortcode">009</span> <span class="shortcode">010</span> <span class="shortcode">011</span> <span class="shortcode">012</span> <span class="shortcode">013</span><span style="margin-left:auto;display:flex;gap:10px;font-size:12.5px"><a href="20260925.html" style="color:var(--blue);font-weight:700;text-decoration:none">存档页 ›</a><a href="multibets_20260925.html" style="color:var(--blue);font-weight:700;text-decoration:none">多玩法 ›</a></span></div>
-        <div style="margin-top:6px;font-size:11.5px;color:var(--t3);line-height:1.65">⏱ <b>已停售 2 场</b>（不在末次版页面 · 预测与复盘仍在台账）：001 乌兹别克亚运男足vs沙特阿拉伯亚足·002 中国女足vs越南女足</div>
       </div>
     </div>
     <div class="note gray" style="margin-top:10px">编号＝当日竞彩场次号（中途剔场会跳号，所以会看到 001·003 这样的间隔）｜<b>前一两批没有终版／降级也照样保留</b>（点「存档页」看当期全文）｜⏱<b>已停售</b>＝早场开赛后不再在售、末次版页面不再收录（预测与赛果仍进台账与复盘）｜逐日复盘见 <a href="history.html" style="color:var(--blue)">history.html</a>｜入口与链路状态见 <a href="links.html" style="color:var(--blue)">links.html</a></div>
@@ -664,19 +663,19 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   <div class="card">
     <div class="card-title">📊 投注策略总览<span class="more" id="ovMore">A · B · C · D · E</span></div>
     <div class="stat-grid"><div class="stat"><div class="v num" id="ovTotal">0</div><div class="k">总场次</div></div><div class="stat"><div class="v num" id="ovA" style="color:var(--win)">0</div><div class="k">A 组</div></div><div class="stat"><div class="v num" id="ovB" style="color:var(--blue)">0</div><div class="k">B 组</div></div><div class="stat"><div class="v num" id="ovC" style="color:var(--lose)">0</div><div class="k">C 组</div></div><div class="stat"><div class="v num" id="ovD" style="color:var(--blue)">0</div><div class="k">D 组</div></div><div class="stat"><div class="v num" id="ovE" style="color:var(--blue)">0</div><div class="k">E 组</div></div><div class="stat"><div class="v num" id="ovRev" style="color:var(--lose)">0</div><div class="k">反转</div></div><div class="stat"><div class="v num" id="ovInj">0%</div><div class="k">伤停覆盖</div></div></div>
-    <div class="note warn">⚠️ 本批可投 0 场：7 场均不满足投注纪律（只投正EV**竞彩口径** + 置信≥55%才投单关 + D组不投 + 串关EV<5%（竞彩口径）不组 + B3档无SOP增量禁单关·门禁v10）。</div>
+    <div class="note warn">⚠️ 本批可投 0 场：8 场均不满足投注纪律（只投正EV**竞彩口径** + 置信≥55%才投单关 + D组不投 + 串关EV<5%（竞彩口径）不组 + B3档无SOP增量禁单关·门禁v10）。</div>
     <div class="note gray">🧭 纪律：单注 ≤3% · 只投正 EV · 日亏停手 · 串关优先于单关。</div>
   </div>
 
   <!--DATASRC-START-->
-<div class="card" style="border-left:4px solid var(--gold)"><div class="card-title">📋 本轮数据源与缺口（自动现算 · 缺失即标降级 · 不编造）</div><div style="font-size:12px;line-height:2"><div>✅ 主数据 predictions_20260927_7matches.csv（7 场：003-009）· 台账 betting_sim_ledger.csv（26 行，末行余额 10013.59 现算）</div><div>✅ 判据 judge_0927.csv（7 场：λ/去水概率/让球盘/澳门欧赔）</div><div>✅ 赔率轨迹 odds_0927.csv + trajectory_view_0927.csv（7 场采集，本批消费 003-009）</div><div>✅ 伤停 verify_injury_0927.csv：7/7 场即嗨**带位置**有数据</div><div>✅ 必发资金 / H2H 近5 来源 extra_0927.csv：7/7 场有数据</div><div>✅ 特征层 features_0927.csv / features_core_0927.csv：7/7 场有数据</div><div>✅ 多源权威 authority_20260927.csv / authority_verify_20260927.csv：7 条判定</div><div>🚫 understat_live_20260927.csv：不存在 → xG 无源，页面显示「—」（不用替代值）</div><div>🚫 外部AI对照 VVVVVV/体彩竞彩2026-09-27全7场_预测结果.csv：0/7 场按编号对齐（按正则剥『周X』前缀；禁硬编码星期）</div><div>⚠️ qxc_20260927.csv 不存在（本轮未采集，降级）→ 不计入任何结论</div><div>⚠️ 勘误（上游未改，本页未改冻结CSV）：上一批 `judge_0927.py` 曾硬编码读取更早一批的豆包文件 → predictions CSV「信号」列中部分场次的『外部AI(豆包)分歧』为跨批误标；本页 AI 徽章与二次修正备注按本批豆包文件现算，以本页为准</div></div></div>
+<div class="card" style="border-left:4px solid var(--gold)"><div class="card-title">📋 本轮数据源与缺口（自动现算 · 缺失即标降级 · 不编造）</div><div style="font-size:12px;line-height:2"><div>✅ 主数据 predictions_20260928_8matches.csv（8 场：001-008）· 台账 betting_sim_ledger.csv（26 行，末行余额 10013.59 现算）</div><div>✅ 判据 judge_0928.csv（8 场：λ/去水概率/让球盘/澳门欧赔）</div><div>✅ 赔率轨迹 odds_0928.csv + trajectory_view_0928.csv（8 场采集，本批消费 001-008）</div><div>✅ 伤停 verify_injury_0928.csv：5/8 场即嗨**带位置**有数据，3 场（001、002、003）即嗨带位置字段未取到；经**三态对账**确认这些场**有名单**（补充源带位置，中文补充四级·参考级）⇒ 页面按「等级不足」标降级、**位置系数未施加（保守×1.00）**，不按 0 人解读</div><div>✅ 必发资金 / H2H 近5 来源 extra_0928.csv：8/8 场有数据</div><div>✅ 特征层 features_0928.csv / features_core_0928.csv：8/8 场有数据</div><div>✅ 多源权威 authority_20260928.csv / authority_verify_20260928.csv：8 条判定</div><div>🚫 understat_live_20260928.csv：不存在 → xG 无源，页面显示「—」（不用替代值）</div><div>🚫 外部AI对照 VVVVVV/体彩竞彩2026-09-28全8场_预测结果.csv：0/8 场按编号对齐（按正则剥『周X』前缀；禁硬编码星期）</div><div>⚠️ qxc_20260928.csv 不存在（本轮未采集，降级）→ 不计入任何结论</div><div>⚠️ 勘误（上游未改，本页未改冻结CSV）：上一批 `judge_0928.py` 曾硬编码读取更早一批的豆包文件 → predictions CSV「信号」列中部分场次的『外部AI(豆包)分歧』为跨批误标；本页 AI 徽章与二次修正备注按本批豆包文件现算，以本页为准</div></div></div>
 <!--DATASRC-END-->
 <details class="filterbar" id="filterBar"><summary style="cursor:pointer;font-weight:700;font-size:14px;padding:4px 2px;color:var(--t2)">⚙️ 筛选 / 排序（点击展开） · <span id="filterState" class="num" style="color:var(--t3)">已生效：全部 · 不限可投</span></summary><div style="margin-top:6px">
     <div class="seg" id="groupSeg">
-      <button class="on" onclick="setG('全部',this)" data-fc="全部">全部组 (7)</button>
+      <button class="on" onclick="setG('全部',this)" data-fc="全部">全部组 (8)</button>
       <button class="g-A" onclick="setG('A',this)" data-fc="A" data-fc-zero="1">A 组 (0)</button>
       <button class="g-B" onclick="setG('B',this)" data-fc="B" data-fc-zero="1">B 组 (0)</button>
-      <button class="g-C" onclick="setG('C',this)" data-fc="C">C 组 (2)</button>
+      <button class="g-C" onclick="setG('C',this)" data-fc="C">C 组 (3)</button>
       <button class="g-D" onclick="setG('D',this)" data-fc="D">D 组 (5)</button>
       <button class="g-E" onclick="setG('E',this)" data-fc="E" data-fc-zero="1">E 组 (0)</button>
     </div>
@@ -699,9 +698,9 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
       <button class="toolbtn" onclick="toggleAll(false)">收起</button>
       <button class="toolbtn" onclick="copyAll()">📨 复制整批</button>
     </div>
-    <div class="result-count"><span id="countLine">显示 7 / 7 场</span><span id="sortHint"></span></div>
+    <div class="result-count"><span id="countLine">显示 8 / 8 场</span><span id="sortHint"></span></div>
   </div></details>
-  <div class="idxbar" role="navigation" aria-label="场次索引：点编号跳到该场" style="margin:8px 2px 0;display:flex;flex-wrap:wrap;align-items:center"><span style="font-size:12px;color:var(--t3);margin-right:6px">#️⃣ 场次索引</span><a href="#m003" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">003</a><a href="#m004" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">004</a><a href="#m005" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">005</a><a href="#m006" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">006</a><a href="#m007" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">007</a><a href="#m008" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">008</a><a href="#m009" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">009</a></div>
+  <div class="idxbar" role="navigation" aria-label="场次索引：点编号跳到该场" style="margin:8px 2px 0;display:flex;flex-wrap:wrap;align-items:center"><span style="font-size:12px;color:var(--t3);margin-right:6px">#️⃣ 场次索引</span><a href="#m001" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">001</a><a href="#m002" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">002</a><a href="#m003" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">003</a><a href="#m004" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">004</a><a href="#m005" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">005</a><a href="#m006" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">006</a><a href="#m007" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">007</a><a href="#m008" class="idxlink" style="display:inline-block;min-width:34px;text-align:center;padding:3px 6px;margin:3px 3px 0 0;border-radius:8px;text-decoration:none;background:var(--card2,#0000000d);color:var(--t2);font-size:12px">008</a></div>
 
   <div id="list"></div>
 </div>
@@ -789,7 +788,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </div>
 </section>
 
-<div class="disclaimer wrap">阿豪二次修正 · 数据仅供参考研究，不构成任何投注建议 · 理性看球，远离非法赌博<br>竞彩有风险，入市需谨慎 · 更新批次 2026-09-27<br><b>本页所有内容基于公开赔率与统计模型，仅供研究参考，不构成投注建议，请理性购彩。</b></div>
+<div class="disclaimer wrap">阿豪二次修正 · 数据仅供参考研究，不构成任何投注建议 · 理性看球，远离非法赌博<br>竞彩有风险，入市需谨慎 · 更新批次 2026-09-28<br><b>本页所有内容基于公开赔率与统计模型，仅供研究参考，不构成投注建议，请理性购彩。</b></div>
 </div>
 
 <nav class="bottomtab">
@@ -800,333 +799,50 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 
 <div class="toast" id="toast"></div>
 
-<script>function ovRender(){var g={A:0,B:0,C:0,D:0,E:0};MATCHES.forEach(function(m){var x=m.group||"E";g[x]=(g[x]||0)+1});var f=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v};f("ovMore","A "+g.A+" · B "+g.B+" · C "+g.C+" · D "+g.D+" · E "+g.E);f("ovTotal",MATCHES.length);f("ovA",g.A);f("ovB",g.B);f("ovC",g.C);f("ovD",g.D);f("ovE",g.E);f("ovRev",0);f("ovInj","100%")};window.addEventListener("load",ovRender);</script><script>
-/* ===== 数据：与原静态页 7 场完全一致，未新增/虚构字段 ===== */
+<script>function ovRender(){var g={A:0,B:0,C:0,D:0,E:0};MATCHES.forEach(function(m){var x=m.group||"E";g[x]=(g[x]||0)+1});var f=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v};f("ovMore","A "+g.A+" · B "+g.B+" · C "+g.C+" · D "+g.D+" · E "+g.E);f("ovTotal",MATCHES.length);f("ovA",g.A);f("ovB",g.B);f("ovC",g.C);f("ovD",g.D);f("ovE",g.E);f("ovRev",0);f("ovInj","62%")};window.addEventListener("load",ovRender);</script><script>
+/* ===== 数据：与原静态页 8 场完全一致，未新增/虚构字段 ===== */
 var BANKROLL=10013.59;
-var DEGRADE=["⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.540)｜竞彩赔率=1.37(竞彩真价)｜澳门EV=-5.0%"];
+var DEGRADE=["⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.720)｜竞彩赔率=1.17(竞彩真价)｜澳门EV=-15.8%", "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.320)｜竞彩赔率=2.71(竞彩真价)｜澳门EV=-13.3%", "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.380)｜竞彩赔率=2.50(竞彩真价)｜澳门EV=-7.3%"];
 var MATCHES=[
  {
-  "id": "003",
-  "group": "D",
-  "league": "荷乙",
-  "home": "格拉夫夏普",
-  "away": "邓伯什",
-  "ai": {
-   "side": "未采集",
-   "p": null
-  },
-  "fix": {
-   "side": "客胜",
-   "p": 38,
-   "note": "外部AI未采集（降级）",
-   "down": false,
-   "rev": false
-  },
-  "pick": "客胜",
-  "conf": 38,
-  "scores": [
-   [
-    "1-2",
-    7
-   ],
-   [
-    "1-3",
-    4
-   ],
-   [
-    "2-1",
-    8
-   ]
-  ],
-  "cold": [
-   "2-1"
-  ],
-  "degr": [],
-  "lamps": [
-   {
-    "k": "①",
-    "n": "轨迹/形态",
-    "s": "ok",
-    "t": "轨迹支持",
-    "v": "轨迹 让球降盘"
-   },
-   {
-    "k": "②",
-    "n": "伤停",
-    "s": "ok",
-    "t": "伤停已核实",
-    "v": "主客共 3 人"
-   },
-   {
-    "k": "③",
-    "n": "R 规律",
-    "s": "warn",
-    "t": "R 规律未命中",
-    "v": "未命中R规律(+0)"
-   },
-   {
-    "k": "④",
-    "n": "DC 背离",
-    "s": "off",
-    "t": "DC 无信号",
-    "v": "DC背离:147家看衰主胜强共识→跟欧洲改判客胜(原"
-   },
-   {
-    "k": "⑤",
-    "n": "五维",
-    "s": "warn",
-    "t": "五维 2/5 维",
-    "v": "五维11000(诱盘2维-5)"
-   }
-  ],
-  "gates": [
-   {
-    "t": "正 EV（竞彩口径）",
-    "ok": false,
-    "v": "EV -28.20%",
-    "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
-   },
-   {
-    "t": "置信 ≥55%",
-    "ok": false,
-    "v": "置信 38%",
-    "why": "置信<55% 不投单关"
-   },
-   {
-    "t": "非 D 组",
-    "ok": false,
-    "v": "D 组",
-    "why": "D 组不投"
-   },
-   {
-    "t": "非 B3 档",
-    "ok": true,
-    "v": "未触发",
-    "why": "1.50-1.80 档无 SOP 增量 ⇒ 禁单关"
-   },
-   {
-    "t": "串关 EV≥5%（竞彩口径）",
-    "ok": false,
-    "v": "EV -28.20%",
-    "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
-   },
-   {
-    "t": "三比分落齐",
-    "ok": true,
-    "v": "3 个比分",
-    "why": "防冷须落地第三比分（踩坑#69）"
-   }
-  ],
-  "market": [
-   48,
-   22,
-   30
-  ],
-  "model": 43,
-  "delta": "模型看高 +13pt",
-  "bf": [
-   42,
-   51,
-   7
-  ],
-  "h2h": [
-   [
-    "D",
-    "平1-1"
-   ],
-   [
-    "H",
-    "主2-1"
-   ],
-   [
-    "H",
-    "主1-0"
-   ],
-   [
-    "D",
-    "平2-2"
-   ],
-   [
-    "H",
-    "主2-0"
-   ]
-  ],
-  "guard": "五维诱盘2维→防冷",
-  "bet": "不投",
-  "bettable": false,
-  "ah": "让0.50(主0.89/客0.93)",
-  "odds": [
-   1.89,
-   4.1,
-   3.05
-  ],
-  "inj": [
-   2,
-   1
-  ],
-  "injunk": [],
-  "injTxt": "2/1",
-  "ev": -28.2,
-  "sig": [
-   "轨迹 让球降盘",
-   "主升水",
-   "客降水",
-   "形态:让球0.5→0(单调降)",
-   "主1.89→2.23(单调升)",
-   "客3.05→2.44(拐点(U-V))",
-   "155家147升强共识(看衰主)",
-   "必发主2.4量11600",
-   "平2.81量14100",
-   "客4.4量1900",
-   "H2H 26-01-27:1-1",
-   "25-11-01:2-1",
-   "25-02-08:1-0",
-   "主伤中场×1, 卫门×1",
-   "客伤中卫×1",
-   "④DC背离:147家看衰主胜强共识→跟欧洲改判客胜(原主胜)",
-   "①客降水支持客胜加权+4",
-   "①拐点(U-V)不确定降权-4",
-   "④竞彩归档缺此场→无确认项｜③未命中R规律(+0)｜⑤五维11000(诱盘2维-5)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.250)｜竞彩赔率=2.87(竞彩真价)｜澳门EV=-23.8%"
-  ],
-  "core": {
-   "xh": "—",
-   "xa": "—",
-   "ih": 2,
-   "ia": 1,
-   "lam": "1.94/1.77",
-   "rh": "—",
-   "ra": "—",
-   "bf": "42/51/7"
-  },
-  "injpos": "主缺中前卫1、左后卫1；客缺中卫1",
-  "injdeg": "",
-  "goal": [
-   3,
-   7,
-   18,
-   21,
-   19,
-   31
-  ],
-  "feat": {
-   "xg": "",
-   "elo": "",
-   "eloD": "",
-   "roll": "—/— vs —/—",
-   "xgstd": "STD(赛季累计场均；Understat现行接口无逐场 → 滚动窗口用进球代替)",
-   "observe": "样本<30 的观察项：仅展示/仅积累，**不纳入正式决策**",
-   "rest": "",
-   "rho": "-0.13",
-   "rhoSrc": "荷乙拟合(n=1223)",
-   "rot": "",
-   "sig2": "防漏 主×1.14/客×1.00; 缺阵影响值 主0.147/客0.105(攻防加权0.7/0.3); 必发资金平51%",
-   "hbonus": "0",
-   "form": ""
-  },
-  "srcs": [
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2996483",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "主队伤停",
-    "p": "2"
-   },
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2996483",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "客队伤停",
-    "p": "2"
-   },
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2996483",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "主队首发",
-    "p": "2"
-   },
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2996483",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "客队首发",
-    "p": "2"
-   },
-   {
-    "n": "Understat",
-    "u": "https://understat.com/",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "主队场均xG",
-    "p": "2"
-   },
-   {
-    "n": "Understat",
-    "u": "https://understat.com/",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "客队场均xG",
-    "p": "2"
-   },
-   {
-    "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=格拉夫夏普",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "主队总身价",
-    "p": "2"
-   },
-   {
-    "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=邓伯什",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "客队总身价",
-    "p": "2"
-   }
-  ],
-  "srcline": "3 个独立源 / 8 条事实",
-  "srcok": "❌ 关键数据缺官方/权威媒体源"
- },
- {
-  "id": "004",
+  "id": "001",
   "group": "C",
-  "league": "欧国联",
-  "home": "丹麦",
-  "away": "威尔士",
+  "league": "国际赛",
+  "home": "日本",
+  "away": "委内瑞拉",
   "ai": {
    "side": "未采集",
    "p": null
   },
   "fix": {
    "side": "主胜",
-   "p": 45,
+   "p": 61,
    "note": "外部AI未采集（降级）",
    "down": false,
    "rev": false
   },
   "pick": "主胜",
-  "conf": 45,
+  "conf": 61,
   "scores": [
    [
-    "1-0",
-    12
-   ],
-   [
     "2-0",
-    10
+    16
    ],
    [
-    "2-1",
-    9
+    "1-0",
+    14
+   ],
+   [
+    "0-1",
+    3
    ]
   ],
-  "cold": [],
-  "degr": [],
+  "cold": [
+   "0-1"
+  ],
+  "degr": [
+   "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.720)｜竞彩赔率=1.17(竞彩真价)｜澳门EV=-15.8%"
+  ],
   "lamps": [
    {
     "k": "①",
@@ -1134,812 +850,6 @@ var MATCHES=[
     "s": "ok",
     "t": "轨迹支持",
     "v": "轨迹 让球升盘"
-   },
-   {
-    "k": "②",
-    "n": "伤停",
-    "s": "ok",
-    "t": "伤停已核实",
-    "v": "主客共 3 人"
-   },
-   {
-    "k": "③",
-    "n": "R 规律",
-    "s": "off",
-    "t": "R 规律无信号",
-    "v": "R1主胜过热(-3)"
-   },
-   {
-    "k": "④",
-    "n": "DC 背离",
-    "s": "off",
-    "t": "DC 无信号",
-    "v": "竞彩/澳门背离+15.8pt降权-3"
-   },
-   {
-    "k": "⑤",
-    "n": "五维",
-    "s": "warn",
-    "t": "五维 1/5 维",
-    "v": "五维01000(诱盘1维+0)"
-   }
-  ],
-  "gates": [
-   {
-    "t": "正 EV（竞彩口径）",
-    "ok": false,
-    "v": "EV -35.30%",
-    "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
-   },
-   {
-    "t": "置信 ≥55%",
-    "ok": false,
-    "v": "置信 45%",
-    "why": "置信<55% 不投单关"
-   },
-   {
-    "t": "非 D 组",
-    "ok": true,
-    "v": "C 组",
-    "why": "D 组不投"
-   },
-   {
-    "t": "非 B3 档",
-    "ok": true,
-    "v": "未触发",
-    "why": "1.50-1.80 档无 SOP 增量 ⇒ 禁单关"
-   },
-   {
-    "t": "串关 EV≥5%（竞彩口径）",
-    "ok": false,
-    "v": "EV -35.30%",
-    "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
-   },
-   {
-    "t": "三比分落齐",
-    "ok": true,
-    "v": "3 个比分",
-    "why": "防冷须落地第三比分（踩坑#69）"
-   }
-  ],
-  "market": [
-   51,
-   26,
-   22
-  ],
-  "model": 44,
-  "delta": "模型看低 -7pt",
-  "bf": [
-   86,
-   7,
-   6
-  ],
-  "h2h": [
-   [
-    "H",
-    "主4-0"
-   ],
-   [
-    "H",
-    "主2-1"
-   ],
-   [
-    "H",
-    "主2-0"
-   ],
-   [
-    "A",
-    "客0-1"
-   ]
-  ],
-  "guard": "不防",
-  "bet": "不投",
-  "bettable": false,
-  "ah": "让0.75(主1.01/客0.81)",
-  "odds": [
-   1.77,
-   3.45,
-   4.05
-  ],
-  "inj": [
-   1,
-   2
-  ],
-  "injunk": [],
-  "injTxt": "1/2",
-  "ev": -35.3,
-  "sig": [
-   "轨迹 让球升盘",
-   "主降水",
-   "客升水",
-   "形态:让球0.75→1.25(平台)",
-   "主1.77→1.38(单调降)",
-   "客4.05→8.2(单调升)",
-   "155家153降强共识(看好主)",
-   "必发主1.42量850000",
-   "平8.8量73200",
-   "客5.3量61500",
-   "H2H 21-06-26:4-0",
-   "18-11-17:2-1",
-   "18-09-09:2-0",
-   "主伤锋×1",
-   "客伤中卫×2",
-   "①让球升盘+主降水(真热阻上)加权+4",
-   "①临场(T6-T7)主降客升支持主胜+3",
-   "④竞彩/澳门背离+15.8pt降权-3｜③R1主胜过热(-3)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.490)｜竞彩赔率=1.32(竞彩真价)｜澳门EV=-13.3%"
-  ],
-  "core": {
-   "xh": "—",
-   "xa": "—",
-   "ih": 1,
-   "ia": 2,
-   "lam": "1.54/0.95",
-   "rh": "—",
-   "ra": "—",
-   "bf": "86/7/6"
-  },
-  "injpos": "主缺中锋1；客缺中卫2",
-  "injdeg": "",
-  "goal": [
-   10,
-   18,
-   27,
-   21,
-   13,
-   11
-  ],
-  "feat": {
-   "xg": "",
-   "elo": "",
-   "eloD": "",
-   "roll": "—/— vs —/—",
-   "xgstd": "STD(赛季累计场均；Understat现行接口无逐场 → 滚动窗口用进球代替)",
-   "observe": "样本<30 的观察项：仅展示/仅积累，**不纳入正式决策**",
-   "rest": "",
-   "rho": "-0.04",
-   "rhoSrc": "全局ρ(该联赛样本不足)",
-   "rot": "",
-   "sig2": "缺阵影响值 主0.119/客0.195(攻防加权0.7/0.3); 必发资金主86%",
-   "hbonus": "0",
-   "form": ""
-  },
-  "srcs": [
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981434",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "主队伤停",
-    "p": "2"
-   },
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981434",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "客队伤停",
-    "p": "2"
-   },
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981434",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "主队首发",
-    "p": "2"
-   },
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981434",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "客队首发",
-    "p": "2"
-   },
-   {
-    "n": "Understat",
-    "u": "https://understat.com/",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "主队场均xG",
-    "p": "2"
-   },
-   {
-    "n": "Understat",
-    "u": "https://understat.com/",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "客队场均xG",
-    "p": "2"
-   },
-   {
-    "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=丹麦",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "主队总身价",
-    "p": "2"
-   },
-   {
-    "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=威尔士",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "客队总身价",
-    "p": "2"
-   }
-  ],
-  "srcline": "3 个独立源 / 8 条事实",
-  "srcok": "❌ 关键数据缺官方/权威媒体源"
- },
- {
-  "id": "005",
-  "group": "C",
-  "league": "欧国联",
-  "home": "塞尔维亚",
-  "away": "荷兰",
-  "ai": {
-   "side": "未采集",
-   "p": null
-  },
-  "fix": {
-   "side": "客胜",
-   "p": 46,
-   "note": "外部AI未采集（降级）",
-   "down": false,
-   "rev": false
-  },
-  "pick": "客胜",
-  "conf": 46,
-  "scores": [
-   [
-    "0-1",
-    12
-   ],
-   [
-    "0-2",
-    8
-   ],
-   [
-    "1-2",
-    8
-   ]
-  ],
-  "cold": [],
-  "degr": [
-   "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.540)｜竞彩赔率=1.37(竞彩真价)｜澳门EV=-5.0%"
-  ],
-  "lamps": [
-   {
-    "k": "①",
-    "n": "轨迹/形态",
-    "s": "ok",
-    "t": "轨迹支持",
-    "v": "轨迹 让球降盘"
-   },
-   {
-    "k": "②",
-    "n": "伤停",
-    "s": "ok",
-    "t": "伤停已核实",
-    "v": "主客共 4 人"
-   },
-   {
-    "k": "③",
-    "n": "R 规律",
-    "s": "warn",
-    "t": "R 规律未命中",
-    "v": "未命中R规律(+0)"
-   },
-   {
-    "k": "④",
-    "n": "DC 背离",
-    "s": "off",
-    "t": "与澳门一致",
-    "v": "竞彩与澳门一致(-7.9pt)加权+2"
-   },
-   {
-    "k": "⑤",
-    "n": "五维",
-    "s": "warn",
-    "t": "五维 1/5 维",
-    "v": "五维01000(诱盘1维+0)"
-   }
-  ],
-  "gates": [
-   {
-    "t": "正 EV（竞彩口径）",
-    "ok": false,
-    "v": "EV -26.00%",
-    "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
-   },
-   {
-    "t": "置信 ≥55%",
-    "ok": false,
-    "v": "置信 46%",
-    "why": "置信<55% 不投单关"
-   },
-   {
-    "t": "非 D 组",
-    "ok": true,
-    "v": "C 组",
-    "why": "D 组不投"
-   },
-   {
-    "t": "非 B3 档",
-    "ok": true,
-    "v": "未触发",
-    "why": "1.50-1.80 档无 SOP 增量 ⇒ 禁单关"
-   },
-   {
-    "t": "串关 EV≥5%（竞彩口径）",
-    "ok": false,
-    "v": "EV -26.00%",
-    "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
-   },
-   {
-    "t": "三比分落齐",
-    "ok": true,
-    "v": "3 个比分",
-    "why": "防冷须落地第三比分（踩坑#69）"
-   }
-  ],
-  "market": [
-   23,
-   25,
-   52
-  ],
-  "model": 44,
-  "delta": "模型看低 -8pt",
-  "bf": [
-   7,
-   87,
-   6
-  ],
-  "h2h": [
-   [
-    "A",
-    "客0-1"
-   ]
-  ],
-  "guard": "不防",
-  "bet": "不投",
-  "bettable": false,
-  "ah": "让-0.75(主0.84/客0.98)",
-  "odds": [
-   3.9,
-   3.65,
-   1.76
-  ],
-  "inj": [
-   1,
-   3
-  ],
-  "injunk": [],
-  "injTxt": "1/3",
-  "ev": -26.0,
-  "sig": [
-   "轨迹 让球降盘",
-   "主升水",
-   "客降水",
-   "形态:让球-0.75→-1.25(平台)",
-   "主3.9→7.1(波动)",
-   "客1.76→1.4(波动)",
-   "155家150升强共识(看衰主)",
-   "必发主9量109400",
-   "平1.42量1384600",
-   "客5.4量91400",
-   "H2H 06-06-11:0-1",
-   "主伤锋×1",
-   "客伤锋×2, 卫门×1",
-   "④竞彩与澳门一致(-7.9pt)加权+2｜③未命中R规律(+0)｜⑤五维01000(诱盘1维+0)｜B3档无SOP增量→降C+禁单关(v10)"
-  ],
-  "core": {
-   "xh": "—",
-   "xa": "—",
-   "ih": 1,
-   "ia": 3,
-   "lam": "0.99/1.19",
-   "rh": "—",
-   "ra": "—",
-   "bf": "7/87/6"
-  },
-  "injpos": "主缺前锋1；客缺前锋2、右后卫1",
-  "injdeg": "",
-  "goal": [
-   13,
-   22,
-   28,
-   20,
-   11,
-   7
-  ],
-  "feat": {
-   "xg": "",
-   "elo": "",
-   "eloD": "",
-   "roll": "—/— vs —/—",
-   "xgstd": "STD(赛季累计场均；Understat现行接口无逐场 → 滚动窗口用进球代替)",
-   "observe": "样本<30 的观察项：仅展示/仅积累，**不纳入正式决策**",
-   "rest": "",
-   "rho": "-0.04",
-   "rhoSrc": "全局ρ(该联赛样本不足)",
-   "rot": "",
-   "sig2": "防漏 主×1.00/客×1.14; 缺阵影响值 主0.119/客0.260(攻防加权0.7/0.3); 必发资金平87%",
-   "hbonus": "0",
-   "form": ""
-  },
-  "srcs": [
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981433",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "主队伤停",
-    "p": "2"
-   },
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981433",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "客队伤停",
-    "p": "2"
-   },
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981433",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "主队首发",
-    "p": "2"
-   },
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981433",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "客队首发",
-    "p": "2"
-   },
-   {
-    "n": "Understat",
-    "u": "https://understat.com/",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "主队场均xG",
-    "p": "2"
-   },
-   {
-    "n": "Understat",
-    "u": "https://understat.com/",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "客队场均xG",
-    "p": "2"
-   },
-   {
-    "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=塞尔维亚",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "主队总身价",
-    "p": "2"
-   },
-   {
-    "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=荷兰",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "客队总身价",
-    "p": "2"
-   }
-  ],
-  "srcline": "3 个独立源 / 8 条事实",
-  "srcok": "❌ 关键数据缺官方/权威媒体源"
- },
- {
-  "id": "006",
-  "group": "D",
-  "league": "欧国联",
-  "home": "奥地利",
-  "away": "科索沃",
-  "ai": {
-   "side": "未采集",
-   "p": null
-  },
-  "fix": {
-   "side": "平",
-   "p": 41,
-   "note": "外部AI未采集（降级）",
-   "down": false,
-   "rev": false
-  },
-  "pick": "平",
-  "conf": 41,
-  "scores": [
-   [
-    "1-1",
-    11
-   ],
-   [
-    "0-0",
-    6
-   ],
-   [
-    "2-2",
-    5
-   ]
-  ],
-  "cold": [],
-  "degr": [],
-  "lamps": [
-   {
-    "k": "①",
-    "n": "轨迹/形态",
-    "s": "ok",
-    "t": "轨迹支持",
-    "v": "轨迹 主升水"
-   },
-   {
-    "k": "②",
-    "n": "伤停",
-    "s": "ok",
-    "t": "伤停已核实",
-    "v": "主客共 2 人"
-   },
-   {
-    "k": "③",
-    "n": "R 规律",
-    "s": "warn",
-    "t": "R 规律未命中",
-    "v": "未命中R规律(+0)"
-   },
-   {
-    "k": "④",
-    "n": "DC 背离",
-    "s": "off",
-    "t": "DC 无信号",
-    "v": "DC背离:147家看衰主胜强共识→跟欧洲改判平(原主"
-   },
-   {
-    "k": "⑤",
-    "n": "五维",
-    "s": "warn",
-    "t": "五维 1/5 维",
-    "v": "五维01000(诱盘1维+0)"
-   }
-  ],
-  "gates": [
-   {
-    "t": "正 EV（竞彩口径）",
-    "ok": false,
-    "v": "EV -19.00%",
-    "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
-   },
-   {
-    "t": "置信 ≥55%",
-    "ok": false,
-    "v": "置信 41%",
-    "why": "置信<55% 不投单关"
-   },
-   {
-    "t": "非 D 组",
-    "ok": false,
-    "v": "D 组",
-    "why": "D 组不投"
-   },
-   {
-    "t": "非 B3 档",
-    "ok": true,
-    "v": "未触发",
-    "why": "1.50-1.80 档无 SOP 增量 ⇒ 禁单关"
-   },
-   {
-    "t": "串关 EV≥5%（竞彩口径）",
-    "ok": false,
-    "v": "EV -19.00%",
-    "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
-   },
-   {
-    "t": "三比分落齐",
-    "ok": true,
-    "v": "3 个比分",
-    "why": "防冷须落地第三比分（踩坑#69）"
-   }
-  ],
-  "market": [
-   59,
-   22,
-   19
-  ],
-  "model": 44,
-  "delta": "模型看高 +22pt",
-  "bf": [
-   82,
-   9,
-   9
-  ],
-  "h2h": [],
-  "guard": "不防",
-  "bet": "不投",
-  "bettable": false,
-  "ah": "让1.00(主0.93/客0.89)",
-  "odds": [
-   1.54,
-   4.05,
-   4.9
-  ],
-  "inj": [
-   1,
-   1
-  ],
-  "injunk": [],
-  "injTxt": "1/1",
-  "ev": -19.0,
-  "sig": [
-   "轨迹 主升水",
-   "客升水",
-   "形态:让球1→1(平台)",
-   "主1.54→1.6(波动)",
-   "客4.9→5.5(拐点(U-V))",
-   "155家147升强共识(看衰主)",
-   "必发主1.64量383000",
-   "平6.4量41000",
-   "客4.19量41500",
-   "H2H 无H2H",
-   "主伤卫门×1",
-   "客伤中场×1",
-   "④DC背离:147家看衰主胜强共识→跟欧洲改判平(原主胜)",
-   "①拐点(U-V)不确定降权-4",
-   "④竞彩与澳门一致(+4.7pt)加权+2｜③未命中R规律(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.200)｜竞彩赔率=4.05(竞彩真价)｜澳门EV=-19.0%"
-  ],
-  "core": {
-   "xh": "—",
-   "xa": "—",
-   "ih": 1,
-   "ia": 1,
-   "lam": "1.95/0.97",
-   "rh": "—",
-   "ra": "—",
-   "bf": "82/9/9"
-  },
-  "injpos": "主缺右后卫1；客缺右中场1",
-  "injdeg": "",
-  "goal": [
-   6,
-   14,
-   24,
-   22,
-   16,
-   17
-  ],
-  "feat": {
-   "xg": "",
-   "elo": "",
-   "eloD": "",
-   "roll": "—/— vs —/—",
-   "xgstd": "STD(赛季累计场均；Understat现行接口无逐场 → 滚动窗口用进球代替)",
-   "observe": "样本<30 的观察项：仅展示/仅积累，**不纳入正式决策**",
-   "rest": "",
-   "rho": "-0.04",
-   "rhoSrc": "全局ρ(该联赛样本不足)",
-   "rot": "",
-   "sig2": "防漏 主×1.14/客×1.00; 缺阵影响值 主0.042/客0.105(攻防加权0.7/0.3); 必发资金主82%",
-   "hbonus": "0",
-   "form": ""
-  },
-  "srcs": [
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981483",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "主队伤停",
-    "p": "2"
-   },
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981483",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "客队伤停",
-    "p": "2"
-   },
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981483",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "主队首发",
-    "p": "2"
-   },
-   {
-    "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981483",
-    "t": "09-27 20:00",
-    "c": "中",
-    "f": "客队首发",
-    "p": "2"
-   },
-   {
-    "n": "Understat",
-    "u": "https://understat.com/",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "主队场均xG",
-    "p": "2"
-   },
-   {
-    "n": "Understat",
-    "u": "https://understat.com/",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "客队场均xG",
-    "p": "2"
-   },
-   {
-    "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=奥地利",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "主队总身价",
-    "p": "2"
-   },
-   {
-    "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=科索沃",
-    "t": "09-27 20:00",
-    "c": "低",
-    "f": "客队总身价",
-    "p": "2"
-   }
-  ],
-  "srcline": "3 个独立源 / 8 条事实",
-  "srcok": "❌ 关键数据缺官方/权威媒体源"
- },
- {
-  "id": "007",
-  "group": "D",
-  "league": "欧国联",
-  "home": "德国",
-  "away": "希腊",
-  "ai": {
-   "side": "未采集",
-   "p": null
-  },
-  "fix": {
-   "side": "平",
-   "p": 41,
-   "note": "外部AI未采集（降级）",
-   "down": false,
-   "rev": false
-  },
-  "pick": "平",
-  "conf": 41,
-  "scores": [
-   [
-    "1-1",
-    13
-   ],
-   [
-    "0-0",
-    8
-   ],
-   [
-    "2-2",
-    5
-   ]
-  ],
-  "cold": [],
-  "degr": [],
-  "lamps": [
-   {
-    "k": "①",
-    "n": "轨迹/形态",
-    "s": "ok",
-    "t": "轨迹支持",
-    "v": "轨迹 让球降盘"
    },
    {
     "k": "②",
@@ -1953,14 +863,14 @@ var MATCHES=[
     "n": "R 规律",
     "s": "off",
     "t": "R 规律无信号",
-    "v": "R5背离-14.5pt以盘口为准(+0)"
+    "v": "R1主胜过热(-3)"
    },
    {
     "k": "④",
     "n": "DC 背离",
     "s": "off",
-    "t": "DC 无信号",
-    "v": "DC背离:146家看衰主胜强共识→跟欧洲改判平(原主"
+    "t": "与澳门一致",
+    "v": "竞彩与澳门一致(+0.0pt)加权+2"
    },
    {
     "k": "⑤",
@@ -1974,19 +884,19 @@ var MATCHES=[
    {
     "t": "正 EV（竞彩口径）",
     "ok": false,
-    "v": "EV -16.40%",
+    "v": "EV -15.80%",
     "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
    },
    {
     "t": "置信 ≥55%",
-    "ok": false,
-    "v": "置信 41%",
+    "ok": true,
+    "v": "置信 61%",
     "why": "置信<55% 不投单关"
    },
    {
     "t": "非 D 组",
-    "ok": false,
-    "v": "D 组",
+    "ok": true,
+    "v": "C 组",
     "why": "D 组不投"
    },
    {
@@ -1998,7 +908,7 @@ var MATCHES=[
    {
     "t": "串关 EV≥5%（竞彩口径）",
     "ok": false,
-    "v": "EV -16.40%",
+    "v": "EV -15.80%",
     "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
    },
    {
@@ -2009,79 +919,92 @@ var MATCHES=[
    }
   ],
   "market": [
-   68,
-   19,
-   14
+   76,
+   17,
+   7
   ],
-  "model": 44,
-  "delta": "模型看高 +25pt",
+  "model": 62,
+  "delta": "模型看低 -14pt",
   "bf": [
-   74,
-   14,
-   12
+   93,
+   2,
+   5
   ],
   "h2h": [
    [
-    "H",
-    "主2-1"
+    "A",
+    "客1-4"
    ],
    [
-    "H",
-    "主4-2"
+    "D",
+    "平1-1"
+   ],
+   [
+    "D",
+    "平2-2"
+   ],
+   [
+    "D",
+    "平1-1"
+   ],
+   [
+    "D",
+    "平0-0"
    ]
   ],
-  "guard": "不防",
+  "guard": "E1超深盘防冷",
   "bet": "不投",
   "bettable": false,
-  "ah": "让1.50(主1.01/客0.81)",
+  "ah": "",
   "odds": [
-   1.34,
-   4.9,
-   6.6
+   1.17,
+   5.15,
+   12.5
   ],
   "inj": [
-   3,
+   0,
    0
   ],
   "injunk": [
+   "主",
    "客"
   ],
-  "injTxt": "3/?（含未获取·降级）",
-  "ev": -16.4,
+  "injTxt": "?/?（含未获取·降级）",
+  "ev": -15.8,
   "sig": [
-   "轨迹 让球降盘",
-   "主升水",
+   "轨迹 让球升盘",
+   "主降水",
    "客升水",
-   "形态:让球1.5→1.25(平台)",
-   "主1.34→1.43(拐点(U-V))",
-   "客6.6→6.8(拐点(U-V))",
-   "155家146升强共识(看衰主)",
-   "必发主1.46量1444000",
-   "平8量275200",
-   "客5.19量226800",
-   "H2H 24-06-08:2-1",
-   "12-06-23:4-2",
-   "主伤中场×2, 锋×1",
+   "形态:让球1.25→1.5(时点不足)",
+   "主1.34→1.23(时点不足)",
+   "客7→9(时点不足)",
+   "155家140降强共识(看好主)",
+   "必发主1.29量148700",
+   "平13量2700",
+   "客6.59量7700",
+   "H2H 19-11-19:1-4",
+   "18-11-16:1-1",
+   "14-09-09:2-2",
+   "主伤其他×1",
    "客伤其他×1",
-   "④DC背离:146家看衰主胜强共识→跟欧洲改判平(原主胜)",
-   "①拐点(U-V)不确定降权-4",
-   "④竞彩与澳门一致(+1.4pt)加权+2｜③R5背离-14.5pt以盘口为准(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.170)｜竞彩赔率=4.92(竞彩真价)｜澳门EV=-16.7%"
+   "①时点不足降权-3(快照缺ID期)",
+   "④竞彩与澳门一致(+0.0pt)加权+2｜③R1主胜过热(-3)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：伤停名单+位置已获取（—·四级参考级）→等级不足·最高C组(踩坑#10)"
   ],
   "core": {
    "xh": "—",
    "xa": "—",
-   "ih": 3,
+   "ih": "—",
    "ia": "—",
-   "lam": "1.68/1.00",
+   "lam": "2.15/0.50",
    "rh": "—",
    "ra": "—",
-   "bf": "74/14/12"
+   "bf": "93/2/5"
   },
-  "injpos": "主缺中场2、前锋1",
-  "injdeg": "即嗨带位置字段未取到；已用补充源名单替代（—·中文补充四级·参考级）⇒ **位置系数未施加（保守×1.00）**，该场仍按材料不足封顶 C：客队",
+  "injpos": "",
+  "injdeg": "即嗨带位置字段未取到；已用补充源名单替代（—·中文补充四级·参考级）⇒ **位置系数未施加（保守×1.00）**，该场仍按材料不足封顶 C：主队、客队",
   "goal": [
    8,
-   16,
+   17,
    26,
    22,
    15,
@@ -2098,47 +1021,47 @@ var MATCHES=[
    "rho": "-0.04",
    "rhoSrc": "全局ρ(该联赛样本不足)",
    "rot": "",
-   "sig2": "缺阵影响值 主0.280/客0.000(攻防加权0.7/0.3); 必发资金主74%",
+   "sig2": "必发资金主93%",
    "hbonus": "0",
    "form": ""
   },
   "srcs": [
    {
     "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981435",
-    "t": "09-27 20:00",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=3094371",
+    "t": "09-28 12:34",
     "c": "中",
     "f": "主队伤停",
     "p": "2"
    },
    {
     "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981435",
-    "t": "09-27 20:00",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=3094371",
+    "t": "09-28 12:34",
     "c": "中",
     "f": "客队伤停",
     "p": "2"
    },
    {
     "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981435",
-    "t": "09-27 20:00",
-    "c": "中",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=3094371",
+    "t": "09-28 12:34",
+    "c": "低",
     "f": "主队首发",
     "p": "2"
    },
    {
     "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981435",
-    "t": "09-27 20:00",
-    "c": "中",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=3094371",
+    "t": "09-28 12:34",
+    "c": "低",
     "f": "客队首发",
     "p": "2"
    },
    {
     "n": "Understat",
     "u": "https://understat.com/",
-    "t": "09-27 20:00",
+    "t": "09-28 12:34",
     "c": "低",
     "f": "主队场均xG",
     "p": "2"
@@ -2146,23 +1069,23 @@ var MATCHES=[
    {
     "n": "Understat",
     "u": "https://understat.com/",
-    "t": "09-27 20:00",
+    "t": "09-28 12:34",
     "c": "低",
     "f": "客队场均xG",
     "p": "2"
    },
    {
     "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=德国",
-    "t": "09-27 20:00",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=日本",
+    "t": "09-28 12:34",
     "c": "低",
     "f": "主队总身价",
     "p": "2"
    },
    {
     "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=希腊",
-    "t": "09-27 20:00",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=委内瑞拉",
+    "t": "09-28 12:34",
     "c": "低",
     "f": "客队总身价",
     "p": "2"
@@ -2172,56 +1095,56 @@ var MATCHES=[
   "srcok": "❌ 关键数据缺官方/权威媒体源"
  },
  {
-  "id": "008",
+  "id": "002",
   "group": "D",
-  "league": "欧国联",
-  "home": "挪威",
-  "away": "葡萄牙",
+  "league": "国际赛",
+  "home": "韩国",
+  "away": "乌拉圭",
   "ai": {
    "side": "未采集",
    "p": null
   },
   "fix": {
-   "side": "主胜",
-   "p": 40,
+   "side": "客胜",
+   "p": 42,
    "note": "外部AI未采集（降级）",
    "down": false,
    "rev": false
   },
-  "pick": "主胜",
-  "conf": 40,
+  "pick": "客胜",
+  "conf": 42,
   "scores": [
    [
-    "2-1",
-    8
-   ],
-   [
-    "1-0",
-    7
+    "0-1",
+    10
    ],
    [
     "1-2",
-    9
+    7
+   ],
+   [
+    "0-2",
+    6
    ]
   ],
-  "cold": [
-   "1-2"
+  "cold": [],
+  "degr": [
+   "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.320)｜竞彩赔率=2.71(竞彩真价)｜澳门EV=-13.3%"
   ],
-  "degr": [],
   "lamps": [
    {
     "k": "①",
     "n": "轨迹/形态",
     "s": "ok",
     "t": "轨迹支持",
-    "v": "轨迹 让球升盘"
+    "v": "轨迹 主升水"
    },
    {
     "k": "②",
     "n": "伤停",
-    "s": "ok",
-    "t": "伤停已核实",
-    "v": "主客共 2 人"
+    "s": "off",
+    "t": "伤停无源（降级）",
+    "v": "本轮未获取"
    },
    {
     "k": "③",
@@ -2235,27 +1158,27 @@ var MATCHES=[
     "n": "DC 背离",
     "s": "off",
     "t": "DC 无信号",
-    "v": "DC背离:150家看好主胜强共识→跟欧洲改判主胜(原"
+    "v": "DC背离:125家看衰主胜强共识→跟欧洲改判客胜(原"
    },
    {
     "k": "⑤",
     "n": "五维",
     "s": "warn",
-    "t": "五维 2/5 维",
-    "v": "五维11000(诱盘2维-5)"
+    "t": "五维 1/5 维",
+    "v": "五维01000(诱盘1维+0)"
    }
   ],
   "gates": [
    {
     "t": "正 EV（竞彩口径）",
     "ok": false,
-    "v": "EV -25.90%",
+    "v": "EV -13.30%",
     "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
    },
    {
     "t": "置信 ≥55%",
     "ok": false,
-    "v": "置信 40%",
+    "v": "置信 42%",
     "why": "置信<55% 不投单关"
    },
    {
@@ -2273,7 +1196,7 @@ var MATCHES=[
    {
     "t": "串关 EV≥5%（竞彩口径）",
     "ok": false,
-    "v": "EV -25.90%",
+    "v": "EV -13.30%",
     "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
    },
    {
@@ -2284,91 +1207,96 @@ var MATCHES=[
    }
   ],
   "market": [
-   34,
-   26,
-   40
+   38,
+   29,
+   33
   ],
   "model": 44,
-  "delta": "模型看高 +10pt",
+  "delta": "模型看高 +11pt",
   "bf": [
-   47,
-   29,
-   24
+   39,
+   9,
+   52
   ],
   "h2h": [
    [
     "A",
-    "客0-3"
+    "客1-2"
    ],
    [
-    "A",
-    "客0-1"
+    "D",
+    "平0-0"
    ],
    [
     "H",
-    "主1-0"
+    "主2-1"
    ],
    [
     "A",
     "客0-1"
+   ],
+   [
+    "A",
+    "客1-2"
    ]
   ],
-  "guard": "五维诱盘2维→防冷",
+  "guard": "不防",
   "bet": "不投",
   "bettable": false,
-  "ah": "让-0.25(主0.79/客1.03)",
+  "ah": "",
   "odds": [
-   2.66,
-   3.55,
-   2.25
+   2.31,
+   3.05,
+   2.71
   ],
   "inj": [
-   1,
-   1
+   0,
+   0
   ],
-  "injunk": [],
-  "injTxt": "1/1",
-  "ev": -25.9,
+  "injunk": [
+   "主",
+   "客"
+  ],
+  "injTxt": "?/?（含未获取·降级）",
+  "ev": -13.3,
   "sig": [
-   "轨迹 让球升盘",
-   "主降水",
-   "客升水",
-   "形态:让球-0.25→0.25(单调升)",
-   "主2.66→2.35(单调降)",
-   "客2.25→2.8(拐点(U-V))",
-   "155家150降强共识(看好主)",
-   "必发主2.46量879100",
-   "平2.92量546000",
-   "客3.95量452700",
-   "H2H 16-05-30:0-3",
-   "11-06-05:0-1",
-   "10-09-08:1-0",
-   "主伤卫门×1",
-   "客伤中场×1",
-   "④DC背离:150家看好主胜强共识→跟欧洲改判主胜(原客胜)",
-   "①让球升盘+主降水(真热阻上)加权+4",
-   "①拐点(U-V)不确定降权-4",
-   "④竞彩与澳门一致(+2.9pt)加权+2｜③未命中R规律(+0)｜⑤五维11000(诱盘2维-5)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.310)｜竞彩赔率=2.39(竞彩真价)｜澳门EV=-17.5%"
+   "轨迹 主升水",
+   "客降水",
+   "形态:让球0.25→0.25(时点不足)",
+   "主2.19→2.29(时点不足)",
+   "客2.93→2.76(时点不足)",
+   "155家125升强共识(看衰主)",
+   "必发主2.5量8600",
+   "平3.25量1900",
+   "客3.4量11300",
+   "H2H 23-03-28:1-2",
+   "22-11-24:0-0",
+   "18-10-12:2-1",
+   "主伤其他×1",
+   "客伤其他×1",
+   "④DC背离:125家看衰主胜强共识→跟欧洲改判客胜(原主胜)",
+   "①时点不足降权-3(快照缺ID期)",
+   "④竞彩与澳门一致(+0.0pt)加权+2｜③未命中R规律(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：伤停名单+位置已获取（—·四级参考级）→等级不足·最高C组(踩坑#10)"
   ],
   "core": {
    "xh": "—",
    "xa": "—",
-   "ih": 1,
-   "ia": 1,
-   "lam": "1.40/1.50",
+   "ih": "—",
+   "ia": "—",
+   "lam": "1.20/1.10",
    "rh": "—",
    "ra": "—",
-   "bf": "47/29/24"
+   "bf": "39/9/52"
   },
-  "injpos": "主缺左后卫1；客缺中场1",
-  "injdeg": "",
+  "injpos": "",
+  "injdeg": "即嗨带位置字段未取到；已用补充源名单替代（—·中文补充四级·参考级）⇒ **位置系数未施加（保守×1.00）**，该场仍按材料不足封顶 C：主队、客队",
   "goal": [
-   7,
-   14,
-   24,
-   22,
-   16,
-   17
+   11,
+   20,
+   28,
+   20,
+   12,
+   8
   ],
   "feat": {
    "xg": "",
@@ -2381,47 +1309,47 @@ var MATCHES=[
    "rho": "-0.04",
    "rhoSrc": "全局ρ(该联赛样本不足)",
    "rot": "",
-   "sig2": "防漏 主×1.14/客×1.00; 缺阵影响值 主0.042/客0.105(攻防加权0.7/0.3); 必发资金主47%",
+   "sig2": "必发资金客52%",
    "hbonus": "0",
    "form": ""
   },
   "srcs": [
    {
     "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981436",
-    "t": "09-27 20:00",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=3094372",
+    "t": "09-28 12:34",
     "c": "中",
     "f": "主队伤停",
     "p": "2"
    },
    {
     "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981436",
-    "t": "09-27 20:00",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=3094372",
+    "t": "09-28 12:34",
     "c": "中",
     "f": "客队伤停",
     "p": "2"
    },
    {
     "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981436",
-    "t": "09-27 20:00",
-    "c": "中",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=3094372",
+    "t": "09-28 12:34",
+    "c": "低",
     "f": "主队首发",
     "p": "2"
    },
    {
     "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981436",
-    "t": "09-27 20:00",
-    "c": "中",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=3094372",
+    "t": "09-28 12:34",
+    "c": "低",
     "f": "客队首发",
     "p": "2"
    },
    {
     "n": "Understat",
     "u": "https://understat.com/",
-    "t": "09-27 20:00",
+    "t": "09-28 12:34",
     "c": "低",
     "f": "主队场均xG",
     "p": "2"
@@ -2429,23 +1357,23 @@ var MATCHES=[
    {
     "n": "Understat",
     "u": "https://understat.com/",
-    "t": "09-27 20:00",
+    "t": "09-28 12:34",
     "c": "低",
     "f": "客队场均xG",
     "p": "2"
    },
    {
     "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=挪威",
-    "t": "09-27 20:00",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=韩国",
+    "t": "09-28 12:34",
     "c": "低",
     "f": "主队总身价",
     "p": "2"
    },
    {
     "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=葡萄牙",
-    "t": "09-27 20:00",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=乌拉圭",
+    "t": "09-28 12:34",
     "c": "低",
     "f": "客队总身价",
     "p": "2"
@@ -2455,42 +1383,42 @@ var MATCHES=[
   "srcok": "❌ 关键数据缺官方/权威媒体源"
  },
  {
-  "id": "009",
+  "id": "003",
   "group": "D",
-  "league": "美职",
-  "home": "哥伦布机员",
-  "away": "迈阿密国际",
+  "league": "欧国联",
+  "home": "亚美尼亚",
+  "away": "黑山",
   "ai": {
    "side": "未采集",
    "p": null
   },
   "fix": {
    "side": "客胜",
-   "p": 30,
+   "p": 42,
    "note": "外部AI未采集（降级）",
    "down": false,
    "rev": false
   },
   "pick": "客胜",
-  "conf": 30,
+  "conf": 42,
   "scores": [
    [
-    "1-2",
-    9
-   ],
-   [
     "0-1",
-    6
+    10
    ],
    [
-    "2-1",
+    "1-2",
     8
+   ],
+   [
+    "0-2",
+    7
    ]
   ],
-  "cold": [
-   "2-1"
+  "cold": [],
+  "degr": [
+   "⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.380)｜竞彩赔率=2.50(竞彩真价)｜澳门EV=-7.3%"
   ],
-  "degr": [],
   "lamps": [
    {
     "k": "①",
@@ -2502,37 +1430,320 @@ var MATCHES=[
    {
     "k": "②",
     "n": "伤停",
-    "s": "ok",
-    "t": "伤停已核实",
-    "v": "主客共 21 人"
+    "s": "off",
+    "t": "伤停无源（降级）",
+    "v": "本轮未获取"
    },
    {
     "k": "③",
     "n": "R 规律",
-    "s": "off",
-    "t": "R 规律无信号",
-    "v": "R3客队13伤诱盘(-5)"
+    "s": "warn",
+    "t": "R 规律未命中",
+    "v": "未命中R规律(+0)"
    },
    {
     "k": "④",
     "n": "DC 背离",
     "s": "off",
     "t": "与澳门一致",
-    "v": "竞彩与澳门一致(-5.2pt)加权+2"
+    "v": "竞彩与澳门一致(+2.5pt)加权+2"
    },
    {
     "k": "⑤",
     "n": "五维",
     "s": "warn",
-    "t": "五维 2/5 维",
-    "v": "五维00101(诱盘2维-5)"
+    "t": "五维 1/5 维",
+    "v": "五维01000(诱盘1维+0)"
    }
   ],
   "gates": [
    {
     "t": "正 EV（竞彩口径）",
     "ok": false,
-    "v": "EV -55.10%",
+    "v": "EV -5.00%",
+    "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
+   },
+   {
+    "t": "置信 ≥55%",
+    "ok": false,
+    "v": "置信 42%",
+    "why": "置信<55% 不投单关"
+   },
+   {
+    "t": "非 D 组",
+    "ok": false,
+    "v": "D 组",
+    "why": "D 组不投"
+   },
+   {
+    "t": "非 B3 档",
+    "ok": true,
+    "v": "未触发",
+    "why": "1.50-1.80 档无 SOP 增量 ⇒ 禁单关"
+   },
+   {
+    "t": "串关 EV≥5%（竞彩口径）",
+    "ok": false,
+    "v": "EV -5.00%",
+    "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
+   },
+   {
+    "t": "三比分落齐",
+    "ok": true,
+    "v": "3 个比分",
+    "why": "防冷须落地第三比分（踩坑#69）"
+   }
+  ],
+  "market": [
+   33,
+   28,
+   39
+  ],
+  "model": 44,
+  "delta": "模型看高 +5pt",
+  "bf": [
+   17,
+   50,
+   33
+  ],
+  "h2h": [
+   [
+    "D",
+    "平2-2"
+   ],
+   [
+    "H",
+    "主1-0"
+   ],
+   [
+    "A",
+    "客1-4"
+   ],
+   [
+    "H",
+    "主3-2"
+   ]
+  ],
+  "guard": "不防",
+  "bet": "不投",
+  "bettable": false,
+  "ah": "让0.00(主1.11/客0.78)",
+  "odds": [
+   2.89,
+   3.4,
+   2.44
+  ],
+  "inj": [
+   0,
+   0
+  ],
+  "injunk": [
+   "主",
+   "客"
+  ],
+  "injTxt": "?/?（含未获取·降级）",
+  "ev": -5.0,
+  "sig": [
+   "轨迹 主升水",
+   "客升水",
+   "形态:让球0→0(时点不足)",
+   "主2.89→2.92(时点不足)",
+   "客2.44→2.54(时点不足)",
+   "155家130升强共识(看衰主)",
+   "必发主3.04量11100",
+   "平2.7量32300",
+   "客3.25量21500",
+   "H2H 25-06-10:2-2",
+   "22-03-24:1-0",
+   "17-06-11:1-4",
+   "主伤其他×1",
+   "客伤其他×1",
+   "①时点不足降权-3(快照缺ID期)",
+   "④竞彩与澳门一致(+2.5pt)加权+2｜③未命中R规律(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：伤停名单+位置已获取（—·四级参考级）→等级不足·最高C组(踩坑#10)"
+  ],
+  "core": {
+   "xh": "—",
+   "xa": "—",
+   "ih": "—",
+   "ia": "—",
+   "lam": "1.15/1.30",
+   "rh": "—",
+   "ra": "—",
+   "bf": "17/50/33"
+  },
+  "injpos": "",
+  "injdeg": "即嗨带位置字段未取到；已用补充源名单替代（—·中文补充四级·参考级）⇒ **位置系数未施加（保守×1.00）**，该场仍按材料不足封顶 C：主队、客队",
+  "goal": [
+   10,
+   19,
+   27,
+   21,
+   13,
+   10
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "",
+   "eloD": "",
+   "roll": "—/— vs —/—",
+   "xgstd": "STD(赛季累计场均；Understat现行接口无逐场 → 滚动窗口用进球代替)",
+   "observe": "样本<30 的观察项：仅展示/仅积累，**不纳入正式决策**",
+   "rest": "",
+   "rho": "-0.04",
+   "rhoSrc": "全局ρ(该联赛样本不足)",
+   "rot": "",
+   "sig2": "必发资金平50%",
+   "hbonus": "0",
+   "form": ""
+  },
+  "srcs": [
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981531",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "主队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981531",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "客队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981531",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "主队首发",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981531",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "客队首发",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "主队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "客队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=亚美尼亚",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "主队总身价",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=黑山",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "客队总身价",
+    "p": "2"
+   }
+  ],
+  "srcline": "3 个独立源 / 8 条事实",
+  "srcok": "❌ 关键数据缺官方/权威媒体源"
+ },
+ {
+  "id": "004",
+  "group": "D",
+  "league": "欧国联",
+  "home": "土耳其",
+  "away": "意大利",
+  "ai": {
+   "side": "未采集",
+   "p": null
+  },
+  "fix": {
+   "side": "主胜",
+   "p": 30,
+   "note": "外部AI未采集（降级）",
+   "down": false,
+   "rev": false
+  },
+  "pick": "主胜",
+  "conf": 30,
+  "scores": [
+   [
+    "1-0",
+    6
+   ],
+   [
+    "2-1",
+    5
+   ],
+   [
+    "0-1",
+    14
+   ]
+  ],
+  "cold": [
+   "0-1"
+  ],
+  "degr": [],
+  "lamps": [
+   {
+    "k": "①",
+    "n": "轨迹/形态",
+    "s": "ok",
+    "t": "轨迹支持",
+    "v": "轨迹 主降水"
+   },
+   {
+    "k": "②",
+    "n": "伤停",
+    "s": "off",
+    "t": "伤停无源（降级）",
+    "v": "本轮未获取"
+   },
+   {
+    "k": "③",
+    "n": "R 规律",
+    "s": "off",
+    "t": "R 规律无信号",
+    "v": "R3主队5伤诱盘"
+   },
+   {
+    "k": "④",
+    "n": "DC 背离",
+    "s": "off",
+    "t": "DC 无信号",
+    "v": "DC背离:148家看好主胜强共识→跟欧洲改判主胜(原"
+   },
+   {
+    "k": "⑤",
+    "n": "五维",
+    "s": "ok",
+    "t": "五维 3/5 维",
+    "v": "五维11001(诱盘3维-10)"
+   }
+  ],
+  "gates": [
+   {
+    "t": "正 EV（竞彩口径）",
+    "ok": false,
+    "v": "EV -58.70%",
     "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
    },
    {
@@ -2556,7 +1767,7 @@ var MATCHES=[
    {
     "t": "串关 EV≥5%（竞彩口径）",
     "ok": false,
-    "v": "EV -55.10%",
+    "v": "EV -58.70%",
     "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
    },
    {
@@ -2567,94 +1778,92 @@ var MATCHES=[
    }
   ],
   "market": [
-   38,
-   23,
+   32,
+   28,
    40
   ],
   "model": 43,
-  "delta": "接近市场 +3pt",
+  "delta": "模型看高 +11pt",
   "bf": [
-   15,
-   61,
-   25
+   59,
+   22,
+   20
   ],
   "h2h": [
    [
     "D",
-    "平2-2"
-   ],
-   [
-    "A",
-    "客1-5"
-   ],
-   [
-    "A",
-    "客0-1"
+    "平0-0"
    ],
    [
     "A",
     "客2-3"
    ],
    [
-    "H",
-    "主3-2"
+    "A",
+    "客0-3"
+   ],
+   [
+    "D",
+    "平1-1"
    ]
   ],
-  "guard": "五维诱盘2维→防冷",
+  "guard": "主队多伤防冷；五维诱盘3维→防冷",
   "bet": "不投",
   "bettable": false,
-  "ah": "让0.00(主1.00/客0.88)",
+  "ah": "让-0.25(主0.81/客1.01)",
   "odds": [
-   2.47,
-   4.1,
-   2.33
+   2.84,
+   3.25,
+   2.26
   ],
   "inj": [
-   8,
-   13
+   5,
+   0
   ],
-  "injunk": [],
-  "injTxt": "8/13",
-  "ev": -55.1,
+  "injunk": [
+   "客"
+  ],
+  "injTxt": "5/?（含未获取·降级）",
+  "ev": -58.7,
   "sig": [
-   "轨迹 主升水",
-   "客降水",
-   "形态:让球0→-0.25(平台)",
-   "主2.47→2.62(拐点(U-V))",
-   "客2.33→2.23(拐点(U-V))",
-   "155家分歧(89降/56升)",
-   "必发主2.92量1300",
-   "平2.38量5400",
-   "客4.19量2200",
-   "H2H 26-08-02:2-2",
-   "25-06-01:1-5",
-   "25-04-20:0-1",
-   "主伤中场×2, 锋×3, 卫门×3",
-   "客伤锋×4, 卫门×4, 中场×4, 中卫×1",
-   "①客升水与客胜判向背离降权-5",
-   "①拐点(U-V)不确定降权-4",
-   "①临场反向(主降客升)与客胜判向冲突-5",
-   "④竞彩与澳门一致(-5.2pt)加权+2｜③R3客队13伤诱盘(-5)｜⑤五维00101(诱盘2维-5)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.230)｜竞彩赔率=1.95(竞彩真价)｜澳门EV=-46.4%"
+   "轨迹 主降水",
+   "客升水",
+   "形态:让球-0.25→0(时点不足)",
+   "主2.84→2.65(时点不足)",
+   "客2.26→2.53(时点不足)",
+   "155家148降强共识(看好主)",
+   "必发主2.75量143600",
+   "平2.74量53300",
+   "客3.65量48200",
+   "H2H 24-06-05:0-0",
+   "22-03-30:2-3",
+   "21-06-12:0-3",
+   "主伤中场×2, 锋×1, 卫门×2",
+   "客伤其他×1",
+   "④DC背离:148家看好主胜强共识→跟欧洲改判主胜(原客胜)",
+   "①时点不足降权-3(快照缺ID期)",
+   "④竞彩与澳门一致(+2.4pt)加权+2｜③R3主队5伤诱盘",
+   "R5背离-12.6pt以盘口为准(-5)｜⑤五维11001(诱盘3维-10)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.160)｜竞彩赔率=2.58(竞彩真价)｜澳门EV=-54.6%"
   ],
   "core": {
    "xh": "—",
    "xa": "—",
-   "ih": 8,
-   "ia": 13,
-   "lam": "1.51/1.55",
+   "ih": 5,
+   "ia": "—",
+   "lam": "0.80/1.56",
    "rh": "—",
    "ra": "—",
-   "bf": "15/61/25"
+   "bf": "59/22/20"
   },
-  "injpos": "主缺中场2、前锋3、后卫2、守门员1；客缺前锋4、后卫2、右后卫1、中场4、守门员1、中卫1",
-  "injdeg": "",
+  "injpos": "主缺中场2、前锋1、后卫1、守门员1",
+  "injdeg": "即嗨带位置字段未取到；已用补充源名单替代（—·中文补充四级·参考级）⇒ **位置系数未施加（保守×1.00）**，该场仍按材料不足封顶 C：客队",
   "goal": [
-   6,
+   11,
+   20,
+   27,
+   21,
    12,
-   23,
-   22,
-   17,
-   19
+   9
   ],
   "feat": {
    "xg": "",
@@ -2667,39 +1876,39 @@ var MATCHES=[
    "rho": "-0.04",
    "rhoSrc": "全局ρ(该联赛样本不足)",
    "rot": "",
-   "sig2": "防漏 主×1.48/客×1.69; 缺阵影响值 主0.555/客0.759(攻防加权0.7/0.3); 必发资金平61%",
+   "sig2": "防漏 主×1.30/客×1.00; 缺阵影响值 主0.370/客0.000(攻防加权0.7/0.3); 必发资金主59%",
    "hbonus": "0",
    "form": ""
   },
   "srcs": [
    {
     "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2908817",
-    "t": "09-27 20:00",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981438",
+    "t": "09-28 12:34",
     "c": "中",
     "f": "主队伤停",
     "p": "2"
    },
    {
     "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2908817",
-    "t": "09-27 20:00",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981438",
+    "t": "09-28 12:34",
     "c": "中",
     "f": "客队伤停",
     "p": "2"
    },
    {
     "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2908817",
-    "t": "09-27 20:00",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981438",
+    "t": "09-28 12:34",
     "c": "中",
     "f": "主队首发",
     "p": "2"
    },
    {
     "n": "即嗨API",
-    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2908817",
-    "t": "09-27 20:00",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981438",
+    "t": "09-28 12:34",
     "c": "中",
     "f": "客队首发",
     "p": "2"
@@ -2707,7 +1916,7 @@ var MATCHES=[
    {
     "n": "Understat",
     "u": "https://understat.com/",
-    "t": "09-27 20:00",
+    "t": "09-28 12:34",
     "c": "低",
     "f": "主队场均xG",
     "p": "2"
@@ -2715,23 +1924,1160 @@ var MATCHES=[
    {
     "n": "Understat",
     "u": "https://understat.com/",
-    "t": "09-27 20:00",
+    "t": "09-28 12:34",
     "c": "低",
     "f": "客队场均xG",
     "p": "2"
    },
    {
     "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=哥伦布机员",
-    "t": "09-27 20:00",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=土耳其",
+    "t": "09-28 12:34",
     "c": "低",
     "f": "主队总身价",
     "p": "2"
    },
    {
     "n": "Transfermarkt",
-    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=迈阿密国际",
-    "t": "09-27 20:00",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=意大利",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "客队总身价",
+    "p": "2"
+   }
+  ],
+  "srcline": "3 个独立源 / 8 条事实",
+  "srcok": "❌ 关键数据缺官方/权威媒体源"
+ },
+ {
+  "id": "005",
+  "group": "C",
+  "league": "欧国联",
+  "home": "比利时",
+  "away": "法国",
+  "ai": {
+   "side": "未采集",
+   "p": null
+  },
+  "fix": {
+   "side": "客胜",
+   "p": 43,
+   "note": "外部AI未采集（降级）",
+   "down": false,
+   "rev": false
+  },
+  "pick": "客胜",
+  "conf": 43,
+  "scores": [
+   [
+    "0-1",
+    10
+   ],
+   [
+    "1-2",
+    8
+   ],
+   [
+    "0-2",
+    7
+   ]
+  ],
+  "cold": [],
+  "degr": [],
+  "lamps": [
+   {
+    "k": "①",
+    "n": "轨迹/形态",
+    "s": "ok",
+    "t": "轨迹支持",
+    "v": "轨迹 让球降盘"
+   },
+   {
+    "k": "②",
+    "n": "伤停",
+    "s": "ok",
+    "t": "伤停已核实",
+    "v": "主客共 3 人"
+   },
+   {
+    "k": "③",
+    "n": "R 规律",
+    "s": "warn",
+    "t": "R 规律未命中",
+    "v": "未命中R规律(+0)"
+   },
+   {
+    "k": "④",
+    "n": "DC 背离",
+    "s": "off",
+    "t": "与澳门一致",
+    "v": "竞彩与澳门一致(-5.5pt)加权+2"
+   },
+   {
+    "k": "⑤",
+    "n": "五维",
+    "s": "warn",
+    "t": "五维 1/5 维",
+    "v": "五维01000(诱盘1维+0)"
+   }
+  ],
+  "gates": [
+   {
+    "t": "正 EV（竞彩口径）",
+    "ok": false,
+    "v": "EV -26.90%",
+    "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
+   },
+   {
+    "t": "置信 ≥55%",
+    "ok": false,
+    "v": "置信 43%",
+    "why": "置信<55% 不投单关"
+   },
+   {
+    "t": "非 D 组",
+    "ok": true,
+    "v": "C 组",
+    "why": "D 组不投"
+   },
+   {
+    "t": "非 B3 档",
+    "ok": true,
+    "v": "未触发",
+    "why": "1.50-1.80 档无 SOP 增量 ⇒ 禁单关"
+   },
+   {
+    "t": "串关 EV≥5%（竞彩口径）",
+    "ok": false,
+    "v": "EV -26.90%",
+    "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
+   },
+   {
+    "t": "三比分落齐",
+    "ok": true,
+    "v": "3 个比分",
+    "why": "防冷须落地第三比分（踩坑#69）"
+   }
+  ],
+  "market": [
+   30,
+   26,
+   44
+  ],
+  "model": 44,
+  "delta": "接近市场 +0pt",
+  "bf": [
+   9,
+   84,
+   7
+  ],
+  "h2h": [
+   [
+    "A",
+    "客1-2"
+   ],
+   [
+    "A",
+    "客0-2"
+   ],
+   [
+    "A",
+    "客0-1"
+   ],
+   [
+    "A",
+    "客2-3"
+   ],
+   [
+    "A",
+    "客0-1"
+   ]
+  ],
+  "guard": "不防",
+  "bet": "不投",
+  "bettable": false,
+  "ah": "让-0.25(主1.00/客0.82)",
+  "odds": [
+   3.05,
+   3.5,
+   2.05
+  ],
+  "inj": [
+   1,
+   2
+  ],
+  "injunk": [],
+  "injTxt": "1/2",
+  "ev": -26.9,
+  "sig": [
+   "轨迹 让球降盘",
+   "主升水",
+   "客降水",
+   "形态:让球-0.25→-0.5(时点不足)",
+   "主3.05→3.7(时点不足)",
+   "客2.05→1.87(时点不足)",
+   "155家分歧(23降/118升)",
+   "必发主4量59700",
+   "平1.97量548400",
+   "客4.19量46400",
+   "H2H 24-10-15:1-2",
+   "24-09-10:0-2",
+   "24-07-01:0-1",
+   "主伤锋×1",
+   "客伤锋×1, 中卫×1",
+   "①时点不足降权-3(快照缺ID期)",
+   "④竞彩与澳门一致(-5.5pt)加权+2｜③未命中R规律(+0)｜⑤五维01000(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.430)｜竞彩赔率=1.70(竞彩真价)｜澳门EV=-11.9%"
+  ],
+  "core": {
+   "xh": "—",
+   "xa": "—",
+   "ih": 1,
+   "ia": 2,
+   "lam": "1.18/1.29",
+   "rh": "—",
+   "ra": "—",
+   "bf": "9/84/7"
+  },
+  "injpos": "主缺左边锋1；客缺中锋1、中卫1",
+  "injdeg": "",
+  "goal": [
+   10,
+   18,
+   27,
+   21,
+   13,
+   10
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "",
+   "eloD": "",
+   "roll": "—/— vs —/—",
+   "xgstd": "STD(赛季累计场均；Understat现行接口无逐场 → 滚动窗口用进球代替)",
+   "observe": "样本<30 的观察项：仅展示/仅积累，**不纳入正式决策**",
+   "rest": "",
+   "rho": "-0.04",
+   "rhoSrc": "全局ρ(该联赛样本不足)",
+   "rot": "",
+   "sig2": "缺阵影响值 主0.119/客0.206(攻防加权0.7/0.3); 必发资金平84%",
+   "hbonus": "0",
+   "form": ""
+  },
+  "srcs": [
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981437",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "主队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981437",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "客队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981437",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "主队首发",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981437",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "客队首发",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "主队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "客队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=比利时",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "主队总身价",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=法国",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "客队总身价",
+    "p": "2"
+   }
+  ],
+  "srcline": "3 个独立源 / 8 条事实",
+  "srcok": "❌ 关键数据缺官方/权威媒体源"
+ },
+ {
+  "id": "006",
+  "group": "C",
+  "league": "欧国联",
+  "home": "罗马尼亚",
+  "away": "波黑",
+  "ai": {
+   "side": "未采集",
+   "p": null
+  },
+  "fix": {
+   "side": "主胜",
+   "p": 38,
+   "note": "外部AI未采集（降级）",
+   "down": false,
+   "rev": false
+  },
+  "pick": "主胜",
+  "conf": 38,
+  "scores": [
+   [
+    "1-0",
+    11
+   ],
+   [
+    "2-1",
+    8
+   ],
+   [
+    "0-1",
+    9
+   ]
+  ],
+  "cold": [
+   "0-1"
+  ],
+  "degr": [],
+  "lamps": [
+   {
+    "k": "①",
+    "n": "轨迹/形态",
+    "s": "ok",
+    "t": "轨迹支持",
+    "v": "轨迹 让球降盘"
+   },
+   {
+    "k": "②",
+    "n": "伤停",
+    "s": "off",
+    "t": "伤停无源（降级）",
+    "v": "本轮未获取"
+   },
+   {
+    "k": "③",
+    "n": "R 规律",
+    "s": "warn",
+    "t": "R 规律未命中",
+    "v": "未命中R规律(+0)"
+   },
+   {
+    "k": "④",
+    "n": "DC 背离",
+    "s": "off",
+    "t": "与澳门一致",
+    "v": "竞彩与澳门一致(-0.5pt)加权+2"
+   },
+   {
+    "k": "⑤",
+    "n": "五维",
+    "s": "warn",
+    "t": "五维 2/5 维",
+    "v": "五维01100(诱盘2维-5)"
+   }
+  ],
+  "gates": [
+   {
+    "t": "正 EV（竞彩口径）",
+    "ok": false,
+    "v": "EV -21.30%",
+    "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
+   },
+   {
+    "t": "置信 ≥55%",
+    "ok": false,
+    "v": "置信 38%",
+    "why": "置信<55% 不投单关"
+   },
+   {
+    "t": "非 D 组",
+    "ok": true,
+    "v": "C 组",
+    "why": "D 组不投"
+   },
+   {
+    "t": "非 B3 档",
+    "ok": true,
+    "v": "未触发",
+    "why": "1.50-1.80 档无 SOP 增量 ⇒ 禁单关"
+   },
+   {
+    "t": "串关 EV≥5%（竞彩口径）",
+    "ok": false,
+    "v": "EV -21.30%",
+    "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
+   },
+   {
+    "t": "三比分落齐",
+    "ok": true,
+    "v": "3 个比分",
+    "why": "防冷须落地第三比分（踩坑#69）"
+   }
+  ],
+  "market": [
+   47,
+   27,
+   27
+  ],
+  "model": 43,
+  "delta": "模型看低 -4pt",
+  "bf": [
+   59,
+   8,
+   34
+  ],
+  "h2h": [
+   [
+    "A",
+    "客1-3"
+   ],
+   [
+    "A",
+    "客0-1"
+   ],
+   [
+    "H",
+    "主4-1"
+   ],
+   [
+    "A",
+    "客0-1"
+   ],
+   [
+    "H",
+    "主3-0"
+   ]
+  ],
+  "guard": "五维诱盘2维→防冷",
+  "bet": "不投",
+  "bettable": false,
+  "ah": "让0.50(主0.95/客0.87)",
+  "odds": [
+   1.95,
+   3.4,
+   3.4
+  ],
+  "inj": [
+   1,
+   0
+  ],
+  "injunk": [
+   "客"
+  ],
+  "injTxt": "1/?（含未获取·降级）",
+  "ev": -21.3,
+  "sig": [
+   "轨迹 让球降盘",
+   "主升水",
+   "客降水",
+   "形态:让球0.5→0.25(时点不足)",
+   "主1.95→2.21(时点不足)",
+   "客3.4→2.96(时点不足)",
+   "155家分歧(23降/118升)",
+   "必发主2.29量19900",
+   "平3.54量2700",
+   "客3.54量11400",
+   "H2H 25-11-16:1-3",
+   "25-03-22:0-1",
+   "22-09-27:4-1",
+   "主伤锋×1",
+   "客伤其他×1",
+   "①时点不足降权-3(快照缺ID期)",
+   "④竞彩与澳门一致(-0.5pt)加权+2｜③未命中R规律(+0)｜⑤五维01100(诱盘2维-5)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.410)｜竞彩赔率=1.92(竞彩真价)｜澳门EV=-20.1%"
+  ],
+  "core": {
+   "xh": "—",
+   "xa": "—",
+   "ih": 1,
+   "ia": "—",
+   "lam": "1.29/1.10",
+   "rh": "—",
+   "ra": "—",
+   "bf": "59/8/34"
+  },
+  "injpos": "主缺中锋1",
+  "injdeg": "即嗨带位置字段未取到；已用补充源名单替代（—·中文补充四级·参考级）⇒ **位置系数未施加（保守×1.00）**，该场仍按材料不足封顶 C：客队",
+  "goal": [
+   10,
+   19,
+   27,
+   21,
+   12,
+   9
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "",
+   "eloD": "",
+   "roll": "—/— vs —/—",
+   "xgstd": "STD(赛季累计场均；Understat现行接口无逐场 → 滚动窗口用进球代替)",
+   "observe": "样本<30 的观察项：仅展示/仅积累，**不纳入正式决策**",
+   "rest": "",
+   "rho": "-0.04",
+   "rhoSrc": "全局ρ(该联赛样本不足)",
+   "rot": "",
+   "sig2": "缺阵影响值 主0.119/客0.000(攻防加权0.7/0.3); 必发资金主59%",
+   "hbonus": "0",
+   "form": ""
+  },
+  "srcs": [
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981487",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "主队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981487",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "客队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981487",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "主队首发",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981487",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "客队首发",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "主队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "客队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=罗马尼亚",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "主队总身价",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=波黑",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "客队总身价",
+    "p": "2"
+   }
+  ],
+  "srcline": "3 个独立源 / 8 条事实",
+  "srcok": "❌ 关键数据缺官方/权威媒体源"
+ },
+ {
+  "id": "007",
+  "group": "D",
+  "league": "欧国联",
+  "home": "瑞典",
+  "away": "波兰",
+  "ai": {
+   "side": "未采集",
+   "p": null
+  },
+  "fix": {
+   "side": "客胜",
+   "p": 37,
+   "note": "外部AI未采集（降级）",
+   "down": false,
+   "rev": false
+  },
+  "pick": "客胜",
+  "conf": 37,
+  "scores": [
+   [
+    "0-1",
+    6
+   ],
+   [
+    "1-2",
+    5
+   ],
+   [
+    "1-0",
+    12
+   ]
+  ],
+  "cold": [
+   "1-0"
+  ],
+  "degr": [],
+  "lamps": [
+   {
+    "k": "①",
+    "n": "轨迹/形态",
+    "s": "ok",
+    "t": "轨迹支持",
+    "v": "轨迹 让球降盘"
+   },
+   {
+    "k": "②",
+    "n": "伤停",
+    "s": "off",
+    "t": "伤停无源（降级）",
+    "v": "本轮未获取"
+   },
+   {
+    "k": "③",
+    "n": "R 规律",
+    "s": "warn",
+    "t": "R 规律未命中",
+    "v": "未命中R规律(+0)"
+   },
+   {
+    "k": "④",
+    "n": "DC 背离",
+    "s": "off",
+    "t": "DC 无信号",
+    "v": "DC背离:146家看衰主胜强共识→跟欧洲改判客胜(原"
+   },
+   {
+    "k": "⑤",
+    "n": "五维",
+    "s": "warn",
+    "t": "五维 2/5 维",
+    "v": "五维11000(诱盘2维-5)"
+   }
+  ],
+  "gates": [
+   {
+    "t": "正 EV（竞彩口径）",
+    "ok": false,
+    "v": "EV -30.00%",
+    "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
+   },
+   {
+    "t": "置信 ≥55%",
+    "ok": false,
+    "v": "置信 37%",
+    "why": "置信<55% 不投单关"
+   },
+   {
+    "t": "非 D 组",
+    "ok": false,
+    "v": "D 组",
+    "why": "D 组不投"
+   },
+   {
+    "t": "非 B3 档",
+    "ok": true,
+    "v": "未触发",
+    "why": "1.50-1.80 档无 SOP 增量 ⇒ 禁单关"
+   },
+   {
+    "t": "串关 EV≥5%（竞彩口径）",
+    "ok": false,
+    "v": "EV -30.00%",
+    "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
+   },
+   {
+    "t": "三比分落齐",
+    "ok": true,
+    "v": "3 个比分",
+    "why": "防冷须落地第三比分（踩坑#69）"
+   }
+  ],
+  "market": [
+   48,
+   26,
+   26
+  ],
+  "model": 43,
+  "delta": "模型看高 +17pt",
+  "bf": [
+   70,
+   14,
+   16
+  ],
+  "h2h": [
+   [
+    "H",
+    "主3-2"
+   ],
+   [
+    "A",
+    "客0-2"
+   ],
+   [
+    "H",
+    "主3-2"
+   ],
+   [
+    "H",
+    "主3-1"
+   ],
+   [
+    "H",
+    "主2-0"
+   ]
+  ],
+  "guard": "五维诱盘2维→防冷",
+  "bet": "不投",
+  "bettable": false,
+  "ah": "让0.50(主0.90/客0.92)",
+  "odds": [
+   1.9,
+   3.5,
+   3.5
+  ],
+  "inj": [
+   0,
+   1
+  ],
+  "injunk": [
+   "主"
+  ],
+  "injTxt": "?/1（含未获取·降级）",
+  "ev": -30.0,
+  "sig": [
+   "轨迹 让球降盘",
+   "主升水",
+   "客降水",
+   "形态:让球0.5→0.25(时点不足)",
+   "主1.9→2.07(时点不足)",
+   "客3.5→3.3(时点不足)",
+   "155家146升强共识(看衰主)",
+   "必发主2.16量85900",
+   "平3.7量17400",
+   "客3.75量19800",
+   "H2H 26-04-01:3-2",
+   "22-03-30:0-2",
+   "21-06-23:3-2",
+   "主伤其他×1",
+   "客伤锋×1",
+   "④DC背离:146家看衰主胜强共识→跟欧洲改判客胜(原主胜)",
+   "①时点不足降权-3(快照缺ID期)",
+   "④竞彩与澳门一致(+0.7pt)加权+2｜③未命中R规律(+0)｜⑤五维11000(诱盘2维-5)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.200)｜竞彩赔率=3.50(竞彩真价)｜澳门EV=-30.0%"
+  ],
+  "core": {
+   "xh": "—",
+   "xa": "—",
+   "ih": "—",
+   "ia": 1,
+   "lam": "1.60/0.91",
+   "rh": "—",
+   "ra": "—",
+   "bf": "70/14/16"
+  },
+  "injpos": "客缺左边锋1",
+  "injdeg": "即嗨带位置字段未取到；已用补充源名单替代（—·中文补充四级·参考级）⇒ **位置系数未施加（保守×1.00）**，该场仍按材料不足封顶 C：主队",
+  "goal": [
+   9,
+   18,
+   27,
+   21,
+   13,
+   11
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "",
+   "eloD": "",
+   "roll": "—/— vs —/—",
+   "xgstd": "STD(赛季累计场均；Understat现行接口无逐场 → 滚动窗口用进球代替)",
+   "observe": "样本<30 的观察项：仅展示/仅积累，**不纳入正式决策**",
+   "rest": "",
+   "rho": "-0.04",
+   "rhoSrc": "全局ρ(该联赛样本不足)",
+   "rot": "",
+   "sig2": "缺阵影响值 主0.000/客0.119(攻防加权0.7/0.3); 必发资金主70%",
+   "hbonus": "0",
+   "form": ""
+  },
+  "srcs": [
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981488",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "主队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981488",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "客队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981488",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "主队首发",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981488",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "客队首发",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "主队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "客队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=瑞典",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "主队总身价",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=波兰",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "客队总身价",
+    "p": "2"
+   }
+  ],
+  "srcline": "3 个独立源 / 8 条事实",
+  "srcok": "❌ 关键数据缺官方/权威媒体源"
+ },
+ {
+  "id": "008",
+  "group": "D",
+  "league": "欧国联",
+  "home": "北爱尔兰",
+  "away": "匈牙利",
+  "ai": {
+   "side": "未采集",
+   "p": null
+  },
+  "fix": {
+   "side": "客胜",
+   "p": 42,
+   "note": "外部AI未采集（降级）",
+   "down": false,
+   "rev": false
+  },
+  "pick": "客胜",
+  "conf": 42,
+  "scores": [
+   [
+    "0-1",
+    13
+   ],
+   [
+    "0-2",
+    7
+   ],
+   [
+    "1-2",
+    7
+   ]
+  ],
+  "cold": [],
+  "degr": [],
+  "lamps": [
+   {
+    "k": "①",
+    "n": "轨迹/形态",
+    "s": "ok",
+    "t": "轨迹支持",
+    "v": "轨迹 主升水"
+   },
+   {
+    "k": "②",
+    "n": "伤停",
+    "s": "ok",
+    "t": "伤停已核实",
+    "v": "主客共 3 人"
+   },
+   {
+    "k": "③",
+    "n": "R 规律",
+    "s": "warn",
+    "t": "R 规律未命中",
+    "v": "未命中R规律(+0)"
+   },
+   {
+    "k": "④",
+    "n": "DC 背离",
+    "s": "off",
+    "t": "与澳门一致",
+    "v": "竞彩与澳门一致(-1.6pt)加权+2"
+   },
+   {
+    "k": "⑤",
+    "n": "五维",
+    "s": "warn",
+    "t": "五维 1/5 维",
+    "v": "五维00100(诱盘1维+0)"
+   }
+  ],
+  "gates": [
+   {
+    "t": "正 EV（竞彩口径）",
+    "ok": false,
+    "v": "EV -16.80%",
+    "why": "只投正 EV —— **竞彩口径**（澳门口径需 >7.83% 才等价，见 jc_caliber）"
+   },
+   {
+    "t": "置信 ≥55%",
+    "ok": false,
+    "v": "置信 42%",
+    "why": "置信<55% 不投单关"
+   },
+   {
+    "t": "非 D 组",
+    "ok": false,
+    "v": "D 组",
+    "why": "D 组不投"
+   },
+   {
+    "t": "非 B3 档",
+    "ok": true,
+    "v": "未触发",
+    "why": "1.50-1.80 档无 SOP 增量 ⇒ 禁单关"
+   },
+   {
+    "t": "串关 EV≥5%（竞彩口径）",
+    "ok": false,
+    "v": "EV -16.80%",
+    "why": "EV<5% 不入串 —— **竞彩口径**（等价于澳门口径 13.22%，见 `02` A40）"
+   },
+   {
+    "t": "三比分落齐",
+    "ok": true,
+    "v": "3 个比分",
+    "why": "防冷须落地第三比分（踩坑#69）"
+   }
+  ],
+  "market": [
+   36,
+   31,
+   34
+  ],
+  "model": 44,
+  "delta": "模型看高 +10pt",
+  "bf": [
+   70,
+   10,
+   20
+  ],
+  "h2h": [
+   [
+    "A",
+    "客0-1"
+   ],
+   [
+    "D",
+    "平1-1"
+   ],
+   [
+    "H",
+    "主2-1"
+   ],
+   [
+    "A",
+    "客0-2"
+   ]
+  ],
+  "guard": "不防",
+  "bet": "不投",
+  "bettable": false,
+  "ah": "让0.00(主0.85/客0.97)",
+  "odds": [
+   2.55,
+   2.96,
+   2.7
+  ],
+  "inj": [
+   2,
+   1
+  ],
+  "injunk": [],
+  "injTxt": "2/1",
+  "ev": -16.8,
+  "sig": [
+   "轨迹 主升水",
+   "客降水",
+   "形态:让球0→0(时点不足)",
+   "主2.55→2.87(时点不足)",
+   "客2.7→2.66(时点不足)",
+   "155家分歧(92降/52升)",
+   "必发主2.98量370900",
+   "平2.9量51400",
+   "客3.15量106500",
+   "H2H 22-03-30:0-1",
+   "15-09-08:1-1",
+   "14-09-07:2-1",
+   "主伤中场×1, 中卫×1",
+   "客伤锋×1",
+   "λ合成修正(主胜→客胜, λ0.94/0.99)",
+   "①时点不足降权-3(快照缺ID期)",
+   "④竞彩与澳门一致(-1.6pt)加权+2｜③未命中R规律(+0)｜⑤五维00100(诱盘1维+0)｜⚠️降级版：主队伤停、客队伤停 仅即嗨单源→最高C组(第十六章)｜EV源=市场锚+SOP(p=0.330)｜竞彩赔率=2.52(竞彩真价)｜澳门EV=-10.9%"
+  ],
+  "core": {
+   "xh": "—",
+   "xa": "—",
+   "ih": 2,
+   "ia": 1,
+   "lam": "0.94/0.99",
+   "rh": "—",
+   "ra": "—",
+   "bf": "70/10/20"
+  },
+  "injpos": "主缺中场1、中卫1；客缺中锋1",
+  "injdeg": "",
+  "goal": [
+   16,
+   25,
+   28,
+   17,
+   8,
+   5
+  ],
+  "feat": {
+   "xg": "",
+   "elo": "",
+   "eloD": "",
+   "roll": "—/— vs —/—",
+   "xgstd": "STD(赛季累计场均；Understat现行接口无逐场 → 滚动窗口用进球代替)",
+   "observe": "样本<30 的观察项：仅展示/仅积累，**不纳入正式决策**",
+   "rest": "",
+   "rho": "-0.04",
+   "rhoSrc": "全局ρ(该联赛样本不足)",
+   "rot": "",
+   "sig2": "缺阵影响值 主0.195/客0.119(攻防加权0.7/0.3); 必发资金主70%",
+   "hbonus": "0",
+   "form": ""
+  },
+  "srcs": [
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981486",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "主队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/information?matchId=2981486",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "客队伤停",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981486",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "主队首发",
+    "p": "2"
+   },
+   {
+    "n": "即嗨API",
+    "u": "https://api-node.jihai8.com/api/zq/lineup?matchId=2981486",
+    "t": "09-28 12:34",
+    "c": "中",
+    "f": "客队首发",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "主队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Understat",
+    "u": "https://understat.com/",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "客队场均xG",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=北爱尔兰",
+    "t": "09-28 12:34",
+    "c": "低",
+    "f": "主队总身价",
+    "p": "2"
+   },
+   {
+    "n": "Transfermarkt",
+    "u": "https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=匈牙利",
+    "t": "09-28 12:34",
     "c": "低",
     "f": "客队总身价",
     "p": "2"
@@ -2780,9 +3126,9 @@ function resoBlock(m){
 function featBlock(m){var f=m.feat;if(!f)return '';var rows=[];var g=function(k,v){if(v!==''&&v!==null&&v!==undefined)rows.push('<span><span style="color:var(--t3)">'+k+'</span> <b>'+v+'</b></span>')};
 g('xG差',f.xg===''?'':(f.xg>0?'+':'')+f.xg+(f.xgstd?'(STD)':''));g('Elo差',f.elo===''?'':(f.elo>0?'+':'')+f.elo+(f.eloD?'(截至'+f.eloD.slice(5)+')':''));g('休息',f.rest);g('近5场进/失(主vs客)',f.roll);g('状态差',f.form===''?'':(f.form>0?'+':'')+f.form);g('联赛ρ',f.rho);g('主场补正',f.hbonus?f.hbonus+'%':'');
 if(f.rot&&f.rot.indexOf('高')>=0)rows.push('<span class="warn2">⚠️ 轮换风险 '+f.rot+'</span>');
-if(!rows.length)return '<div class="featbox"><div class="k2">🧪 进阶特征层</div><div style="color:var(--lose)">ℹ️ 本场无进阶特征数据（features_0927.csv / features_core_0927.csv <b>在位</b>：该场 xG差/Elo差/休息/联赛ρ 在源里没有对应球队或字段为空）→ 不用替代值、不编造。</div></div>';
+if(!rows.length)return '<div class="featbox"><div class="k2">🧪 进阶特征层</div><div style="color:var(--lose)">ℹ️ 本场无进阶特征数据（features_0928.csv / features_core_0928.csv <b>在位</b>：该场 xG差/Elo差/休息/联赛ρ 在源里没有对应球队或字段为空）→ 不用替代值、不编造。</div></div>';
 return '<div class="featbox"><div class="k2">🧪 进阶特征层（免费接口：Understat xG · 真Elo · 即嗨近期/未来赛程 · 联赛拟合ρ）</div><div style="display:flex;flex-wrap:wrap;gap:4px 12px">'+rows.join('')+'</div>'+(f.sig2?'<div style="color:var(--t3);margin-top:4px">'+f.sig2+'</div>':'')+(f.observe?'<div style="color:var(--warn);margin-top:4px">⚠️ '+f.observe+'</div>':'')+'</div>'}
-function srcBlock(m){var a=m.srcs||[];if(!a.length)return '<div class="srcbox"><div class="k2">🔗 数据来源</div><div style="color:var(--lose)">🚫 本轮未采集（降级）：authority_20260927.csv / authority_verify_20260927.csv 不存在 → 无逐条事实来源四要素（来源名称/链接/采集时间/置信度），本块不展示来源，不编造。</div></div>';var h=a.map(function(s){var cls=s.c==='高'?'conf-h':(s.c==='中'?'conf-m':'conf-l');return '<div>· <b>'+s.f+'</b>：<a href="'+s.u+'" target="_blank" rel="noopener">'+s.n+'</a> <span class="'+cls+'">['+s.c+'置信]</span> <span style="color:var(--t3)">采集 '+s.t+'</span></div>'}).join('');return '<div class="srcbox"><div class="k2">🔗 数据来源（'+(m.srcline||'')+(m.srcok?' · '+m.srcok:'')+'）</div>'+h+'</div>'}
+function srcBlock(m){var a=m.srcs||[];if(!a.length)return '<div class="srcbox"><div class="k2">🔗 数据来源</div><div style="color:var(--lose)">🚫 本轮未采集（降级）：authority_20260928.csv / authority_verify_20260928.csv 不存在 → 无逐条事实来源四要素（来源名称/链接/采集时间/置信度），本块不展示来源，不编造。</div></div>';var h=a.map(function(s){var cls=s.c==='高'?'conf-h':(s.c==='中'?'conf-m':'conf-l');return '<div>· <b>'+s.f+'</b>：<a href="'+s.u+'" target="_blank" rel="noopener">'+s.n+'</a> <span class="'+cls+'">['+s.c+'置信]</span> <span style="color:var(--t3)">采集 '+s.t+'</span></div>'}).join('');return '<div class="srcbox"><div class="k2">🔗 数据来源（'+(m.srcline||'')+(m.srcok?' · '+m.srcok:'')+'）</div>'+h+'</div>'}
 /* ===== 渲染 ===== */
 function render(){
   var list=document.getElementById('list');list.innerHTML='';
@@ -2906,16 +3252,16 @@ function fitOpen(){document.querySelectorAll('.match.open .detail').forEach(func
 function toggleDark(){var h=document.documentElement;var t=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',t);localStorage.setItem('sop-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️'}
 function toggle(id,head){var e=document.getElementById(id);var card=e.closest('.match');var open=card.classList.contains('open');if(open){e.style.maxHeight='0px';card.classList.remove('open')}else{e.style.maxHeight=e.scrollHeight+'px';card.classList.add('open')}if(head){head.setAttribute('aria-expanded',card.classList.contains('open')?'true':'false')}}
 function copy(id){var e=document.getElementById(id);if(e)copyTextRaw(e.innerText)}
-function copyAll(){var txt='【9/27 全7场 · 阿豪二次修正】\n'+MATCHES.map(copyTextOf).join('\n');copyTextRaw(txt)}
+function copyAll(){var txt='【9/28 全8场 · 阿豪二次修正】\n'+MATCHES.map(copyTextOf).join('\n');copyTextRaw(txt)}
 var toastTimer;
 function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show')},1700)}
 function copyTextRaw(t){if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){showToast('已复制，可直接粘贴')},function(){fb(t)})}else fb(t)}
 function fb(t){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast('已复制')}catch(e){showToast('复制失败，请手动选择')}ta.remove()}
 function switchTab(v){document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.view===v)});document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('on',s.id==='view-'+v)});window.scrollTo({top:0,behavior:'smooth'})}
 
-var UPDATED_AT=new Date('2026-09-27T20:02:18+08:00');
+var UPDATED_AT=new Date('2026-09-28T12:40:08+08:00');
 function relTime(t){var s=(Date.now()-t.getTime())/1000;if(s<60)return '刚刚更新';var m=Math.floor(s/60);if(m<60)return '更新于 '+m+' 分钟前';var h=Math.floor(m/60);if(h<24)return '更新于 '+h+' 小时前';return '更新于 '+Math.floor(h/24)+' 天前'}
-function tickUpdated(){var el=document.getElementById('updatedAt');if(el)el.textContent=relTime(UPDATED_AT)+' · 9/27 批次'}
+function tickUpdated(){var el=document.getElementById('updatedAt');if(el)el.textContent=relTime(UPDATED_AT)+' · 9/28 批次'}
 
 function countUp(){document.querySelectorAll('[data-count]').forEach(function(el){var target=+el.dataset.count,st=performance.now(),dur=850;function f(now){var p=Math.max(0,Math.min(1,(now-st)/dur)),ease=1-Math.pow(1-p,3);el.textContent=Math.round(target*ease)+'%';if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)})}
 function animateBars(){requestAnimationFrame(function(){requestAnimationFrame(function(){document.querySelectorAll('.bar3 i[data-w],.conf-fill[data-w]').forEach(function(i){i.style.width=i.dataset.w+'%'});countUp()})})}
