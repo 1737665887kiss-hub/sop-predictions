@@ -139,7 +139,7 @@ td,th{overflow-wrap:anywhere}
 th[scope="row"]{font-weight:700;color:var(--t1)}
 /* ---- 第3条：概率/EV 类数字等宽对齐 + 纯 CSS 条形（零图表库）---- */
 .num,.mono,.kpi .v,.stat .v,.sc .p,.odd .ov{font-variant-numeric:tabular-nums}
-.num,.odd .ov,.rv-ev,.rv-conf{font-feature-settings:"tnum" 1}
+.num,.odd .ov,.rv-ev,.rv-conf{font-feature-settings:'tnum' 1}
 .bar3 i,.conf-fill,.split-bar i{min-width:3px}
 .bar3 i[data-w="0"],.conf-fill[data-w="0"]{min-width:0}
 /* ---- 异常优先：反转红框置顶强调 + 降级块统一外观 ---- */
@@ -174,6 +174,58 @@ th[scope="row"]{font-weight:700;color:var(--t1)}
   .detail{max-height:none!important;overflow:visible!important}
 }
 /* =================== ui_theme.py 公共 UI 层 结束 =================== */
+
+
+:root{
+  --u2-s1:.25rem; --u2-s2:.5rem; --u2-s3:.75rem; --u2-s4:1rem; --u2-s5:1.5rem;
+  --u2-r-sm:6px; --u2-r:10px; --u2-r-lg:16px;
+  --u2-sh1:0 1px 2px rgba(0,0,0,.10),0 2px 8px rgba(0,0,0,.06);
+  --u2-sh2:0 3px 8px rgba(0,0,0,.14),0 10px 28px rgba(0,0,0,.10);
+  --u2-line:color-mix(in srgb, currentColor 14%, transparent);
+}
+/* 卡片：统一圆角/阴影/悬浮反馈（仅装饰，不改布局） */
+.card,.match-card,.featbox,.resobox,.srcbox,.card-2{
+  border-radius:var(--u2-r); box-shadow:var(--u2-sh1);
+  border:1px solid var(--u2-line);
+  transition:box-shadow .18s ease, transform .18s ease;
+}
+.card:hover,.match-card:hover{box-shadow:var(--u2-sh2); transform:translateY(-1px)}
+/* 徽章/药丸：高度、字重、圆角统一（含"防/反转"这类高亮） */
+.pill,.pill-rev,.badge,.tag,.chip{
+  display:inline-flex; align-items:center; gap:.25rem; line-height:1.65;
+  padding:.12rem .55rem; border-radius:999px; font-size:12px; font-weight:800;
+  border:1px solid var(--u2-line); white-space:nowrap;
+}
+/* 数字一律等宽（比分/赔率/概率对齐后更易扫读） */
+.num,.score,.odds,.pct,td .num{font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1}
+/* 表格：吸附表头＋斑马纹＋首列加粗（沿用既有 sticky 设定，仅增强观感） */
+table tbody tr:nth-child(odd){background:color-mix(in srgb, currentColor 2.5%, transparent)}
+table tbody td:first-child{font-weight:700}
+/* 统计/概率条：更粗更清晰 */
+.split-bar{height:10px;border-radius:999px;overflow:hidden}
+/* 索引条：长页导航（手机上随时跳回顶部/分区） */
+.nav-index,.k2-index,.toc{
+  position:sticky; top:0; z-index:20; backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--u2-line); padding:var(--u2-s2) 0;
+  display:flex; gap:var(--u2-s2); flex-wrap:wrap;
+}
+.nav-index a,.k2-index a,.toc a{
+  border:1px solid var(--u2-line); border-radius:999px; padding:.1rem .5rem;
+  font-size:12px; text-decoration:none;
+}
+/* 标题节奏：长页更好读 */
+h2{margin-top:var(--u2-s5); padding-bottom:var(--u2-s1); border-bottom:2px solid var(--u2-line)}
+h3{margin-top:var(--u2-s4)}
+/* 手机优先：窄屏不再挤压（只在极窄屏收敛，宽屏不受影响） */
+@media(max-width:420px){
+  body{--u2-s4:.75rem}
+  table td,table th{padding:.35rem .4rem;font-size:12.5px}
+}
+/* 打印：给"打印方案"用的干净版 */
+@media print{
+  .nav-index,.k2-index,.toc{position:static}
+  .card,.match-card{box-shadow:none; break-inside:avoid}
+}
 </style>
 <script>
 /* ui_theme.py S1：首屏主题（自定义主题优先，无则跟随系统；不写死主题） */
@@ -356,11 +408,11 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
     <b>隔离声明</b>: 本页为<b>多玩法附加模块(参考级)</b>——胜负彩为初盘参考判向(无轨迹/伤停/五维), 终版以停售前更新为准;
     与主预测(竞彩单场/串关/HTML)完全独立; 浮动奖玩法无固定赔率, 模型概率仅供参考; 不构成投注建议。</div>
   <div class="note gray" role="note">📊 <b>数据来源（四要素）</b>：来源名称=体彩官方（jc 5 池 / 传统足彩网关）+ 即嗨 + lambda_model ·
-    链接=官方接口与本机只读文件（离线页不引外链）· 采集时间=2026-10-05 12:41 · 置信度=参考级（浮动奖无固定赔率）。
+    链接=官方接口与本机只读文件（离线页不引外链）· 采集时间=2026-10-05 18:22 · 置信度=参考级（浮动奖无固定赔率）。
     本页为单文件离线产物，**网络请求 0 次**。</div>
   <footer>阿豪二次修正 · 数据仅供参考研究，<b>不构成任何投注建议</b> · 理性看球，远离非法赌博 · 竞彩有风险，入市需谨慎<br>
     <b>基于公开赔率与统计模型，仅供研究参考，不构成投注建议，请理性购彩。</b><br>
-    sop-predictions · 10/5 · 生成 2026-10-05 12:41 · 主预测入口: https://1737665887kiss-hub.github.io/sop-predictions/</footer>
+    sop-predictions · 10/5 · 生成 2026-10-05 18:22 · 主预测入口: https://1737665887kiss-hub.github.io/sop-predictions/</footer>
 </div>
 <script>
 function toggleTheme(){var h=document.documentElement;
