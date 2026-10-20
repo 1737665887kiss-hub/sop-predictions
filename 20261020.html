@@ -690,13 +690,20 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
     <div class="kpi-grid" id="kpiStrip"></div>
   </div>
 
-  <!--RECENT-BATCHES-START-->
+    <!--FIRSTPASS-START-->
+<div class="card" style="border-left:4px solid var(--blue)">
+  <div class="card-title">🧠 外脑初判（第一遍 · 仅对照，不改判向）</div>
+  <div style="font-size:11.5px;color:var(--t3);line-height:1.6">已接入 <b>8/10</b> 场｜一致 <b>4</b> ｜ 背离 <b>4</b>｜槽位 late｜伤停：双源确认无公开伤停</div>
+  <div style="display:grid;gap:3px;margin-top:5px;font-size:11.5px"><div>001 费内巴切 vs 布拉格斯拉维亚 · <b>主胜</b> 45% · <span style="color:var(--win)">一致</span></div><div>002 萨巴赫 vs 多特蒙德 · <b>客胜</b> 92% · <span style="color:var(--win)">一致</span></div><div>003 伍尔弗汉普顿 vs 朴次茅斯 · <b>主胜</b> 60% · <span style="color:var(--gold)">背离</span></div><div>004 那不勒斯 vs 博德闪耀 · <b>主胜</b> 52% · <span style="color:var(--gold)">背离</span></div><div>005 罗马 vs 布拉迪斯拉发 · <b>未发</b> · <span style="color:var(--t3)">单遍</span></div><div>006 巴黎圣日耳曼 vs 巴塞罗那 · <b>主胜</b> 62% · <span style="color:var(--gold)">背离</span></div><div>007 利物浦 vs 比利亚雷亚尔 · <b>主胜</b> 98% · <span style="color:var(--win)">一致</span></div><div>008 曼彻斯特城 vs AEK雅典 · <b>未发</b> · <span style="color:var(--t3)">单遍</span></div><div>009 斯图加特 vs 马德里竞技 · <b>主胜</b> 41% · <span style="color:var(--gold)">背离</span></div><div>010 波尔图 vs PSV埃因霍温 · <b>主胜</b> 87% · <span style="color:var(--win)">一致</span></div></div>
+</div>
+<!--FIRSTPASS-END-->
+<!--RECENT-BATCHES-START-->
   <div class="card" style="border-left:4px solid var(--blue)">
     <div class="card-title">🕘 近期批次（保留可查 · 手机直接点开）</div>
     <div style="display:grid;gap:8px">
       <div style="border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:var(--card-2)">
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>10/20 批（本批）</b><span class="tag" style="color:var(--gold)">无标记</span><span class="tag">当日 10 场</span><span class="tag" style="color:var(--gold)">待赛 10</span></div>
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:7px"><span style="font-size:11.5px;color:var(--t3)">编号</span><span class="shortcode">001</span> <span class="shortcode">002</span> <span class="shortcode">003</span> <span class="shortcode">004</span> <span class="shortcode">005</span> <span class="shortcode">006</span> <span class="shortcode">007</span> <span class="shortcode">008</span> <span class="shortcode">009</span> <span class="shortcode">010</span><span style="margin-left:auto;display:flex;gap:10px;font-size:12.5px"><span class="tag" style="color:var(--gold)">未确认发布（无链接）</span></span></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>10/20 批（本批）</b><span class="tag">终版</span><span class="tag">当日 10 场</span><span class="tag" style="color:var(--gold)">待赛 10</span></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:7px"><span style="font-size:11.5px;color:var(--t3)">编号</span><span class="shortcode">001</span> <span class="shortcode">002</span> <span class="shortcode">003</span> <span class="shortcode">004</span> <span class="shortcode">005</span> <span class="shortcode">006</span> <span class="shortcode">007</span> <span class="shortcode">008</span> <span class="shortcode">009</span> <span class="shortcode">010</span><span style="margin-left:auto;display:flex;gap:10px;font-size:12.5px"><a href="20261020.html" style="color:var(--blue);font-weight:700;text-decoration:none">存档页 ›</a><a href="multibets_20261020.html" style="color:var(--blue);font-weight:700;text-decoration:none">多玩法 ›</a></span></div>
       </div>
       <div style="border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:var(--card-2)">
         <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>10/19 批</b><span class="tag">终版</span><span class="tag">当日 8 场</span><span class="tag" style="color:var(--lose)">已回填 3/8 命中</span></div>
@@ -718,7 +725,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </div>
 
   <!--DATASRC-START-->
-<div class="card" style="border-left:4px solid var(--gold)"><div class="card-title">📋 本轮数据源与缺口（自动现算 · 缺失即标降级 · 不编造）</div><div style="font-size:12px;line-height:2"><div>✅ 主数据 predictions_20261020_10matches.csv（10 场：001-010）· 台账 betting_sim_ledger.csv（26 行，末行余额 10013.59 现算）</div><div>✅ 判据 judge_1020.csv（10 场：λ/去水概率/让球盘/澳门欧赔）</div><div>✅ 赔率轨迹 odds_1020.csv + trajectory_view_1020.csv（10 场采集，本批消费 001-010）</div><div>✅ 伤停 verify_injury_1020.csv：10/10 场即嗨**带位置**有数据</div><div>✅ 必发资金 / H2H 近5 来源 extra_1020.csv：9/10 场有数据</div><div>✅ 特征层 features_1020.csv / features_core_1020.csv：10/10 场有数据</div><div>✅ 多源权威 authority_20261020.csv / authority_verify_20261020.csv：10 条判定</div><div>🚫 understat_live_20261020.csv：不存在 → xG 无源，页面显示「—」（不用替代值）</div><div>🚫 外部AI对照 VVVVVV/体彩竞彩2026-10-20全10场_预测结果.csv：0/10 场按编号对齐（按正则剥『周X』前缀；禁硬编码星期）</div><div>⚠️ qxc_20261020.csv 不存在（本轮未采集，降级）→ 不计入任何结论</div><div>⚠️ 勘误（上游未改，本页未改冻结CSV）：上一批 `judge_1020.py` 曾硬编码读取更早一批的豆包文件 → predictions CSV「信号」列中部分场次的『外部AI(豆包)分歧』为跨批误标；本页 AI 徽章与二次修正备注按本批豆包文件现算，以本页为准</div></div></div>
+<div class="card" style="border-left:4px solid var(--gold)"><div class="card-title">📋 本轮数据源与缺口（自动现算 · 缺失即标降级 · 不编造）</div><div style="font-size:12px;line-height:2"><div>✅ 主数据 predictions_20261020_10matches.csv（10 场：001-010）· 台账 betting_sim_ledger.csv（26 行，末行余额 10013.59 现算）</div><div>✅ 判据 judge_1020.csv（10 场：λ/去水概率/让球盘/澳门欧赔）</div><div>✅ 赔率轨迹 odds_1020.csv + trajectory_view_1020.csv（10 场采集，本批消费 001-010）</div><div>✅ 伤停 verify_injury_1020.csv：10/10 场即嗨**带位置**有数据</div><div>✅ 必发资金 / H2H 近5 来源 extra_1020.csv：9/10 场有数据</div><div>✅ 特征层 features_1020.csv / features_core_1020.csv：10/10 场有数据</div><div>✅ 多源权威 authority_20261020.csv / authority_verify_20261020.csv：10 条判定</div><div>🚫 understat_live_20261020.csv：不存在 → xG 无源，页面显示「—」（不用替代值）</div><div>✅ 外脑初判（两遍制）first_pass_20261020_late.csv：<b>8/10</b> 场（一致 4 / 背离 4）｜只作对照，不改判向</div><div>⚠️ qxc_20261020.csv 不存在（本轮未采集，降级）→ 不计入任何结论</div><div>⚠️ 勘误（上游未改，本页未改冻结CSV）：上一批 `judge_1020.py` 曾硬编码读取更早一批的外脑初判文件 → predictions CSV「信号」列中部分场次的『外部AI(外脑初判)分歧』为跨批误标；本页 AI 徽章与二次修正备注按本批外脑初判文件现算，以本页为准</div></div></div>
 <!--DATASRC-END-->
 <details class="filterbar" id="filterBar"><summary style="cursor:pointer;font-weight:700;font-size:14px;padding:4px 2px;color:var(--t2)">⚙️ 筛选 / 排序（点击展开） · <span id="filterState" class="num" style="color:var(--t3)">已生效：全部 · 不限可投</span></summary><div style="margin-top:6px">
     <div class="seg" id="groupSeg">
@@ -861,13 +868,13 @@ var MATCHES=[
   "home": "费内巴切",
   "away": "布拉格斯拉维亚",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 45
   },
   "fix": {
    "side": "主胜",
    "p": 46,
-   "note": "外部AI未采集（降级）",
+   "note": "两遍一致（初版主胜 45%）",
    "down": false,
    "rev": false
   },
@@ -1143,13 +1150,13 @@ var MATCHES=[
   "home": "萨巴赫",
   "away": "多特蒙德",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "客胜",
+   "p": 92
   },
   "fix": {
    "side": "客胜",
    "p": 66,
-   "note": "外部AI未采集（降级）",
+   "note": "两遍一致（初版客胜 92%）",
    "down": false,
    "rev": false
   },
@@ -1414,13 +1421,13 @@ var MATCHES=[
   "home": "伍尔弗汉普顿",
   "away": "朴次茅斯",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 60
   },
   "fix": {
    "side": "平",
    "p": 45,
-   "note": "外部AI未采集（降级）",
+   "note": "方向修正 主胜60% → 平45%",
    "down": false,
    "rev": false
   },
@@ -1685,13 +1692,13 @@ var MATCHES=[
   "home": "那不勒斯",
   "away": "博德闪耀",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 52
   },
   "fix": {
    "side": "平",
    "p": 41,
-   "note": "外部AI未采集（降级）",
+   "note": "方向修正 主胜52% → 平41%",
    "down": false,
    "rev": false
   },
@@ -1954,13 +1961,13 @@ var MATCHES=[
   "home": "罗马",
   "away": "布拉迪斯拉发",
   "ai": {
-   "side": "未采集",
+   "side": "未发",
    "p": null
   },
   "fix": {
    "side": "主胜",
    "p": 53,
-   "note": "外部AI未采集（降级）",
+   "note": "外脑初判未发（单遍）",
    "down": false,
    "rev": false
   },
@@ -2225,13 +2232,13 @@ var MATCHES=[
   "home": "巴黎圣日耳曼",
   "away": "巴塞罗那",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 62
   },
   "fix": {
    "side": "客胜",
    "p": 32,
-   "note": "外部AI未采集（降级）",
+   "note": "方向修正 主胜62% → 客胜42%",
    "down": false,
    "rev": false
   },
@@ -2504,13 +2511,13 @@ var MATCHES=[
   "home": "利物浦",
   "away": "比利亚雷亚尔",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 98
   },
   "fix": {
    "side": "主胜",
    "p": 42,
-   "note": "外部AI未采集（降级）",
+   "note": "两遍一致（初版主胜 98%）",
    "down": false,
    "rev": false
   },
@@ -2802,13 +2809,13 @@ var MATCHES=[
   "home": "曼彻斯特城",
   "away": "AEK雅典",
   "ai": {
-   "side": "未采集",
+   "side": "未发",
    "p": null
   },
   "fix": {
    "side": "平",
    "p": 43,
-   "note": "外部AI未采集（降级）",
+   "note": "外脑初判未发（单遍）",
    "down": false,
    "rev": false
   },
@@ -3078,13 +3085,13 @@ var MATCHES=[
   "home": "斯图加特",
   "away": "马德里竞技",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 41
   },
   "fix": {
    "side": "客胜",
    "p": 46,
-   "note": "外部AI未采集（降级）",
+   "note": "方向修正 主胜41% → 客胜46%",
    "down": false,
    "rev": false
   },
@@ -3352,13 +3359,13 @@ var MATCHES=[
   "home": "波尔图",
   "away": "PSV埃因霍温",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 87
   },
   "fix": {
    "side": "主胜",
    "p": 30,
-   "note": "外部AI未采集（降级）",
+   "note": "两遍一致（初版主胜 87%）",
    "down": false,
    "rev": false
   },
