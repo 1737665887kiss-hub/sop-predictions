@@ -690,6 +690,53 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
     <div class="kpi-grid" id="kpiStrip"></div>
   </div>
 
+  <!--FIRSTPASS-START-->
+<div class="card" style="border-left:4px solid var(--blue)">
+  <div class="card-title">🧠 外脑初判（第一遍 · 仅对照，不改判向）</div>
+  <div style="font-size:11.5px;color:var(--t3);line-height:1.6">已接入 <b>10/10</b> 场｜一致 <b>5</b> ｜ 背离 <b>5</b>｜槽位 late｜伤停：无伤资源（汇总未发布）</div>
+  <div style="display:grid;gap:3px;margin-top:5px;font-size:11.5px"><div>002 海登海姆 vs 纽伦堡 · <b>客胜</b> 42% · <span style="color:var(--win)">一致</span></div><div>003 格罗宁根 vs 威廉二世 · <b>主胜</b> 64% · <span style="color:var(--gold)">背离</span></div><div>004 芬洛 vs 瓦尔韦克 · <b>主胜</b> 53% · <span style="color:var(--gold)">背离</span></div><div>005 云达不来梅 vs 门兴格拉德巴赫 · <b>主胜</b> 49% · <span style="color:var(--win)">一致</span></div><div>006 威尼斯 vs 博洛尼亚 · <b>客胜</b> 50% · <span style="color:var(--gold)">背离</span></div><div>007 布雷斯特 vs 巴黎FC · <b>客胜</b> 43% · <span style="color:var(--win)">一致</span></div><div>008 诺丁汉森林 vs 切尔西 · <b>主胜</b> 39% · <span style="color:var(--win)">一致</span></div><div>009 南安普敦 vs 米德尔斯堡 · <b>主胜</b> 41% · <span style="color:var(--gold)">背离</span></div><div>010 莱万特 vs 桑坦德竞技 · <b>主胜</b> 39% · <span style="color:var(--win)">一致</span></div><div>011 哥伦布机员 vs 迈阿密国际 · <b>客胜</b> 42% · <span style="color:var(--gold)">背离</span></div></div>
+</div>
+<!--FIRSTPASS-END-->
+<!--HANDICAP-START-->
+<div class="card" style="border-left:4px solid var(--blue)">
+  <div class="card-title">🎯 让球胜平负（体彩让球 · 参考）</div>
+  <div style="font-size:11.5px;color:var(--t3);line-height:1.6">只列 EV&gt;0（5/10 场）｜模型(λ) vs 彩票让球市场；🟢＝模型 EV&gt;0（未经样本外验证，仅参考）｜让球方向以体彩「让球」为准</div>
+  <div style="display:grid;gap:3px;margin-top:5px;font-size:11.5px"><div>002 海登海姆 vs 纽伦堡 · 让-1 · 模型 <b>27.4%/20.9%/51.7%</b> · 市场 21.4%/20.4%/58.2% · EV最佳 让胜 +6.7%</div><div>003 格罗宁根 vs 威廉二世 · 让-1 · 模型 <b>48.0%/21.2%/30.9%</b> · 市场 57.0%/20.8%/22.2% · EV最佳 让负 +16.7%</div><div>005 云达不来梅 vs 门兴格拉德巴赫 · 让-1 · 模型 <b>28.8%/23.3%/47.9%</b> · 市场 38.6%/24.6%/36.7% · EV最佳 让负 +15.4%</div><div>010 莱万特 vs 桑坦德竞技 · 让-1 · 模型 <b>34.5%/22.2%/43.3%</b> · 市场 22.7%/23.1%/54.2% · EV最佳 让胜 +27.5%</div><div>011 哥伦布机员 vs 迈阿密国际 · 让+1 · 模型 <b>70.7%/17.2%/12.1%</b> · 市场 59.0%/19.9%/21.1% · EV最佳 让胜 +9.6%</div></div>
+</div>
+<!--HANDICAP-END-->
+<!--OVERLAY-START-->
+<div class="card" style="border-left:4px solid var(--gold)">
+  <div class="card-title">🧭 市场打底 + A/B 主推（已接入判向）</div>
+  <div style="font-size:11.5px;color:var(--t3);line-height:1.6">出手（A/B+基准）<b>10</b>/10 ｜ 精选（决策赔率≤2.5）<b>10</b>/10 ｜ 主推（A/B 深盘&lt;1.5）<b>0</b> 场 ｜ 其余按<b>市场方向</b>（基准）｜ 平/长赔/D 组标观察；近11天（11-03~11-13）：全量 57.9%（126）｜出手 66.1%（56）｜A/B 83.3%（12）。</div>
+  <div style="display:grid;gap:3px;margin-top:5px;font-size:11.5px"><div>002 · 模型 客胜 / 市场 主胜 → <b>基准:主胜</b>（D组；赔率>2.5；置信<55）</div><div>003 · 模型 平 / 市场 主胜 → <b>基准:主胜</b>（D组；平局；赔率>2.5；置信<55）</div><div>004 · 模型 客胜 / 市场 客胜 → <b>基准:客胜</b>（D组；置信<55）</div><div>005 · 模型 主胜 / 市场 主胜 → <b>基准:主胜</b>（置信<55）</div><div>006 · 模型 主胜 / 市场 客胜 → <b>基准:客胜</b>（D组；赔率>2.5；置信<55）</div><div>007 · 模型 客胜 / 市场 客胜 → <b>基准:客胜</b>（置信<55）</div><div>008 · 模型 主胜 / 市场 客胜 → <b>基准:客胜</b>（D组；赔率>2.5；置信<55）</div><div>009 · 模型 客胜 / 市场 客胜 → <b>基准:客胜</b>（置信<55）</div><div>010 · 模型 主胜 / 市场 主胜 → <b>基准:主胜</b>（置信<55）</div><div>011 · 模型 主胜 / 市场 客胜 → <b>基准:客胜</b>（D组；赔率>2.5；置信<55）</div></div>
+</div>
+<!--OVERLAY-END-->
+<!--BETS-START-->
+<div class="card" style="border-left:4px solid var(--green)">
+  <div class="card-title">💰 模拟投注（1 万本金 · 纸面）</div>
+  <div style="font-size:11.5px;color:var(--t3);line-height:1.6">主仓（出手5%）期末 <b>9265</b> ｜ 盈亏 -735（-7.4%）｜ 114 注 78 胜 ｜ 激进仓（全部10%）期末 <b>5493</b> ｜ 盈亏 -4507（-45.1%）｜ 240 注 148 胜；10-30~11-13，每天 12:30 自动结算；非真实资金，不构成投注建议。</div>
+</div>
+<!--BETS-END-->
+<!--RECENT-BATCHES-START-->
+  <div class="card" style="border-left:4px solid var(--blue)">
+    <div class="card-title">🕘 近期批次（保留可查 · 手机直接点开）</div>
+    <div style="display:grid;gap:8px">
+      <div style="border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:var(--card-2)">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>11/27 批（本批）</b><span class="tag" style="color:var(--gold)">未确认发布</span><span class="tag">当日 10 场</span><span class="tag" style="color:var(--gold)">待赛 10</span></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:7px"><span style="font-size:11.5px;color:var(--t3)">编号</span><span class="shortcode">002</span> <span class="shortcode">003</span> <span class="shortcode">004</span> <span class="shortcode">005</span> <span class="shortcode">006</span> <span class="shortcode">007</span> <span class="shortcode">008</span> <span class="shortcode">009</span> <span class="shortcode">010</span> <span class="shortcode">011</span><span style="margin-left:auto;display:flex;gap:10px;font-size:12.5px"><span class="tag" style="color:var(--gold)">未确认发布（无链接）</span></span></div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:var(--card-2)">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>11/26 批</b><span class="tag">终版</span><span class="tag">当日 12 场 · 末次 11 场</span><span class="tag" style="color:var(--win)">已回填 8/12 命中</span></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:7px"><span style="font-size:11.5px;color:var(--t3)">编号</span><span class="shortcode">001</span> <span class="shortcode">002</span> <span class="shortcode">003</span> <span class="shortcode">004</span> <span class="shortcode">005</span> <span class="shortcode">006</span> <span class="shortcode">007</span> <span class="shortcode">008</span> <span class="shortcode">009</span> <span class="shortcode">010</span> <span class="shortcode">011</span> <span class="shortcode">012</span><span style="margin-left:auto;display:flex;gap:10px;font-size:12.5px"><a href="20261126.html" style="color:var(--blue);font-weight:700;text-decoration:none">存档页 ›</a><a href="multibets_20261126.html" style="color:var(--blue);font-weight:700;text-decoration:none">多玩法 ›</a></span></div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:var(--card-2)">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>11/25 批</b><span class="tag">终版</span><span class="tag">当日 11 场 · 末次 9 场</span><span class="tag" style="color:var(--win)">已回填 7/10 命中</span><span class="tag" style="color:var(--gold)">待赛 1</span></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:7px"><span style="font-size:11.5px;color:var(--t3)">编号</span><span class="shortcode">001</span> <span class="shortcode">002</span> <span class="shortcode">003</span> <span class="shortcode">004</span> <span class="shortcode">005</span> <span class="shortcode">006</span> <span class="shortcode">007</span> <span class="shortcode">008</span> <span class="shortcode">009</span> <span class="shortcode">010</span> <span class="shortcode">011</span><span style="margin-left:auto;display:flex;gap:10px;font-size:12.5px"><a href="20261125.html" style="color:var(--blue);font-weight:700;text-decoration:none">存档页 ›</a><a href="multibets_20261125.html" style="color:var(--blue);font-weight:700;text-decoration:none">多玩法 ›</a></span></div>
+      </div>
+    </div>
+    <div class="note gray" style="margin-top:10px">编号＝当日竞彩场次号（中途剔场会跳号，所以会看到 001·003 这样的间隔）｜<b>前一两批没有终版／降级也照样保留</b>（点「存档页」看当期全文）｜⏱<b>已停售</b>＝早场开赛后不再在售、末次版页面不再收录（预测与赛果仍进台账与复盘）｜逐日复盘见 <a href="history.html" style="color:var(--blue)">history.html</a>｜入口与链路状态见 <a href="links.html" style="color:var(--blue)">links.html</a></div>
+  </div>
+  <!--RECENT-BATCHES-END-->
   <div class="card">
     <div class="card-title">📊 投注策略总览<span class="more" id="ovMore">A · B · C · D · E</span></div>
     <div class="stat-grid"><div class="stat"><div class="v num" id="ovTotal">0</div><div class="k">总场次</div></div><div class="stat"><div class="v num" id="ovA" style="color:var(--win)">0</div><div class="k">A 组</div></div><div class="stat"><div class="v num" id="ovB" style="color:var(--blue)">0</div><div class="k">B 组</div></div><div class="stat"><div class="v num" id="ovC" style="color:var(--lose)">0</div><div class="k">C 组</div></div><div class="stat"><div class="v num" id="ovD" style="color:var(--blue)">0</div><div class="k">D 组</div></div><div class="stat"><div class="v num" id="ovE" style="color:var(--blue)">0</div><div class="k">E 组</div></div><div class="stat"><div class="v num" id="ovRev" style="color:var(--lose)">0</div><div class="k">反转</div></div><div class="stat"><div class="v num" id="ovInj">0%</div><div class="k">伤停覆盖</div></div></div>
@@ -698,7 +745,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
   </div>
 
   <!--DATASRC-START-->
-<div class="card" style="border-left:4px solid var(--gold)"><div class="card-title">📋 本轮数据源与缺口（自动现算 · 缺失即标降级 · 不编造）</div><div style="font-size:12px;line-height:2"><div>✅ 主数据 predictions_20261127_10matches.csv（10 场：002-011）· 台账 betting_sim_ledger.csv（114 行，末行余额 9264.60 现算）</div><div>✅ 判据 judge_1127.csv（10 场：λ/去水概率/让球盘/澳门欧赔）</div><div>✅ 赔率轨迹 odds_1127.csv + trajectory_view_1127.csv（10 场采集，本批消费 002-011）</div><div>✅ 伤停 verify_injury_1127.csv：8/10 场即嗨**带位置**有数据，2 场（002、004）即嗨带位置字段未取到；经**三态对账**确认这些场**有名单**（补充源带位置，中文补充四级·参考级）⇒ 页面按「等级不足」标降级、**位置系数未施加（保守×1.00）**，不按 0 人解读</div><div>✅ 必发资金 / H2H 近5 来源 extra_1127.csv：10/10 场有数据</div><div>✅ 特征层 features_1127.csv / features_core_1127.csv：10/10 场有数据</div><div>✅ 多源权威 authority_20261127.csv / authority_verify_20261127.csv：10 条判定</div><div>🚫 understat_live_20261127.csv：不存在 → xG 无源，页面显示「—」（不用替代值）</div><div>🚫 外部AI对照 VVVVVV/体彩竞彩2026-11-27全10场_预测结果.csv：0/10 场按编号对齐（按正则剥『周X』前缀；禁硬编码星期）</div><div>⚠️ qxc_20261127.csv 不存在（本轮未采集，降级）→ 不计入任何结论</div><div>⚠️ 勘误（上游未改，本页未改冻结CSV）：上一批 `judge_1127.py` 曾硬编码读取更早一批的豆包文件 → predictions CSV「信号」列中部分场次的『外部AI(豆包)分歧』为跨批误标；本页 AI 徽章与二次修正备注按本批豆包文件现算，以本页为准</div></div></div>
+<div class="card" style="border-left:4px solid var(--gold)"><div class="card-title">📋 本轮数据源与缺口（自动现算 · 缺失即标降级 · 不编造）</div><div style="font-size:12px;line-height:2"><div>✅ 主数据 predictions_20261127_10matches.csv（10 场：002-011）· 台账 betting_sim_ledger.csv（114 行，末行余额 9264.60 现算）</div><div>✅ 判据 judge_1127.csv（10 场：λ/去水概率/让球盘/澳门欧赔）</div><div>✅ 赔率轨迹 odds_1127.csv + trajectory_view_1127.csv（10 场采集，本批消费 002-011）</div><div>✅ 伤停 verify_injury_1127.csv：8/10 场即嗨**带位置**有数据，2 场（002、004）即嗨带位置字段未取到；经**三态对账**确认这些场**有名单**（补充源带位置，中文补充四级·参考级）⇒ 页面按「等级不足」标降级、**位置系数未施加（保守×1.00）**，不按 0 人解读</div><div>✅ 必发资金 / H2H 近5 来源 extra_1127.csv：10/10 场有数据</div><div>✅ 特征层 features_1127.csv / features_core_1127.csv：10/10 场有数据</div><div>✅ 多源权威 authority_20261127.csv / authority_verify_20261127.csv：10 条判定</div><div>🚫 understat_live_20261127.csv：不存在 → xG 无源，页面显示「—」（不用替代值）</div><div>✅ 外脑初判（两遍制）first_pass_20261127_late.csv：<b>10/10</b> 场（一致 5 / 背离 5）｜只作对照，不改判向</div><div>⚠️ qxc_20261127.csv 不存在（本轮未采集，降级）→ 不计入任何结论</div><div>⚠️ 勘误（上游未改，本页未改冻结CSV）：上一批 `judge_1127.py` 曾硬编码读取更早一批的外脑初判文件 → predictions CSV「信号」列中部分场次的『外部AI(外脑初判)分歧』为跨批误标；本页 AI 徽章与二次修正备注按本批外脑初判文件现算，以本页为准</div></div></div>
 <!--DATASRC-END-->
 <details class="filterbar" id="filterBar"><summary style="cursor:pointer;font-weight:700;font-size:14px;padding:4px 2px;color:var(--t2)">⚙️ 筛选 / 排序（点击展开） · <span id="filterState" class="num" style="color:var(--t3)">已生效：全部 · 不限可投</span></summary><div style="margin-top:6px">
     <div class="seg" id="groupSeg">
@@ -841,13 +888,13 @@ var MATCHES=[
   "home": "海登海姆",
   "away": "纽伦堡",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "客胜",
+   "p": 42
   },
   "fix": {
    "side": "主胜",
    "p": 40,
-   "note": "外部AI未采集（降级）",
+   "note": "【市场基准】方向修正 客胜42% → 主胜45%",
    "down": false,
    "rev": false
   },
@@ -1108,13 +1155,13 @@ var MATCHES=[
   "home": "格罗宁根",
   "away": "威廉二世",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 64
   },
   "fix": {
    "side": "主胜",
    "p": 32,
-   "note": "外部AI未采集（降级）",
+   "note": "【市场基准】两遍一致（初版主胜 64%）",
    "down": false,
    "rev": false
   },
@@ -1371,13 +1418,13 @@ var MATCHES=[
   "home": "芬洛",
   "away": "瓦尔韦克",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 53
   },
   "fix": {
    "side": "客胜",
    "p": 36,
-   "note": "外部AI未采集（降级）",
+   "note": "【市场基准】方向修正 主胜53% → 客胜36%",
    "down": false,
    "rev": false
   },
@@ -1635,13 +1682,13 @@ var MATCHES=[
   "home": "云达不来梅",
   "away": "门兴格拉德巴赫",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 49
   },
   "fix": {
    "side": "主胜",
    "p": 37,
-   "note": "外部AI未采集（降级）",
+   "note": "【市场基准】两遍一致（初版主胜 49%）",
    "down": false,
    "rev": false
   },
@@ -1907,13 +1954,13 @@ var MATCHES=[
   "home": "威尼斯",
   "away": "博洛尼亚",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "客胜",
+   "p": 50
   },
   "fix": {
    "side": "客胜",
    "p": 34,
-   "note": "外部AI未采集（降级）",
+   "note": "【市场基准】两遍一致（初版客胜 50%）",
    "down": false,
    "rev": false
   },
@@ -2186,13 +2233,13 @@ var MATCHES=[
   "home": "布雷斯特",
   "away": "巴黎FC",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "客胜",
+   "p": 43
   },
   "fix": {
    "side": "客胜",
    "p": 46,
-   "note": "外部AI未采集（降级）",
+   "note": "【市场基准】两遍一致（初版客胜 43%）",
    "down": false,
    "rev": false
   },
@@ -2444,13 +2491,13 @@ var MATCHES=[
   "home": "诺丁汉森林",
   "away": "切尔西",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 39
   },
   "fix": {
    "side": "客胜",
    "p": 34,
-   "note": "外部AI未采集（降级）",
+   "note": "【市场基准】方向修正 主胜39% → 客胜49%",
    "down": false,
    "rev": false
   },
@@ -2753,13 +2800,13 @@ var MATCHES=[
   "home": "南安普敦",
   "away": "米德尔斯堡",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 41
   },
   "fix": {
    "side": "客胜",
    "p": 53,
-   "note": "外部AI未采集（降级）",
+   "note": "【市场基准】方向修正 主胜41% → 客胜53%",
    "down": false,
    "rev": false
   },
@@ -3054,13 +3101,13 @@ var MATCHES=[
   "home": "莱万特",
   "away": "桑坦德竞技",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "主胜",
+   "p": 39
   },
   "fix": {
    "side": "主胜",
    "p": 37,
-   "note": "外部AI未采集（降级）",
+   "note": "【市场基准】两遍一致（初版主胜 39%）",
    "down": false,
    "rev": false
   },
@@ -3315,13 +3362,13 @@ var MATCHES=[
   "home": "哥伦布机员",
   "away": "迈阿密国际",
   "ai": {
-   "side": "未采集",
-   "p": null
+   "side": "客胜",
+   "p": 42
   },
   "fix": {
    "side": "客胜",
    "p": 34,
-   "note": "外部AI未采集（降级）",
+   "note": "【市场基准】两遍一致（初版客胜 42%）",
    "down": false,
    "rev": false
   },
